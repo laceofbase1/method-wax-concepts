@@ -233,7 +233,7 @@
   .colophon p { max-width: 54ch; font-size: clamp(1.05rem, 2.4vw, 1.32rem); line-height: 1.45; margin: 0; font-family: "Marcellus", serif; }
   .colophon small { display: block; margin-top: 26px; font-size: 0.8rem; letter-spacing: 0.04em; color: oklch(0.66 0.02 85); font-family: "Jost"; }
 
-  /* ---------- Two-tone mark controls (Studio Pop) ---------- */
+  /* ---------- Mark fill controls ---------- */
   .mark .m { fill: currentColor; }
   .mark .drop { fill: var(--drop, currentColor); }
 
@@ -302,30 +302,6 @@
   [data-dir="arch"] .type-display { font-family: "Hanken Grotesk", sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: clamp(2rem, 5.4vw, 3.4rem); }
   [data-dir="arch"] .voice { border: 1px solid oklch(0.82 0.13 115 / 0.5); }
   [data-dir="arch"] .voice__line { font-family: "Hanken Grotesk"; font-weight: 700; }
-
-  /* 04 Studio Pop */
-  [data-dir="pop"] {
-    --bg: oklch(0.95 0.015 88);
-    --ink: oklch(0.29 0.045 160);
-    --muted: oklch(0.52 0.03 150);
-    --deep: oklch(0.42 0.07 162);
-    --on-deep: oklch(0.95 0.02 90);
-    --accent: oklch(0.66 0.16 45);
-    --green2: oklch(0.68 0.13 150);
-    --line: oklch(0.86 0.02 80);
-  }
-  [data-dir="pop"] .wordmark__name {
-    font-family: "Bricolage Grotesque", sans-serif;
-    text-transform: uppercase;
-    font-weight: 800;
-    letter-spacing: -0.005em;
-    font-size: clamp(1.8rem, 4.6vw, 2.9rem);
-  }
-  [data-dir="pop"] .wordmark__desc { font-family: "Hanken Grotesk"; font-weight: 500; letter-spacing: 0.26em; }
-  [data-dir="pop"] .type-display { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: clamp(2.1rem, 5.6vw, 3.5rem); }
-  [data-dir="pop"] .avatar { background: var(--accent); color: oklch(0.98 0.01 90); }
-  [data-dir="pop"] .voice__line { font-family: "Bricolage Grotesque"; font-weight: 700; }
-  [data-dir="pop"] .type-body { font-family: "Hanken Grotesk"; }
 
   /* ---------- Responsive ---------- */
   @media (max-width: 820px) {
