@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<!--
+  METHOD — Wax Studio & Professional Training
+  Homepage concept "BOTANICA" (warm cream, mauve-forward, soft & tactile)
+  The "METHOD" wordmark and olive-branch mark are recreated in type + inline SVG.
+  The real logo PNG (copper serif M intertwined with an olive branch) can be
+  dropped into .brand__mark later in place of the inline SVG.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Method — Professional Waxing Education & Certification</title>
+<meta name="description" content="Online-first waxing certification for estheticians, finished with hands-on training in our studio. Learn the theory at your own pace, then master the technique in person.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* --- Botanica palette (OKLCH, tinted neutrals, never pure black/white) --- */
+    --cream:        oklch(0.965 0.012 78);   /* dominant warm surface */
+    --cream-deep:   oklch(0.935 0.018 72);   /* recessed cream */
+    --cream-edge:   oklch(0.90 0.020 68);    /* hairline-adjacent tint */
+    --mauve:        oklch(0.70 0.050 356);   /* dusty mauve accent */
+    --mauve-soft:   oklch(0.885 0.030 354);  /* soft mauve panel */
+    --mauve-deep:   oklch(0.52 0.055 358);   /* mauve text on cream */
+    --emerald:      oklch(0.42 0.088 158);   /* deep emerald, grounds */
+    --emerald-deep: oklch(0.32 0.070 160);   /* darkest emerald */
+    --emerald-tint: oklch(0.55 0.070 158);   /* lighter emerald */
+    --copper:       oklch(0.605 0.115 56);   /* fine metallic detail */
+    --copper-soft:  oklch(0.70 0.085 58);
+    --ink:          oklch(0.30 0.022 82);    /* warm near-black text */
+    --ink-soft:     oklch(0.45 0.020 84);    /* muted body */
+
+    --maxw: 1200px;
+    --arch: 46% 46% 12px 12px / 60% 60% 12px 12px; /* arch-top frame */
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);       /* ease-out-quint */
+    --shadow-soft: 0 2px 4px oklch(0.42 0.05 60 / 0.05), 0 14px 34px oklch(0.42 0.05 60 / 0.09);
+    --shadow-lift: 0 6px 14px oklch(0.42 0.05 60 / 0.08), 0 26px 56px oklch(0.42 0.05 60 / 0.14);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Jost', system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    letter-spacing: 0.005em;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .display { font-family: 'Gilda Display', 'Times New Roman', serif; font-weight: 400; letter-spacing: -0.01em; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(1.25rem, 4vw, 3rem); }
+
+  .kicker {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.72rem;
+    color: var(--copper);
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.55em;
+    font-family: 'Jost', sans-serif; font-weight: 500;
+    font-size: 0.92rem; letter-spacing: 0.04em;
+    padding: 0.85rem 1.6rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.5s var(--ease), background-color 0.4s var(--ease), color 0.4s var(--ease), box-shadow 0.5s var(--ease), border-color 0.4s var(--ease);
+  }
+  .btn:focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; }
+  .btn--primary { background: var(--emerald); color: var(--cream); box-shadow: var(--shadow-soft); }
+  .btn--primary:hover { background: var(--emerald-deep); transform: translateY(-2px); box-shadow: var(--shadow-lift); }
+  .btn--ghost { background: transparent; color: var(--emerald-deep); border-color: var(--cream-edge); }
+  .btn--ghost:hover { border-color: var(--copper); color: var(--copper); transform: translateY(-2px); }
+  .btn--sm { padding: 0.6rem 1.15rem; font-size: 0.82rem; }
+
+  .arrow { transition: transform 0.5s var(--ease); }
+  .btn:hover .arrow, .textlink:hover .arrow { transform: translateX(4px); }
+
+  .textlink {
+    display: inline-flex; align-items: center; gap: 0.4em;
+    font-weight: 500; color: var(--emerald-deep);
+    border-bottom: 1px solid var(--copper-soft);
+    padding-bottom: 2px;
+    transition: color 0.4s var(--ease), border-color 0.4s var(--ease);
+  }
+  .textlink:hover { color: var(--copper); border-color: var(--copper); }
+  .textlink:focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; }
+
+  /* ---------- Olive-branch signature motif ---------- */
+  .olive { display: block; }
+  .olive path, .olive line { stroke-linecap: round; }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: oklch(0.965 0.012 78 / 0.82);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--cream-edge);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 0.9rem; }
+
+  .brand { display: flex; align-items: center; gap: 0.7rem; }
+  .brand__mark { width: 40px; height: 40px; flex: none; color: var(--emerald); }
+  .brand__mark .leaf { fill: var(--emerald); }
+  .brand__mark .stem { stroke: var(--copper); }
+  .brand__text { display: flex; flex-direction: column; line-height: 1; }
+  .brand__word { font-family: 'Gilda Display', serif; font-size: 1.35rem; letter-spacing: 0.06em; color: var(--emerald-deep); }
+  .brand__sub { font-family: 'Jost', sans-serif; font-weight: 500; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.52rem; color: var(--copper); margin-top: 3px; }
+
+  .nav__links { display: flex; align-items: center; gap: 1.9rem; }
+  .nav__links a { font-size: 0.9rem; font-weight: 400; color: var(--ink-soft); position: relative; transition: color 0.35s var(--ease); }
+  .nav__links a::after { content: ''; position: absolute; left: 0; bottom: -5px; width: 100%; height: 1px; background: var(--copper); transform: scaleX(0); transform-origin: left; transition: transform 0.45s var(--ease); }
+  .nav__links a:hover { color: var(--emerald-deep); }
+  .nav__links a:hover::after { transform: scaleX(1); }
+  .nav__links a:focus-visible { outline: 2px solid var(--copper); outline-offset: 4px; border-radius: 2px; }
+
+  .nav__actions { display: flex; align-items: center; gap: 0.9rem; }
+  .nav__login { font-size: 0.9rem; font-weight: 500; color: var(--emerald-deep); transition: color 0.35s var(--ease); }
+  .nav__login:hover { color: var(--copper); }
+  .nav__login:focus-visible { outline: 2px solid var(--copper); outline-offset: 4px; border-radius: 2px; }
+
+  .menu-toggle { display: none; background: none; border: 1px solid var(--cream-edge); border-radius: 999px; padding: 0.5rem 0.75rem; cursor: pointer; color: var(--emerald-deep); font-family: 'Jost'; font-size: 0.8rem; letter-spacing: 0.06em; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding-top: clamp(3rem, 7vw, 6rem); padding-bottom: clamp(3rem, 6vw, 5.5rem); position: relative; }
+  .hero__grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+  .hero__flourish { margin-bottom: 1.6rem; color: var(--copper); }
+  .hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.02; color: var(--emerald-deep); margin-block: 0.6rem 1.4rem; }
+  .hero h1 em { font-style: italic; color: var(--mauve-deep); }
+  .hero__sub { font-size: 1.12rem; color: var(--ink-soft); max-width: 34ch; margin-bottom: 2rem; }
+  .hero__ctas { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-bottom: 2rem; }
+  .hero__trust { display: flex; align-items: center; gap: 0.7rem; font-size: 0.82rem; color: var(--mauve-deep); letter-spacing: 0.02em; }
+  .hero__trust svg { flex: none; color: var(--copper); }
+
+  /* Arch-framed hero image w/ solid brand fallback behind the photo */
+  .archframe { position: relative; border-radius: var(--arch); overflow: hidden; background-color: var(--mauve-soft); box-shadow: var(--shadow-lift); }
+  .archframe::before { content: ''; display: block; padding-top: 122%; }
+  .archframe .photo { position: absolute; inset: 0; background-size: cover; background-position: center; }
+  .archframe .veil { position: absolute; inset: 0; background: linear-gradient(180deg, oklch(0.42 0.05 60 / 0.04) 0%, oklch(0.52 0.055 358 / 0.14) 100%); mix-blend-mode: multiply; }
+  .archframe .frameline { position: absolute; inset: 10px; border: 1px solid oklch(0.965 0.012 78 / 0.55); border-radius: 42% 42% 8px 8px / 56% 56% 8px 8px; pointer-events: none; }
+  .hero__imgwrap { position: relative; }
+  .hero__badge {
+    position: absolute; left: -1.2rem; bottom: 2.2rem; z-index: 3;
+    background: var(--cream); color: var(--emerald-deep);
+    border-radius: 16px; padding: 0.9rem 1.15rem;
+    box-shadow: var(--shadow-lift);
+    display: flex; align-items: center; gap: 0.7rem;
+    font-size: 0.8rem; line-height: 1.3;
+  }
+  .hero__badge b { font-family: 'Gilda Display', serif; font-size: 1.5rem; color: var(--copper); display: block; }
+
+  /* ---------- Section scaffolding ---------- */
+  section { position: relative; }
+  .band { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+  .band--mauve { background: var(--mauve-soft); }
+  .band--cream-deep { background: var(--cream-deep); }
+  .section-head { max-width: 52ch; margin-bottom: clamp(2rem, 4vw, 3.2rem); }
+  .section-head.center { margin-inline: auto; text-align: center; }
+  .section-head h2 { font-size: clamp(2rem, 4.2vw, 3.1rem); color: var(--emerald-deep); line-height: 1.08; margin-block: 0.7rem 0.9rem; }
+  .section-head p { color: var(--ink-soft); }
+
+  /* ---------- Two pillars ---------- */
+  .pillars { display: grid; grid-template-columns: 1.6fr 1fr; gap: 1.6rem; align-items: stretch; }
+  .pillar { border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow-soft); }
+  .pillar--academy { background: var(--cream); }
+  .pillar--academy .pillar__body { padding: clamp(1.8rem, 3vw, 2.8rem); }
+  .pillar__img { position: relative; min-height: 230px; background-color: var(--emerald); overflow: hidden; }
+  .pillar__img .photo { position: absolute; inset: 0; background-size: cover; background-position: center; }
+  .pillar__img .veil { position: absolute; inset: 0; background: linear-gradient(160deg, oklch(0.32 0.07 160 / 0.35), oklch(0.52 0.055 358 / 0.28)); mix-blend-mode: multiply; }
+  .pillar__tag { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Jost'; font-weight: 500; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.66rem; color: var(--copper); margin-bottom: 0.8rem; }
+  .pillar h3 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--emerald-deep); margin-bottom: 0.8rem; }
+  .pillar p { color: var(--ink-soft); font-size: 1rem; margin-bottom: 1.5rem; }
+  .pillar--studio { background: var(--cream); border: 1px solid var(--cream-edge); }
+  .pillar--studio .pillar__body { padding: clamp(1.6rem, 3vw, 2.4rem); display: flex; flex-direction: column; height: 100%; }
+  .pill {
+    align-self: flex-start; display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--mauve-soft); color: var(--mauve-deep);
+    border: 1px solid var(--mauve); border-radius: 999px;
+    font-family: 'Jost'; font-weight: 500; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.62rem;
+    padding: 0.35rem 0.85rem; margin-bottom: 1.1rem;
+  }
+  .pill span.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--copper); }
+  .pillar--studio h3 { font-size: 1.5rem; }
+  .pillar--studio .studio-note { margin-top: auto; font-size: 0.85rem; color: var(--mauve-deep); }
+
+  /* ---------- How it works ---------- */
+  .steps { position: relative; display: grid; gap: 0.4rem; }
+  .steps::before { content: ''; position: absolute; left: 27px; top: 32px; bottom: 32px; width: 1px; background: linear-gradient(var(--copper-soft), var(--mauve)); z-index: 0; }
+  .step { position: relative; display: grid; grid-template-columns: 56px 1fr; gap: 1.5rem; align-items: start; padding: 1.15rem 0; z-index: 1; }
+  .step__num {
+    width: 56px; height: 56px; border-radius: 50%; flex: none;
+    display: grid; place-items: center;
+    background: var(--cream); border: 1px solid var(--copper-soft);
+    font-family: 'Gilda Display', serif; font-size: 1.35rem; color: var(--copper);
+    box-shadow: 0 4px 14px oklch(0.605 0.115 56 / 0.14);
+    transition: transform 0.5s var(--ease), background-color 0.4s var(--ease), color 0.4s var(--ease);
+  }
+  .step:hover .step__num { transform: scale(1.06); background: var(--copper); color: var(--cream); }
+  .step__body { padding-top: 0.35rem; }
+  .step__body h3 { font-size: 1.28rem; color: var(--emerald-deep); margin-bottom: 0.3rem; }
+  .step__body p { color: var(--ink-soft); font-size: 0.98rem; max-width: 56ch; }
+  .steps-aside { align-self: center; }
+
+  .howgrid { display: grid; grid-template-columns: 1fr 0.8fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+
+  /* ---------- Courses ---------- */
+  .courses-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; }
+  .course {
+    background: var(--cream); border-radius: 20px; overflow: hidden;
+    border: 1px solid var(--cream-edge);
+    display: flex; flex-direction: column;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.55s var(--ease), box-shadow 0.55s var(--ease);
+  }
+  .course:hover { transform: translateY(-6px); box-shadow: var(--shadow-lift); }
+  .course__thumb { position: relative; background-color: var(--mauve-soft); border-radius: 34% 34% 6px 6px / 40% 40% 6px 6px; overflow: hidden; margin: 10px 10px 0; }
+  .course__thumb::before { content: ''; display: block; padding-top: 68%; }
+  .course__thumb .photo { position: absolute; inset: 0; background-size: cover; background-position: center; }
+  .course__thumb .veil { position: absolute; inset: 0; background: linear-gradient(180deg, oklch(0.42 0.05 60 / 0.02), oklch(0.52 0.055 358 / 0.16)); mix-blend-mode: multiply; }
+  .course__level { position: absolute; top: 10px; left: 10px; background: oklch(0.965 0.012 78 / 0.92); color: var(--emerald-deep); font-family: 'Jost'; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.58rem; padding: 0.3rem 0.6rem; border-radius: 999px; }
+  .course__body { padding: 1.2rem 1.25rem 1.4rem; display: flex; flex-direction: column; flex: 1; }
+  .course__body h3 { font-size: 1.22rem; color: var(--emerald-deep); line-height: 1.15; margin-bottom: 0.55rem; }
+  .course__desc { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 0.9rem; }
+  .course__format { font-size: 0.76rem; color: var(--mauve-deep); letter-spacing: 0.01em; margin-bottom: 1.2rem; padding-top: 0.9rem; border-top: 1px solid var(--cream-edge); }
+  .course__foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between; }
+  .course__price { font-family: 'Gilda Display', serif; font-size: 1.5rem; color: var(--copper); }
+  .course__cta { font-family: 'Jost'; font-weight: 500; font-size: 0.82rem; color: var(--emerald-deep); display: inline-flex; align-items: center; gap: 0.35em; transition: color 0.4s var(--ease); }
+  .course:hover .course__cta { color: var(--copper); }
+
+  /* ---------- Philosophy ---------- */
+  .philo { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+  .philo__imgwrap { position: relative; }
+  .philo__flourish { position: absolute; right: -0.5rem; top: -1.6rem; color: var(--copper); z-index: 2; }
+  .philo blockquote { border: none; }
+  .philo p.lead { font-size: clamp(1.15rem, 2vw, 1.45rem); font-family: 'Gilda Display', serif; line-height: 1.5; color: var(--emerald-deep); max-width: 30ch; }
+  .philo p.body { color: var(--ink-soft); margin-top: 1.3rem; max-width: 54ch; }
+
+  /* ---------- Testimonial ---------- */
+  .quote-wrap { max-width: 46ch; margin-inline: auto; text-align: center; }
+  .quote-mark { font-family: 'Gilda Display', serif; font-size: 4rem; line-height: 0.5; color: var(--copper); opacity: 0.6; }
+  .quote-wrap blockquote { font-family: 'Gilda Display', serif; font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.4; color: var(--emerald-deep); margin-block: 1rem 1.5rem; }
+  .quote-cite { font-family: 'Jost'; font-weight: 500; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.72rem; color: var(--mauve-deep); font-style: normal; }
+
+  /* ---------- Final CTA ---------- */
+  .finalcta { text-align: center; }
+  .finalcta__inner { background: var(--emerald-deep); color: var(--cream); border-radius: 28px; padding: clamp(2.6rem, 6vw, 4.6rem) clamp(1.5rem, 5vw, 3rem); position: relative; overflow: hidden; box-shadow: var(--shadow-lift); }
+  .finalcta__inner .bgleaf { position: absolute; opacity: 0.12; color: var(--copper-soft); }
+  .finalcta__inner .bgleaf.a { top: -30px; left: -20px; transform: rotate(-18deg); }
+  .finalcta__inner .bgleaf.b { bottom: -40px; right: -10px; transform: rotate(150deg); }
+  .finalcta h2 { position: relative; font-size: clamp(2rem, 4.5vw, 3.2rem); color: var(--cream); margin-bottom: 1.6rem; }
+  .finalcta .btn--primary { background: var(--copper); color: var(--emerald-deep); }
+  .finalcta .btn--primary:hover { background: var(--copper-soft); }
+  .finalcta__soft { position: relative; margin-top: 1.4rem; font-size: 0.9rem; color: oklch(0.885 0.03 354 / 0.9); }
+  .finalcta__soft a { color: var(--cream); border-bottom: 1px solid var(--copper-soft); }
+  .finalcta__soft a:hover { color: var(--copper-soft); }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--cream-deep); border-top: 1px solid var(--cream-edge); padding-block: clamp(2.5rem, 5vw, 3.5rem); }
+  .foot { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; }
+  .foot__brand .brand__word { color: var(--emerald-deep); }
+  .foot__tag { margin-top: 1rem; font-size: 0.88rem; color: var(--ink-soft); max-width: 32ch; }
+  .foot h4 { font-family: 'Jost'; font-weight: 500; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.68rem; color: var(--copper); margin-bottom: 1rem; }
+  .foot ul { list-style: none; display: grid; gap: 0.55rem; }
+  .foot a { font-size: 0.92rem; color: var(--ink-soft); transition: color 0.35s var(--ease); }
+  .foot a:hover { color: var(--emerald-deep); }
+  .foot a:focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; border-radius: 2px; }
+  .foot__bottom { border-top: 1px solid var(--cream-edge); margin-top: 2.5rem; padding-top: 1.4rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.6rem; font-size: 0.8rem; color: var(--mauve-deep); }
+
+  /* ---------- Load reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); }
+  .revealed .reveal { animation: rise 0.9s var(--ease) forwards; }
+  .revealed .reveal { animation-delay: calc(var(--i, 0) * 90ms); }
+  @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1 !important; transform: none !important; animation: none !important; }
+    * { transition-duration: 0.001ms !important; }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 940px) {
+    .nav__links, .nav__login { display: none; }
+    .menu-toggle { display: inline-flex; }
+    .hero__grid { grid-template-columns: 1fr; }
+    .hero__imgwrap { max-width: 460px; margin-inline: auto; order: -1; }
+    .pillars { grid-template-columns: 1fr; }
+    .howgrid { grid-template-columns: 1fr; }
+    .steps-aside { display: none; }
+    .courses-grid { grid-template-columns: repeat(2, 1fr); }
+    .philo { grid-template-columns: 1fr; }
+    .philo__imgwrap { max-width: 420px; }
+    .foot { grid-template-columns: 1fr 1fr; }
+    .foot__brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 560px) {
+    .courses-grid { grid-template-columns: 1fr; }
+    .hero__badge { left: 0.5rem; }
+    .foot { grid-template-columns: 1fr; }
+    .nav { gap: 0.75rem; }
+  }
+
+  /* Mobile drawer */
+  .drawer { display: none; }
+  .drawer.open { display: block; border-top: 1px solid var(--cream-edge); background: var(--cream); }
+  .drawer ul { list-style: none; padding: 1rem clamp(1.25rem, 4vw, 3rem) 1.5rem; display: grid; gap: 0.2rem; }
+  .drawer a { display: block; padding: 0.6rem 0; font-size: 1rem; color: var(--ink); border-bottom: 1px solid var(--cream-edge); }
+  .drawer .drawer__cta { display: flex; gap: 0.7rem; margin-top: 1rem; }
+</style>
+</head>
+<body>
+
+<!-- Reusable olive-branch motif is drawn inline throughout; the copper M + branch mark below stands in for the real logo PNG -->
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Method, Wax Studio and Professional Training, home">
+      <svg class="brand__mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <!-- Copper serif M -->
+        <path d="M8 38V13.5C8 12.7 8.9 12.2 9.6 12.6L20.5 19.5C21.1 19.9 21.9 19.9 22.5 19.5L33.4 12.6C34.1 12.2 35 12.7 35 13.5V38" stroke="oklch(0.605 0.115 56)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Olive branch intertwined -->
+        <path class="stem" d="M22 40C25 33 30 29 39 27" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <path class="leaf" d="M39 27c-2.4-.6-4.6.1-5.6 1.7 1.9.9 4.2.4 5.6-1.7Z"/>
+        <path class="leaf" d="M33.5 30.4c-2.3-.9-4.5-.5-5.8.9 1.7 1.2 4 1.1 5.8-.9Z"/>
+        <path class="leaf" d="M28.6 33.7c-2.2-1-4.4-.8-5.8.5 1.6 1.3 3.9 1.4 5.8-.5Z"/>
+      </svg>
+      <span class="brand__text">
+        <span class="brand__word">METHOD</span>
+        <span class="brand__sub">Wax Studio &amp; Professional Training</span>
+      </span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#academy">Academy</a>
+      <a href="#courses">Courses</a>
+      <a href="#how">How It Works</a>
+      <a href="#studio">The Studio</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a class="nav__login" href="#login">Log In</a>
+      <a class="btn btn--primary btn--sm" href="#enroll">Enroll</a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="drawer">Menu</button>
+    </div>
+  </div>
+  <div class="drawer" id="drawer">
+    <ul>
+      <li><a href="#academy">Academy</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#studio">The Studio</a></li>
+      <li><a href="#about">About</a></li>
+      <li class="drawer__cta">
+        <a class="btn btn--ghost btn--sm" href="#login">Log In</a>
+        <a class="btn btn--primary btn--sm" href="#enroll">Enroll</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <svg class="hero__flourish reveal" style="--i:0" width="120" height="24" viewBox="0 0 120 24" fill="none" aria-hidden="true">
+          <path d="M2 12h44" stroke="oklch(0.605 0.115 56)" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M60 12c8-1 14 2 22 9" stroke="oklch(0.605 0.115 56)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          <path d="M82 21c-2-3-1-6 1.4-7.6C85 15.4 84.6 18.8 82 21Z" fill="oklch(0.42 0.088 158)"/>
+          <path d="M74 17c-2.4-1-4.6-.4-6 1.2 1.7 1.3 4 1 6-1.2Z" fill="oklch(0.42 0.088 158)"/>
+          <path d="M67 14c-2.4-1-4.6-.6-6 .9 1.7 1.3 4 1.2 6-.9Z" fill="oklch(0.42 0.088 158)"/>
+          <circle cx="112" cy="12" r="2.4" fill="oklch(0.70 0.050 356)"/>
+        </svg>
+        <p class="kicker reveal" style="--i:1">Professional Waxing Education</p>
+        <h1 class="reveal" style="--i:2">The art of the wax, taught <em>with intention.</em></h1>
+        <p class="hero__sub reveal" style="--i:3">Online-first certification courses for estheticians, finished with hands-on training in our studio. Learn the theory at your own pace, then master the technique in person.</p>
+        <div class="hero__ctas reveal" style="--i:4">
+          <a class="btn btn--primary" href="#courses">Explore Courses <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn--ghost" href="#how">How Training Works</a>
+        </div>
+        <p class="hero__trust reveal" style="--i:5">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.5 9.9 6l4.6.4-3.5 3 1 4.5L8 11.6 3.9 13.9l1-4.5L1.5 6.4 6.1 6 8 1.5Z" fill="oklch(0.605 0.115 56)"/></svg>
+          500+ estheticians trained · 4 certifications · Self-paced online, certified in person
+        </p>
+      </div>
+
+      <div class="hero__imgwrap reveal" style="--i:3">
+        <div class="archframe">
+          <!-- Solid mauve fallback sits behind the photo; broken/slow image still reads as brand -->
+          <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1587910234573-d6fc84743bc8?auto=format&fit=crop&w=1600&q=80');" role="img" aria-label="An esthetician performing a precise brow treatment in a calm studio"></div>
+          <div class="veil"></div>
+          <div class="frameline"></div>
+        </div>
+        <div class="hero__badge">
+          <span><b>4</b></span>
+          <span>Certification<br>tracks, online<br>and in studio</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TWO PILLARS ================= -->
+  <section class="band band--mauve" id="academy">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="kicker">What Method Offers</p>
+        <h2>One method, taught two ways.</h2>
+        <p>The academy comes first. The studio follows. Both hold the same standard of intentional care.</p>
+      </div>
+
+      <div class="pillars">
+        <!-- PRIMARY: Academy -->
+        <article class="pillar pillar--academy reveal" style="--i:1">
+          <div class="pillar__img">
+            <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1758631131518-4cbea0dfb7d0?auto=format&fit=crop&w=1600&q=80');" role="img" aria-label="A softly lit studio treatment room set for training"></div>
+            <div class="veil"></div>
+          </div>
+          <div class="pillar__body">
+            <span class="pillar__tag">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="oklch(0.605 0.115 56)" stroke-width="1.2"/><path d="M4.5 7 6.3 8.8 9.5 5.2" stroke="oklch(0.605 0.115 56)" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              The Academy · Primary
+            </span>
+            <h3>Certification, built for working estheticians.</h3>
+            <p>Professional training built for working estheticians. Create your profile, choose a certification, complete the online curriculum at your own pace, and track every module. When you are ready, book your in-person intensive.</p>
+            <div>
+              <a class="btn btn--primary" href="#courses">Browse Certifications <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- SECONDARY: Studio -->
+        <article class="pillar pillar--studio reveal" style="--i:2" id="studio">
+          <div class="pillar__body">
+            <span class="pill"><span class="dot"></span> Opening Soon</span>
+            <h3>The Studio</h3>
+            <p>Luxury waxing services delivered with the same method we teach. Studio booking opens soon.</p>
+            <p class="studio-note">Client booking is phase two. Join the academy first, and you will be the first to know when the treatment calendar opens.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW TRAINING WORKS ================= -->
+  <section class="band" id="how">
+    <div class="wrap howgrid">
+      <div>
+        <div class="section-head reveal" style="margin-bottom:1.8rem">
+          <p class="kicker">How Training Works</p>
+          <h2>From profile to certified, at your pace.</h2>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal" style="--i:1">
+            <div class="step__num">1</div>
+            <div class="step__body">
+              <h3>Create your profile</h3>
+              <p>Set up your learner account in minutes.</p>
+            </div>
+          </div>
+          <div class="step reveal" style="--i:2">
+            <div class="step__num">2</div>
+            <div class="step__body">
+              <h3>Choose your certification</h3>
+              <p>Browse courses by specialty and skill level.</p>
+            </div>
+          </div>
+          <div class="step reveal" style="--i:3">
+            <div class="step__num">3</div>
+            <div class="step__body">
+              <h3>Complete the online curriculum</h3>
+              <p>Video modules, technique breakdowns, and assessments you can revisit anytime.</p>
+            </div>
+          </div>
+          <div class="step reveal" style="--i:4">
+            <div class="step__num">4</div>
+            <div class="step__body">
+              <h3>Track your progress</h3>
+              <p>Every module, checkpoint, and studio hour in one place.</p>
+            </div>
+          </div>
+          <div class="step reveal" style="--i:5">
+            <div class="step__num">5</div>
+            <div class="step__body">
+              <h3>Book your in-person intensive</h3>
+              <p>Reserve your hands-on session on our studio calendar and get certified.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="steps-aside reveal" style="--i:2">
+        <div class="archframe">
+          <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1687293233752-ec42de2050db?auto=format&fit=crop&w=1600&q=80');" role="img" aria-label="An esthetician reviewing course material before a studio session"></div>
+          <div class="veil"></div>
+          <div class="frameline"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FEATURED COURSES ================= -->
+  <section class="band band--cream-deep" id="courses">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <p class="kicker">Featured Certifications</p>
+        <h2>Four ways to master the method.</h2>
+        <p>Each course pairs unhurried online theory with a hands-on studio day. Certificate included.</p>
+      </div>
+
+      <div class="courses-grid">
+        <!-- Course 1 -->
+        <article class="course reveal" style="--i:1">
+          <div class="course__thumb">
+            <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?auto=format&fit=crop&w=1600&q=80');" role="img" aria-label="Close attention to a smooth, professional waxing technique"></div>
+            <div class="veil"></div>
+            <span class="course__level">Advanced</span>
+          </div>
+          <div class="course__body">
+            <h3>Brazilian Waxing Masterclass</h3>
+            <p class="course__desc">The complete hard-wax method for fast, comfortable Brazilians.</p>
+            <p class="course__format">6 online modules + 1 studio day · Certificate included</p>
+            <div class="course__foot">
+              <span class="course__price">$299</span>
+              <a class="course__cta" href="#enroll">Enroll <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Course 2 -->
+        <article class="course reveal" style="--i:2">
+          <div class="course__thumb">
+            <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1564278692313-b2d65996fc93?auto=format&fit=crop&w=1600&q=80');" role="img" aria-label="Careful brow mapping and shaping in progress"></div>
+            <div class="veil"></div>
+            <span class="course__level">Intermediate</span>
+          </div>
+          <div class="course__body">
+            <h3>Brow Artistry &amp; Shaping</h3>
+            <p class="course__desc">Mapping, shaping, and finishing brows with precision.</p>
+            <p class="course__format">5 online modules + 1 studio day · Certificate included</p>
+            <div class="course__foot">
+              <span class="course__price">$199</span>
+              <a class="course__cta" href="#enroll">Enroll <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Course 3 -->
+        <article class="course reveal" style="--i:3">
+          <div class="course__thumb">
+            <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1581003250898-36050e78fcd3?auto=format&fit=crop&w=1600&q=80');" role="img" aria-label="An efficient, unhurried treatment at the waxing table"></div>
+            <div class="veil"></div>
+            <span class="course__level">Advanced</span>
+          </div>
+          <div class="course__body">
+            <h3>Speed Waxing Certification</h3>
+            <p class="course__desc">Cut service time without cutting quality.</p>
+            <p class="course__format">4 online modules + 1 studio day · Certificate included</p>
+            <div class="course__foot">
+              <span class="course__price">$249</span>
+              <a class="course__cta" href="#enroll">Enroll <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Course 4 -->
+        <article class="course reveal" style="--i:4">
+          <div class="course__thumb">
+            <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1618322802324-a9185814211d?auto=format&fit=crop&w=1600&q=80');" role="img" aria-label="Foundational skin preparation before waxing"></div>
+            <div class="veil"></div>
+            <span class="course__level">Beginner</span>
+          </div>
+          <div class="course__body">
+            <h3>Waxing Fundamentals</h3>
+            <p class="course__desc">Hard wax, soft wax, skin theory, and safety from the ground up.</p>
+            <p class="course__format">6 online modules · Certificate included</p>
+            <div class="course__foot">
+              <span class="course__price">$149</span>
+              <a class="course__cta" href="#enroll">Enroll <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PHILOSOPHY / ABOUT ================= -->
+  <section class="band band--mauve" id="about">
+    <div class="wrap philo">
+      <div class="philo__imgwrap reveal">
+        <svg class="philo__flourish" width="88" height="88" viewBox="0 0 88 88" fill="none" aria-hidden="true">
+          <path d="M14 74C26 54 44 40 74 34" stroke="oklch(0.605 0.115 56)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <path d="M74 34c-4-1.4-7.8 0-9.6 2.9 3.2 1.6 7.1.8 9.6-2.9Z" fill="oklch(0.42 0.088 158)"/>
+          <path d="M64 40c-4-1.6-7.9-.8-9.9 1.6 3 2 7 1.8 9.9-1.6Z" fill="oklch(0.42 0.088 158)"/>
+          <path d="M54 47c-4-1.7-7.9-1.1-10 1.2 2.9 2.2 6.9 2.2 10-1.2Z" fill="oklch(0.42 0.088 158)"/>
+          <path d="M44 55c-3.9-1.8-7.8-1.4-10 .8 2.8 2.3 6.8 2.5 10-.8Z" fill="oklch(0.42 0.088 158)"/>
+          <circle cx="78" cy="27" r="3" fill="oklch(0.70 0.050 356)"/>
+        </svg>
+        <div class="archframe">
+          <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1740350631565-6a5081a2f841?auto=format&fit=crop&w=1600&q=80');" role="img" aria-label="A confident esthetician in the Method studio"></div>
+          <div class="veil"></div>
+          <div class="frameline"></div>
+        </div>
+      </div>
+      <div class="philo__copy reveal" style="--i:1">
+        <p class="kicker">Our Philosophy</p>
+        <p class="lead">Method was built by estheticians who were tired of rushed, one-day certifications that left them unsure at the table.</p>
+        <p class="body">We teach the technical foundations first, online and unhurried, then bring you into the studio to refine your hands. Intentional care is not a tagline. It is the curriculum.</p>
+        <p style="margin-top:1.6rem"><a class="textlink" href="#academy">More about the academy <span class="arrow" aria-hidden="true">&rarr;</span></a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIAL ================= -->
+  <section class="band">
+    <div class="wrap">
+      <figure class="quote-wrap reveal">
+        <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+        <blockquote>I had taken three other certifications before Method. This is the first one where I actually felt ready. The online modules meant I walked into my studio day already knowing the theory cold.</blockquote>
+        <figcaption class="quote-cite">Danielle R., Licensed Esthetician</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= FINAL CTA ================= -->
+  <section class="band" id="enroll" style="padding-top:0">
+    <div class="wrap finalcta">
+      <div class="finalcta__inner reveal">
+        <svg class="bgleaf a" width="200" height="200" viewBox="0 0 88 88" fill="none" aria-hidden="true">
+          <path d="M14 74C26 54 44 40 74 34" stroke="currentColor" stroke-width="1.6" fill="none"/>
+          <path d="M74 34c-4-1.4-7.8 0-9.6 2.9 3.2 1.6 7.1.8 9.6-2.9Z" fill="currentColor"/>
+          <path d="M64 40c-4-1.6-7.9-.8-9.9 1.6 3 2 7 1.8 9.9-1.6Z" fill="currentColor"/>
+          <path d="M54 47c-4-1.7-7.9-1.1-10 1.2 2.9 2.2 6.9 2.2 10-1.2Z" fill="currentColor"/>
+        </svg>
+        <svg class="bgleaf b" width="240" height="240" viewBox="0 0 88 88" fill="none" aria-hidden="true">
+          <path d="M14 74C26 54 44 40 74 34" stroke="currentColor" stroke-width="1.6" fill="none"/>
+          <path d="M74 34c-4-1.4-7.8 0-9.6 2.9 3.2 1.6 7.1.8 9.6-2.9Z" fill="currentColor"/>
+          <path d="M64 40c-4-1.6-7.9-.8-9.9 1.6 3 2 7 1.8 9.9-1.6Z" fill="currentColor"/>
+          <path d="M54 47c-4-1.7-7.9-1.1-10 1.2 2.9 2.2 6.9 2.2 10-1.2Z" fill="currentColor"/>
+        </svg>
+        <p class="kicker" style="color:var(--copper-soft)">Your certification starts here</p>
+        <h2>Start your certification today.</h2>
+        <a class="btn btn--primary" href="#enroll">Enroll Now <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        <p class="finalcta__soft">Questions? <a href="mailto:hello@methodwaxpro.com">hello@methodwaxpro.com</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot__brand">
+        <div class="brand">
+          <svg class="brand__mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M8 38V13.5C8 12.7 8.9 12.2 9.6 12.6L20.5 19.5C21.1 19.9 21.9 19.9 22.5 19.5L33.4 12.6C34.1 12.2 35 12.7 35 13.5V38" stroke="oklch(0.605 0.115 56)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path class="stem" d="M22 40C25 33 30 29 39 27" stroke="oklch(0.605 0.115 56)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+            <path class="leaf" d="M39 27c-2.4-.6-4.6.1-5.6 1.7 1.9.9 4.2.4 5.6-1.7Z" fill="oklch(0.42 0.088 158)"/>
+            <path class="leaf" d="M33.5 30.4c-2.3-.9-4.5-.5-5.8.9 1.7 1.2 4 1.1 5.8-.9Z" fill="oklch(0.42 0.088 158)"/>
+            <path class="leaf" d="M28.6 33.7c-2.2-1-4.4-.8-5.8.5 1.6 1.3 3.9 1.4 5.8-.5Z" fill="oklch(0.42 0.088 158)"/>
+          </svg>
+          <span class="brand__text">
+            <span class="brand__word">METHOD</span>
+            <span class="brand__sub">Wax Studio &amp; Professional Training</span>
+          </span>
+        </div>
+        <p class="foot__tag">Intentional care. Elevated education. Exceptional results.</p>
+      </div>
+
+      <div class="foot__nav">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#academy">Academy</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#studio">The Studio</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
+
+      <div class="foot__connect">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:hello@methodwaxpro.com">hello@methodwaxpro.com</a></li>
+          <li><a href="#instagram">Instagram</a></li>
+          <li><a href="#tiktok">TikTok</a></li>
+          <li><a href="#youtube">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot__bottom">
+      <span>© 2026 Method Wax Studio &amp; Professional Training</span>
+      <span>Studio service booking coming soon.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Gentle load reveal: add class after paint so staggered animation runs once.
+  window.addEventListener('DOMContentLoaded', function () {
+    requestAnimationFrame(function () { document.body.classList.add('revealed'); });
+  });
+
+  // Mobile drawer
+  var toggle = document.getElementById('menuToggle');
+  var drawer = document.getElementById('drawer');
+  if (toggle && drawer) {
+    toggle.addEventListener('click', function () {
+      var open = drawer.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    drawer.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        drawer.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
+</body>
+</html>

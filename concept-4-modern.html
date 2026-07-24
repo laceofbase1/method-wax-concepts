@@ -1,0 +1,778 @@
+<!--
+  METHOD — Wax Studio & Professional Training
+  Homepage concept 4: "MODERN MINIMAL" (architectural restraint, single grotesque, hairline system)
+  Cream-dominant surface, emerald ink, one deliberate emerald full-bleed moment, copper as a whisper.
+
+  NOTE: The METHOD wordmark + olive-branch mark are recreated here in type + a hand-drawn inline SVG.
+  The real logo PNG (copper serif "M" intertwined with an olive branch) can be dropped into any
+  .brandmark lockup later, replacing the inline SVG olive branch beside the typeset wordmark.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>METHOD — Wax Studio &amp; Professional Training</title>
+<meta name="description" content="The modern standard in waxing education. Online-first certification courses for estheticians, finished with hands-on training in our studio." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* Locked palette in OKLCH — emerald, mauve, beige/cream, copper. Restraint strategy. */
+    --cream:      oklch(0.968 0.010 92);   /* dominant warm off-white surface */
+    --cream-2:    oklch(0.948 0.013 88);   /* faint panel */
+    --cream-3:    oklch(0.922 0.017 86);   /* deeper panel / footer tint */
+
+    --emerald:      oklch(0.325 0.060 162); /* the ink / the one full-bleed */
+    --emerald-deep: oklch(0.262 0.052 162);
+    --emerald-mid:  oklch(0.430 0.068 163);
+
+    --ink:      oklch(0.300 0.028 162);     /* near-black tinted emerald — body text */
+    --ink-soft: oklch(0.460 0.020 162);
+    --ink-faint:oklch(0.585 0.016 162);
+
+    --copper:      oklch(0.620 0.098 56);   /* whisper accent only */
+    --copper-lit:  oklch(0.720 0.098 62);
+
+    --mauve:      oklch(0.640 0.045 350);   /* faintest secondary */
+    --mauve-soft: oklch(0.905 0.022 350);
+
+    --on-emerald:      oklch(0.955 0.012 92);
+    --on-emerald-soft: oklch(0.820 0.026 130);
+
+    --hairline:      oklch(0.300 0.02 162 / 0.16);
+    --hairline-soft: oklch(0.300 0.02 162 / 0.09);
+    --hairline-dark: oklch(0.955 0.012 92 / 0.20);
+
+    --edge: clamp(1.25rem, 6vw, 7rem);
+    --maxw: 1320px;
+
+    --e-out: cubic-bezier(0.22, 1, 0.36, 1);      /* ease-out-quint-ish */
+    --e-out-2: cubic-bezier(0.16, 1, 0.3, 1);      /* ease-out-expo-ish */
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body{
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: "Schibsted Grotesk", system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    line-height: 1.62;
+    letter-spacing: -0.006em;
+    font-feature-settings: "ss01", "tnum" 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  h1,h2,h3,h4{ margin: 0; font-weight: 300; line-height: 1.02; letter-spacing: -0.028em; }
+  p{ margin: 0; }
+  a{ color: inherit; text-decoration: none; }
+  img{ max-width: 100%; display: block; }
+  ::selection{ background: var(--emerald); color: var(--on-emerald); }
+
+  .wrap{ max-width: var(--maxw); margin-inline: auto; padding-inline: var(--edge); }
+
+  /* ---- Micro-label: small, medium, letter-spaced uppercase ---- */
+  .label{
+    font-size: 0.688rem;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .label.copper{ color: var(--copper); }
+  .label.on-dark{ color: var(--on-emerald-soft); }
+
+  /* index numeral used to announce sections */
+  .index{
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    color: var(--copper);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---- Buttons ---- */
+  .btn{
+    display: inline-flex; align-items: center; gap: 0.6em;
+    font-family: inherit; font-size: 0.86rem; font-weight: 500;
+    letter-spacing: 0.01em;
+    border: 1px solid transparent; border-radius: 999px;
+    padding: 0.85em 1.6em; cursor: pointer;
+    transition: background-color .5s var(--e-out), color .5s var(--e-out),
+                border-color .5s var(--e-out), transform .5s var(--e-out), opacity .4s var(--e-out);
+  }
+  .btn-primary{ background: var(--emerald); color: var(--on-emerald); }
+  .btn-primary:hover{ background: var(--emerald-deep); transform: translateY(-1px); }
+  .btn-primary .arrow{ transition: transform .5s var(--e-out); }
+  .btn-primary:hover .arrow{ transform: translateX(3px); }
+
+  .btn-ghost{ background: transparent; color: var(--ink); border-color: var(--hairline); }
+  .btn-ghost:hover{ border-color: var(--emerald); color: var(--emerald); }
+
+  .btn-light{ background: var(--on-emerald); color: var(--emerald-deep); }
+  .btn-light:hover{ background: var(--cream-2); transform: translateY(-1px); }
+
+  /* text link with copper underline */
+  .tlink{
+    display: inline-flex; align-items: center; gap: 0.5em;
+    font-size: 0.86rem; font-weight: 500; color: var(--ink);
+    padding-block: 0.3em;
+    background-image: linear-gradient(var(--copper), var(--copper));
+    background-size: 100% 1px; background-repeat: no-repeat; background-position: 0 100%;
+    transition: color .45s var(--e-out), background-size .55s var(--e-out-2), gap .45s var(--e-out);
+  }
+  .tlink .arrow{ transition: transform .5s var(--e-out); color: var(--copper); }
+  .tlink:hover{ color: var(--emerald); gap: 0.7em; }
+  .tlink:hover .arrow{ transform: translateX(3px); }
+  .tlink.on-dark{ color: var(--on-emerald); }
+  .tlink.on-dark:hover{ color: var(--on-emerald); }
+
+  :focus-visible{ outline: 2px solid var(--copper); outline-offset: 3px; border-radius: 4px; }
+
+  /* =========================================================
+     HEADER — minimal top bar
+     ========================================================= */
+  header{
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in oklab, var(--cream) 82%, transparent);
+    backdrop-filter: blur(14px) saturate(1.1);
+    -webkit-backdrop-filter: blur(14px) saturate(1.1);
+    border-bottom: 1px solid transparent;
+    transition: border-color .6s var(--e-out), background-color .6s var(--e-out);
+  }
+  header.scrolled{ border-bottom-color: var(--hairline-soft); }
+  .bar{
+    display: flex; align-items: center; justify-content: space-between;
+    height: 74px; gap: 1.5rem;
+  }
+  /* brand lockup: hand-drawn olive branch + typeset wordmark */
+  .brandmark{ display: inline-flex; align-items: center; gap: 0.7rem; }
+  .brandmark .olive{ width: 26px; height: 26px; color: var(--copper); flex: none; }
+  .brandmark .word{ display: flex; flex-direction: column; line-height: 1; }
+  .brandmark .word b{
+    font-weight: 500; font-size: 1.12rem; letter-spacing: 0.34em; color: var(--emerald-deep);
+    text-indent: 0.34em;
+  }
+  .brandmark .word small{
+    font-size: 0.5rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--ink-faint); margin-top: 0.42em; text-indent: 0.28em;
+  }
+
+  .nav{ display: flex; align-items: center; gap: clamp(1.1rem, 2.4vw, 2.3rem); }
+  .nav a{
+    font-size: 0.83rem; font-weight: 400; color: var(--ink-soft);
+    position: relative; padding-block: 0.35em;
+    transition: color .4s var(--e-out);
+  }
+  .nav a::after{
+    content:""; position: absolute; left: 0; bottom: 0.05em; height: 1px; width: 100%;
+    background: var(--copper); transform: scaleX(0); transform-origin: left;
+    transition: transform .5s var(--e-out-2);
+  }
+  .nav a:hover{ color: var(--emerald); }
+  .nav a:hover::after{ transform: scaleX(1); }
+
+  .actions{ display: flex; align-items: center; gap: 0.4rem; }
+  .actions .login{ font-size: 0.83rem; color: var(--ink-soft); padding: 0.6em 0.9em; transition: color .4s var(--e-out); }
+  .actions .login:hover{ color: var(--emerald); }
+
+  .menu-btn{
+    display: none; background: none; border: 0; cursor: pointer; padding: 0.5em;
+    color: var(--ink); flex-direction: column; gap: 5px;
+  }
+  .menu-btn span{ width: 22px; height: 1.5px; background: currentColor; display: block; }
+
+  /* =========================================================
+     HERO — mostly empty, one oversized light headline
+     ========================================================= */
+  .hero{ padding-top: clamp(3.2rem, 8vw, 6.4rem); padding-bottom: clamp(2.5rem, 6vw, 4.5rem); }
+  .hero-top{
+    display: grid; grid-template-columns: 1fr auto; align-items: end;
+    gap: 2rem; padding-bottom: clamp(1.8rem, 4vw, 3rem);
+  }
+  .hero-kicker{ display: flex; align-items: center; gap: 0.9em; }
+  .hero-kicker .tick{ width: 30px; height: 1px; background: var(--copper); }
+  .hero-meta{ text-align: right; max-width: 20ch; }
+
+  .hero h1{
+    font-size: clamp(2.9rem, 8.4vw, 7rem);
+    font-weight: 300;
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+    color: var(--emerald-deep);
+    max-width: 15ch;
+  }
+  .hero h1 em{ font-style: normal; color: var(--copper); }
+
+  .hero-body{
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(1.5rem, 5vw, 4.5rem);
+    align-items: start; margin-top: clamp(1.6rem, 4vw, 2.6rem);
+    padding-top: clamp(1.6rem, 4vw, 2.4rem); border-top: 1px solid var(--hairline-soft);
+  }
+  .hero-sub{ font-size: clamp(1.02rem, 1.5vw, 1.22rem); color: var(--ink-soft); max-width: 42ch; line-height: 1.55; letter-spacing: -0.01em; }
+  .hero-cta{ display: flex; flex-wrap: wrap; align-items: center; gap: 1.1rem 1.4rem; }
+
+  .hero-trust{
+    margin-top: clamp(2.2rem, 5vw, 3.4rem);
+    display: flex; flex-wrap: wrap; gap: 0.5rem 2.2rem;
+    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .hero-trust span{ display: inline-flex; align-items: center; gap: 0.8em; }
+  .hero-trust span::before{ content:""; width: 4px; height: 4px; border-radius: 50%; background: var(--copper); }
+
+  /* one large calm image, air around it */
+  .hero-figure{
+    margin-top: clamp(2.6rem, 6vw, 4.5rem);
+    position: relative;
+    aspect-ratio: 16 / 7.2;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: var(--emerald-deep); /* degrade tone if photo fails */
+    background-image:
+      linear-gradient(105deg, oklch(0.262 0.052 162 / 0.42), oklch(0.262 0.052 162 / 0.08)),
+      url("https://images.unsplash.com/photo-1758632031161-b6d7e913c2b9?auto=format&fit=crop&w=1600&q=80");
+    background-size: cover; background-position: center 42%;
+    filter: saturate(0.72) contrast(1.02);
+  }
+  .hero-figure figcaption{
+    position: absolute; left: clamp(1rem, 3vw, 2rem); bottom: clamp(1rem, 3vw, 1.6rem);
+    color: var(--on-emerald); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 0.7em;
+    text-shadow: 0 1px 12px oklch(0.20 0.04 162 / 0.6);
+  }
+  .hero-figure figcaption .dot{ width: 5px; height: 5px; border-radius: 50%; background: var(--copper-lit); }
+
+  /* =========================================================
+     SECTION scaffolding — hairline dividers + index numerals
+     ========================================================= */
+  section{ padding-block: clamp(3.4rem, 8vw, 6.6rem); }
+  .sec-head{
+    display: grid; grid-template-columns: auto 1fr; gap: clamp(1rem, 4vw, 3.5rem);
+    align-items: baseline; padding-bottom: clamp(1.6rem, 4vw, 2.6rem);
+    border-top: 1px solid var(--hairline); padding-top: 1.4rem;
+  }
+  .sec-head .index{ white-space: nowrap; }
+  .sec-title{ max-width: 24ch; }
+  .sec-title h2{ font-size: clamp(1.9rem, 4vw, 3.1rem); color: var(--emerald-deep); letter-spacing: -0.03em; }
+  .sec-title p{ margin-top: 0.9rem; color: var(--ink-soft); max-width: 52ch; font-size: 1.02rem; }
+
+  /* ---- 01 The two pillars ---- */
+  .pillars{ display: grid; grid-template-columns: 1fr 1fr; }
+  .pillar{ padding: clamp(1.6rem, 3vw, 2.6rem) 0; }
+  .pillar.primary{ padding-right: clamp(1.5rem, 4vw, 4rem); }
+  .pillar.secondary{
+    padding-left: clamp(1.5rem, 4vw, 4rem);
+    border-left: 1px solid var(--hairline);
+  }
+  .pillar .p-top{ display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.4rem; }
+  .pillar h3{ font-size: clamp(1.5rem, 3vw, 2.15rem); font-weight: 300; color: var(--emerald-deep); letter-spacing: -0.03em; }
+  .pillar.secondary h3{ color: var(--ink-soft); }
+  .pillar p{ color: var(--ink-soft); max-width: 44ch; font-size: 1.0rem; }
+  .pillar .p-foot{ margin-top: 1.8rem; }
+  .tag{
+    display: inline-flex; align-items: center; gap: 0.55em;
+    font-size: 0.66rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--mauve); background: var(--mauve-soft);
+    padding: 0.45em 0.85em; border-radius: 999px;
+  }
+  .tag .pulse{ width: 5px; height: 5px; border-radius: 50%; background: var(--mauve); }
+
+  /* ---- 02 How Training Works ---- steps, hairline rows ---- */
+  .steps{ margin-top: 0.5rem; }
+  .step{
+    display: grid; grid-template-columns: 3.2rem 1fr auto; gap: clamp(1rem, 3vw, 2.6rem);
+    align-items: baseline;
+    padding: clamp(1.3rem, 2.6vw, 2rem) 0;
+    border-top: 1px solid var(--hairline-soft);
+    transition: background-color .5s var(--e-out);
+  }
+  .step:last-child{ border-bottom: 1px solid var(--hairline-soft); }
+  .step:hover{ background: color-mix(in oklab, var(--cream-2) 60%, transparent); }
+  .step-n{ font-size: 0.82rem; font-weight: 600; color: var(--copper); font-variant-numeric: tabular-nums; letter-spacing: 0.08em; }
+  .step h3{ font-size: clamp(1.18rem, 2.2vw, 1.6rem); font-weight: 400; color: var(--emerald-deep); letter-spacing: -0.02em; }
+  .step p{ color: var(--ink-soft); margin-top: 0.5rem; max-width: 50ch; font-size: 0.98rem; }
+  .step .col-r{ text-align: right; }
+  .step-meta{ font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-faint); white-space: nowrap; }
+
+  /* ---- 03 Courses — minimal ruled index ---- */
+  .courses{ border-top: 1px solid var(--hairline); }
+  .course{
+    display: grid;
+    grid-template-columns: 2.6rem minmax(0, 1.5fr) auto minmax(0, 1.3fr) auto;
+    gap: clamp(0.8rem, 2.4vw, 2.4rem);
+    align-items: center;
+    padding: clamp(1.35rem, 2.8vw, 2.05rem) 0.4rem;
+    border-bottom: 1px solid var(--hairline-soft);
+    position: relative;
+    transition: padding-inline .55s var(--e-out-2), background-color .5s var(--e-out);
+  }
+  .course::before{
+    content:""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 100%;
+    background: var(--copper); transform: scaleX(0); transform-origin: left;
+    transition: transform .6s var(--e-out-2);
+  }
+  .course:hover{ background: color-mix(in oklab, var(--cream-2) 70%, transparent); padding-inline: 1rem; }
+  .course:hover::before{ transform: scaleX(1); }
+  .c-idx{ font-size: 0.72rem; font-weight: 600; color: var(--copper); font-variant-numeric: tabular-nums; }
+  .c-name{ display: block; font-size: clamp(1.2rem, 2.3vw, 1.62rem); font-weight: 400; color: var(--emerald-deep); letter-spacing: -0.02em; }
+  .c-desc{ display: block; font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.3rem; max-width: 46ch; }
+  .c-level{ font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); white-space: nowrap; }
+  .c-format{ font-size: 0.8rem; color: var(--ink-soft); }
+  .c-price{ text-align: right; white-space: nowrap; }
+  .c-price b{ font-size: 1.3rem; font-weight: 500; color: var(--emerald-deep); letter-spacing: -0.02em; }
+  .c-price .arrow{ margin-left: 0.7rem; color: var(--copper); display: inline-block; transition: transform .5s var(--e-out); }
+  .course:hover .c-price .arrow{ transform: translateX(4px); }
+  .courses-foot{ margin-top: 2.2rem; display: flex; justify-content: flex-end; }
+
+  /* ---- 04 Philosophy + testimonial ---- */
+  .philosophy{ display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(1.8rem, 5vw, 5rem); align-items: center; }
+  .philo-fig{
+    aspect-ratio: 4 / 5; border-radius: 3px; overflow: hidden;
+    background-color: var(--emerald-deep);
+    background-image:
+      linear-gradient(180deg, oklch(0.262 0.052 162 / 0.10), oklch(0.262 0.052 162 / 0.32)),
+      url("https://images.unsplash.com/photo-1713085085470-fba013d67e65?auto=format&fit=crop&w=1200&q=80");
+    background-size: cover; background-position: center 30%;
+    filter: saturate(0.7) contrast(1.02);
+  }
+  .philo-body .label{ margin-bottom: 1.4rem; display: inline-block; }
+  .philo-body p.lede{ font-size: clamp(1.25rem, 2.4vw, 1.72rem); font-weight: 300; color: var(--emerald-deep); line-height: 1.35; letter-spacing: -0.02em; max-width: 30ch; }
+  .philo-body p.body{ margin-top: 1.5rem; color: var(--ink-soft); max-width: 52ch; font-size: 1.0rem; }
+  .philo-body .signoff{ margin-top: 1.6rem; font-size: 0.9rem; color: var(--emerald); font-weight: 500; }
+
+  .quote-band{ margin-top: clamp(3rem, 7vw, 5.5rem); padding-top: clamp(2.4rem, 5vw, 3.6rem); border-top: 1px solid var(--hairline); }
+  .quote-band blockquote{
+    margin: 0; font-size: clamp(1.5rem, 3.6vw, 2.65rem); font-weight: 300; letter-spacing: -0.03em;
+    line-height: 1.24; color: var(--emerald-deep); max-width: 24ch;
+  }
+  .quote-band .mark{ color: var(--copper); font-weight: 400; }
+  .quote-band cite{ display: block; margin-top: 1.8rem; font-style: normal; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+  .quote-band cite b{ color: var(--ink-soft); font-weight: 500; }
+
+  /* =========================================================
+     05 FINAL CTA — the single deliberate emerald full-bleed moment
+     ========================================================= */
+  .cta{
+    background: var(--emerald-deep);
+    color: var(--on-emerald);
+    position: relative; overflow: hidden;
+    padding-block: clamp(4rem, 10vw, 8rem);
+  }
+  .cta::after{
+    content:""; position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(120% 130% at 88% 8%, oklch(0.43 0.068 163 / 0.55), transparent 55%),
+      radial-gradient(90% 100% at 5% 100%, oklch(0.20 0.045 162 / 0.6), transparent 60%);
+  }
+  .cta .wrap{ position: relative; z-index: 1; }
+  .cta .index{ color: var(--copper-lit); }
+  .cta-grid{ display: grid; grid-template-columns: 1.3fr 0.7fr; gap: clamp(2rem, 6vw, 5rem); align-items: end; margin-top: 1.6rem; }
+  .cta h2{ font-size: clamp(2.4rem, 6.5vw, 5rem); font-weight: 300; letter-spacing: -0.035em; line-height: 0.98; color: var(--on-emerald); max-width: 14ch; }
+  .cta h2 em{ font-style: normal; color: var(--copper-lit); }
+  .cta-side{ display: flex; flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+  .cta-side p{ color: var(--on-emerald-soft); font-size: 1.0rem; max-width: 34ch; }
+  .cta-side .soft{ font-size: 0.86rem; }
+  .cta-side .soft a{ color: var(--on-emerald); background-image: linear-gradient(var(--copper-lit), var(--copper-lit)); background-size: 100% 1px; background-repeat: no-repeat; background-position: 0 100%; }
+  .cta-olive{ position: absolute; right: clamp(-3rem, -2vw, 0rem); top: 12%; width: min(34vw, 340px); color: oklch(0.43 0.068 163 / 0.5); z-index: 0; }
+
+  /* =========================================================
+     FOOTER
+     ========================================================= */
+  footer{ background: var(--cream-3); border-top: 1px solid var(--hairline); padding-block: clamp(3rem, 6vw, 4.5rem) 2rem; }
+  .foot-grid{ display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: clamp(1.6rem, 4vw, 3rem); }
+  .foot-brand .brandmark{ margin-bottom: 1.2rem; }
+  .foot-brand p{ color: var(--ink-soft); font-size: 0.92rem; max-width: 32ch; }
+  .foot-brand .booking{ margin-top: 1.2rem; font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mauve); display: inline-flex; align-items: center; gap: 0.6em; }
+  .foot-brand .booking::before{ content:""; width: 5px; height: 5px; border-radius: 50%; background: var(--mauve); }
+  .foot-col h4{ font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 1.1rem; }
+  .foot-col a{ display: block; font-size: 0.9rem; color: var(--ink-soft); padding-block: 0.4em; transition: color .4s var(--e-out); }
+  .foot-col a:hover{ color: var(--emerald); }
+  .foot-bottom{ margin-top: clamp(2.6rem, 5vw, 4rem); padding-top: 1.6rem; border-top: 1px solid var(--hairline-soft); display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem; justify-content: space-between; align-items: center; }
+  .foot-bottom small{ font-size: 0.78rem; color: var(--ink-faint); letter-spacing: 0.02em; }
+
+  /* =========================================================
+     REVEAL — one restrained page-load reveal, gentle stagger
+     ========================================================= */
+  .reveal{ opacity: 0; transform: translateY(18px); transition: opacity 1s var(--e-out-2), transform 1s var(--e-out-2); }
+  .reveal.in{ opacity: 1; transform: none; }
+  .hero .reveal{ transition-duration: 1.1s; }
+  [data-d="1"]{ transition-delay: .06s; }
+  [data-d="2"]{ transition-delay: .14s; }
+  [data-d="3"]{ transition-delay: .22s; }
+  [data-d="4"]{ transition-delay: .30s; }
+  [data-d="5"]{ transition-delay: .38s; }
+
+  /* =========================================================
+     RESPONSIVE
+     ========================================================= */
+  @media (max-width: 980px){
+    .nav{ display: none; }
+    .menu-btn{ display: flex; }
+    .actions .login{ display: none; }
+    .hero-body{ grid-template-columns: 1fr; gap: 1.6rem; }
+    .cta-grid{ grid-template-columns: 1fr; align-items: start; }
+    .philosophy{ grid-template-columns: 1fr; }
+    .philo-fig{ aspect-ratio: 16/10; order: 2; }
+    .foot-grid{ grid-template-columns: 1fr 1fr; }
+    .foot-brand{ grid-column: 1 / -1; }
+  }
+  @media (max-width: 720px){
+    .hero-top{ grid-template-columns: 1fr; align-items: start; }
+    .hero-meta{ text-align: left; }
+    .pillars{ grid-template-columns: 1fr; }
+    .pillar.secondary{ padding-left: 0; border-left: 0; border-top: 1px solid var(--hairline); }
+    .sec-head{ grid-template-columns: 1fr; gap: 1rem; }
+    .step{ grid-template-columns: 2.4rem 1fr; }
+    .step .col-r{ grid-column: 2; text-align: left; margin-top: 0.5rem; }
+    .course{ grid-template-columns: 1.6rem 1fr auto; row-gap: 0.5rem; padding-inline: 0; }
+    .course:hover{ padding-inline: 0; }
+    .c-idx{ grid-row: 1; }
+    .c-main{ grid-column: 2; grid-row: 1; }
+    .c-level{ grid-column: 3; grid-row: 1; text-align: right; }
+    .c-format{ grid-column: 2 / -1; grid-row: 2; }
+    .c-price{ grid-column: 2 / -1; grid-row: 3; text-align: left; }
+  }
+  @media (max-width: 480px){
+    .foot-grid{ grid-template-columns: 1fr; }
+    .hero-trust{ gap: 0.5rem 1.2rem; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ scroll-behavior: auto !important; }
+    .reveal{ opacity: 1; transform: none; transition: none; }
+    .btn, .tlink, .course, .nav a::after, .c-price .arrow{ transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Reusable inline olive-branch mark (thin stem, few leaves) — brand signature -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="olive" viewBox="0 0 40 40">
+    <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+      <path d="M20 37 C20 27 21 15 27 5"/>
+      <path d="M24 12 C20 11 16.5 12.5 15 16 C19 17 22.5 15.5 24 12 Z" fill="currentColor" stroke="none"/>
+      <path d="M25.5 18.5 C22 18 18.8 19.6 17.6 23 C21.3 23.6 24.3 22 25.5 18.5 Z" fill="currentColor" stroke="none"/>
+      <path d="M26.6 25 C23.3 24.8 20.4 26.6 19.5 30 C22.9 30.2 25.6 28.4 26.6 25 Z" fill="currentColor" stroke="none"/>
+      <path d="M25.5 9 C28.4 8.4 31 9.7 32 12.6 C29 13.4 26.4 12 25.5 9 Z" fill="currentColor" stroke="none"/>
+      <path d="M27.3 16 C30.1 15.6 32.6 17 33.4 19.9 C30.5 20.6 28 19 27.3 16 Z" fill="currentColor" stroke="none"/>
+    </g>
+  </symbol>
+</svg>
+
+<header id="header">
+  <div class="wrap bar">
+    <a href="#top" class="brandmark" aria-label="METHOD, Wax Studio and Professional Training, home">
+      <svg class="olive" aria-hidden="true"><use href="#olive"/></svg>
+      <span class="word"><b>METHOD</b><small>Wax Studio &amp; Training</small></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#academy">Academy</a>
+      <a href="#courses">Courses</a>
+      <a href="#how">How It Works</a>
+      <a href="#studio">The Studio</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="actions">
+      <a href="#" class="login">Log In</a>
+      <a href="#courses" class="btn btn-primary">Enroll</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="wrap">
+      <div class="hero-top">
+        <div class="hero-kicker reveal in" data-d="1">
+          <span class="tick"></span>
+          <span class="label copper">Professional Waxing Education</span>
+        </div>
+        <p class="hero-meta label reveal in" data-d="2">Online-first, certified in person. Since 2019.</p>
+      </div>
+
+      <h1 id="hero-h" class="reveal in" data-d="2">The modern <em>standard</em> in waxing education.</h1>
+
+      <div class="hero-body">
+        <p class="hero-sub reveal in" data-d="3">Online-first certification courses for estheticians, finished with hands-on training in our studio. Learn the theory at your own pace, then master the technique in person.</p>
+        <div class="hero-cta reveal in" data-d="4">
+          <a href="#courses" class="btn btn-primary">Explore Courses <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="#how" class="tlink">How Training Works <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="hero-trust reveal in" data-d="5">
+        <span>500+ estheticians trained</span>
+        <span>4 certifications</span>
+        <span>Self-paced online, certified in person</span>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <figure class="hero-figure reveal in" data-d="5" role="img"
+        aria-label="A calm, light-filled treatment studio set for a waxing session, soft linens and warm daylight.">
+        <figcaption><span class="dot" aria-hidden="true"></span>The studio, prepared for a hands-on intensive</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 01 — TWO PILLARS ============ -->
+  <section id="academy" aria-labelledby="pillars-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="index">01 / The Method</span>
+        <div class="sec-title">
+          <h2 id="pillars-h">Two ways in. One standard of care.</h2>
+          <p>A training academy for estheticians, built online first. A waxing studio, opening in phase two.</p>
+        </div>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar primary reveal" data-d="1">
+          <div class="p-top">
+            <h3>The Academy</h3>
+            <span class="label copper">Primary</span>
+          </div>
+          <p>Professional training built for working estheticians. Create your profile, choose a certification, complete the online curriculum at your own pace, and track every module. When you are ready, book your in-person intensive.</p>
+          <div class="p-foot">
+            <a href="#courses" class="tlink">Browse certifications <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+
+        <div class="pillar secondary reveal" data-d="2" id="studio">
+          <div class="p-top">
+            <h3>The Studio</h3>
+            <span class="tag"><span class="pulse" aria-hidden="true"></span>Opening soon</span>
+          </div>
+          <p>Luxury waxing services delivered with the same method we teach. Studio booking opens soon.</p>
+          <div class="p-foot">
+            <span class="label">Client booking, phase two</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 — HOW TRAINING WORKS ============ -->
+  <section id="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="index">02 / How Training Works</span>
+        <div class="sec-title">
+          <h2 id="how-h">Theory at your pace. Technique in our hands.</h2>
+          <p>Five steps from a fresh learner profile to a certificate earned at the table.</p>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal" data-d="1">
+          <span class="step-n">01</span>
+          <div><h3>Create your profile</h3><p>Set up your learner account in minutes.</p></div>
+          <div class="col-r"><span class="step-meta">2 minutes</span></div>
+        </div>
+        <div class="step reveal" data-d="2">
+          <span class="step-n">02</span>
+          <div><h3>Choose your certification</h3><p>Browse courses by specialty and skill level.</p></div>
+          <div class="col-r"><span class="step-meta">4 certifications</span></div>
+        </div>
+        <div class="step reveal" data-d="3">
+          <span class="step-n">03</span>
+          <div><h3>Complete the online curriculum</h3><p>Video modules, technique breakdowns, and assessments you can revisit anytime.</p></div>
+          <div class="col-r"><span class="step-meta">Self-paced</span></div>
+        </div>
+        <div class="step reveal" data-d="4">
+          <span class="step-n">04</span>
+          <div><h3>Track your progress</h3><p>Every module, checkpoint, and studio hour in one place.</p></div>
+          <div class="col-r"><span class="step-meta">One dashboard</span></div>
+        </div>
+        <div class="step reveal" data-d="5">
+          <span class="step-n">05</span>
+          <div><h3>Book your in-person intensive</h3><p>Reserve your hands-on session on our studio calendar and get certified.</p></div>
+          <div class="col-r"><span class="step-meta">Certified in person</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 — COURSES (minimal ruled index) ============ -->
+  <section id="courses" aria-labelledby="courses-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="index">03 / Certifications</span>
+        <div class="sec-title">
+          <h2 id="courses-h">Featured courses.</h2>
+          <p>Each certification pairs unhurried online modules with a single, focused studio day.</p>
+        </div>
+      </div>
+
+      <div class="courses">
+        <a class="course reveal" data-d="1" href="#">
+          <span class="c-idx">A1</span>
+          <span class="c-main"><span class="c-name">Brazilian Waxing Masterclass</span><span class="c-desc">The complete hard-wax method for fast, comfortable Brazilians.</span></span>
+          <span class="c-level">Advanced</span>
+          <span class="c-format">6 online modules + 1 studio day. Certificate included.</span>
+          <span class="c-price"><b>$299</b><span class="arrow" aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a class="course reveal" data-d="2" href="#">
+          <span class="c-idx">A2</span>
+          <span class="c-main"><span class="c-name">Brow Artistry &amp; Shaping</span><span class="c-desc">Mapping, shaping, and finishing brows with precision.</span></span>
+          <span class="c-level">Intermediate</span>
+          <span class="c-format">5 online modules + 1 studio day. Certificate included.</span>
+          <span class="c-price"><b>$199</b><span class="arrow" aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a class="course reveal" data-d="3" href="#">
+          <span class="c-idx">A3</span>
+          <span class="c-main"><span class="c-name">Speed Waxing Certification</span><span class="c-desc">Cut service time without cutting quality.</span></span>
+          <span class="c-level">Advanced</span>
+          <span class="c-format">4 online modules + 1 studio day. Certificate included.</span>
+          <span class="c-price"><b>$249</b><span class="arrow" aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a class="course reveal" data-d="4" href="#">
+          <span class="c-idx">A4</span>
+          <span class="c-main"><span class="c-name">Waxing Fundamentals</span><span class="c-desc">Hard wax, soft wax, skin theory, and safety from the ground up.</span></span>
+          <span class="c-level">Beginner</span>
+          <span class="c-format">6 online modules. Certificate included.</span>
+          <span class="c-price"><b>$149</b><span class="arrow" aria-hidden="true">&rarr;</span></span>
+        </a>
+      </div>
+
+      <div class="courses-foot reveal">
+        <a href="#" class="tlink">View the full catalog <span class="arrow" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 — PHILOSOPHY + TESTIMONIAL ============ -->
+  <section id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="index">04 / The Philosophy</span>
+        <div class="sec-title">
+          <h2 id="about-h">Intentional care is the curriculum.</h2>
+        </div>
+      </div>
+
+      <div class="philosophy">
+        <figure class="philo-fig reveal" data-d="1" role="img"
+          aria-label="An esthetician at the table, focused and unhurried, refining her technique in the studio."></figure>
+        <div class="philo-body reveal" data-d="2">
+          <span class="label copper">Why Method exists</span>
+          <p class="lede">We teach the technical foundations first, online and unhurried, then bring you into the studio to refine your hands.</p>
+          <p class="body">Method was built by estheticians who were tired of rushed, one-day certifications that left them unsure at the table. Intentional care is not a tagline. It is the curriculum.</p>
+          <p class="signoff">Founded by working estheticians, for working estheticians.</p>
+        </div>
+      </div>
+
+      <div class="quote-band reveal">
+        <blockquote><span class="mark" aria-hidden="true">&ldquo;</span>I had taken three other certifications before Method. This is the first one where I actually felt ready. The online modules meant I walked into my studio day already knowing the theory cold.</blockquote>
+        <cite><b>Danielle R.</b> &nbsp; Licensed Esthetician</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 — FINAL CTA (single emerald full-bleed) ============ -->
+  <section class="cta" aria-labelledby="cta-h">
+    <svg class="cta-olive" aria-hidden="true"><use href="#olive"/></svg>
+    <div class="wrap">
+      <span class="index reveal">05 / Enroll</span>
+      <div class="cta-grid">
+        <h2 id="cta-h" class="reveal" data-d="1">Start your <em>certification</em> today.</h2>
+        <div class="cta-side reveal" data-d="2">
+          <p>Create your learner profile, choose a certification, and begin the online curriculum in the next few minutes.</p>
+          <a href="#" class="btn btn-light">Enroll now <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <p class="soft">Questions? <a href="mailto:hello@methodwaxpro.com">hello@methodwaxpro.com</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="brandmark" aria-label="METHOD home">
+          <svg class="olive" aria-hidden="true"><use href="#olive"/></svg>
+          <span class="word"><b>METHOD</b><small>Wax Studio &amp; Training</small></span>
+        </a>
+        <p>Intentional care. Elevated education. Exceptional results.</p>
+        <span class="booking">Studio service booking coming soon</span>
+      </div>
+      <div class="foot-col">
+        <h4>Academy</h4>
+        <a href="#academy">The Academy</a>
+        <a href="#courses">Courses</a>
+        <a href="#how">How It Works</a>
+        <a href="#">Log In</a>
+      </div>
+      <div class="foot-col">
+        <h4>Studio</h4>
+        <a href="#studio">The Studio</a>
+        <a href="#about">About</a>
+        <a href="mailto:hello@methodwaxpro.com">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h4>Follow</h4>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <small>&copy; 2026 Method Wax Studio &amp; Professional Training</small>
+      <small>hello@methodwaxpro.com</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // sticky header hairline
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // simple mobile menu toggle (reveals inline nav)
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.querySelector('.nav');
+  menuBtn.addEventListener('click', () => {
+    const open = nav.style.display === 'flex';
+    nav.style.display = open ? '' : 'flex';
+    if (!open){
+      nav.style.position = 'absolute';
+      nav.style.flexDirection = 'column';
+      nav.style.top = '74px'; nav.style.left = '0'; nav.style.right = '0';
+      nav.style.background = 'var(--cream)';
+      nav.style.padding = '1.2rem var(--edge) 1.6rem';
+      nav.style.borderBottom = '1px solid var(--hairline-soft)';
+      nav.style.alignItems = 'flex-start';
+      nav.style.gap = '0.6rem';
+    }
+    menuBtn.setAttribute('aria-expanded', String(!open));
+  });
+
+  // restrained scroll reveal
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveals = document.querySelectorAll('.reveal:not(.in)');
+  if (prefersReduced || !('IntersectionObserver' in window)){
+    reveals.forEach(el => el.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    reveals.forEach(el => io.observe(el));
+  }
+</script>
+
+</body>
+</html>
