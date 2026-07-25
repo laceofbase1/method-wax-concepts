@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Method | Brand Directions</title>
-<meta name="description" content="Four brand directions for Method, a waxing academy and studio in Southwest Florida." />
+<meta name="description" content="Six brand directions for Method, a waxing academy and studio in Southwest Florida." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,500&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
@@ -303,6 +303,86 @@
   [data-dir="arch"] .voice { border: 1px solid oklch(0.82 0.13 115 / 0.5); }
   [data-dir="arch"] .voice__line { font-family: "Hanken Grotesk"; font-weight: 700; }
 
+  /* 04 The Arch, Warmed */
+  [data-dir="arch-warm"] {
+    --bg: oklch(0.89 0.022 82);      /* Greige Cream  #E7DDCB */
+    --ink: oklch(0.26 0.008 70);     /* Warm Ink      #2A2620 */
+    --muted: oklch(0.50 0.022 66);
+    --deep: oklch(0.34 0.045 160);   /* Deep Emerald  #1E3A2E */
+    --on-deep: oklch(0.90 0.02 92);  /* greige on emerald */
+    --accent: oklch(0.62 0.085 55);  /* Copper        #B0774B */
+    --line: oklch(0.80 0.025 72);
+  }
+  [data-dir="arch-warm"] .wordmark__name {
+    font-family: "Hanken Grotesk", sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    font-size: clamp(1.7rem, 4.4vw, 2.7rem);
+  }
+  [data-dir="arch-warm"] .wordmark__desc { font-weight: 500; letter-spacing: 0.28em; }
+  [data-dir="arch-warm"] .type-display { font-family: "Hanken Grotesk", sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: clamp(2rem, 5.4vw, 3.4rem); }
+  [data-dir="arch-warm"] .voice__line { font-family: "Hanken Grotesk"; font-weight: 700; }
+
+  /* 05 Seal */
+  [data-dir="seal"] {
+    --bg: oklch(0.94 0.012 85);      /* Cream         #F2EDE3 */
+    --ink: oklch(0.27 0.01 66);      /* Warm Ink      #2A2620 */
+    --muted: oklch(0.50 0.02 62);
+    --deep: oklch(0.33 0.045 162);   /* Deep Emerald  #1D392F */
+    --on-deep: oklch(0.93 0.014 88);
+    --accent: oklch(0.58 0.08 55);   /* Copper        #A56B41 */
+    --line: oklch(0.85 0.02 78);
+  }
+  [data-dir="seal"] .wordmark__name {
+    font-family: "Marcellus", serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 0.34em;
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    padding-left: 0.34em;
+  }
+  [data-dir="seal"] .type-display { font-family: "Marcellus", serif; font-weight: 400; font-size: clamp(1.9rem, 5vw, 3.1rem); }
+  [data-dir="seal"] .seal-svg { display: block; }
+  [data-dir="seal"] .seal-arc {
+    font-family: "Marcellus", serif;
+    font-size: 13.5px;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+  }
+  [data-dir="seal"] .seal-M { font-family: "Marcellus", serif; font-size: 46px; fill: var(--seal-center, currentColor); }
+  [data-dir="seal"] .seal-est { font-family: "Marcellus", serif; font-size: 8px; letter-spacing: 2.4px; }
+  [data-dir="seal"] .avatar { background: color-mix(in oklch, var(--bg) 80%, white); }
+
+  /* 06 Editorial */
+  [data-dir="editorial"] {
+    --bg: oklch(0.95 0.01 88);       /* Cream         #F4EFE6 */
+    --ink: oklch(0.25 0.008 70);     /* Warm Ink      #23201C */
+    --muted: oklch(0.50 0.018 66);
+    --deep: oklch(0.32 0.04 158);    /* Deep Emerald  #1E3A2E */
+    --on-deep: oklch(0.94 0.012 88);
+    --accent: oklch(0.62 0.085 55);  /* Copper        #B0774B */
+    --line: oklch(0.86 0.02 82);
+  }
+  [data-dir="editorial"] .wordmark__name {
+    font-family: "Bodoni Moda", serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    font-size: clamp(2.4rem, 8vw, 4rem);
+  }
+  [data-dir="editorial"] .ed-dot { color: var(--accent); }
+  [data-dir="editorial"] .ed-desc { display: flex; align-items: center; gap: 14px; width: 100%; margin-top: 4px; }
+  [data-dir="editorial"] .ed-rule { flex: 1; height: 1px; background: currentColor; opacity: 0.32; }
+  [data-dir="editorial"] .ed-desc .wordmark__desc { white-space: nowrap; opacity: 0.78; }
+  [data-dir="editorial"] .ed-avatar { font-family: "Bodoni Moda", serif; font-weight: 500; font-size: 34px; line-height: 1; }
+  [data-dir="editorial"] .type-display { font-family: "Bodoni Moda", serif; font-weight: 500; font-size: clamp(2rem, 5.4vw, 3.4rem); }
+  [data-dir="editorial"] .type-body { font-family: "Hanken Grotesk", sans-serif; }
+  [data-dir="editorial"] .voice__line { font-family: "Bodoni Moda", serif; font-weight: 500; }
+
+  /* Shared: per-direction one-line description near the name */
+  .block__oneliner { margin-top: 9px; font-style: italic; font-size: 0.9rem; line-height: 1.4; color: var(--muted); max-width: 46ch; }
+
   /* ---------- Responsive ---------- */
   @media (max-width: 820px) {
     .showcase { grid-template-columns: 1fr; }
@@ -322,8 +402,8 @@
 <header class="masthead wrap">
   <p class="masthead__brand reveal" data-d="1">Method</p>
   <p class="eyebrow reveal" data-d="1">Brand Directions</p>
-  <h1 class="reveal" data-d="2">Three ways Method could look.</h1>
-  <p class="reveal" data-d="3">These are starting points to react to, not finished logos. Mix and match freely: pull the type from one, the color from another, the mark from a third. One direction leans refined and elegant, and two sit in the warm modern middle.</p>
+  <h1 class="reveal" data-d="2">Six ways Method could look.</h1>
+  <p class="reveal" data-d="3">These are starting points to react to, not finished logos. Mix and match freely: pull the type from one, the color from another, the mark from a third. Two lean refined and elegant, two are architectural (one fresh, one warmed to the studio palette), one reads like an academy seal, and one lets the type stand alone.</p>
   <p class="note reveal" data-d="4">Logos shown are concept drafts, delivered as final vector files once a direction is chosen.</p>
   <hr class="rule" />
 </header>
@@ -624,13 +704,307 @@
     </div>
   </section>
 
+  <!-- ============ 04 THE ARCH, WARMED ============ -->
+  <section class="block" data-dir="arch-warm" aria-labelledby="d4-title">
+    <div class="wrap">
+      <div class="block__head reveal">
+        <div class="block__num">04</div>
+        <div class="block__title">
+          <h2 id="d4-title">The Arch, Warmed</h2>
+          <div class="block__feel">Architectural &middot; Warm &middot; Elevated</div>
+          <p class="block__oneliner">The architectural mark, warmed for the studio.</p>
+        </div>
+      </div>
+
+      <div class="showcase reveal">
+        <div class="panel panel--light">
+          <span class="panel__label">Primary lockup</span>
+          <div class="lockup">
+            <div class="lockup__mark" style="color: var(--deep)">
+              <!-- Same arch-portal M as 03, recolored: arch = emerald (currentColor), M + base = copper -->
+              <svg class="mark mark-lg" viewBox="0 0 128 146" role="img" aria-label="Method monogram: bold M beneath an architectural arch, warm palette">
+                <path d="M28 134 L28 64 A36 36 0 0 1 100 64 L100 134" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="butt" stroke-linejoin="round"/>
+                <line x1="28" y1="134" x2="100" y2="134" stroke="var(--accent)" stroke-width="6" stroke-linecap="round"/>
+                <text x="64" y="120" text-anchor="middle" font-family="'Hanken Grotesk', sans-serif" font-weight="800" font-size="54" fill="var(--accent)">M</text>
+              </svg>
+            </div>
+            <div class="wordmark" style="color: var(--ink)">
+              <p class="wordmark__name">Method</p>
+              <span class="wordmark__desc">Wax Studio &amp; Professional Training</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dark-col">
+          <div class="panel panel--dark">
+            <span class="panel__label">Reversed</span>
+            <div class="lockup">
+              <div class="lockup__mark" style="color: var(--on-deep)">
+                <svg class="mark mark-md" viewBox="0 0 128 146" role="img" aria-label="Method monogram reversed">
+                  <path d="M28 134 L28 64 A36 36 0 0 1 100 64 L100 134" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="butt" stroke-linejoin="round"/>
+                  <line x1="28" y1="134" x2="100" y2="134" stroke="var(--accent)" stroke-width="6" stroke-linecap="round"/>
+                  <text x="64" y="120" text-anchor="middle" font-family="'Hanken Grotesk', sans-serif" font-weight="800" font-size="54" fill="var(--accent)">M</text>
+                </svg>
+              </div>
+              <div class="wordmark" style="color: var(--on-deep)">
+                <p class="wordmark__name">Method</p>
+                <span class="wordmark__desc">Wax Studio &amp; Professional Training</span>
+              </div>
+            </div>
+          </div>
+          <div class="avatar-panel">
+            <div class="avatar" style="color: var(--on-deep)">
+              <svg viewBox="0 0 128 146" role="img" aria-label="Method avatar mark">
+                <path d="M30 122 L30 66 A34 34 0 0 1 98 66 L98 122" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="butt" stroke-linejoin="round"/>
+                <text x="64" y="120" text-anchor="middle" font-family="'Hanken Grotesk', sans-serif" font-weight="800" font-size="50" fill="currentColor">M</text>
+              </svg>
+            </div>
+            <div class="avatar-panel__meta">
+              <strong>Tiny + circular</strong>
+              <span>Profile photo, favicon, stamp</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <p class="section-label">Palette</p>
+        <div class="palette">
+          <div class="swatch"><div class="swatch__chip" style="background: oklch(0.89 0.022 82)"></div><span class="swatch__name">Greige Cream</span><span class="swatch__hex">#E7DDCB</span></div>
+          <div class="swatch"><div class="swatch__chip" style="background: oklch(0.34 0.045 160)"></div><span class="swatch__name">Deep Emerald</span><span class="swatch__hex">#1E3A2E</span></div>
+          <div class="swatch"><div class="swatch__chip" style="background: oklch(0.62 0.085 55)"></div><span class="swatch__name">Copper</span><span class="swatch__hex">#B0774B</span></div>
+          <div class="swatch"><div class="swatch__chip" style="background: oklch(0.73 0.04 45)"></div><span class="swatch__name">Soft Clay</span><span class="swatch__hex">#C2A392</span></div>
+          <div class="swatch"><div class="swatch__chip" style="background: oklch(0.27 0.008 70)"></div><span class="swatch__name">Warm Ink</span><span class="swatch__hex">#2A2620</span></div>
+        </div>
+      </div>
+
+      <div class="lower reveal">
+        <div>
+          <p class="section-label">Typography</p>
+          <p class="type-display">The same structure, warmed.</p>
+          <p class="type-body">The architectural mark in the warm, elevated palette of the physical studio: greige, emerald, copper, and clay.</p>
+          <div class="type-tag">
+            <span>Display: <b>Hanken Grotesk</b></span>
+            <span>Body: <b>Hanken Grotesk</b></span>
+          </div>
+        </div>
+        <div class="voice">
+          <span class="voice__label">Voice</span>
+          <p class="voice__line">Step into the studio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 SEAL ============ -->
+  <section class="block" data-dir="seal" aria-labelledby="d5-title">
+    <div class="wrap">
+      <div class="block__head reveal">
+        <div class="block__num">05</div>
+        <div class="block__title">
+          <h2 id="d5-title">Seal</h2>
+          <div class="block__feel">Credentialed &middot; Timeless &middot; Academy</div>
+          <p class="block__oneliner">A mark that reads like a credential.</p>
+        </div>
+      </div>
+
+      <div class="showcase reveal">
+        <div class="panel panel--light">
+          <span class="panel__label">Primary lockup</span>
+          <div class="lockup">
+            <div class="lockup__mark" style="color: var(--accent); --seal-center: var(--deep)">
+              <!-- Academy seal: two rings, curved top + bottom text, serif M center -->
+              <svg class="seal-svg mark-lg" viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Method academy seal: Wax Studio, Southwest Florida, established 2026">
+                <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="2"/>
+                <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+                <defs>
+                  <path id="sealTop1" d="M 20 100 A 80 80 0 0 1 180 100" fill="none"/>
+                  <path id="sealBot1" d="M 12 100 A 88 88 0 0 0 188 100" fill="none"/>
+                </defs>
+                <text class="seal-arc" fill="currentColor"><textPath href="#sealTop1" xlink:href="#sealTop1" startOffset="50%" text-anchor="middle">METHOD &#183; WAX STUDIO</textPath></text>
+                <text class="seal-arc" fill="currentColor"><textPath href="#sealBot1" xlink:href="#sealBot1" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
+                <g fill="currentColor">
+                  <path d="M20 95 L25 100 L20 105 L15 100 Z"/>
+                  <path d="M180 95 L185 100 L180 105 L175 100 Z"/>
+                </g>
+                <text class="seal-M" x="100" y="112" text-anchor="middle" fill="currentColor">M</text>
+                <text class="seal-est" x="100" y="134" text-anchor="middle" fill="currentColor">EST &#183; 2026</text>
+              </svg>
+            </div>
+            <div class="wordmark" style="color: var(--ink)">
+              <p class="wordmark__name">Method</p>
+              <span class="wordmark__desc">Wax Studio &amp; Professional Training</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dark-col">
+          <div class="panel panel--dark">
+            <span class="panel__label">Reversed</span>
+            <div class="lockup">
+              <div class="lockup__mark" style="color: var(--on-deep); --seal-center: var(--accent)">
+                <svg class="seal-svg mark-md" viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Method academy seal reversed">
+                  <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+                  <defs>
+                    <path id="sealTop2" d="M 20 100 A 80 80 0 0 1 180 100" fill="none"/>
+                    <path id="sealBot2" d="M 12 100 A 88 88 0 0 0 188 100" fill="none"/>
+                  </defs>
+                  <text class="seal-arc" fill="currentColor"><textPath href="#sealTop2" xlink:href="#sealTop2" startOffset="50%" text-anchor="middle">METHOD &#183; WAX STUDIO</textPath></text>
+                  <text class="seal-arc" fill="currentColor"><textPath href="#sealBot2" xlink:href="#sealBot2" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
+                  <g fill="currentColor">
+                    <path d="M20 95 L25 100 L20 105 L15 100 Z"/>
+                    <path d="M180 95 L185 100 L180 105 L175 100 Z"/>
+                  </g>
+                  <text class="seal-M" x="100" y="112" text-anchor="middle" fill="currentColor">M</text>
+                  <text class="seal-est" x="100" y="134" text-anchor="middle" fill="currentColor">EST &#183; 2026</text>
+                </svg>
+              </div>
+              <div class="wordmark" style="color: var(--on-deep)">
+                <p class="wordmark__name">Method</p>
+                <span class="wordmark__desc">Wax Studio &amp; Professional Training</span>
+              </div>
+            </div>
+          </div>
+          <div class="avatar-panel">
+            <div class="avatar" style="color: var(--accent); --seal-center: var(--deep)">
+              <svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Method seal avatar">
+                <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="3"/>
+                <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+                <defs>
+                  <path id="sealTop3" d="M 20 100 A 80 80 0 0 1 180 100" fill="none"/>
+                  <path id="sealBot3" d="M 12 100 A 88 88 0 0 0 188 100" fill="none"/>
+                </defs>
+                <text class="seal-arc" fill="currentColor"><textPath href="#sealTop3" xlink:href="#sealTop3" startOffset="50%" text-anchor="middle">METHOD &#183; WAX STUDIO</textPath></text>
+                <text class="seal-arc" fill="currentColor"><textPath href="#sealBot3" xlink:href="#sealBot3" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
+                <text class="seal-M" x="100" y="112" text-anchor="middle" fill="currentColor">M</text>
+              </svg>
+            </div>
+            <div class="avatar-panel__meta">
+              <strong>Seal, scaled down</strong>
+              <span>Certificate, badge, studio door</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <p class="section-label">Palette</p>
+        <div class="palette">
+          <div class="swatch"><div class="swatch__chip" style="background: oklch(0.94 0.012 85)"></div><span class="swatch__name">Cream</span><span class="swatch__hex">#F2EDE3</span></div>
+          <div class="swatch"><div class="swatch__chip" style="background: oklch(0.33 0.045 162)"></div><span class="swatch__name">Deep Emerald</span><span class="swatch__hex">#1D392F</span></div>
+          <div class="swatch"><div class="swatch__chip" style="background: oklch(0.58 0.08 55)"></div><span class="swatch__name">Copper</span><span class="swatch__hex">#A56B41</span></div>
+          <div class="swatch"><div class="swatch__chip" style="background: oklch(0.76 0.045 55)"></div><span class="swatch__name">Soft Clay</span><span class="swatch__hex">#CBA891</span></div>
+          <div class="swatch"><div class="swatch__chip" style="background: oklch(0.27 0.008 70)"></div><span class="swatch__name">Warm Ink</span><span class="swatch__hex">#2A2620</span></div>
+        </div>
+      </div>
+
+      <div class="lower reveal">
+        <div>
+          <p class="section-label">Typography</p>
+          <p class="type-display">A credential you can see.</p>
+          <p class="type-body">A seal for a real credential: CE accredited, Southwest Florida born. It stamps certificates, badges, and the studio door.</p>
+          <div class="type-tag">
+            <span>Display: <b>Marcellus</b></span>
+            <span>Body: <b>Jost</b></span>
+          </div>
+        </div>
+        <div class="voice">
+          <span class="voice__label">Voice</span>
+          <p class="voice__line" style="font-family: 'Marcellus', serif;">Certified in the method.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 EDITORIAL ============ -->
+  <section class="block" data-dir="editorial" aria-labelledby="d6-title">
+    <div class="wrap">
+      <div class="block__head reveal">
+        <div class="block__num">06</div>
+        <div class="block__title">
+          <h2 id="d6-title">Editorial</h2>
+          <div class="block__feel">Type-led &middot; Modern &middot; Confident</div>
+          <p class="block__oneliner">When the name is enough.</p>
+        </div>
+      </div>
+
+      <div class="showcase reveal">
+        <div class="panel panel--light">
+          <span class="panel__label">Primary lockup</span>
+          <div class="lockup">
+            <div class="wordmark" style="color: var(--ink)">
+              <p class="wordmark__name">Method<span class="ed-dot">.</span></p>
+              <div class="ed-desc">
+                <span class="ed-rule"></span>
+                <span class="wordmark__desc">Wax Studio &amp; Professional Training</span>
+                <span class="ed-rule"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dark-col">
+          <div class="panel panel--dark">
+            <span class="panel__label">Reversed &middot; stacked</span>
+            <div class="lockup">
+              <div class="wordmark" style="color: var(--on-deep)">
+                <p class="wordmark__name">Method<span class="ed-dot">.</span></p>
+                <div class="ed-desc">
+                  <span class="ed-rule"></span>
+                  <span class="wordmark__desc">Wax Studio &amp; Professional Training</span>
+                  <span class="ed-rule"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="avatar-panel">
+            <div class="avatar" style="color: var(--on-deep)">
+              <span class="ed-avatar">M<span class="ed-dot">.</span></span>
+            </div>
+            <div class="avatar-panel__meta">
+              <strong>Tiny + circular</strong>
+              <span>Profile photo, favicon, stamp</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <p class="section-label">Palette</p>
+        <div class="palette">
+          <div class="swatch"><div class="swatch__chip" style="background: oklch(0.95 0.01 88)"></div><span class="swatch__name">Cream</span><span class="swatch__hex">#F4EFE6</span></div>
+          <div class="swatch"><div class="swatch__chip" style="background: oklch(0.25 0.008 70)"></div><span class="swatch__name">Warm Ink</span><span class="swatch__hex">#23201C</span></div>
+          <div class="swatch"><div class="swatch__chip" style="background: oklch(0.32 0.04 158)"></div><span class="swatch__name">Deep Emerald</span><span class="swatch__hex">#1E3A2E</span></div>
+          <div class="swatch"><div class="swatch__chip" style="background: oklch(0.62 0.085 55)"></div><span class="swatch__name">Copper</span><span class="swatch__hex">#B0774B</span></div>
+        </div>
+      </div>
+
+      <div class="lower reveal">
+        <div>
+          <p class="section-label">Typography</p>
+          <p class="type-display">The name does the work.</p>
+          <p class="type-body">No icon needed. A confident wordmark that looks as at home on a certificate as on a studio window.</p>
+          <div class="type-tag">
+            <span>Display: <b>Bodoni Moda</b></span>
+            <span>Body: <b>Hanken Grotesk</b></span>
+          </div>
+        </div>
+        <div class="voice">
+          <span class="voice__label">Voice</span>
+          <p class="voice__line">The standard, set.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <!-- ============ FOOTER ============ -->
 <footer class="colophon">
   <div class="wrap">
     <p class="colophon__brand">Method</p>
-    <p>Four brand directions for Method. Tell me which feels most like you (or which pieces to combine) and I'll build it out.</p>
+    <p>Six brand directions for Method. Tell me which feels most like you (or which pieces to combine) and I'll build it out.</p>
     <small>Concept drafts for review. Final logos delivered as vector files once a direction is chosen.</small>
   </div>
 </footer>
