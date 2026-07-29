@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>METHOD | Waxing Academy &amp; Studio, Southwest Florida</title>
+<meta name="description" content="METHOD is Southwest Florida's first online-to-studio waxing academy. We teach the technical foundations first, online and unhurried, then refine your hands in the studio. Intentional care. Elevated education. Exceptional results." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ============================================================
+     TOKENS  (from METHOD brand-system.html, reused verbatim)
+     Warm-neutral palette. OKLCH authored; print hex noted inline.
+     ============================================================ */
+  :root {
+    --cream:    oklch(0.94 0.012 85);   /* #F2EDE3  surface           */
+    --greige:   oklch(0.89 0.022 82);   /* #E7DDCB  secondary surface  */
+    --emerald:  oklch(0.33 0.045 162);  /* #1D392F  primary / depth    */
+    --emerald-deep: oklch(0.29 0.045 162);
+    --copper:   oklch(0.58 0.08 55);    /* #A56B41  accent             */
+    --copper-ink: oklch(0.52 0.085 52);
+    --clay:     oklch(0.76 0.045 55);   /* #CBA891  soft accent        */
+    --ink:      oklch(0.27 0.008 70);   /* #2A2620  text                */
+
+    --muted:    oklch(0.50 0.02 62);
+    --line:     oklch(0.84 0.02 78);
+    --line-soft:oklch(0.87 0.018 80);
+    --on-emerald: oklch(0.93 0.016 88);
+    --card:     color-mix(in oklch, var(--cream) 62%, white);
+
+    --maxw: 1180px;
+    --pad: clamp(20px, 5vw, 64px);
+    --radius: 16px;
+    --radius-lg: 22px;
+    --nav-h: 74px;
+
+    --ease: cubic-bezier(.22, 1, .36, 1);
+    --shadow-soft: 0 20px 46px -32px oklch(0.27 0.008 70 / 0.55);
+    --shadow-card: 0 14px 34px -26px oklch(0.27 0.008 70 / 0.5);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 12px); }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: "Jost", system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  svg { display: block; }
+  img { max-width: 100%; height: auto; }
+  ::selection { background: oklch(0.58 0.08 55 / 0.22); }
+
+  .wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--pad); }
+
+  /* ---------- Shared type primitives ---------- */
+  .eyebrow {
+    font-family: "Jost", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--copper);
+    margin: 0;
+    padding-left: 0.32em;
+  }
+  .display {
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    letter-spacing: -0.004em;
+    color: var(--ink);
+    line-height: 1.08;
+    margin: 0;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.6em;
+    font-family: "Jost", sans-serif; font-weight: 500;
+    font-size: 0.9rem; letter-spacing: 0.06em;
+    padding: 0.86em 1.6em;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .35s var(--ease), color .35s var(--ease),
+                border-color .35s var(--ease), transform .35s var(--ease),
+                box-shadow .35s var(--ease);
+    will-change: transform;
+  }
+  .btn:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in oklch, var(--copper) 42%, transparent); }
+  .btn--primary { background: var(--emerald); color: var(--on-emerald); }
+  .btn--primary:hover { background: var(--emerald-deep); transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+  .btn--copper { background: var(--copper); color: oklch(0.97 0.01 88); }
+  .btn--copper:hover { background: var(--copper-ink); transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+  .btn--ghost { background: transparent; color: var(--emerald); border-color: color-mix(in oklch, var(--emerald) 34%, transparent); }
+  .btn--ghost:hover { background: color-mix(in oklch, var(--emerald) 8%, transparent); border-color: var(--emerald); transform: translateY(-2px); }
+  .btn--onEmerald { background: var(--clay); color: var(--emerald-deep); }
+  .btn--onEmerald:hover { background: oklch(0.82 0.04 58); transform: translateY(-2px); box-shadow: 0 18px 40px -28px oklch(0 0 0 / 0.6); }
+  .btn--outlineLight { background: transparent; color: var(--on-emerald); border-color: color-mix(in oklch, var(--on-emerald) 40%, transparent); }
+  .btn--outlineLight:hover { background: color-mix(in oklch, var(--on-emerald) 12%, transparent); border-color: var(--on-emerald); transform: translateY(-2px); }
+  .btn .arrow { transition: transform .35s var(--ease); }
+  .btn:hover .arrow { transform: translateX(4px); }
+
+  .textlink {
+    display: inline-flex; align-items: center; gap: 0.5em;
+    font-weight: 500; letter-spacing: 0.04em; text-decoration: none;
+    color: var(--copper);
+    border-bottom: 1px solid color-mix(in oklch, var(--copper) 45%, transparent);
+    padding-bottom: 2px;
+    transition: color .3s var(--ease), border-color .3s var(--ease), gap .3s var(--ease);
+  }
+  .textlink:hover, .textlink:focus-visible { color: var(--copper-ink); border-color: var(--copper); gap: 0.75em; outline: none; }
+  .textlink .arrow { transition: transform .3s var(--ease); }
+  .textlink:hover .arrow { transform: translateX(3px); }
+
+  /* ---------- Reveal (JS-gated, reduced-motion + window-load fallback) ---------- */
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .8s var(--ease), transform .8s var(--ease);
+    will-change: opacity, transform;
+  }
+  .js .reveal.in { opacity: 1; transform: none; }
+  .reveal[data-d="1"] { transition-delay: .05s; }
+  .reveal[data-d="2"] { transition-delay: .12s; }
+  .reveal[data-d="3"] { transition-delay: .19s; }
+  .reveal[data-d="4"] { transition-delay: .26s; }
+  .reveal[data-d="5"] { transition-delay: .33s; }
+  @media (prefers-reduced-motion: reduce) {
+    .js .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+    html { scroll-behavior: auto; }
+    .btn, .textlink, .arrow { transition: none !important; }
+  }
+
+  /* ============================================================
+     WORDMARK (always LIVE Marcellus text)
+     ============================================================ */
+  .wm { display: inline-flex; flex-direction: column; align-items: center; gap: 0.5em; text-align: center; }
+  .wm__name {
+    font-family: "Marcellus", serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    padding-left: 0.4em;
+    line-height: 1;
+    margin: 0;
+  }
+  .wm__desc {
+    font-family: "Jost", sans-serif;
+    text-transform: uppercase;
+    font-size: 0.56em;
+    font-weight: 400;
+    letter-spacing: 0.34em;
+    padding-left: 0.34em;
+    opacity: 0.74;
+    line-height: 1.4;
+  }
+
+  /* ============================================================
+     STICKY NAV
+     ============================================================ */
+  .nav {
+    position: sticky; top: 0; z-index: 60;
+    height: var(--nav-h);
+    background: color-mix(in oklch, var(--cream) 82%, transparent);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  .nav.scrolled { border-bottom-color: var(--line-soft); box-shadow: 0 10px 30px -28px oklch(0.27 0.008 70 / 0.6); }
+  .nav__in {
+    height: 100%;
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 12px;
+    text-decoration: none; color: var(--emerald);
+    transition: opacity .3s var(--ease);
+  }
+  .brand:hover { opacity: 0.82; }
+  .brand:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in oklch, var(--copper) 40%, transparent); border-radius: 8px; }
+  .brand .brandmark { height: 40px; width: auto; color: var(--emerald); }
+  .brand .brandmark .drop { fill: var(--copper); }
+  .brand__wm { display: flex; flex-direction: column; line-height: 1; }
+  .brand__name {
+    font-family: "Marcellus", serif; text-transform: uppercase;
+    font-size: 1.18rem; letter-spacing: 0.32em; padding-left: 0.32em;
+    color: var(--emerald); margin: 0;
+  }
+  .brand__desc {
+    font-family: "Jost", sans-serif; text-transform: uppercase;
+    font-size: 0.5rem; letter-spacing: 0.26em; padding-left: 0.26em;
+    color: var(--muted); margin-top: 4px;
+  }
+  .nav__links { display: flex; align-items: center; gap: clamp(14px, 2vw, 30px); }
+  .nav__links a {
+    font-size: 0.86rem; letter-spacing: 0.04em; color: var(--ink);
+    text-decoration: none; position: relative; padding: 6px 2px;
+    transition: color .3s var(--ease);
+  }
+  .nav__links a::after {
+    content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 1px;
+    background: var(--copper); transition: right .35s var(--ease);
+  }
+  .nav__links a:hover, .nav__links a:focus-visible { color: var(--emerald); outline: none; }
+  .nav__links a:hover::after, .nav__links a:focus-visible::after { right: 0; }
+  .nav__actions { display: flex; align-items: center; gap: 12px; }
+  .nav__login {
+    font-size: 0.86rem; letter-spacing: 0.04em; color: var(--ink);
+    text-decoration: none; padding: 6px 4px; transition: color .3s var(--ease);
+  }
+  .nav__login:hover, .nav__login:focus-visible { color: var(--emerald); outline: none; }
+  .nav__actions .btn { padding: 0.62em 1.3em; font-size: 0.84rem; }
+
+  .nav__toggle {
+    display: none;
+    width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 12px;
+    background: var(--card); cursor: pointer; padding: 0;
+    align-items: center; justify-content: center;
+    transition: border-color .3s var(--ease), background .3s var(--ease);
+  }
+  .nav__toggle:hover { border-color: var(--copper); }
+  .nav__toggle:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in oklch, var(--copper) 40%, transparent); }
+  .nav__toggle span, .nav__toggle span::before, .nav__toggle span::after {
+    content: ""; display: block; width: 20px; height: 1.6px; background: var(--emerald);
+    transition: transform .35s var(--ease), opacity .25s var(--ease);
+  }
+  .nav__toggle span { position: relative; }
+  .nav__toggle span::before { position: absolute; top: -6px; }
+  .nav__toggle span::after { position: absolute; top: 6px; }
+  .nav.open .nav__toggle span { background: transparent; }
+  .nav.open .nav__toggle span::before { transform: translateY(6px) rotate(45deg); }
+  .nav.open .nav__toggle span::after { transform: translateY(-6px) rotate(-45deg); }
+
+  /* mobile drawer */
+  .nav__drawer {
+    position: fixed; inset: var(--nav-h) 0 auto 0; z-index: 55;
+    background: var(--cream); border-bottom: 1px solid var(--line);
+    padding: 14px var(--pad) 26px;
+    display: none; flex-direction: column; gap: 4px;
+    box-shadow: var(--shadow-soft);
+  }
+  .nav__drawer.show { display: flex; }
+  .nav__drawer a {
+    font-size: 1rem; letter-spacing: 0.03em; color: var(--ink); text-decoration: none;
+    padding: 13px 4px; border-bottom: 1px solid var(--line-soft);
+    transition: color .3s var(--ease), padding-left .3s var(--ease);
+  }
+  .nav__drawer a:hover, .nav__drawer a:focus-visible { color: var(--emerald); padding-left: 8px; outline: none; }
+  .nav__drawer .drawer-actions { display: flex; gap: 12px; margin-top: 16px; }
+  .nav__drawer .drawer-actions .btn { flex: 1; }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(130% 90% at 82% -10%, color-mix(in oklch, var(--greige) 70%, var(--cream)) 0%, var(--cream) 55%);
+    padding-block: clamp(48px, 8vw, 104px) clamp(56px, 9vw, 112px);
+  }
+  .hero__arch {
+    position: absolute; top: -8%; right: -6%; width: min(46vw, 520px); aspect-ratio: 1 / 1.28;
+    border-radius: 999px 999px 0 0;
+    border: 1px solid color-mix(in oklch, var(--copper) 34%, transparent);
+    opacity: 0.5; pointer-events: none;
+  }
+  .hero__arch::before {
+    content: ""; position: absolute; inset: 26px;
+    border-radius: 999px 999px 0 0;
+    border: 1px solid color-mix(in oklch, var(--clay) 55%, transparent);
+  }
+  .hero__grid {
+    position: relative;
+    display: grid; grid-template-columns: 1.08fr 0.92fr;
+    gap: clamp(36px, 5vw, 68px); align-items: center;
+  }
+  .hero__kicker {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.24em; font-weight: 500;
+    color: var(--copper); margin: 0 0 26px;
+  }
+  .hero__kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--copper); flex: none; }
+  .hero h1 {
+    font-family: "Marcellus", serif; font-weight: 400;
+    font-size: clamp(2.5rem, 6.4vw, 4.5rem);
+    line-height: 1.04; letter-spacing: -0.01em;
+    color: var(--emerald); margin: 0 0 26px;
+  }
+  .hero h1 .soft { color: var(--ink); }
+  .hero__sub {
+    font-size: clamp(1.02rem, 1.5vw, 1.16rem); line-height: 1.72;
+    color: color-mix(in oklch, var(--ink) 88%, transparent);
+    max-width: 52ch; margin: 0 0 20px;
+  }
+  .hero__signature {
+    font-family: "Marcellus", serif; font-size: clamp(1.05rem, 2vw, 1.28rem);
+    color: var(--emerald); line-height: 1.4; max-width: 42ch; margin: 0 0 34px;
+  }
+  .hero__signature em { font-style: italic; color: var(--copper); }
+
+  /* two paths in hero */
+  .hero__paths { display: flex; flex-wrap: wrap; gap: 14px; align-items: stretch; }
+  .path-chip {
+    display: flex; flex-direction: column; gap: 10px;
+    flex: 1 1 220px; min-width: 200px;
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 20px 22px;
+    text-decoration: none; color: var(--ink);
+    transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
+  }
+  .path-chip:hover, .path-chip:focus-visible { transform: translateY(-3px); box-shadow: var(--shadow-card); border-color: color-mix(in oklch, var(--copper) 40%, var(--line)); outline: none; }
+  .path-chip__top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .path-chip__label { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--copper); font-weight: 500; }
+  .path-chip__name { font-family: "Marcellus", serif; font-size: 1.35rem; color: var(--emerald); line-height: 1.1; }
+  .path-chip__go { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--copper); font-weight: 500; margin-top: 2px; transition: gap .3s var(--ease); }
+  .path-chip:hover .path-chip__go { gap: 0.7em; }
+  .path-chip .tag-soon {
+    font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 500;
+    color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px;
+  }
+  .path-chip--primary { background: color-mix(in oklch, var(--greige) 30%, var(--card)); border-color: color-mix(in oklch, var(--copper) 26%, var(--line)); }
+
+  /* hero image, arch-framed, degrades to brand tone */
+  .hero__figure { position: relative; }
+  .hero__photo {
+    aspect-ratio: 3 / 4;
+    background-color: var(--emerald);
+    background-image:
+      linear-gradient(180deg, oklch(0.33 0.045 162 / 0.10) 0%, oklch(0.29 0.045 162 / 0.44) 100%),
+      url("https://images.unsplash.com/photo-1758632031161-b6d7e913c2b9?auto=format&fit=crop&w=1600&q=80");
+    background-size: cover; background-position: center 34%;
+    border-radius: clamp(150px, 30vw, 240px) clamp(150px, 30vw, 240px) var(--radius-lg) var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid color-mix(in oklch, var(--copper) 22%, transparent);
+  }
+  .hero__badge {
+    position: absolute; left: -6%; bottom: 8%;
+    background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 16px 20px; box-shadow: var(--shadow-card);
+    display: flex; align-items: center; gap: 14px; max-width: 260px;
+  }
+  .hero__badge .seal { color: var(--copper); --seal-center: var(--emerald); flex: none; }
+  .hero__badge .seal svg { height: 52px; width: auto; }
+  .hero__badge p { margin: 0; font-size: 0.8rem; line-height: 1.45; color: var(--ink); }
+  .hero__badge p b { font-family: "Marcellus", serif; font-weight: 400; display: block; color: var(--emerald); font-size: 0.95rem; }
+
+  /* ============================================================
+     SECTION SCAFFOLD
+     ============================================================ */
+  .section { padding-block: clamp(58px, 9vw, 122px); }
+  .section--line { border-top: 1px solid var(--line-soft); }
+  .section__head { max-width: 62ch; margin-bottom: clamp(38px, 5vw, 64px); }
+  .section__head.center { margin-inline: auto; text-align: center; }
+  .section__head h2 {
+    font-family: "Marcellus", serif; font-weight: 400;
+    font-size: clamp(1.9rem, 4.6vw, 3rem); letter-spacing: 0.005em;
+    line-height: 1.1; margin: 14px 0 0; color: var(--ink);
+  }
+  .section__head p { margin: 16px 0 0; color: var(--muted); font-size: 1.02rem; line-height: 1.7; }
+  .section__num {
+    font-family: "Marcellus", serif; font-size: 0.82rem; letter-spacing: 0.3em; color: var(--copper);
+  }
+
+  /* ============================================================
+     THE TWO PATHS (explicit panels)
+     ============================================================ */
+  .paths { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(18px, 2.6vw, 30px); }
+  .panel {
+    position: relative; overflow: hidden;
+    border-radius: var(--radius-lg);
+    display: flex; flex-direction: column;
+    min-height: 460px;
+    transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+  }
+  .panel:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+  .panel__media {
+    position: relative; flex: 1;
+    background-size: cover; background-position: center;
+    min-height: 210px;
+  }
+  .panel__media::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, oklch(0.33 0.045 162 / 0.28) 0%, oklch(0.29 0.045 162 / 0.72) 100%);
+  }
+  .panel--academy .panel__media {
+    background-color: var(--emerald);
+    background-image: url("https://images.unsplash.com/photo-1759214630580-7b2e97e2c29b?auto=format&fit=crop&w=1600&q=80");
+  }
+  .panel--studio .panel__media {
+    background-color: var(--clay);
+    background-image: url("https://images.unsplash.com/photo-1587910234573-d6fc84743bc8?auto=format&fit=crop&w=1600&q=80");
+  }
+  .panel--studio .panel__media::after {
+    background: linear-gradient(180deg, oklch(0.42 0.05 55 / 0.30) 0%, oklch(0.32 0.03 50 / 0.74) 100%);
+  }
+  .panel__body {
+    background: var(--card); border: 1px solid var(--line); border-top: none;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    padding: clamp(26px, 3.4vw, 40px);
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .panel__eyebrow { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .panel__eyebrow .who { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.22em; color: var(--copper); font-weight: 500; }
+  .status-pill {
+    font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 500;
+    padding: 4px 11px; border-radius: 999px;
+  }
+  .status-pill--active { background: color-mix(in oklch, var(--emerald) 12%, var(--cream)); color: var(--emerald); }
+  .status-pill--soon { background: color-mix(in oklch, var(--copper) 14%, var(--cream)); color: var(--copper-ink); }
+  .panel__title { font-family: "Marcellus", serif; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--emerald); line-height: 1.1; margin: 0; }
+  .panel__text { margin: 0; color: var(--muted); font-size: 0.98rem; line-height: 1.65; }
+  .panel__foot { margin-top: 6px; }
+  .panel__media-mark {
+    position: absolute; z-index: 1; left: clamp(24px, 3vw, 34px); top: clamp(22px, 3vw, 30px);
+    color: var(--on-emerald);
+  }
+  .panel__media-mark .drop { fill: var(--clay); }
+  .panel__media-mark svg { height: 46px; width: auto; }
+
+  /* ============================================================
+     THE METHOD / PHILOSOPHY
+     ============================================================ */
+  .method { background: var(--emerald); color: var(--on-emerald); }
+  .method__feature {
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(30px, 4vw, 60px); align-items: center;
+    margin-bottom: clamp(40px, 5vw, 66px);
+  }
+  .method__k { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--clay); margin: 0 0 22px; }
+  .method__tag {
+    font-family: "Marcellus", serif; font-weight: 400;
+    font-size: clamp(1.7rem, 4.2vw, 2.9rem); line-height: 1.24; margin: 0;
+  }
+  .method__tag em { font-style: italic; color: var(--clay); }
+  .method__lead { margin: 0; color: color-mix(in oklch, var(--on-emerald) 82%, transparent); font-size: 1.02rem; line-height: 1.75; }
+  .method__lead + .method__lead { margin-top: 16px; }
+  .values { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 2vw, 22px); }
+  .value {
+    border: 1px solid color-mix(in oklch, var(--on-emerald) 20%, transparent);
+    border-radius: var(--radius);
+    padding: clamp(24px, 3vw, 32px);
+    background: color-mix(in oklch, var(--on-emerald) 4%, transparent);
+    transition: background .4s var(--ease), transform .4s var(--ease), border-color .4s var(--ease);
+  }
+  .value:hover { background: color-mix(in oklch, var(--on-emerald) 8%, transparent); transform: translateY(-3px); border-color: color-mix(in oklch, var(--clay) 46%, transparent); }
+  .value__mark { color: var(--clay); margin-bottom: 16px; }
+  .value__mark svg { height: 30px; width: 30px; }
+  .value h3 { font-family: "Marcellus", serif; font-weight: 400; font-size: 1.18rem; margin: 0 0 8px; color: var(--on-emerald); }
+  .value p { margin: 0; font-size: 0.88rem; line-height: 1.6; color: color-mix(in oklch, var(--on-emerald) 76%, transparent); }
+
+  /* ============================================================
+     HOW THE ACADEMY WORKS
+     ============================================================ */
+  .steps { position: relative; display: grid; gap: clamp(4px, 1vw, 8px); }
+  .step {
+    display: grid; grid-template-columns: auto 1fr auto; align-items: start; gap: clamp(20px, 3vw, 40px);
+    padding: clamp(26px, 3.4vw, 40px) 0;
+    border-top: 1px solid var(--line-soft);
+    transition: background .4s var(--ease);
+  }
+  .step:last-child { border-bottom: 1px solid var(--line-soft); }
+  .step__num {
+    font-family: "Marcellus", serif; font-size: clamp(1.6rem, 3vw, 2.3rem);
+    color: var(--copper); line-height: 1; min-width: 2ch;
+    font-variant-numeric: tabular-nums;
+  }
+  .step__body { max-width: 56ch; }
+  .step__body h3 { font-family: "Marcellus", serif; font-weight: 400; font-size: clamp(1.25rem, 2.4vw, 1.6rem); color: var(--emerald); margin: 0 0 8px; }
+  .step__body p { margin: 0; color: var(--muted); font-size: 0.98rem; line-height: 1.66; }
+  .step__mark { color: var(--clay); align-self: center; }
+  .step__mark svg { height: 40px; width: auto; }
+  .step:hover .step__mark { color: var(--copper); }
+
+  /* ============================================================
+     COURSES
+     ============================================================ */
+  .course-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: clamp(34px, 4vw, 54px); }
+  .courses { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(18px, 2.4vw, 26px); }
+  .course {
+    display: flex; flex-direction: column;
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg);
+    padding: clamp(26px, 3.2vw, 38px);
+    transition: transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s var(--ease);
+  }
+  .course:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); border-color: color-mix(in oklch, var(--copper) 36%, var(--line)); }
+  .course__top { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 20px; }
+  .course__level {
+    font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 500;
+    color: var(--copper); padding: 5px 12px; border: 1px solid color-mix(in oklch, var(--copper) 32%, var(--line)); border-radius: 999px;
+  }
+  .course__ce { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .course h3 { font-family: "Marcellus", serif; font-weight: 400; font-size: clamp(1.4rem, 2.6vw, 1.8rem); color: var(--emerald); margin: 0 0 10px; line-height: 1.12; }
+  .course p { margin: 0 0 22px; color: var(--muted); font-size: 0.96rem; line-height: 1.66; flex: 1; }
+  .course__foot { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-top: 18px; border-top: 1px solid var(--line-soft); }
+  .course__hours { font-size: 0.82rem; color: var(--ink); letter-spacing: 0.02em; }
+  .course__hours b { font-family: "Marcellus", serif; font-weight: 400; color: var(--copper); }
+
+  .ce-note {
+    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+    margin-top: clamp(26px, 3.4vw, 40px);
+    background: color-mix(in oklch, var(--greige) 42%, var(--cream));
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: clamp(20px, 2.8vw, 28px) clamp(22px, 3vw, 34px);
+  }
+  .ce-note .badge { color: var(--emerald); flex: none; }
+  .ce-note .badge svg { height: 88px; width: auto; }
+  .ce-note .badge .ring-copper { stroke: var(--copper); }
+  .ce-note .badge .txt { font-family: "Marcellus", serif; fill: var(--emerald); }
+  .ce-note .badge .txt-copper { fill: var(--copper); }
+  .ce-note .badge .ce-arc { font-family: "Jost"; font-size: 11px; letter-spacing: 3px; font-weight: 500; text-transform: uppercase; }
+  .ce-note__text { flex: 1 1 320px; }
+  .ce-note__text .k { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.22em; color: var(--copper); font-weight: 500; }
+  .ce-note__text p { margin: 8px 0 0; color: var(--ink); font-size: 0.96rem; line-height: 1.62; }
+
+  /* ============================================================
+     COMMUNITY
+     ============================================================ */
+  .community { position: relative; overflow: hidden; }
+  .community__card {
+    position: relative; overflow: hidden;
+    border-radius: var(--radius-lg);
+    background-color: var(--emerald);
+    background-image:
+      linear-gradient(115deg, oklch(0.29 0.045 162 / 0.90) 0%, oklch(0.29 0.045 162 / 0.62) 58%, oklch(0.29 0.045 162 / 0.34) 100%),
+      url("https://images.unsplash.com/photo-1591122523233-22037c1dec9f?auto=format&fit=crop&w=1600&q=80");
+    background-size: cover; background-position: center;
+    color: var(--on-emerald);
+    padding: clamp(40px, 6vw, 84px) clamp(28px, 5vw, 72px);
+  }
+  .community__inner { max-width: 46ch; }
+  .community__k { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--clay); margin: 0 0 22px; }
+  .community h2 { font-family: "Marcellus", serif; font-weight: 400; font-size: clamp(1.7rem, 4vw, 2.8rem); line-height: 1.18; margin: 0 0 20px; }
+  .community h2 em { font-style: italic; color: var(--clay); }
+  .community p { margin: 0 0 30px; color: color-mix(in oklch, var(--on-emerald) 84%, transparent); font-size: 1.02rem; line-height: 1.75; }
+  .community__list { list-style: none; padding: 0; margin: 0 0 32px; display: grid; gap: 12px; }
+  .community__list li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.96rem; color: color-mix(in oklch, var(--on-emerald) 88%, transparent); }
+  .community__list .tick { color: var(--clay); flex: none; margin-top: 3px; }
+
+  /* ============================================================
+     THE STUDIO (opening soon)
+     ============================================================ */
+  .studio { }
+  .studio__grid { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: clamp(32px, 4.5vw, 68px); align-items: center; }
+  .studio__figure { position: relative; }
+  .studio__photo {
+    aspect-ratio: 4 / 5;
+    background-color: var(--clay);
+    background-image:
+      linear-gradient(180deg, oklch(0.42 0.05 55 / 0.14) 0%, oklch(0.34 0.03 50 / 0.40) 100%),
+      url("https://images.unsplash.com/photo-1564278692313-b2d65996fc93?auto=format&fit=crop&w=1600&q=80");
+    background-size: cover; background-position: center;
+    border-radius: clamp(140px, 28vw, 220px) clamp(140px, 28vw, 220px) var(--radius-lg) var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid color-mix(in oklch, var(--copper) 20%, transparent);
+  }
+  .studio__stamp {
+    position: absolute; right: -4%; top: 8%;
+    background: var(--cream); border: 1px solid var(--line); border-radius: 999px;
+    padding: 12px 20px; box-shadow: var(--shadow-card);
+    font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--copper); font-weight: 500;
+  }
+  .studio__body .eyebrow { margin-bottom: 16px; }
+  .studio__body h2 { font-family: "Marcellus", serif; font-weight: 400; font-size: clamp(1.9rem, 4.4vw, 3rem); color: var(--emerald); line-height: 1.1; margin: 0 0 22px; }
+  .studio__body p { margin: 0 0 22px; color: var(--muted); font-size: 1.02rem; line-height: 1.72; max-width: 52ch; }
+  .waitlist {
+    display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+    margin-top: 30px; padding: 18px; border: 1px solid var(--line); border-radius: var(--radius);
+    background: color-mix(in oklch, var(--greige) 34%, var(--cream)); max-width: 480px;
+  }
+  .waitlist input {
+    flex: 1 1 200px; min-width: 0;
+    font-family: "Jost", sans-serif; font-size: 0.95rem; color: var(--ink);
+    background: var(--cream); border: 1px solid var(--line); border-radius: 999px;
+    padding: 0.78em 1.2em;
+    transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
+  }
+  .waitlist input::placeholder { color: var(--muted); }
+  .waitlist input:focus-visible { outline: none; border-color: var(--copper); box-shadow: 0 0 0 3px color-mix(in oklch, var(--copper) 24%, transparent); }
+  .waitlist .hint { flex-basis: 100%; margin: 4px 2px 0; font-size: 0.78rem; color: var(--muted); }
+
+  /* ============================================================
+     FOUNDERS
+     ============================================================ */
+  .founders-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 2.8vw, 32px); }
+  .founder { display: flex; flex-direction: column; }
+  .founder__photo {
+    aspect-ratio: 4 / 5;
+    background-color: var(--emerald);
+    background-size: cover; background-position: center top;
+    border-radius: clamp(90px, 16vw, 150px) clamp(90px, 16vw, 150px) var(--radius) var(--radius);
+    box-shadow: var(--shadow-card);
+    border: 1px solid color-mix(in oklch, var(--copper) 18%, transparent);
+    position: relative; overflow: hidden;
+    transition: transform .5s var(--ease);
+  }
+  .founder:hover .founder__photo { transform: translateY(-4px); }
+  .founder__photo::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, oklch(0.33 0.045 162 / 0.05) 0%, oklch(0.29 0.045 162 / 0.30) 100%);
+  }
+  .founder--rachel .founder__photo { background-image: url("https://images.unsplash.com/photo-1541259418332-97b56947904f?auto=format&fit=crop&w=1600&q=80"); }
+  .founder--tori .founder__photo { background-image: url("https://images.unsplash.com/photo-1713085085470-fba013d67e65?auto=format&fit=crop&w=1600&q=80"); }
+  .founder--sophia .founder__photo { background-image: url("https://images.unsplash.com/photo-1758631131518-4cbea0dfb7d0?auto=format&fit=crop&w=1600&q=80"); }
+  .founder__meta { padding: 22px 4px 0; }
+  .founder__name { font-family: "Marcellus", serif; font-size: 1.5rem; color: var(--emerald); margin: 0; line-height: 1.1; }
+  .founder__role { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--copper); font-weight: 500; margin: 8px 0 0; }
+  .founder__bio { margin: 14px 0 0; color: var(--muted); font-size: 0.94rem; line-height: 1.66; }
+
+  /* ============================================================
+     FINAL CTA
+     ============================================================ */
+  .finalcta { }
+  .finalcta__card {
+    position: relative; overflow: hidden;
+    background: var(--emerald); color: var(--on-emerald);
+    border-radius: var(--radius-lg);
+    padding: clamp(48px, 7vw, 96px) clamp(28px, 5vw, 72px);
+    text-align: center;
+  }
+  .finalcta__arch {
+    position: absolute; left: 50%; top: -20%; transform: translateX(-50%);
+    width: min(70%, 460px); aspect-ratio: 1 / 1.2;
+    border: 1px solid color-mix(in oklch, var(--clay) 30%, transparent);
+    border-radius: 999px 999px 0 0; opacity: 0.5; pointer-events: none;
+  }
+  .finalcta__mark { position: relative; color: var(--on-emerald); display: inline-block; margin-bottom: 26px; }
+  .finalcta__mark .drop { fill: var(--clay); }
+  .finalcta__mark svg { height: 62px; width: auto; }
+  .finalcta__k { position: relative; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--clay); margin: 0 0 20px; }
+  .finalcta h2 { position: relative; font-family: "Marcellus", serif; font-weight: 400; font-size: clamp(1.9rem, 4.8vw, 3.2rem); line-height: 1.14; margin: 0 auto 22px; max-width: 20ch; }
+  .finalcta p { position: relative; margin: 0 auto 34px; max-width: 50ch; color: color-mix(in oklch, var(--on-emerald) 84%, transparent); font-size: 1.04rem; line-height: 1.7; }
+  .finalcta__actions { position: relative; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  .footer { background: var(--emerald-deep); color: var(--on-emerald); padding-block: clamp(52px, 7vw, 90px) clamp(30px, 4vw, 44px); }
+  .footer__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.1fr; gap: clamp(28px, 4vw, 56px); }
+  .footer__brand .brandmark { color: var(--on-emerald); height: 52px; width: auto; margin-bottom: 18px; }
+  .footer__brand .brandmark .drop { fill: var(--clay); }
+  .footer__brand .wm { align-items: flex-start; text-align: left; }
+  .footer__brand .wm__name { font-size: 1.3rem; color: var(--on-emerald); }
+  .footer__brand .wm__desc { color: color-mix(in oklch, var(--on-emerald) 74%, transparent); }
+  .footer__brand p { margin: 20px 0 0; max-width: 34ch; font-size: 0.9rem; line-height: 1.7; color: color-mix(in oklch, var(--on-emerald) 78%, transparent); }
+  .footer__col h4 { font-family: "Jost", sans-serif; font-weight: 500; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.7rem; color: var(--clay); margin: 4px 0 18px; }
+  .footer__col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; }
+  .footer__col a {
+    color: color-mix(in oklch, var(--on-emerald) 84%, transparent); text-decoration: none; font-size: 0.92rem;
+    transition: color .3s var(--ease), padding-left .3s var(--ease);
+  }
+  .footer__col a:hover, .footer__col a:focus-visible { color: var(--on-emerald); padding-left: 4px; outline: none; }
+  .footer__contact p { margin: 0 0 10px; font-size: 0.92rem; color: color-mix(in oklch, var(--on-emerald) 84%, transparent); line-height: 1.6; }
+  .footer__contact a { color: var(--clay); text-decoration: none; border-bottom: 1px solid color-mix(in oklch, var(--clay) 40%, transparent); transition: border-color .3s var(--ease); }
+  .footer__contact a:hover, .footer__contact a:focus-visible { border-color: var(--clay); outline: none; }
+  .footer__soon { margin-top: 18px; font-size: 0.78rem; letter-spacing: 0.02em; color: color-mix(in oklch, var(--clay) 88%, transparent); display: inline-flex; align-items: center; gap: 8px; }
+  .footer__soon .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--clay); }
+  .footer__bottom {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    margin-top: clamp(38px, 5vw, 60px); padding-top: 24px;
+    border-top: 1px solid color-mix(in oklch, var(--on-emerald) 20%, transparent);
+  }
+  .footer__bottom small { font-size: 0.8rem; color: color-mix(in oklch, var(--on-emerald) 72%, transparent); letter-spacing: 0.02em; }
+  .footer__legal { display: flex; gap: 22px; flex-wrap: wrap; }
+  .footer__legal a { font-size: 0.8rem; color: color-mix(in oklch, var(--on-emerald) 78%, transparent); text-decoration: none; transition: color .3s var(--ease); }
+  .footer__legal a:hover, .footer__legal a:focus-visible { color: var(--on-emerald); outline: none; }
+
+  /* ============================================================
+     RESPONSIVE
+     ============================================================ */
+  @media (max-width: 1080px) {
+    .footer__top { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+    .footer__brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 940px) {
+    .nav__links, .nav__actions .btn--login-desktop { display: none; }
+    .nav__toggle { display: inline-flex; }
+    .hero__grid { grid-template-columns: 1fr; gap: clamp(36px, 6vw, 52px); }
+    .hero__figure { max-width: 460px; margin-inline: auto; width: 100%; }
+    .method__feature { grid-template-columns: 1fr; }
+    .values { grid-template-columns: repeat(2, 1fr); }
+    .studio__grid { grid-template-columns: 1fr; }
+    .studio__figure { max-width: 420px; margin-inline: auto; width: 100%; order: -1; }
+    .founders-grid { grid-template-columns: 1fr; max-width: 440px; margin-inline: auto; }
+  }
+  @media (max-width: 760px) {
+    .paths { grid-template-columns: 1fr; }
+    .courses { grid-template-columns: 1fr; }
+    .step { grid-template-columns: auto 1fr; }
+    .step__mark { display: none; }
+  }
+  @media (max-width: 480px) {
+    :root { --pad: 20px; }
+    .brand__desc { display: none; }
+    .values { grid-template-columns: 1fr; }
+    .hero__badge { left: 0; position: relative; margin-top: -30px; max-width: none; }
+    .hero__paths { gap: 12px; }
+    .waitlist { flex-direction: column; align-items: stretch; }
+    .waitlist .btn { width: 100%; }
+    .footer__top { grid-template-columns: 1fr; }
+    .finalcta__actions { flex-direction: column; }
+    .finalcta__actions .btn { width: 100%; }
+  }
+
+  /* keep the whole page from ever staying blank */
+  .no-js .reveal { opacity: 1 !important; transform: none !important; }
+</style>
+</head>
+<body class="no-js">
+
+<!-- ============ STICKY NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="#top" aria-label="METHOD, home">
+      <svg class="brandmark" viewBox="0 0 128 148" role="img" aria-label="METHOD monogram: a serif M within a slim arch, crowned by a small olive sprig">
+        <path d="M34 138 L34 62 A30 30 0 0 1 94 62 L94 138" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <g class="drop">
+          <path d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
+          <path transform="rotate(-40 64 32)" d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
+          <path transform="rotate(40 64 32)" d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
+        </g>
+        <text x="64" y="112" text-anchor="middle" font-family="Marcellus, serif" font-size="53" fill="currentColor">M</text>
+      </svg>
+      <span class="brand__wm">
+        <span class="brand__name">Method</span>
+        <span class="brand__desc">Wax Studio &amp; Professional Training</span>
+      </span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#academy">Academy</a>
+      <a href="#courses">Courses</a>
+      <a href="#how">How It Works</a>
+      <a href="#studio">The Studio</a>
+      <a href="#founders">About</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a class="nav__login btn--login-desktop" href="#academy">Log In</a>
+      <a class="btn btn--primary" href="#academy">Enroll</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navDrawer">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="nav__drawer" id="navDrawer" aria-label="Mobile">
+  <a href="#academy">Academy</a>
+  <a href="#courses">Courses</a>
+  <a href="#how">How It Works</a>
+  <a href="#studio">The Studio</a>
+  <a href="#founders">About</a>
+  <a href="#academy">Log In</a>
+  <div class="drawer-actions">
+    <a class="btn btn--primary" href="#academy">Enroll</a>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="hero-h">
+    <span class="hero__arch" aria-hidden="true"></span>
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="hero__kicker reveal" data-d="1"><span class="dot" aria-hidden="true"></span>Southwest Florida's first online-to-studio waxing academy</p>
+        <h1 id="hero-h" class="reveal" data-d="2">A training academy first, <span class="soft">a studio second.</span></h1>
+        <p class="hero__sub reveal" data-d="2">We teach the technical foundations first, online and unhurried, then bring you into the studio to refine your hands. Intentional care is not a tagline. It is the curriculum.</p>
+        <div class="hero__paths reveal" data-d="3">
+          <a class="path-chip path-chip--primary" href="#academy">
+            <div class="path-chip__top">
+              <span class="path-chip__label">For future professionals</span>
+            </div>
+            <span class="path-chip__name">Explore the Academy</span>
+            <span class="path-chip__go">Enroll and begin online <span class="arrow" aria-hidden="true">&rarr;</span></span>
+          </a>
+          <a class="path-chip" href="#studio">
+            <div class="path-chip__top">
+              <span class="path-chip__label">For guests</span>
+              <span class="tag-soon">Opening soon</span>
+            </div>
+            <span class="path-chip__name">The Studio</span>
+            <span class="path-chip__go">Join the waitlist <span class="arrow" aria-hidden="true">&rarr;</span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__figure reveal" data-d="4">
+        <div class="hero__photo" role="img" aria-label="A calm, warmly lit waxing studio treatment room at METHOD in Naples, Florida"></div>
+        <div class="hero__badge">
+          <span class="seal" aria-hidden="true">
+            <svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="METHOD academy seal">
+              <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="3"/>
+              <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.6"/>
+              <defs>
+                <path id="heroTop" d="M 20 100 A 80 80 0 0 1 180 100" fill="none"/>
+                <path id="heroBot" d="M 12 100 A 88 88 0 0 0 188 100" fill="none"/>
+              </defs>
+              <text style="font-family:'Marcellus',serif; font-size:13.5px; letter-spacing:2.2px" fill="currentColor"><textPath href="#heroTop" xlink:href="#heroTop" startOffset="50%" text-anchor="middle">METHOD &#183; WAX STUDIO</textPath></text>
+              <text style="font-family:'Marcellus',serif; font-size:13.5px; letter-spacing:2.2px" fill="currentColor"><textPath href="#heroBot" xlink:href="#heroBot" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
+              <text x="100" y="112" text-anchor="middle" style="font-family:'Marcellus',serif; font-size:46px" fill="var(--seal-center)">M</text>
+              <text x="100" y="134" text-anchor="middle" style="font-family:'Marcellus',serif; font-size:8px; letter-spacing:2.4px" fill="currentColor">EST &#183; 2026</text>
+            </svg>
+          </span>
+          <p><b>Two trainers, every course.</b>Different styles, the same fundamentals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE TWO PATHS ============ -->
+  <section class="section section--line" id="academy" aria-labelledby="paths-h">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="section__num">Two ways in</span>
+        <h2 id="paths-h">One studio, two front doors.</h2>
+        <p>METHOD was built for two people: the esthetician who wants to learn waxing the right way, and the guest who simply wants to be cared for. Choose the door that is yours.</p>
+      </div>
+
+      <div class="paths">
+        <article class="panel panel--academy reveal" data-d="1">
+          <div class="panel__media" role="img" aria-label="An instructor guiding a student through waxing technique in the METHOD academy">
+            <span class="panel__media-mark" aria-hidden="true">
+              <svg viewBox="0 0 128 148" role="img" aria-label="METHOD mark">
+                <path d="M34 138 L34 62 A30 30 0 0 1 94 62 L94 138" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <g class="drop">
+                  <path d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
+                  <path transform="rotate(-40 64 32)" d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
+                  <path transform="rotate(40 64 32)" d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
+                </g>
+                <text x="64" y="112" text-anchor="middle" font-family="Marcellus, serif" font-size="53" fill="currentColor">M</text>
+              </svg>
+            </span>
+          </div>
+          <div class="panel__body">
+            <div class="panel__eyebrow">
+              <span class="who">For future professionals</span>
+              <span class="status-pill status-pill--active">Enrolling now</span>
+            </div>
+            <h3 class="panel__title">The Academy</h3>
+            <p class="panel__text">Our primary focus. CE-track courses that begin online, at your own pace, then move into the studio for hands-on refinement with two trainers beside you. You learn the science first, so the technique makes sense in your hands.</p>
+            <div class="panel__foot">
+              <a class="btn btn--primary" href="#courses">Explore the Academy <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel panel--studio reveal" data-d="2">
+          <div class="panel__media" role="img" aria-label="A serene, warmly appointed treatment space at the future METHOD studio">
+            <span class="panel__media-mark" aria-hidden="true">
+              <svg viewBox="0 0 128 148" role="img" aria-label="METHOD mark">
+                <path d="M34 138 L34 62 A30 30 0 0 1 94 62 L94 138" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <g class="drop">
+                  <path d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
+                  <path transform="rotate(-40 64 32)" d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
+                  <path transform="rotate(40 64 32)" d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
+                </g>
+                <text x="64" y="112" text-anchor="middle" font-family="Marcellus, serif" font-size="53" fill="currentColor">M</text>
+              </svg>
+            </span>
+          </div>
+          <div class="panel__body">
+            <div class="panel__eyebrow">
+              <span class="who">For guests</span>
+              <span class="status-pill status-pill--soon">Opening soon</span>
+            </div>
+            <h3 class="panel__title">The Studio</h3>
+            <p class="panel__text">Waxing delivered with the very method we teach: unhurried, honest, and precise. When the doors open in Naples, you will feel the difference a trained standard makes. Join the waitlist to be the first to know.</p>
+            <div class="panel__foot">
+              <a class="btn btn--ghost" href="#studio">Notify me <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE METHOD / PHILOSOPHY ============ -->
+  <section class="section method" aria-labelledby="method-h">
+    <div class="wrap">
+      <div class="method__feature">
+        <div class="reveal">
+          <p class="method__k">The Method</p>
+          <h2 class="method__tag" id="method-h">Intentional care is not a tagline. <em>It is the curriculum.</em></h2>
+        </div>
+        <div class="reveal" data-d="1">
+          <p class="method__lead">Anyone can hand you a strip of wax and a checklist. We do the harder, quieter work: teaching you why the skin behaves the way it does, so your hands know what to do before you are ever told.</p>
+          <p class="method__lead">That is the whole idea behind METHOD. Education that respects your intelligence, care that respects the person in the chair, and a standard we refuse to rush.</p>
+        </div>
+      </div>
+
+      <div class="values">
+        <div class="value reveal" data-d="1">
+          <span class="value__mark" aria-hidden="true">
+            <svg viewBox="0 0 128 148"><path d="M34 138 L34 62 A30 30 0 0 1 94 62 L94 138" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="64" y="116" text-anchor="middle" font-family="Marcellus, serif" font-size="58" fill="currentColor">M</text></svg>
+          </span>
+          <h3>Genuine care</h3>
+          <p>For students and guests alike. Every course and every treatment starts from the same place: a real regard for the person in front of us.</p>
+        </div>
+        <div class="value reveal" data-d="2">
+          <span class="value__mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15 24 l6 6 l12 -14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>The why, not just the how</h3>
+          <p>We teach the science underneath the technique. Understand the skin, the wax, and the reaction, and confidence follows on its own.</p>
+        </div>
+        <div class="value reveal" data-d="3">
+          <span class="value__mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><circle cx="17" cy="19" r="7" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="32" cy="19" r="7" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M7 40 c0 -7 5 -11 10 -11 s10 4 10 11 M25 40 c0 -7 5 -11 10 -11 s10 4 10 11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Two trainers, every course</h3>
+          <p>Different styles, the same fundamentals. You learn from two sets of hands, which means you leave with range, not a single way of doing things.</p>
+        </div>
+        <div class="value reveal" data-d="4">
+          <span class="value__mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M24 6 v36 M14 14 h20 M14 14 l-6 12 a6 6 0 0 0 12 0 z M34 14 l6 12 a6 6 0 0 1 -12 0 z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 42 h12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Honest and fairly priced</h3>
+          <p>No upsells, no pressure, no theatrics. Clear pricing and straight answers, because trust is the only thing worth building a name on.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW THE ACADEMY WORKS ============ -->
+  <section class="section section--line" id="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="section__num">The online-to-studio model</span>
+        <h2 id="how-h">How the Academy works.</h2>
+        <p>A deliberate path from your first login to your place in the METHOD community. Foundations online, refinement in person, nothing skipped.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal" data-d="1">
+          <span class="step__num">01</span>
+          <div class="step__body">
+            <h3>Create your profile</h3>
+            <p>Enroll in minutes and set up your learning space. Your coursework, progress, and certificates live in one calm, organized place you return to at your own pace.</p>
+          </div>
+          <span class="step__mark" aria-hidden="true">
+            <svg viewBox="0 0 128 148"><path d="M34 138 L34 62 A30 30 0 0 1 94 62 L94 138" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><text x="64" y="116" text-anchor="middle" font-family="Marcellus, serif" font-size="58" fill="currentColor">M</text></svg>
+          </span>
+        </div>
+        <div class="step reveal" data-d="1">
+          <span class="step__num">02</span>
+          <div class="step__body">
+            <h3>Learn the foundations online</h3>
+            <p>Work through the science and theory unhurried, on your schedule. Skin biology, product knowledge, safety, and sanitation come first, so technique lands on solid ground.</p>
+          </div>
+          <span class="step__mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M8 14 h32 v22 h-32 z M8 20 h32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M16 28 h16 M16 32 h10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </span>
+        </div>
+        <div class="step reveal" data-d="1">
+          <span class="step__num">03</span>
+          <div class="step__body">
+            <h3>Refine your hands in the studio</h3>
+            <p>Come into the Naples studio for hands-on training with two trainers at your side. This is where knowledge becomes muscle memory, corrected in real time by people who care that you get it right.</p>
+          </div>
+          <span class="step__mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M14 26 l6 -14 a3 3 0 0 1 6 1 l-2 11 h10 a4 4 0 0 1 4 5 l-3 12 a4 4 0 0 1 -4 3 h-14 l-3 -3 z M10 26 h4 v14 h-4 z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <div class="step reveal" data-d="1">
+          <span class="step__num">04</span>
+          <div class="step__body">
+            <h3>Get certified</h3>
+            <p>Complete your assessment and earn your METHOD certificate of completion, on a CE-track built to support your continuing education as a licensed professional.</p>
+          </div>
+          <span class="step__mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><circle cx="24" cy="20" r="12" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M18 30 l-3 12 l9 -5 l9 5 l-3 -12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M19 20 l4 4 l7 -8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <div class="step reveal" data-d="1">
+          <span class="step__num">05</span>
+          <div class="step__body">
+            <h3>Join the Method community</h3>
+            <p>Graduation is a beginning. Step into an ongoing network of METHOD-trained professionals for mentorship, refreshers, and the kind of support that keeps a career growing.</p>
+          </div>
+          <span class="step__mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><circle cx="24" cy="16" r="6" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="11" cy="22" r="4.5" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="37" cy="22" r="4.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M14 40 c0 -7 5 -11 10 -11 s10 4 10 11 M4 40 c0 -5 3 -8 7 -8 M44 40 c0 -5 -3 -8 -7 -8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COURSES ============ -->
+  <section class="section section--line" id="courses" aria-labelledby="courses-h">
+    <div class="wrap">
+      <div class="course-head reveal">
+        <div class="section__head" style="margin-bottom:0">
+          <span class="section__num">The curriculum</span>
+          <h2 id="courses-h">CE-track courses.</h2>
+          <p>Continuing education designed for licensed estheticians, taught online first and refined in the studio. Every course carries the same standard, whatever your level.</p>
+        </div>
+        <a class="textlink" href="#academy">View the full catalog <span class="arrow" aria-hidden="true">&rarr;</span></a>
+      </div>
+
+      <div class="courses">
+        <article class="course reveal" data-d="1">
+          <div class="course__top">
+            <span class="course__level">Foundations</span>
+            <span class="course__ce">Continuing education</span>
+          </div>
+          <h3>Waxing Fundamentals</h3>
+          <p>The bedrock course. Skin anatomy, wax chemistry, consultation, sanitation, and the core removal techniques taught slowly and correctly, the way every professional should have learned them.</p>
+          <div class="course__foot">
+            <span class="course__hours"><b>Online</b> plus one studio day</span>
+            <a class="textlink" href="#academy">Details <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+
+        <article class="course reveal" data-d="2">
+          <div class="course__top">
+            <span class="course__level">Advanced</span>
+            <span class="course__ce">Continuing education</span>
+          </div>
+          <h3>Brazilian Waxing Masterclass</h3>
+          <p>Precision, comfort, and confidence in the most requested and most demanding service. Positioning, sectioning, and the guest-comfort details that separate a good wax from a great one.</p>
+          <div class="course__foot">
+            <span class="course__hours"><b>Online</b> plus two studio days</span>
+            <a class="textlink" href="#academy">Details <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+
+        <article class="course reveal" data-d="3">
+          <div class="course__top">
+            <span class="course__level">Specialty</span>
+            <span class="course__ce">Continuing education</span>
+          </div>
+          <h3>Brow Artistry &amp; Shaping</h3>
+          <p>Read the face, map the brow, and shape with intention. Mapping methods, symmetry, and a finishing eye that flatters every guest who sits in your chair.</p>
+          <div class="course__foot">
+            <span class="course__hours"><b>Online</b> plus one studio day</span>
+            <a class="textlink" href="#academy">Details <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+
+        <article class="course reveal" data-d="4">
+          <div class="course__top">
+            <span class="course__level">Professional</span>
+            <span class="course__ce">Continuing education</span>
+          </div>
+          <h3>Speed Waxing &amp; Efficiency</h3>
+          <p>Serve more guests without losing the standard. Workflow, room setup, and rhythm techniques that build speed on top of solid fundamentals, never in place of them.</p>
+          <div class="course__foot">
+            <span class="course__hours"><b>Online</b> plus one studio day</span>
+            <a class="textlink" href="#academy">Details <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="ce-note reveal">
+        <span class="badge" aria-hidden="true">
+          <svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="METHOD continuing education badge">
+            <g fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="100" cy="100" r="90"/>
+              <circle class="ring-copper" cx="100" cy="100" r="82" stroke-width="1.4"/>
+            </g>
+            <defs>
+              <path id="ceTop" d="M 34 100 A 66 66 0 0 1 166 100" fill="none"/>
+              <path id="ceBot" d="M 30 100 A 70 70 0 0 0 170 100" fill="none"/>
+            </defs>
+            <text class="ce-arc txt-copper"><textPath href="#ceTop" xlink:href="#ceTop" startOffset="50%" text-anchor="middle">CONTINUING EDUCATION</textPath></text>
+            <text class="ce-arc txt-copper"><textPath href="#ceBot" xlink:href="#ceBot" startOffset="50%" text-anchor="middle">METHOD ACADEMY</textPath></text>
+            <text class="txt" x="100" y="86" text-anchor="middle" style="font-size: 30px">CE</text>
+            <line x1="72" y1="98" x2="128" y2="98" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <text class="txt-copper" x="100" y="118" text-anchor="middle" font-family="Jost, sans-serif" style="font-size: 10px; letter-spacing: 2.4px; font-weight: 600">CE-TRACK</text>
+            <text class="txt" x="100" y="138" text-anchor="middle" style="font-size: 10px; letter-spacing: 2px">EST 2026</text>
+            <path d="M34 96 L39 100 L34 104 L29 100 Z" fill="currentColor"/>
+            <path d="M166 96 L171 100 L166 104 L161 100 Z" fill="currentColor"/>
+          </svg>
+        </span>
+        <div class="ce-note__text">
+          <span class="k">A note on accreditation</span>
+          <p>METHOD courses are designed to a continuing-education standard, and our CE accreditation is currently in progress, pending state approval. We will confirm approved CE hours the moment they are finalized, and never a moment before. Honesty is part of the method.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMMUNITY ============ -->
+  <section class="section community" aria-labelledby="community-h">
+    <div class="wrap">
+      <div class="community__card reveal">
+        <div class="community__inner">
+          <p class="community__k">The Method community</p>
+          <h2 id="community-h">Your education does not <em>end at graduation.</em></h2>
+          <p>The certificate is a milestone, not a finish line. Every METHOD graduate joins a living network of professionals who keep learning, keep raising the standard, and keep showing up for one another.</p>
+          <ul class="community__list">
+            <li><span class="tick" aria-hidden="true">&#10003;</span> Ongoing mentorship from your trainers and fellow graduates</li>
+            <li><span class="tick" aria-hidden="true">&#10003;</span> Refresher sessions and new-technique workshops as they launch</li>
+            <li><span class="tick" aria-hidden="true">&#10003;</span> A referral and support circle across Southwest Florida</li>
+          </ul>
+          <a class="btn btn--onEmerald" href="#academy">Become part of it <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE STUDIO ============ -->
+  <section class="section section--line studio" id="studio" aria-labelledby="studio-h">
+    <div class="wrap">
+      <div class="studio__grid">
+        <div class="studio__figure reveal">
+          <div class="studio__photo" role="img" aria-label="A warm, considered treatment room at the future METHOD studio in Naples"></div>
+          <span class="studio__stamp">Opening soon in Naples</span>
+        </div>
+        <div class="studio__body reveal" data-d="1">
+          <p class="eyebrow">The Studio</p>
+          <h2 id="studio-h">The same method, now for you.</h2>
+          <p>The academy comes first, but the studio is coming. When we open our doors in Naples, guests will experience waxing performed exactly the way we teach it: unhurried, precise, and genuinely kind. The same standard we hold our students to is the one we will hold ourselves to for you.</p>
+          <p>No rushed appointments, no upselling, no theatrics. Just skilled hands, honest pricing, and care you can feel.</p>
+          <div class="waitlist" role="group" aria-label="Studio waitlist signup">
+            <input type="email" placeholder="Your email address" aria-label="Your email address" autocomplete="email" />
+            <a class="btn btn--copper" href="#studio">Notify me</a>
+            <span class="hint">Be the first to know when booking opens. No spam, ever.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOUNDERS ============ -->
+  <section class="section section--line" id="founders" aria-labelledby="founders-h">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="section__num">The founders</span>
+        <h2 id="founders-h">Three women, one standard.</h2>
+        <p>METHOD was founded by three women who believe education and care are the same discipline. Between them, they cover every part of the work: the welcome, the business, and the craft.</p>
+      </div>
+
+      <div class="founders-grid">
+        <article class="founder founder--rachel reveal" data-d="1">
+          <div class="founder__photo" role="img" aria-label="Portrait of founder Rachel Scott"></div>
+          <div class="founder__meta">
+            <h3 class="founder__name">Rachel Scott</h3>
+            <p class="founder__role">Founder &middot; Guest Experience</p>
+            <p class="founder__bio">Rachel sets the welcoming standard. Years in spa management taught her that how a person is cared for matters as much as the service itself, and she builds that warmth into everything from the front desk to the treatment room. (Placeholder bio, ready for Rachel's own words.)</p>
+          </div>
+        </article>
+
+        <article class="founder founder--tori reveal" data-d="2">
+          <div class="founder__photo" role="img" aria-label="Portrait of founder Tori Foresta"></div>
+          <div class="founder__meta">
+            <h3 class="founder__name">Tori Foresta</h3>
+            <p class="founder__role">Founder &middot; Business &amp; Education</p>
+            <p class="founder__bio">Tori is the one who gets it done. She turns a shared vision into curriculum, systems, and a real business, pairing a sharp mind for operations with a genuine belief that good education changes careers. (Placeholder bio, ready for Tori's own words.)</p>
+          </div>
+        </article>
+
+        <article class="founder founder--sophia reveal" data-d="3">
+          <div class="founder__photo" role="img" aria-label="Portrait of founder Sophia Vega"></div>
+          <div class="founder__meta">
+            <h3 class="founder__name">Sophia Vega</h3>
+            <p class="founder__role">Founder &middot; Training &amp; Craft</p>
+            <p class="founder__bio">Sophia brings the creative energy and the technical depth. A gifted trainer with a real love for the craft, she teaches the why behind every technique and makes the studio a place students actually want to be. (Placeholder bio, ready for Sophia's own words.)</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="section finalcta" aria-labelledby="cta-h">
+    <div class="wrap">
+      <div class="finalcta__card reveal">
+        <span class="finalcta__arch" aria-hidden="true"></span>
+        <span class="finalcta__mark" aria-hidden="true">
+          <svg viewBox="0 0 128 148" role="img" aria-label="METHOD monogram">
+            <path d="M34 138 L34 62 A30 30 0 0 1 94 62 L94 138" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <g class="drop">
+              <path d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
+              <path transform="rotate(-40 64 32)" d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
+              <path transform="rotate(40 64 32)" d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
+            </g>
+            <text x="64" y="112" text-anchor="middle" font-family="Marcellus, serif" font-size="53" fill="currentColor">M</text>
+          </svg>
+        </span>
+        <p class="finalcta__k">Intentional care. Elevated education. Exceptional results.</p>
+        <h2 id="cta-h">Begin where every professional should begin.</h2>
+        <p>Enroll in the academy and start with the foundations, online and unhurried. When you are ready, we will meet you in the studio. Two trainers, one standard, and a community waiting on the other side.</p>
+        <div class="finalcta__actions">
+          <a class="btn btn--onEmerald" href="#academy">Explore the Academy <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn--outlineLight" href="#studio">The Studio, opening soon</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <svg class="brandmark" viewBox="0 0 128 148" role="img" aria-label="METHOD monogram">
+          <path d="M34 138 L34 62 A30 30 0 0 1 94 62 L94 138" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <g class="drop">
+            <path d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
+            <path transform="rotate(-40 64 32)" d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
+            <path transform="rotate(40 64 32)" d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
+          </g>
+          <text x="64" y="112" text-anchor="middle" font-family="Marcellus, serif" font-size="53" fill="currentColor">M</text>
+        </svg>
+        <span class="wm">
+          <span class="wm__name">Method</span>
+          <span class="wm__desc">Wax Studio &amp; Professional Training</span>
+        </span>
+        <p>Southwest Florida's first online-to-studio waxing academy. A training academy first, a studio second.</p>
+      </div>
+
+      <div class="footer__col">
+        <h4>Academy</h4>
+        <ul>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#academy">Enroll</a></li>
+          <li><a href="#academy">Log In</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#founders">About the Founders</a></li>
+          <li><a href="#community">Community</a></li>
+          <li><a href="#studio">The Studio</a></li>
+          <li><a href="#courses">CE-Track</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col footer__contact">
+        <h4>Contact</h4>
+        <p>Naples, Southwest Florida</p>
+        <p><a href="mailto:hello@methodwaxpro.com">hello@methodwaxpro.com</a></p>
+        <p>
+          <a href="#top">Instagram</a> &nbsp;&middot;&nbsp;
+          <a href="#top">Facebook</a> &nbsp;&middot;&nbsp;
+          <a href="#top">TikTok</a>
+        </p>
+        <span class="footer__soon"><span class="dot" aria-hidden="true"></span>Studio services opening soon</span>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <small>&copy; 2026 Method Wax Studio &amp; Professional Training</small>
+      <div class="footer__legal">
+        <a href="#top">Privacy</a>
+        <a href="#top">Terms</a>
+        <a href="#top">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.body;
+    root.classList.remove("no-js");
+    root.classList.add("js");
+
+    /* ---- sticky nav shadow on scroll ---- */
+    var nav = document.getElementById("nav");
+    var onScroll = function () {
+      if (window.scrollY > 8) { nav.classList.add("scrolled"); }
+      else { nav.classList.remove("scrolled"); }
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    /* ---- mobile drawer ---- */
+    var toggle = document.getElementById("navToggle");
+    var drawer = document.getElementById("navDrawer");
+    var closeDrawer = function () {
+      nav.classList.remove("open");
+      drawer.classList.remove("show");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Open menu");
+    };
+    toggle.addEventListener("click", function () {
+      var open = drawer.classList.toggle("show");
+      nav.classList.toggle("open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    });
+    drawer.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", closeDrawer);
+    });
+    window.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { closeDrawer(); }
+    });
+
+    /* ---- staggered reveal via IntersectionObserver ---- */
+    var reveals = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+    var forceReveal = function () {
+      reveals.forEach(function (el) { el.classList.add("in"); });
+    };
+
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce || !("IntersectionObserver" in window)) {
+      forceReveal();
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+      reveals.forEach(function (el) { io.observe(el); });
+    }
+
+    /* ---- reliability fallback: force-reveal everything after ~700ms ---- */
+    window.addEventListener("load", function () {
+      window.setTimeout(forceReveal, 700);
+    });
+    /* also guard against load already having fired */
+    window.setTimeout(forceReveal, 1600);
+  })();
+</script>
+
+</body>
+</html>
