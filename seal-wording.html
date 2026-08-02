@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>METHOD | Seal Wording</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:      oklch(0.94 0.014 82);   /* #F2EDE3 */
+    --greige:     oklch(0.89 0.020 84);   /* #E7DDCB */
+    --emerald:    oklch(0.33 0.038 162);  /* #1D392F */
+    --copper:     oklch(0.56 0.090 56);   /* #A56B41 */
+    --clay:       oklch(0.76 0.045 58);   /* #CBA891 */
+    --ink:        oklch(0.26 0.008 72);   /* #2A2620 */
+    --on-emerald: oklch(0.93 0.016 82);
+    --line:       oklch(0.80 0.020 78);
+    --radius:     14px;
+    --shadow:     0 1px 2px oklch(0.27 0.01 70 / 0.05), 0 14px 40px oklch(0.27 0.01 70 / 0.09);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--greige);
+    color: var(--ink);
+    font-family: "Jost", system-ui, sans-serif;
+    font-weight: 300;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: clamp(28px, 6vw, 72px) clamp(20px, 5vw, 56px);
+  }
+
+  /* ---- wordmark ---- */
+  .wm {
+    font-family: "Marcellus", serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .wm .dot { color: var(--copper); }
+
+  /* ---- header ---- */
+  header { margin-bottom: clamp(36px, 6vw, 64px); }
+  .brand { font-size: clamp(18px, 2.4vw, 21px); }
+  .eyebrow {
+    margin: clamp(30px, 5vw, 46px) 0 0;
+    font-size: 12px;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--copper);
+    font-weight: 400;
+  }
+  h1 {
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-size: clamp(40px, 8.6vw, 76px);
+    line-height: 1.04;
+    margin: 10px 0 0;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .lede {
+    max-width: 52ch;
+    margin: clamp(18px, 3vw, 24px) 0 0;
+    font-size: clamp(16px, 1.7vw, 18px);
+    color: color-mix(in oklch, var(--ink) 78%, var(--cream));
+  }
+
+  /* ---- panels ---- */
+  .panels {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(16px, 2.4vw, 26px);
+  }
+  .panel {
+    position: relative;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: clamp(26px, 3.4vw, 44px) clamp(20px, 2.6vw, 34px) clamp(24px, 3vw, 34px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  }
+  .panel:hover, .panel:focus-within {
+    transform: translateY(-4px);
+    box-shadow: 0 2px 4px oklch(0.27 0.01 70 / 0.06), 0 22px 54px oklch(0.27 0.01 70 / 0.13);
+    border-color: color-mix(in oklch, var(--copper) 45%, var(--line));
+  }
+  .panel--rec {
+    border-color: color-mix(in oklch, var(--copper) 55%, var(--line));
+    box-shadow: 0 1px 2px oklch(0.27 0.01 70 / 0.05), 0 18px 48px oklch(0.56 0.09 56 / 0.14);
+  }
+  .rec-flag {
+    display: inline-block;
+    margin-bottom: clamp(14px, 2vw, 20px);
+    padding: 5px 13px;
+    border-radius: 999px;
+    background: var(--emerald);
+    color: var(--on-emerald);
+    font-size: 10px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  .rec-spacer { height: clamp(14px, 2vw, 20px); }
+  .panel__opt {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: color-mix(in oklch, var(--ink) 52%, var(--cream));
+    font-weight: 400;
+  }
+  .panel__label {
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-size: clamp(21px, 2.6vw, 26px);
+    color: var(--ink);
+    margin: 6px 0 0;
+    letter-spacing: 0.005em;
+  }
+  .panel__stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+    padding: clamp(24px, 3.6vw, 40px) 0 clamp(16px, 2.4vw, 22px);
+  }
+  .panel__note {
+    font-size: 13.5px;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    max-width: 30ch;
+    color: color-mix(in oklch, var(--ink) 62%, var(--cream));
+  }
+
+  /* seal display sizes */
+  .mark-lg { height: clamp(176px, 22vw, 224px); width: auto; display: block; }
+  .mark-sm { height: 56px; width: 56px; display: block; }
+
+  /* colour context */
+  .on-cream { color: var(--copper); --seal-center: var(--emerald); }
+
+  /* ---- REFINED seal classes (from seal-comparison.html; tracking eased to fit) ---- */
+  .r-arc { font-family: "Marcellus", serif; font-size: 10.6px; letter-spacing: 2.2px; text-transform: uppercase; }
+  .r-M   { font-family: "Marcellus", serif; font-size: 55px; fill: var(--seal-center, currentColor); }
+  .r-est { font-family: "Marcellus", serif; font-size: 7px; letter-spacing: 3.1px; }
+
+  /* ---- small-size row ---- */
+  .band {
+    margin-top: clamp(20px, 3.4vw, 32px);
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: clamp(30px, 4.4vw, 48px);
+  }
+  .band__label {
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--copper);
+    font-weight: 400;
+    text-align: center;
+    margin: 0 0 6px;
+  }
+  .band__sub {
+    text-align: center;
+    margin: 0 auto clamp(22px, 3vw, 30px);
+    max-width: 40ch;
+    font-size: 13.5px;
+    color: color-mix(in oklch, var(--ink) 60%, var(--cream));
+  }
+  .tiny-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(30px, 6vw, 64px);
+  }
+  .tiny {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  .tiny span {
+    font-size: 10.5px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: color-mix(in oklch, var(--ink) 58%, var(--cream));
+  }
+
+  /* ---- footer ---- */
+  footer {
+    margin-top: clamp(40px, 6vw, 72px);
+    padding-top: clamp(24px, 3vw, 32px);
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  footer .soft {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: color-mix(in oklch, var(--ink) 56%, var(--cream));
+  }
+
+  /* ---- reveal ---- */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; border-radius: 4px; }
+
+  @media (max-width: 860px) {
+    .panels { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { transition: none; opacity: 1; transform: none; }
+    .panel { transition: none; }
+    * { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="reveal">
+    <div class="brand"><span class="wm">METHOD<span class="dot">.</span></span></div>
+    <p class="eyebrow">The Seal</p>
+    <h1>What should the seal say?</h1>
+    <p class="lede">The seal is your credential mark, so it can speak to the academy instead of a place. Here are three ways to word it.</p>
+  </header>
+
+  <!-- ============ THREE PANELS ============ -->
+  <section class="panels" aria-label="Three wording options for the METHOD seal">
+
+    <!-- OPTION 1 — RECOMMENDED -->
+    <article class="panel panel--rec reveal" tabindex="0" aria-label="Option 1, The Academy, recommended">
+      <span class="rec-flag">Recommended</span>
+      <p class="panel__opt">Option 1</p>
+      <p class="panel__label">The Academy</p>
+      <div class="panel__stage">
+        <div class="on-cream">
+          <svg class="mark-lg" viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="METHOD seal reading METHOD Waxing Academy, Professional Training, established 2026">
+            <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/>
+            <defs>
+              <path id="o1Top" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/>
+              <path id="o1Bot" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/>
+            </defs>
+            <text class="r-arc" fill="currentColor"><textPath href="#o1Top" xlink:href="#o1Top" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text>
+            <text class="r-arc" fill="currentColor"><textPath href="#o1Bot" xlink:href="#o1Bot" startOffset="50%" text-anchor="middle">PROFESSIONAL TRAINING</textPath></text>
+            <g fill="currentColor">
+              <path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/>
+              <path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/>
+            </g>
+            <text class="r-M" x="100" y="118" text-anchor="middle">M</text>
+            <text class="r-est" x="100" y="140" text-anchor="middle" fill="currentColor">EST &#183; 2026</text>
+          </svg>
+        </div>
+      </div>
+      <p class="panel__note">Leads with the academy. No location, so it never dates.</p>
+    </article>
+
+    <!-- OPTION 2 -->
+    <article class="panel reveal" tabindex="0" aria-label="Option 2, Studio and Training">
+      <span class="rec-spacer" aria-hidden="true"></span>
+      <p class="panel__opt">Option 2</p>
+      <p class="panel__label">Studio &amp; Training</p>
+      <div class="panel__stage">
+        <div class="on-cream">
+          <svg class="mark-lg" viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="METHOD seal reading METHOD Wax Studio, Professional Training, established 2026">
+            <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/>
+            <defs>
+              <path id="o2Top" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/>
+              <path id="o2Bot" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/>
+            </defs>
+            <text class="r-arc" fill="currentColor"><textPath href="#o2Top" xlink:href="#o2Top" startOffset="50%" text-anchor="middle">METHOD &#183; WAX STUDIO</textPath></text>
+            <text class="r-arc" fill="currentColor"><textPath href="#o2Bot" xlink:href="#o2Bot" startOffset="50%" text-anchor="middle">PROFESSIONAL TRAINING</textPath></text>
+            <g fill="currentColor">
+              <path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/>
+              <path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/>
+            </g>
+            <text class="r-M" x="100" y="118" text-anchor="middle">M</text>
+            <text class="r-est" x="100" y="140" text-anchor="middle" fill="currentColor">EST &#183; 2026</text>
+          </svg>
+        </div>
+      </div>
+      <p class="panel__note">Names both the studio and the training.</p>
+    </article>
+
+    <!-- OPTION 3 -->
+    <article class="panel reveal" tabindex="0" aria-label="Option 3, Academy and Place">
+      <span class="rec-spacer" aria-hidden="true"></span>
+      <p class="panel__opt">Option 3</p>
+      <p class="panel__label">Academy &amp; Place</p>
+      <div class="panel__stage">
+        <div class="on-cream">
+          <svg class="mark-lg" viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="METHOD seal reading METHOD Waxing Academy, Southwest Florida, established 2026">
+            <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/>
+            <defs>
+              <path id="o3Top" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/>
+              <path id="o3Bot" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/>
+            </defs>
+            <text class="r-arc" fill="currentColor"><textPath href="#o3Top" xlink:href="#o3Top" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text>
+            <text class="r-arc" fill="currentColor"><textPath href="#o3Bot" xlink:href="#o3Bot" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
+            <g fill="currentColor">
+              <path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/>
+              <path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/>
+            </g>
+            <text class="r-M" x="100" y="118" text-anchor="middle">M</text>
+            <text class="r-est" x="100" y="140" text-anchor="middle" fill="currentColor">EST &#183; 2026</text>
+          </svg>
+        </div>
+      </div>
+      <p class="panel__note">Academy up top, hometown on the bottom.</p>
+    </article>
+
+  </section>
+
+  <!-- ============ SMALL SIZE ROW ============ -->
+  <section class="band reveal" aria-label="Recommended seal at small size">
+    <p class="band__label">At small size</p>
+    <p class="band__sub">The recommended wording, shown tiny to prove it still holds up.</p>
+    <div class="tiny-row">
+      <div class="tiny">
+        <div class="on-cream">
+          <svg class="mark-sm" viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Recommended METHOD seal at small size">
+            <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/>
+            <defs>
+              <path id="o1TopS" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/>
+              <path id="o1BotS" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/>
+            </defs>
+            <text class="r-arc" fill="currentColor"><textPath href="#o1TopS" xlink:href="#o1TopS" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text>
+            <text class="r-arc" fill="currentColor"><textPath href="#o1BotS" xlink:href="#o1BotS" startOffset="50%" text-anchor="middle">PROFESSIONAL TRAINING</textPath></text>
+            <g fill="currentColor">
+              <path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/>
+              <path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/>
+            </g>
+            <text class="r-M" x="100" y="118" text-anchor="middle">M</text>
+            <text class="r-est" x="100" y="140" text-anchor="middle" fill="currentColor">EST &#183; 2026</text>
+          </svg>
+        </div>
+        <span>Option 1, 56px</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="reveal">
+    <span class="wm brand">METHOD<span class="dot">.</span></span>
+    <span class="soft">Tell Lacey which wording feels right.</span>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var items = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+    function revealAll() { items.forEach(function (el) { el.classList.add('in'); }); }
+
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduce || !('IntersectionObserver' in window)) {
+      revealAll();
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      items.forEach(function (el) { io.observe(el); });
+    }
+
+    // window-load fallback: force reveal after ~700ms no matter what
+    window.addEventListener('load', function () {
+      setTimeout(revealAll, 700);
+    });
+  })();
+</script>
+</body>
+</html>
