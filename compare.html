@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>METHOD | Logo Directions</title>
-<meta name="description" content="Two logo directions for METHOD, a professional waxing academy and studio in Southwest Florida. Compare the Arch mark and the Wordmark, then choose one." />
+<meta name="description" content="Two logo directions for METHOD, a professional waxing academy and studio in Southwest Florida. Both share the same Marcellus wordmark. The only choice is the mark beside it: the arch, or the seal." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -137,8 +137,16 @@
     margin: 14px 0 0;
     max-width: 18ch;
   }
+  .masthead p.samewm {
+    margin: clamp(14px, 2.4vw, 20px) 0 0;
+    font-family: "Marcellus", serif;
+    font-size: clamp(1.02rem, 2.2vw, 1.32rem);
+    line-height: 1.5;
+    color: var(--emerald);
+    max-width: 40ch;
+  }
   .masthead p.lede {
-    margin: clamp(18px, 3vw, 26px) 0 0;
+    margin: clamp(16px, 2.6vw, 22px) 0 0;
     color: var(--muted);
     font-size: clamp(1rem, 2vw, 1.12rem);
     line-height: 1.7;
@@ -218,7 +226,7 @@
     color: var(--emerald);
   }
 
-  .chips { display: flex; flex-wrap: wrap; gap: 9px 10px; margin: clamp(16px, 2.4vw, 20px) clamp(24px, 3.4vw, 38px) 0; padding: 0; list-style: none; }
+  .chips { display: flex; flex-wrap: wrap; gap: 9px 10px; margin: clamp(16px, 2.4vw, 20px) clamp(24px, 3.4vw, 38px) clamp(26px, 4vw, 36px); padding: 0; list-style: none; }
   .chips li {
     font-family: "Jost", sans-serif;
     text-transform: uppercase; letter-spacing: 0.18em;
@@ -227,30 +235,10 @@
     background: color-mix(in oklch, var(--cream) 60%, white);
   }
 
-  .panel__foot { margin-top: auto; padding: clamp(22px, 3vw, 30px) clamp(24px, 3.4vw, 38px) clamp(24px, 3.4vw, 34px); }
-  .btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-family: "Jost", sans-serif;
-    text-transform: uppercase; letter-spacing: 0.16em;
-    font-size: 0.74rem; font-weight: 500;
-    color: var(--on-emerald);
-    background: var(--emerald);
-    border: 1px solid var(--emerald);
-    border-radius: 999px;
-    padding: 13px 24px;
-    text-decoration: none;
-    transition: transform .22s cubic-bezier(.22,1,.36,1), background .22s ease, box-shadow .22s ease;
-    outline: none;
-  }
-  .btn .arrow { transition: transform .22s cubic-bezier(.22,1,.36,1); }
-  .btn:hover { background: color-mix(in oklch, var(--emerald) 88%, black); transform: translateY(-2px); box-shadow: 0 16px 30px -20px oklch(0.33 0.045 162 / 0.8); }
-  .btn:hover .arrow { transform: translateX(4px); }
-  .btn:focus-visible { box-shadow: 0 0 0 3px color-mix(in oklch, var(--copper) 46%, transparent); transform: translateY(-2px); }
-
   /* Reusable mark sizing */
-  .mark-hero { height: clamp(128px, 22vw, 176px); width: auto; color: var(--emerald); }
+  .mark-hero { height: clamp(132px, 23vw, 184px); width: auto; color: var(--emerald); }
   .mark-hero .drop { fill: var(--copper); }
-  .mark-rev  { height: clamp(58px, 11vw, 74px); width: auto; color: var(--on-emerald); }
+  .mark-rev  { height: clamp(62px, 12vw, 80px); width: auto; color: var(--on-emerald); }
   .mark-rev .drop { fill: var(--clay); }
 
   /* Seal styling (verbatim classes from v3) */
@@ -334,6 +322,48 @@
   }
   .parity-note b { color: var(--emerald); font-weight: 500; }
 
+  /* ---------- One shared link to the full system ---------- */
+  .system-link {
+    margin-top: clamp(30px, 5vw, 48px);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: clamp(28px, 4.4vw, 44px);
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    gap: clamp(14px, 2.2vw, 20px);
+    box-shadow: 0 20px 44px -38px oklch(0.27 0.008 70 / 0.55);
+  }
+  .system-link .k {
+    font-family: "Jost", sans-serif;
+    text-transform: uppercase; letter-spacing: 0.28em; padding-left: 0.28em;
+    font-size: 0.66rem; font-weight: 500; color: var(--copper);
+    margin: 0;
+  }
+  .system-link .note {
+    margin: 0; max-width: 52ch;
+    font-size: 0.96rem; color: var(--muted); line-height: 1.65;
+  }
+  .system-link .note b { color: var(--emerald); font-weight: 500; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: "Jost", sans-serif;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    font-size: 0.74rem; font-weight: 500;
+    color: var(--on-emerald);
+    background: var(--emerald);
+    border: 1px solid var(--emerald);
+    border-radius: 999px;
+    padding: 14px 26px;
+    text-decoration: none;
+    transition: transform .22s cubic-bezier(.22,1,.36,1), background .22s ease, box-shadow .22s ease;
+    outline: none;
+  }
+  .btn .arrow { transition: transform .22s cubic-bezier(.22,1,.36,1); }
+  .btn:hover { background: color-mix(in oklch, var(--emerald) 88%, black); transform: translateY(-2px); box-shadow: 0 16px 30px -20px oklch(0.33 0.045 162 / 0.8); }
+  .btn:hover .arrow { transform: translateX(4px); }
+  .btn:focus-visible { box-shadow: 0 0 0 3px color-mix(in oklch, var(--copper) 46%, transparent); transform: translateY(-2px); }
+
   /* ============================================================
      CLOSING + FOOTER
      ============================================================ */
@@ -390,7 +420,8 @@
     <p class="masthead__brand reveal" data-d="1">Method<span class="dot">.</span></p>
     <p class="eyebrow reveal" data-d="1">Logo Directions</p>
     <h1 class="reveal" data-d="2">Two ways to wear the name.</h1>
-    <p class="lede reveal" data-d="3">Everything else is the same, the seal, the colors, the type, the certificate, and the apparel. The only choice here is the primary logo. Open each full system, then tell me which feels most like <b>Method</b>.</p>
+    <p class="samewm reveal" data-d="2">Both use the same METHOD wordmark. The only choice is the mark beside it: the arch, or the seal.</p>
+    <p class="lede reveal" data-d="3">Everything else is settled and identical, the colors, the type, the certificate, and the apparel. Sit with each pairing below, then tell me which mark feels most like <b>Method</b>.</p>
   </div>
 </header>
 
@@ -409,55 +440,54 @@
           </div>
 
           <div class="showcase">
-            <!-- Arch mark, reused verbatim from brand-system-v2 -->
-            <svg class="mark-hero" viewBox="0 0 128 148" role="img" aria-label="Option A, the Arch: a serif M set within a slim arch, crowned by a small olive sprig">
-              <path d="M34 138 L34 62 A30 30 0 0 1 94 62 L94 138" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- New architectural arch mark: a clean portal outline in emerald with a live Marcellus M inside -->
+            <svg class="mark-hero" viewBox="0 0 128 156" role="img" aria-label="Option A, the Arch: a clean modern doorway drawn as a thin outline, with a capital M set in Marcellus inside it">
+              <path d="M30 148 L30 68 A34 42 0 0 1 98 68 L98 148" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- subtle olive sprig at the apex -->
               <g class="drop">
-                <path d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
-                <path transform="rotate(-40 64 32)" d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
-                <path transform="rotate(40 64 32)" d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
+                <path d="M64 40 C62 45 62 51 64 55 C66 51 66 45 64 40 Z"/>
+                <path d="M64 50 C60.5 47.5 57.5 47.5 55.5 49.5 C58 51.5 61 52 64 50 Z"/>
+                <path d="M64 50 C67.5 47.5 70.5 47.5 72.5 49.5 C70 51.5 67 52 64 50 Z"/>
               </g>
-              <text x="64" y="112" text-anchor="middle" font-family="Marcellus, serif" font-size="53" fill="currentColor">M</text>
+              <!-- the name's own letter, set live in Marcellus -->
+              <text class="drop" x="64" y="122" text-anchor="middle" font-family="Marcellus, serif" font-size="54">M</text>
             </svg>
             <div class="wm wm--hero">
-              <p class="wm__name" style="font-size: clamp(1.5rem, 4vw, 2.2rem)">Method</p>
+              <p class="wm__name">Method<span class="dot">.</span></p>
               <span class="wm__desc">Wax Studio &amp; Professional Training</span>
             </div>
           </div>
 
           <div class="reversed">
             <span class="reversed__tag">Reversed on emerald</span>
-            <svg class="mark-rev" viewBox="0 0 128 148" role="img" aria-label="Option A mark reversed on emerald">
-              <path d="M34 138 L34 62 A30 30 0 0 1 94 62 L94 138" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg class="mark-rev" viewBox="0 0 128 156" role="img" aria-label="Option A arch mark reversed on emerald">
+              <path d="M30 148 L30 68 A34 42 0 0 1 98 68 L98 148" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
               <g class="drop">
-                <path d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
-                <path transform="rotate(-40 64 32)" d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
-                <path transform="rotate(40 64 32)" d="M64 32 C61.5 27 61.5 22 64 18 C66.5 22 66.5 27 64 32 Z"/>
+                <path d="M64 40 C62 45 62 51 64 55 C66 51 66 45 64 40 Z"/>
+                <path d="M64 50 C60.5 47.5 57.5 47.5 55.5 49.5 C58 51.5 61 52 64 50 Z"/>
+                <path d="M64 50 C67.5 47.5 70.5 47.5 72.5 49.5 C70 51.5 67 52 64 50 Z"/>
               </g>
-              <text x="64" y="112" text-anchor="middle" font-family="Marcellus, serif" font-size="53" fill="currentColor">M</text>
+              <text class="drop" x="64" y="122" text-anchor="middle" font-family="Marcellus, serif" font-size="54">M</text>
             </svg>
+            <div class="wm wm--rev">
+              <p class="wm__name">Method<span class="dot">.</span></p>
+              <span class="wm__desc">Wax Studio &amp; Professional Training</span>
+            </div>
           </div>
 
-          <p class="panel__desc">The academy mark. An M set in an arch, symbolic and institutional.</p>
+          <p class="panel__desc">The academy arch, drawn clean and modern, with the name set in Marcellus. Architectural, but timeless.</p>
           <ul class="chips" aria-label="Option A feels like">
-            <li>Symbolic</li>
-            <li>Academic</li>
-            <li>Timeless</li>
+            <li>Modern</li>
+            <li>Architectural</li>
+            <li>Refined</li>
           </ul>
-
-          <div class="panel__foot">
-            <a class="btn" href="brand-system-v2.html" target="_blank" rel="noopener">
-              Explore the full system
-              <span class="arrow" aria-hidden="true">&rarr;</span>
-            </a>
-          </div>
         </article>
 
-        <!-- ---------- OPTION B: THE WORDMARK ---------- -->
+        <!-- ---------- OPTION B: THE WORDMARK AND SEAL ---------- -->
         <article class="panel reveal" data-d="2" aria-labelledby="optB-h">
           <div class="panel__label">
             <span class="opt">Option B</span>
-            <span class="nm" id="optB-h">The Wordmark</span>
+            <span class="nm" id="optB-h">The Wordmark and Seal</span>
           </div>
 
           <div class="showcase">
@@ -516,17 +546,10 @@
 
           <p class="panel__desc">The name itself, closed with a copper period, paired with the seal as your credibility crest. Clean on scrubs, signage, and social.</p>
           <ul class="chips" aria-label="Option B feels like">
-            <li>Modern</li>
+            <li>Credentialed</li>
             <li>Versatile</li>
             <li>Wears well</li>
           </ul>
-
-          <div class="panel__foot">
-            <a class="btn" href="brand-system-v3.html" target="_blank" rel="noopener">
-              Explore the full system
-              <span class="arrow" aria-hidden="true">&rarr;</span>
-            </a>
-          </div>
         </article>
 
       </div>
@@ -539,7 +562,7 @@
       <div class="shared__head reveal">
         <p class="eyebrow" style="text-align:center;">Identical in both</p>
         <h2 id="shared-h">What both directions share</h2>
-        <p>Whichever primary logo you pick, the rest of the identity is already settled. The decision here is only the logo.</p>
+        <p>Whichever mark you pick, the rest of the identity is already settled. The wordmark, the seal, the palette, and the type carry across without a single change.</p>
       </div>
 
       <div class="shared__grid">
@@ -601,9 +624,19 @@
             </div>
           </div>
           <div class="parity-note">
-            The type is identical too: <b>Marcellus</b> for the display and wordmark, <b>Jost</b> for body and UI. The <b>certificate</b>, signed by all three founders, and the full <b>apparel</b> set look the same in either system. Only the primary logo changes.
+            The wordmark is identical in both: <b>METHOD</b> set live in Marcellus, closed with a copper period. The type is settled too, <b>Marcellus</b> for display and wordmark, <b>Jost</b> for body and UI. The <b>certificate</b>, signed by all three founders, and the full <b>apparel</b> set look the same in either system. Only the mark beside the name changes.
           </div>
         </div>
+      </div>
+
+      <!-- ---------- One shared link to the full system ---------- -->
+      <div class="system-link reveal" data-d="2">
+        <p class="k">One system, either mark</p>
+        <p class="note">Everything beyond the logo is identical in both. Whichever mark you choose, the arch or the seal, drops right in. The seal, palette, type, certificate, and apparel are already settled.</p>
+        <a class="btn" href="brand-system-v3.html" target="_blank" rel="noopener">
+          See the full brand system: certificate, apparel, colors, and type
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+        </a>
       </div>
     </div>
   </section>
@@ -611,7 +644,7 @@
   <!-- ============ CLOSING ============ -->
   <section class="closing reveal">
     <div class="wrap">
-      <p>Tell Lacey which one feels like you, or which pieces to combine.</p>
+      <p>Tell Lacey which mark feels like you, the arch or the seal.</p>
     </div>
   </section>
 
