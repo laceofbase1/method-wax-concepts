@@ -358,6 +358,11 @@
   .crest-cream { color: var(--copper); --seal-center: var(--emerald); }
   .crest-emerald { color: var(--on-emerald); --seal-center: var(--clay); }
   .seal-M { fill: var(--seal-center, currentColor); }
+
+  /* ---- REFINED seal classes (canonical, from seal-wording.html Option 3) ---- */
+  .r-arc { font-family: "Marcellus", serif; font-size: 10.6px; letter-spacing: 2.2px; text-transform: uppercase; }
+  .r-M   { font-family: "Marcellus", serif; font-size: 55px; fill: var(--seal-center, currentColor); }
+  .r-est { font-family: "Marcellus", serif; font-size: 7px; letter-spacing: 3.1px; }
   .crest-note {
     margin-top: clamp(22px, 3vw, 30px);
     background: color-mix(in oklch, var(--greige) 45%, var(--cream));
@@ -919,20 +924,20 @@
           <div class="colock">
             <div class="seal-mini">
               <svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="METHOD academy seal above the wordmark">
-                <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="2.4"/>
-                <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.6"/>
+                <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/>
                 <defs>
-                  <path id="cLockTop" d="M 20 100 A 80 80 0 0 1 180 100" fill="none"/>
-                  <path id="cLockBot" d="M 12 100 A 88 88 0 0 0 188 100" fill="none"/>
+                  <path id="rTop-colock" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/>
+                  <path id="rBot-colock" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/>
                 </defs>
-                <text class="seal-arc" fill="currentColor"><textPath href="#cLockTop" xlink:href="#cLockTop" startOffset="50%" text-anchor="middle">METHOD &#183; WAX STUDIO</textPath></text>
-                <text class="seal-arc" fill="currentColor"><textPath href="#cLockBot" xlink:href="#cLockBot" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
+                <text class="r-arc" fill="currentColor"><textPath href="#rTop-colock" xlink:href="#rTop-colock" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text>
+                <text class="r-arc" fill="currentColor"><textPath href="#rBot-colock" xlink:href="#rBot-colock" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
                 <g fill="currentColor">
-                  <path d="M20 95 L25 100 L20 105 L15 100 Z"/>
-                  <path d="M180 95 L185 100 L180 105 L175 100 Z"/>
+                  <path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/>
+                  <path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/>
                 </g>
-                <text class="seal-M" x="100" y="112" text-anchor="middle">M</text>
-                <text class="seal-est" x="100" y="134" text-anchor="middle" fill="currentColor">EST &#183; 2026</text>
+                <text class="r-M" x="100" y="118" text-anchor="middle">M</text>
+                <text class="r-est" x="100" y="140" text-anchor="middle" fill="currentColor">EST &#183; 2026</text>
               </svg>
             </div>
             <div class="wm" style="gap: 0.5em">
@@ -1002,21 +1007,21 @@
         <div class="stage stage--cream">
           <span class="stage__tag">On cream</span>
           <div class="crest-cream">
-            <svg class="mark-lg" style="height: clamp(160px, 26vw, 220px)" viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="METHOD academy seal: Wax Studio, Southwest Florida, established 2026">
-              <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="2"/>
-              <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+            <svg class="mark-lg" style="height: clamp(160px, 26vw, 220px)" viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="METHOD academy seal: Waxing Academy, Southwest Florida, established 2026">
+              <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="1.6"/>
+              <circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/>
               <defs>
-                <path id="cTop1" d="M 20 100 A 80 80 0 0 1 180 100" fill="none"/>
-                <path id="cBot1" d="M 12 100 A 88 88 0 0 0 188 100" fill="none"/>
+                <path id="rTop-crest" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/>
+                <path id="rBot-crest" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/>
               </defs>
-              <text class="seal-arc" fill="currentColor"><textPath href="#cTop1" xlink:href="#cTop1" startOffset="50%" text-anchor="middle">METHOD &#183; WAX STUDIO</textPath></text>
-              <text class="seal-arc" fill="currentColor"><textPath href="#cBot1" xlink:href="#cBot1" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
+              <text class="r-arc" fill="currentColor"><textPath href="#rTop-crest" xlink:href="#rTop-crest" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text>
+              <text class="r-arc" fill="currentColor"><textPath href="#rBot-crest" xlink:href="#rBot-crest" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
               <g fill="currentColor">
-                <path d="M20 95 L25 100 L20 105 L15 100 Z"/>
-                <path d="M180 95 L185 100 L180 105 L175 100 Z"/>
+                <path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/>
+                <path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/>
               </g>
-              <text class="seal-M" x="100" y="112" text-anchor="middle">M</text>
-              <text class="seal-est" x="100" y="134" text-anchor="middle" fill="currentColor">EST &#183; 2026</text>
+              <text class="r-M" x="100" y="118" text-anchor="middle">M</text>
+              <text class="r-est" x="100" y="140" text-anchor="middle" fill="currentColor">EST &#183; 2026</text>
             </svg>
           </div>
         </div>
@@ -1025,20 +1030,20 @@
           <span class="stage__tag">Reversed on emerald</span>
           <div class="crest-emerald">
             <svg class="mark-lg" style="height: clamp(160px, 26vw, 220px)" viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="METHOD academy seal, reversed">
-              <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="2"/>
-              <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+              <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="1.6"/>
+              <circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/>
               <defs>
-                <path id="cTop2" d="M 20 100 A 80 80 0 0 1 180 100" fill="none"/>
-                <path id="cBot2" d="M 12 100 A 88 88 0 0 0 188 100" fill="none"/>
+                <path id="rTop-crestrev" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/>
+                <path id="rBot-crestrev" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/>
               </defs>
-              <text class="seal-arc" fill="currentColor"><textPath href="#cTop2" xlink:href="#cTop2" startOffset="50%" text-anchor="middle">METHOD &#183; WAX STUDIO</textPath></text>
-              <text class="seal-arc" fill="currentColor"><textPath href="#cBot2" xlink:href="#cBot2" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
+              <text class="r-arc" fill="currentColor"><textPath href="#rTop-crestrev" xlink:href="#rTop-crestrev" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text>
+              <text class="r-arc" fill="currentColor"><textPath href="#rBot-crestrev" xlink:href="#rBot-crestrev" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
               <g fill="currentColor">
-                <path d="M20 95 L25 100 L20 105 L15 100 Z"/>
-                <path d="M180 95 L185 100 L180 105 L175 100 Z"/>
+                <path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/>
+                <path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/>
               </g>
-              <text class="seal-M" x="100" y="112" text-anchor="middle">M</text>
-              <text class="seal-est" x="100" y="134" text-anchor="middle" fill="currentColor">EST &#183; 2026</text>
+              <text class="r-M" x="100" y="118" text-anchor="middle">M</text>
+              <text class="r-est" x="100" y="140" text-anchor="middle" fill="currentColor">EST &#183; 2026</text>
             </svg>
           </div>
         </div>
@@ -1350,20 +1355,20 @@
 
                   <div class="cert-emboss" aria-hidden="true">
                     <svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="METHOD academy authenticity seal, embossed in copper">
-                      <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="2.4"/>
-                      <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.65"/>
+                      <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                      <circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/>
                       <defs>
-                        <path id="embTop" d="M 20 100 A 80 80 0 0 1 180 100" fill="none"/>
-                        <path id="embBot" d="M 12 100 A 88 88 0 0 0 188 100" fill="none"/>
+                        <path id="rTop-cert" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/>
+                        <path id="rBot-cert" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/>
                       </defs>
-                      <text class="seal-arc" fill="currentColor"><textPath href="#embTop" xlink:href="#embTop" startOffset="50%" text-anchor="middle">METHOD &#183; WAX STUDIO</textPath></text>
-                      <text class="seal-arc" fill="currentColor"><textPath href="#embBot" xlink:href="#embBot" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
+                      <text class="r-arc" fill="currentColor"><textPath href="#rTop-cert" xlink:href="#rTop-cert" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text>
+                      <text class="r-arc" fill="currentColor"><textPath href="#rBot-cert" xlink:href="#rBot-cert" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
                       <g fill="currentColor">
-                        <path d="M20 95 L25 100 L20 105 L15 100 Z"/>
-                        <path d="M180 95 L185 100 L180 105 L175 100 Z"/>
+                        <path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/>
+                        <path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/>
                       </g>
-                      <text class="seal-M" x="100" y="112" text-anchor="middle" style="fill: currentColor">M</text>
-                      <text class="seal-est" x="100" y="134" text-anchor="middle" fill="currentColor">EST &#183; 2026</text>
+                      <text class="r-M" x="100" y="118" text-anchor="middle" style="fill: currentColor">M</text>
+                      <text class="r-est" x="100" y="140" text-anchor="middle" fill="currentColor">EST &#183; 2026</text>
                     </svg>
                   </div>
 
@@ -1464,13 +1469,17 @@
                         <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="6" stroke-dasharray="7 3.4" stroke-linecap="round"/>
                         <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="6 3" opacity="0.85"/>
                         <defs>
-                          <path id="chestTop" d="M 22 100 A 78 78 0 0 1 178 100" fill="none"/>
-                          <path id="chestBot" d="M 14 100 A 86 86 0 0 0 186 100" fill="none"/>
+                          <path id="rTop-chest" d="M 22 100 A 78 78 0 0 1 178 100" fill="none"/>
+                          <path id="rBot-chest" d="M 14 100 A 86 86 0 0 0 186 100" fill="none"/>
                         </defs>
-                        <text class="seal-arc" fill="currentColor" style="font-size: 14px; letter-spacing: 2px"><textPath href="#chestTop" xlink:href="#chestTop" startOffset="50%" text-anchor="middle">METHOD &#183; WAX STUDIO</textPath></text>
-                        <text class="seal-arc" fill="currentColor" style="font-size: 12px; letter-spacing: 2px"><textPath href="#chestBot" xlink:href="#chestBot" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
-                        <text class="seal-M" x="100" y="118" text-anchor="middle" fill="oklch(0.90 0.02 92)" style="font-size: 62px">M</text>
-                        <text class="seal-est" x="100" y="140" text-anchor="middle" fill="currentColor" style="font-size: 9px">EST &#183; 2026</text>
+                        <text class="r-arc" fill="currentColor" style="font-size: 14px; letter-spacing: 2px"><textPath href="#rTop-chest" xlink:href="#rTop-chest" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text>
+                        <text class="r-arc" fill="currentColor" style="font-size: 12px; letter-spacing: 2px"><textPath href="#rBot-chest" xlink:href="#rBot-chest" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
+                        <g fill="currentColor">
+                          <path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/>
+                          <path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/>
+                        </g>
+                        <text class="r-M" x="100" y="118" text-anchor="middle" fill="oklch(0.90 0.02 92)" style="font-size: 62px">M</text>
+                        <text class="r-est" x="100" y="140" text-anchor="middle" fill="currentColor" style="font-size: 9px">EST &#183; 2026</text>
                       </g>
                     </g>
                   </svg>
@@ -1564,13 +1573,21 @@
                 <div class="ig-top">
                   <div class="ig-ring">
                     <div>
-                      <svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="METHOD seal profile photo" style="width: 74%; height: auto">
-                        <circle cx="100" cy="100" r="92" fill="none" stroke="oklch(0.76 0.045 55)" stroke-width="4"/>
+                      <svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="METHOD academy seal profile photo: Waxing Academy, Southwest Florida" style="width: 94%; height: auto">
+                        <circle cx="100" cy="100" r="94" fill="none" stroke="oklch(0.76 0.045 55)" stroke-width="1.6"/>
+                        <circle cx="100" cy="100" r="68" fill="none" stroke="oklch(0.76 0.045 55)" stroke-width="0.9" opacity="0.55"/>
                         <defs>
-                          <path id="igTop" d="M 24 100 A 76 76 0 0 1 176 100" fill="none"/>
+                          <path id="rTop-avatar" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/>
+                          <path id="rBot-avatar" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/>
                         </defs>
-                        <text class="seal-arc" fill="oklch(0.76 0.045 55)" style="font-size: 15px"><textPath href="#igTop" xlink:href="#igTop" startOffset="50%" text-anchor="middle">METHOD</textPath></text>
-                        <text class="seal-M" x="100" y="128" text-anchor="middle" fill="oklch(0.90 0.02 92)" style="font-size: 84px">M</text>
+                        <text class="r-arc" fill="oklch(0.76 0.045 55)"><textPath href="#rTop-avatar" xlink:href="#rTop-avatar" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text>
+                        <text class="r-arc" fill="oklch(0.76 0.045 55)"><textPath href="#rBot-avatar" xlink:href="#rBot-avatar" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
+                        <g fill="oklch(0.76 0.045 55)">
+                          <path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/>
+                          <path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/>
+                        </g>
+                        <text class="r-M" x="100" y="118" text-anchor="middle" fill="oklch(0.90 0.02 92)">M</text>
+                        <text class="r-est" x="100" y="140" text-anchor="middle" fill="oklch(0.76 0.045 55)">EST &#183; 2026</text>
                       </svg>
                     </div>
                   </div>
