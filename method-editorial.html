@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>METHOD · Editorial Concept · Southwest Florida</title>
+<!-- Exploration: Dairy Boy editorial aesthetic + chic display serif (Prata, a free stand-in for "Angle" by Sensatype). Separate from method-home-v5. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F5EFE4; --paper:#FBF7EF; --ink:#2A2620; --emerald:#1D392F; --emerald-mid:#2C5344;
+    --copper:#A56B41; --clay:#CBA891; --mauve:#C29AA0; --mauve-soft:#EADFDF; --mauve-deep:#A9848B; --muted:#7A7064; --line:#DFD5C4;
+    --maxw:1300px; --gutter:clamp(1.1rem,4vw,3rem); --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--ivory); color:var(--ink); font-family:'Jost',sans-serif; font-weight:300; line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  .display,h1,h2,h3{ font-family:'Prata',serif; font-weight:400; line-height:1.12; letter-spacing:.005em; }
+  a{ color:inherit; text-decoration:none; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter); }
+  .label{ font-size:.66rem; letter-spacing:.26em; text-transform:uppercase; color:var(--muted); font-weight:400; }
+  .u-label{ display:inline-block; border-bottom:1px solid var(--ink); padding-bottom:3px; font-size:.68rem; letter-spacing:.26em; text-transform:uppercase; }
+
+  /* announcement */
+  .announce{ background:var(--emerald); color:var(--ivory); text-align:center; font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; padding:.55rem 1rem; }
+  .announce a{ text-decoration:underline; text-underline-offset:2px; }
+
+  /* header */
+  header{ position:sticky; top:0; z-index:60; background:color-mix(in srgb,var(--ivory) 90%,transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+  .nav{ display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:1.15rem 0; }
+  .nav-l{ display:flex; gap:1.8rem; }
+  .nav-r{ display:flex; gap:1.8rem; justify-content:flex-end; }
+  .nav a{ font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--ink); transition:color .3s; }
+  .nav a:hover{ color:var(--copper); }
+  .brand{ font-family:'Prata',serif; font-size:1.7rem; letter-spacing:.36em; color:var(--emerald); padding-left:.36em; text-align:center; white-space:nowrap; }
+  .nav .btn-login{ background:var(--mauve); color:#fff; font-size:.66rem; letter-spacing:.14em; padding:.62rem 1.1rem; border-radius:9px; transition:background .3s, transform .35s var(--ease); }
+  .nav .btn-login:hover{ background:var(--mauve-deep); color:#fff; transform:translateY(-1px); }
+
+  /* hero */
+  .hero{ position:relative; height:clamp(80vh,88vh,940px); overflow:hidden; }
+  .hero img{ width:100%; height:100%; object-fit:cover; object-position:center 42%; display:block; filter:saturate(.98) brightness(1.1); }
+  .hero::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(20,25,20,.10),rgba(20,25,20,0) 34%,rgba(20,25,20,.20)); }
+  .hero-cap{ position:absolute; left:0; right:0; bottom:clamp(1.6rem,4vw,2.6rem); z-index:2; text-align:center; color:var(--ivory); }
+  .hero-cap .k{ font-size:.72rem; letter-spacing:.28em; text-transform:uppercase; opacity:.92; }
+  .hero-cta{ margin-top:1.2rem; display:flex; gap:1.4rem; justify-content:center; align-items:center; flex-wrap:wrap; }
+  .hero-btn{ background:var(--ivory); color:var(--emerald); font-family:'Jost'; font-weight:400; font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; padding:.85rem 1.9rem; border-radius:100px; transition:background .3s, transform .35s var(--ease); }
+  .hero-btn:hover{ background:var(--clay); transform:translateY(-2px); }
+  .hero-link{ color:var(--ivory); font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; border-bottom:1px solid rgba(245,239,228,.55); padding-bottom:2px; transition:border-color .3s; }
+  .hero-link:hover{ border-color:var(--ivory); }
+
+  /* statement */
+  .statement{ text-align:center; padding:clamp(4rem,9vw,8rem) 0 clamp(3rem,7vw,6rem); }
+  .statement .label{ margin-bottom:2rem; }
+  .statement h1{ font-size:clamp(2.1rem,5.4vw,4.7rem); max-width:17ch; margin:0 auto; }
+  .statement h1 em{ font-style:italic; color:var(--mauve-deep); }
+  .g{ color:var(--emerald); }
+  .statement .sub{ margin:2.2rem auto 0; max-width:52ch; color:var(--muted); font-size:1.05rem; }
+
+  /* editorial split */
+  .split{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,5rem); align-items:center; padding:clamp(2.5rem,5vw,4.5rem) 0; }
+  .split.rev .split-media{ order:2; }
+  .split-media{ overflow:hidden; }
+  .split-media img{ width:100%; height:100%; max-height:640px; object-fit:cover; display:block; transition:transform 1s var(--ease); }
+  .split-media:hover img{ transform:scale(1.03); }
+  .split-copy h2{ font-size:clamp(2rem,4.4vw,3.4rem); margin:1.3rem 0 1.4rem; }
+  .split-copy p{ color:var(--muted); max-width:44ch; margin-bottom:1.6rem; }
+  .link{ font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; border-bottom:1px solid var(--copper); padding-bottom:3px; color:var(--copper); transition:letter-spacing .3s var(--ease); }
+  .link:hover{ letter-spacing:.26em; }
+
+  /* certifications editorial grid */
+  .edit{ padding:clamp(3rem,6vw,6rem) 0; }
+  .edit-head{ display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:2.6rem; gap:1rem; flex-wrap:wrap; }
+  .edit-head h2{ font-size:clamp(1.8rem,3.6vw,2.8rem); }
+  .cards{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(1rem,1.6vw,1.5rem); }
+  .card figure{ overflow:hidden; margin-bottom:1rem; aspect-ratio:4/5; background:var(--line); }
+  .card img{ width:100%; height:100%; object-fit:cover; transition:transform .9s var(--ease); }
+  .card:hover img{ transform:scale(1.04); }
+  .card .lv{ font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--copper); }
+  .card h3{ font-size:1.32rem; margin:.35rem 0 .3rem; }
+  .card .meta{ font-size:.8rem; color:var(--muted); }
+  .card .price{ font-family:'Prata',serif; font-size:1.05rem; margin-top:.5rem; }
+
+  /* quote */
+  .quote{ text-align:center; padding:clamp(4rem,9vw,8rem) 0; }
+  .quote p{ font-family:'Prata',serif; font-size:clamp(1.7rem,4vw,3.1rem); line-height:1.28; max-width:20ch; margin:0 auto; }
+  .quote p em{ font-style:italic; color:var(--mauve-deep); }
+  .quote .cite{ margin-top:2rem; font-size:.7rem; letter-spacing:.24em; text-transform:uppercase; color:var(--muted); }
+
+  /* signup band */
+  .signup{ background:var(--emerald); color:var(--ivory); text-align:center; padding:clamp(3.5rem,7vw,6rem) 0; }
+  .signup h2{ font-style:italic; font-size:clamp(1.8rem,4vw,2.8rem); margin-bottom:1rem; }
+  .signup p{ color:#C9D6CD; max-width:46ch; margin:0 auto 2.2rem; font-size:.98rem; }
+  .signup-form{ display:flex; gap:1rem; justify-content:center; align-items:center; max-width:440px; margin:0 auto; flex-wrap:wrap; }
+  .signup-form .field{ flex:1; min-width:200px; background:transparent; border:none; border-bottom:1px solid rgba(245,239,228,.5); color:var(--ivory); padding:.6rem .2rem; font-family:'Jost'; font-size:.9rem; letter-spacing:.04em; }
+  .signup-form .field::placeholder{ color:rgba(245,239,228,.6); }
+  .signup-form button{ background:var(--ivory); color:var(--emerald); border:none; font-family:'Jost'; font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; padding:.75rem 1.6rem; cursor:pointer; transition:background .3s,color .3s; }
+  .signup-form button:hover{ background:var(--clay); }
+
+  /* footer */
+  footer{ padding:clamp(3.5rem,6vw,5rem) 0 2.5rem; text-align:center; }
+  .foot-brand{ font-family:'Prata',serif; font-size:1.8rem; letter-spacing:.36em; color:var(--emerald); padding-left:.36em; }
+  .foot-links{ display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; margin:1.8rem 0; }
+  .foot-links a{ font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
+  .foot-links a:hover{ color:var(--ink); }
+  .foot-fine{ font-size:.64rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+
+  /* copper dot on wordmark */
+  .brand .dot, .foot-brand .dot{ color:var(--copper); }
+
+  /* method path, mauve band */
+  .path-band{ background:var(--mauve-soft); padding:clamp(3.5rem,7vw,6rem) 0; }
+  .path-head{ text-align:center; margin-bottom:clamp(2.2rem,5vw,3.4rem); }
+  .path-head h2{ font-size:clamp(1.9rem,4vw,3rem); margin-top:1rem; }
+  .p-steps{ position:relative; max-width:720px; margin:0 auto; display:grid; gap:.15rem; }
+  .p-steps::before{ content:""; position:absolute; left:29px; top:38px; bottom:38px; width:1px; background:var(--mauve); z-index:0; }
+  .p-step{ position:relative; display:grid; grid-template-columns:60px 1fr; gap:1.5rem; align-items:start; padding:1rem 0; z-index:1; }
+  .p-num{ width:58px; height:58px; border-radius:50%; border:1px solid var(--mauve); color:var(--mauve-deep); background:var(--mauve-soft); display:grid; place-items:center; font-family:'Prata',serif; font-size:1.25rem; transition:transform .4s var(--ease),background .3s,color .3s; }
+  .p-step:hover .p-num{ background:var(--mauve); color:#fff; transform:scale(1.05); }
+  .p-body{ padding-top:.6rem; }
+  .p-body h3{ font-size:1.3rem; margin-bottom:.25rem; }
+  .p-body p{ color:var(--muted); font-size:.92rem; }
+
+  /* product proof cards (the two pieces) */
+  .proof{ margin-top:1.7rem; background:var(--paper); border:1px solid var(--line); border-radius:15px; padding:1.2rem 1.4rem; max-width:388px; box-shadow:0 24px 48px -34px rgba(42,38,32,.42); }
+  .proof .ph{ display:flex; align-items:center; justify-content:space-between; margin-bottom:.8rem; }
+  .proof .who{ font-size:.9rem; }
+  .proof .pct{ font-family:'Prata',serif; color:var(--emerald); font-size:1.15rem; }
+  .proof .bar{ height:6px; border-radius:100px; background:var(--ivory); overflow:hidden; }
+  .proof .bar span{ display:block; height:100%; width:67%; background:linear-gradient(90deg,var(--emerald),var(--emerald-mid)); }
+  .proof .cap{ font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-top:.55rem; }
+  .proof .tag{ font-size:.56rem; letter-spacing:.16em; text-transform:uppercase; color:var(--mauve-deep); border:1px solid var(--mauve); border-radius:100px; padding:.24rem .6rem; }
+  .proof .slots{ display:flex; gap:.4rem; margin:.1rem 0 .8rem; }
+  .proof .slot{ flex:1; text-align:center; font-size:.78rem; padding:.6rem .2rem; border-radius:9px; border:1px solid var(--line); color:var(--muted); }
+  .proof .slot.on{ background:var(--mauve); color:#fff; border-color:var(--mauve); }
+  .proof .bk{ display:block; text-align:center; background:var(--emerald); color:var(--ivory); font-size:.82rem; letter-spacing:.05em; padding:.8rem; border-radius:11px; transition:background .3s; }
+  .proof .bk:hover{ background:var(--emerald-mid); }
+
+  /* seal / stamp */
+  .seal{ display:inline-block; }
+  .seal svg{ display:block; height:100%; width:auto; }
+  .r-arc{ font-family:'Prata',serif; font-size:9.4px; letter-spacing:2px; text-transform:uppercase; }
+  .r-M{ font-family:'Prata',serif; font-size:50px; fill:var(--seal-center,currentColor); }
+  .r-est{ font-family:'Prata',serif; font-size:6.6px; letter-spacing:2.6px; }
+  .seal-rev{ color:var(--ivory); --seal-center:var(--clay); }
+  .seal-ring{ transform-origin:100px 100px; animation:sealspin 32s linear infinite; }
+  @keyframes sealspin{ to{ transform:rotate(360deg); } }
+  @media (prefers-reduced-motion:reduce){ .seal-ring{ animation:none; } }
+  .signup .seal{ height:108px; margin-bottom:1.5rem; }
+
+  @media (max-width:900px){
+    .nav{ grid-template-columns:auto 1fr; }
+    .nav-l{ display:none; } .brand{ text-align:left; padding-left:0; }
+    .split{ grid-template-columns:1fr; } .split.rev .split-media{ order:0; }
+    .cards{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media (max-width:520px){ .cards{ grid-template-columns:1fr; } .nav-r{ gap:1rem; } .nav a{ font-size:.64rem; letter-spacing:.12em; } }
+</style>
+</head>
+<body>
+
+<div class="announce">The Academy &amp; The Studio &nbsp;&#9825;&nbsp; Now Enrolling in Southwest Florida &nbsp;·&nbsp; <a href="#edit">See the certifications</a></div>
+
+<header>
+  <div class="wrap nav">
+    <div class="nav-l">
+      <a href="#academy">Academy</a>
+      <a href="#studio">Studio</a>
+    </div>
+    <div class="brand">METHOD<span class="dot">.</span></div>
+    <div class="nav-r">
+      <a href="#edit">Courses</a>
+      <a href="#studio">Book</a>
+      <!-- LMS entry point: wire to the learning platform login when built -->
+      <a class="btn-login" href="#">Student Login</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="https://images.unsplash.com/photo-1763750759240-a1398573772a?auto=format&fit=crop&w=2000&q=80" alt="The warm, softly lit arched studio in Southwest Florida">
+  <div class="hero-cap">
+    <span class="k">A Training Academy First, A Studio Second</span>
+    <div class="hero-cta">
+      <a class="hero-btn" href="#edit">Explore Certifications</a>
+      <a class="hero-link" href="#studio">Join the Waitlist</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement wrap">
+  <div class="label">A Waxing Academy &amp; Studio</div>
+  <h1>The art of the <span class="g">wax</span>, taught <em>with intention.</em></h1>
+  <p class="sub">Online-first certification for estheticians, finished with hands-on training in our Southwest Florida studio. Learn the theory at your own pace, then master the technique in person.</p>
+</section>
+
+<!-- ACADEMY -->
+<section class="split wrap" id="academy">
+  <div class="split-media"><img src="https://images.unsplash.com/photo-1648285191822-1b02b816cd78?auto=format&fit=crop&w=1200&q=80" alt="A warm copper-toned arched niche with travertine and a trailing plant"></div>
+  <div class="split-copy">
+    <span class="u-label">01 · The Academy</span>
+    <h2>Certification, built for working estheticians.</h2>
+    <p>Create your profile, choose a certification, and complete the online curriculum at your own pace. Track every module, then book your hands-on studio intensive when you are ready.</p>
+    <a class="link" href="#edit">Browse the certifications</a>
+    <div class="proof">
+      <div class="ph"><span class="who">Danielle R.</span><span class="pct">67%</span></div>
+      <div class="bar"><span></span></div>
+      <div class="cap">Brazilian Masterclass · in progress</div>
+    </div>
+  </div>
+</section>
+
+<!-- STUDIO -->
+<section class="split rev wrap" id="studio">
+  <div class="split-media"><img src="https://images.unsplash.com/photo-1687293233752-ec42de2050db?auto=format&fit=crop&w=1200&q=80" alt="An esthetician in the warm treatment room, ready for a client"></div>
+  <div class="split-copy">
+    <span class="u-label">02 · The Studio</span>
+    <h2>Waxing by the studio that trains the pros.</h2>
+    <p>Luxury waxing in Southwest Florida, held to the exact standard we teach our estheticians. When the doors open, book your appointment online in seconds.</p>
+    <a class="link" href="#studio">Join the studio waitlist</a>
+    <div class="proof">
+      <div class="ph"><span class="who">Brow Shaping · 30 min</span><span class="tag">Preview</span></div>
+      <div class="slots"><span class="slot">Thu 9:00</span><span class="slot on">Fri 10:00</span><span class="slot">Sat 1:30</span></div>
+      <a class="bk" href="#">Book appointment</a>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD PATH (mauve band) -->
+<section class="path-band" id="path">
+  <div class="wrap">
+    <div class="path-head">
+      <span class="u-label">The Method Path</span>
+      <h2>From profile to certified, at your pace.</h2>
+    </div>
+    <div class="p-steps">
+      <div class="p-step"><div class="p-num">1</div><div class="p-body"><h3>Create your profile</h3><p>Set up your learner account in minutes.</p></div></div>
+      <div class="p-step"><div class="p-num">2</div><div class="p-body"><h3>Choose your certification</h3><p>Browse courses by specialty and skill level.</p></div></div>
+      <div class="p-step"><div class="p-num">3</div><div class="p-body"><h3>Complete the online curriculum</h3><p>Video modules, technique breakdowns, and assessments you can revisit anytime.</p></div></div>
+      <div class="p-step"><div class="p-num">4</div><div class="p-body"><h3>Track your progress</h3><p>Every module, checkpoint, and studio hour in one place.</p></div></div>
+      <div class="p-step"><div class="p-num">5</div><div class="p-body"><h3>Book your in-person intensive</h3><p>Reserve your hands-on session on our studio calendar and get certified.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS EDIT -->
+<section class="edit wrap" id="edit">
+  <div class="edit-head">
+    <h2>The Certifications</h2>
+    <span class="u-label">Self-paced online + a studio day</span>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <figure><img src="https://images.unsplash.com/photo-1717416697589-d0881869fc46?auto=format&fit=crop&w=800&q=80" alt="Warm marble surface"></figure>
+      <div class="lv">Advanced</div><h3>Brazilian Masterclass</h3>
+      <div class="meta">6 online modules + 1 studio day</div><div class="price">$299</div>
+    </div>
+    <div class="card">
+      <figure><img src="https://images.unsplash.com/photo-1690994065552-6a35a0455ea2?auto=format&fit=crop&w=800&q=80" alt="An olive branch in a soft, sunlit still life"></figure>
+      <div class="lv">Intermediate</div><h3>Brow Artistry</h3>
+      <div class="meta">5 online modules + 1 studio day</div><div class="price">$199</div>
+    </div>
+    <div class="card">
+      <figure><img src="https://images.unsplash.com/photo-1653022860307-0ccb6379f78b?auto=format&fit=crop&w=800&q=80" alt="A mauve, travertine still life"></figure>
+      <div class="lv">Advanced</div><h3>Speed Waxing</h3>
+      <div class="meta">4 online modules + 1 studio day</div><div class="price">$249</div>
+    </div>
+    <div class="card">
+      <figure><img src="https://images.unsplash.com/photo-1721406716170-0c8346a7eaad?auto=format&fit=crop&w=800&q=80" alt="A soft white marble wall"></figure>
+      <div class="lv">Beginner</div><h3>Waxing Fundamentals</h3>
+      <div class="meta">6 online modules</div><div class="price">$149</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote wrap">
+  <p><span class="g">Intentional</span> care is not a tagline. It is the <em>curriculum.</em></p>
+  <div class="cite">The Method Philosophy</div>
+</section>
+
+<!-- SIGNUP -->
+<section class="signup">
+  <div class="wrap">
+    <span class="seal seal-rev" aria-hidden="true">
+      <svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g class="seal-ring">
+          <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/>
+          <defs><path id="rTop-sg" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/><path id="rBot-sg" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/></defs>
+          <text class="r-arc" fill="currentColor"><textPath href="#rTop-sg" xlink:href="#rTop-sg" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text>
+          <text class="r-arc" fill="currentColor"><textPath href="#rBot-sg" xlink:href="#rBot-sg" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
+          <g fill="currentColor"><path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/><path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/></g>
+        </g>
+        <text class="r-M" x="100" y="116" text-anchor="middle">M</text>
+        <text class="r-est" x="100" y="140" text-anchor="middle" fill="currentColor">EST &#183; 2026</text>
+      </svg>
+    </span>
+    <h2>Join the founding cohort.</h2>
+    <p>Early access to certifications, studio openings, and the Method community in Southwest Florida.</p>
+    <form class="signup-form" onsubmit="return false">
+      <input class="field" type="email" placeholder="Your email" aria-label="Your email">
+      <button type="submit">Join</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">METHOD<span class="dot">.</span></div>
+    <div class="foot-links">
+      <a href="#academy">The Academy</a>
+      <a href="#studio">The Studio</a>
+      <a href="#edit">Certifications</a>
+      <a href="mailto:hello@methodwaxpro.com">Contact</a>
+    </div>
+    <div class="foot-fine">© 2026 Method Wax Studio &amp; Professional Training · Southwest Florida</div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>METHOD · Brand System · Editorial</title>
+<!-- Editorial brand system: keeps v3 wordmark cards + seal + taglines; palette & type mimic method-editorial.html (ivory + emerald + copper + mauve, Prata). Apparel redone: M. monogram on realistic tee + hat. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F5EFE4; --paper:#FBF7EF; --greige:#EBE3D5; --ink:#2A2620; --emerald:#1D392F; --emerald-mid:#2C5344;
+    --copper:#A56B41; --copper-deep:#8A5733; --clay:#CBA891; --mauve:#C29AA0; --mauve-soft:#EADFDF; --mauve-deep:#A9848B;
+    --muted:#7A7064; --line:#DFD5C4; --on-emerald:#F2EDE1;
+    --cream:#F5EFE4; --card:#FBF7EF; --radius:14px; --radius-lg:18px;
+    --maxw:1180px; --gutter:clamp(1.2rem,4vw,3.5rem); --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--ivory); color:var(--ink); font-family:'Jost',sans-serif; font-weight:300; line-height:1.65; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  .display,h1,h2,h3{ font-family:'Prata',serif; font-weight:400; line-height:1.14; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter); }
+  .label{ font-size:.64rem; letter-spacing:.26em; text-transform:uppercase; color:var(--muted); }
+  .num{ font-family:'Prata',serif; color:var(--copper); font-size:.9rem; letter-spacing:.1em; }
+
+  /* wordmark + monogram */
+  .wm{ display:flex; flex-direction:column; align-items:center; line-height:1; }
+  .wm .name{ font-family:'Prata',serif; letter-spacing:.32em; padding-left:.32em; }
+  .wm .name .dot{ color:var(--copper); }
+  .wm .desc{ font-size:.5rem; letter-spacing:.28em; text-transform:uppercase; margin-top:.7em; }
+  .mono{ font-family:'Prata',serif; }
+  .mono .dot{ color:var(--copper); }
+
+  /* seal */
+  .seal svg{ display:block; height:100%; width:auto; }
+  .r-arc{ font-family:'Prata',serif; font-size:9.4px; letter-spacing:2px; text-transform:uppercase; }
+  .r-M{ font-family:'Prata',serif; font-size:50px; fill:var(--seal-center,currentColor); }
+  .r-est{ font-family:'Prata',serif; font-size:6.6px; letter-spacing:2.6px; }
+  .seal-cream{ color:var(--copper); --seal-center:var(--emerald); }
+  .seal-rev{ color:var(--on-emerald); --seal-center:var(--clay); }
+  .seal-mauve{ color:var(--mauve-deep); --seal-center:var(--emerald); }
+  .seal-mauve-rev{ color:#fff; --seal-center:var(--mauve-soft); }
+  .seal-ring{ transform-origin:100px 100px; }
+
+  /* cover */
+  .cover{ min-height:88vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:4rem var(--gutter); border-bottom:1px solid var(--line); }
+  .cover .arch{ margin-bottom:1.4rem; }
+  .cover .name{ font-size:clamp(2.3rem,5.6vw,4rem); color:var(--emerald); }
+  .cover .desc{ color:var(--muted); }
+  .cover .sys{ margin-top:2.2rem; font-size:.72rem; letter-spacing:.34em; text-transform:uppercase; color:var(--copper); }
+  .cover .meta{ margin-top:auto; padding-top:3rem; font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
+  .cover .meta b{ color:var(--ink); font-weight:400; }
+
+  /* section */
+  section.band{ padding:clamp(3.5rem,7vw,6rem) 0; border-bottom:1px solid var(--line); }
+  .head{ display:flex; align-items:baseline; gap:1.2rem; margin-bottom:clamp(2rem,4vw,3rem); }
+  .head h2{ font-size:clamp(1.8rem,4vw,2.8rem); }
+  .head p{ color:var(--muted); margin-top:.5rem; max-width:52ch; }
+
+  /* stage cards (the wordmark on cards) */
+  .stages{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.2rem; }
+  .stage{ border-radius:14px; min-height:220px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.4rem; position:relative; padding:2rem; border:1px solid var(--line); }
+  .stage .tag{ position:absolute; top:1rem; left:1.1rem; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
+  .stage--cream{ background:var(--paper); }
+  .stage--cream .name{ color:var(--emerald); } .stage--cream .desc{ color:var(--ink); }
+  .stage--greige{ background:var(--greige); }
+  .stage--greige .name{ color:var(--emerald); } .stage--greige .desc{ color:var(--ink); }
+  .stage--emerald{ background:var(--emerald); }
+  .stage--emerald .name{ color:var(--on-emerald); } .stage--emerald .name .dot{ color:var(--clay); } .stage--emerald .desc{ color:#A9B8AE; } .stage--emerald .tag{ color:#8FA096; }
+  .stage--mauve{ background:var(--mauve-soft); }
+  .stage--mauve .name{ color:var(--emerald); } .stage--mauve .desc{ color:var(--ink); }
+  .colock{ display:flex; flex-direction:column; align-items:center; gap:1rem; }
+  .colock .seal-mini{ height:66px; color:var(--copper); --seal-center:var(--emerald); }
+
+  /* specs */
+  .specs{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.2rem; margin-top:1.4rem; }
+  .spec{ background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:1.6rem; }
+  .spec h3{ font-size:1.15rem; margin-bottom:.5rem; }
+  .spec p{ font-size:.86rem; color:var(--muted); }
+  .spec .demo{ margin-top:1.2rem; display:flex; align-items:center; justify-content:center; min-height:64px; }
+  .donts{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; margin-top:1.4rem; }
+  .dont{ display:flex; gap:.8rem; background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:1.1rem 1.2rem; }
+  .dont .x{ color:var(--copper); font-size:1.1rem; line-height:1.2; }
+  .dont p{ font-size:.84rem; color:var(--muted); }
+  .dont b{ color:var(--ink); font-weight:400; }
+
+  /* seal grid */
+  .crest-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.2rem; }
+  .crest{ border-radius:14px; padding:2.4rem; display:flex; flex-direction:column; align-items:center; gap:1rem; border:1px solid var(--line); position:relative; }
+  .crest .tag{ position:absolute; top:1rem; left:1.1rem; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
+  .crest.on-cream{ background:var(--paper); } .crest.on-cream .seal{ height:150px; }
+  .crest.on-emerald{ background:var(--emerald); } .crest.on-emerald .tag{ color:#8FA096; } .crest.on-emerald .seal{ height:150px; }
+  .crest.on-mauve{ background:var(--mauve-soft); } .crest.on-mauve .seal{ height:150px; }
+  .crest.on-mauve-deep{ background:var(--mauve); } .crest.on-mauve-deep .tag{ color:rgba(255,255,255,.75); } .crest.on-mauve-deep .seal{ height:150px; }
+  .seal-sizes{ display:flex; gap:2rem; align-items:center; justify-content:center; }
+  .seal-sizes .seal{ color:var(--copper); --seal-center:var(--emerald); }
+
+  /* monogram */
+  .mono-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.2rem; }
+  .mono-card{ background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:2rem; display:flex; flex-direction:column; align-items:center; gap:1rem; min-height:200px; justify-content:center; }
+  .mono-card .big{ font-size:4.5rem; color:var(--emerald); }
+  .avatar{ width:84px; height:84px; border-radius:50%; background:var(--emerald); color:var(--on-emerald); display:grid; place-items:center; }
+  .avatar .mono{ font-size:2.2rem; } .avatar .mono .dot{ color:var(--clay); }
+
+  /* color */
+  .swatches{ display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1rem; }
+  .sw{ border-radius:14px; overflow:hidden; border:1px solid var(--line); }
+  .sw .chip{ height:120px; }
+  .sw .meta{ padding:.9rem 1rem; background:var(--paper); }
+  .sw .nm{ font-size:.92rem; color:var(--ink); }
+  .sw .hex{ font-size:.74rem; letter-spacing:.08em; color:var(--muted); text-transform:uppercase; }
+  .sw .role{ font-size:.66rem; color:var(--muted); margin-top:.2rem; }
+
+  /* type */
+  .type-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+  .type-card{ background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:1.8rem; }
+  .type-card .fn{ font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; color:var(--copper); margin-bottom:1rem; }
+  .type-card .spec-line{ font-size:.78rem; color:var(--muted); margin-top:1rem; }
+  .type-a{ font-family:'Prata',serif; color:var(--emerald); line-height:1.1; }
+  .type-b{ font-family:'Jost',sans-serif; }
+
+  /* voice */
+  .voice-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.1rem; }
+  .voice{ background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:1.5rem; }
+  .voice h3{ font-size:1.2rem; margin-bottom:.4rem; }
+  .voice h3 em{ font-style:italic; color:var(--mauve-deep); }
+  .voice p{ font-size:.86rem; color:var(--muted); }
+  .taglines{ margin-top:2rem; display:grid; gap:1rem; }
+  .tag-line{ background:var(--emerald); color:var(--on-emerald); border-radius:14px; padding:2rem clamp(1.5rem,3vw,2.6rem); text-align:center; }
+  .tag-line .t{ font-family:'Prata',serif; font-size:clamp(1.3rem,2.6vw,1.9rem); }
+  .tag-line .t em{ font-style:italic; color:var(--clay); }
+
+  /* IN USE (ported from v3, editorial-tuned) */
+  .use-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(18px,2.6vw,28px); grid-auto-flow:dense; }
+  .use-cell{ display:flex; flex-direction:column; gap:12px; }
+  .use-cell.span2{ grid-column:1 / -1; }
+  .use-cell__cap{ display:flex; align-items:baseline; gap:10px; }
+  .use-cell__cap .n{ font-family:'Prata',serif; font-size:1.05rem; color:var(--ink); }
+  .use-cell__cap .d{ font-size:.8rem; color:var(--muted); }
+  .mockup{ border-radius:var(--radius-lg); border:1px solid var(--line); overflow:hidden; background:var(--card); box-shadow:0 18px 40px -30px rgba(42,38,32,.5); }
+  .wm__name{ font-family:'Prata',serif; letter-spacing:.28em; padding-left:.28em; }
+  .wm__name .dot{ color:var(--dot,var(--copper)); }
+  .wm__desc{ font-size:.5rem; letter-spacing:.26em; text-transform:uppercase; color:var(--muted); margin-top:.6em; }
+  /* certificate */
+  .cert-stage{ background:color-mix(in srgb,var(--greige) 55%,var(--ivory)); padding:clamp(18px,4vw,46px); display:grid; place-items:center; }
+  .certificate{ width:100%; max-width:860px; aspect-ratio:1.44/1; position:relative; background:var(--ivory); color:var(--ink); box-shadow:0 30px 60px -34px rgba(42,38,32,.5); overflow:hidden; }
+  .cert-frame{ position:absolute; inset:clamp(16px,2.8vw,30px); border:1px solid color-mix(in srgb,var(--copper) 42%,transparent); pointer-events:none; }
+  .cert-arch{ display:block; margin:0 auto 8px; }
+  .cert-corner{ display:none; }
+  .cert-inner{ position:relative; z-index:2; height:100%; padding:clamp(26px,5.4vw,58px) clamp(30px,6vw,68px); display:flex; flex-direction:column; align-items:center; text-align:center; justify-content:space-between; gap:clamp(6px,1.4vw,12px); }
+  .cert-wordmark .wm__name{ font-size:clamp(1rem,3vw,1.7rem); color:var(--emerald); }
+  .cert-wordmark .wm__desc{ display:none; }
+  .cert-academy{ font-family:'Prata',serif; text-transform:uppercase; letter-spacing:clamp(.16em,.6vw,.32em); font-size:clamp(.6rem,1.7vw,.92rem); color:var(--emerald); margin:10px 0 0; }
+  .cert-title{ font-family:'Prata',serif; font-size:clamp(1.35rem,5vw,2.9rem); line-height:1.02; color:var(--emerald); margin:2px 0 0; }
+  .cert-rule{ display:flex; align-items:center; justify-content:center; gap:10px; color:var(--copper); width:min(320px,60%); margin:4px 0; }
+  .cert-rule .l{ flex:1; height:1px; background:linear-gradient(90deg,transparent,currentColor); }
+  .cert-rule .r{ flex:1; height:1px; background:linear-gradient(90deg,currentColor,transparent); }
+  .cert-rule .dot{ width:5px; height:5px; border-radius:50%; background:currentColor; }
+  .cert-certifies{ font-family:'Jost'; text-transform:uppercase; letter-spacing:.3em; padding-left:.3em; font-size:clamp(.54rem,1.4vw,.72rem); color:var(--muted); margin:0; }
+  .cert-name{ font-family:'Prata',serif; font-size:clamp(1.5rem,5.4vw,3rem); color:var(--ink); line-height:1; padding:0 clamp(20px,8vw,70px) clamp(6px,1.2vw,12px); border-bottom:1px solid color-mix(in srgb,var(--copper) 70%,transparent); margin:2px 0 0; }
+  .cert-detail{ font-family:'Jost'; font-size:clamp(.66rem,1.7vw,.92rem); line-height:1.6; color:var(--ink); max-width:44ch; margin:0; }
+  .cert-detail b{ font-weight:400; color:var(--emerald); font-family:'Prata',serif; }
+  .cert-detail .course{ font-family:'Prata',serif; color:var(--emerald); font-size:1.08em; }
+  .cert-emboss{ position:relative; color:var(--copper); --seal-center:var(--copper); margin:2px 0; }
+  .cert-emboss svg{ height:clamp(56px,12vw,92px); width:auto; }
+  .cert-sigs{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(10px,3vw,40px); width:100%; align-items:end; }
+  .cert-sig{ display:flex; flex-direction:column; align-items:center; gap:2px; }
+  .cert-sig .script{ font-family:'Pinyon Script',cursive; font-size:clamp(1.05rem,3.4vw,1.9rem); color:var(--emerald); line-height:1; margin-bottom:2px; transform:rotate(-2deg); }
+  .cert-sig .ln{ width:100%; max-width:180px; border-top:1px solid var(--ink); margin-top:2px; }
+  .cert-sig .who{ font-family:'Prata',serif; font-size:clamp(.6rem,1.5vw,.82rem); color:var(--ink); margin-top:5px; letter-spacing:.02em; }
+  .cert-sig .role{ font-family:'Jost'; font-size:clamp(.46rem,1.1vw,.6rem); text-transform:uppercase; letter-spacing:.16em; color:var(--copper); }
+  .cert-auth{ display:flex; justify-content:space-between; align-items:center; gap:14px; width:100%; flex-wrap:wrap; padding-top:clamp(6px,1.4vw,12px); font-family:'Jost'; font-size:clamp(.5rem,1.2vw,.66rem); letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+  .cert-auth b{ color:var(--emerald); font-weight:400; }
+  .cert-auth .verify{ color:var(--copper); }
+  /* instagram */
+  .ig-stage{ background:color-mix(in srgb,var(--greige) 55%,var(--ivory)); aspect-ratio:4/3; display:grid; place-items:center; padding:24px; }
+  .ig-card{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:22px 26px; width:min(100%,320px); box-shadow:0 12px 30px -22px rgba(42,38,32,.6); }
+  .ig-top{ display:flex; align-items:center; gap:16px; }
+  .ig-ring{ width:66px; height:66px; border-radius:50%; padding:3px; background:conic-gradient(from 210deg,var(--copper),var(--clay),var(--copper)); flex:none; }
+  .ig-ring > div{ width:100%; height:100%; border-radius:50%; background:var(--emerald); display:grid; place-items:center; color:var(--on-emerald); }
+  .ig-meta strong{ font-family:'Jost'; font-weight:600; font-size:.9rem; color:var(--ink); display:block; }
+  .ig-meta span{ font-size:.78rem; color:var(--muted); }
+  .ig-stats{ display:flex; gap:22px; margin-top:16px; }
+  .ig-stats div{ text-align:left; }
+  .ig-stats b{ font-family:'Jost'; font-weight:600; font-size:.9rem; color:var(--ink); }
+  .ig-stats small{ display:block; font-size:.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
+  .ig-handle{ margin-top:14px; font-size:.82rem; color:var(--ink); line-height:1.5; }
+  .ig-handle b{ font-weight:400; }
+  /* business card */
+  .cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:clamp(16px,2.5vw,26px); padding:clamp(26px,4vw,44px); background:color-mix(in srgb,var(--greige) 45%,var(--ivory)); justify-items:center; }
+  .bcard--mauve{ background:var(--mauve); color:#fff; --dot:var(--ivory); align-items:center; justify-content:center; text-align:center; }
+  .bcard--mauve .wm__name{ font-size:clamp(.9rem,2.6vw,1.3rem); color:#fff; }
+  .bcard--mauve .wm__desc{ color:rgba(255,255,255,.82); font-size:.5rem; }
+  .bcard--mauve .contact{ font-family:'Jost'; font-size:clamp(.54rem,1.4vw,.66rem); letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.85); margin-top:14px; }
+  .bcard{ width:100%; max-width:360px; aspect-ratio:1.75/1; border-radius:12px; padding:clamp(16px,2.4vw,24px); display:flex; box-shadow:0 14px 30px -20px rgba(42,38,32,.55); }
+  .bcard--front{ background:var(--ivory); border:1px solid var(--line); flex-direction:column; justify-content:space-between; }
+  .bcard--front .top .mono{ font-size:clamp(1.6rem,5vw,2.1rem); color:var(--emerald); }
+  .bcard--front .who{ font-family:'Prata',serif; }
+  .bcard--front .who .nm{ font-size:clamp(.86rem,2.4vw,1.1rem); color:var(--ink); display:block; letter-spacing:.04em; }
+  .bcard--front .who .rl{ font-family:'Jost'; font-size:clamp(.56rem,1.5vw,.68rem); text-transform:uppercase; letter-spacing:.18em; color:var(--copper); margin-top:4px; }
+  .bcard--back{ background:var(--emerald); color:var(--on-emerald); --dot:var(--clay); align-items:center; justify-content:center; text-align:center; }
+  .bcard--back .wm__name{ font-size:clamp(.9rem,2.6vw,1.3rem); color:var(--on-emerald); }
+  .bcard--back .wm__desc{ color:color-mix(in srgb,var(--on-emerald) 80%,transparent); font-size:.5rem; }
+  .bcard--back .contact{ font-family:'Jost'; font-size:clamp(.54rem,1.4vw,.66rem); letter-spacing:.12em; text-transform:uppercase; color:color-mix(in srgb,var(--on-emerald) 78%,transparent); margin-top:14px; }
+  /* CE badge */
+  .badge-stage{ background:color-mix(in srgb,var(--greige) 55%,var(--ivory)); aspect-ratio:4/3; display:grid; place-items:center; padding:24px; }
+  .ce-badge{ position:relative; color:var(--emerald); }
+  .ce-badge svg{ height:clamp(120px,26vw,168px); width:auto; }
+  .ce-badge .ring-copper{ stroke:var(--copper); }
+  .ce-badge .txt{ font-family:'Prata',serif; fill:var(--emerald); }
+  .ce-badge .txt-copper{ fill:var(--copper); }
+  .ce-badge .ce-arc{ font-family:'Jost'; font-size:11px; letter-spacing:3px; font-weight:500; text-transform:uppercase; }
+  .garment{ position:relative; border-radius:14px; overflow:hidden; aspect-ratio:4/5; border:1px solid var(--line); background:linear-gradient(150deg,var(--greige),var(--clay)); }
+  .garment img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .garment .cap-tag{ position:absolute; bottom:0; left:0; right:0; padding:.9rem 1.1rem; background:linear-gradient(0deg,rgba(20,25,20,.5),transparent); color:var(--ivory); font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; }
+  /* embroidered monogram overlay */
+  .stitch{ position:absolute; font-family:'Prata',serif; line-height:1; text-shadow:0 1px 1px rgba(0,0,0,.28); }
+  .stitch .dot{ color:var(--copper); }
+  .stitch.tee{ top:33%; left:50%; transform:translate(-50%,-50%); font-size:clamp(1.4rem,4vw,2rem); color:var(--emerald); }
+  .stitch.hat{ top:47%; left:50%; transform:translate(-50%,-50%); font-size:clamp(1.3rem,3.6vw,1.8rem); color:var(--emerald); }
+  .emb{ background:var(--emerald); border-radius:14px; display:flex; align-items:center; justify-content:center; aspect-ratio:4/5; position:relative; overflow:hidden; }
+  .emb::before{ content:""; position:absolute; inset:0; background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.03) 0 2px,transparent 2px 5px); }
+  .emb .mono{ font-size:6rem; color:var(--clay); text-shadow:0 2px 3px rgba(0,0,0,.3); position:relative; }
+  .emb .lbl{ position:absolute; bottom:1rem; left:0; right:0; text-align:center; font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:#8FA096; }
+
+  footer{ background:var(--emerald); color:var(--on-emerald); text-align:center; padding:clamp(3rem,5vw,4.5rem) 0 2.5rem; }
+  footer .name{ font-family:'Prata',serif; font-size:2rem; letter-spacing:.34em; padding-left:.34em; color:var(--on-emerald); }
+  footer .name .dot{ color:var(--clay); }
+  footer .fine{ font-size:.66rem; letter-spacing:.18em; text-transform:uppercase; color:#8FA096; margin-top:1.4rem; }
+
+  @media (max-width:640px){ .type-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <svg class="arch" width="150" height="18" viewBox="0 0 150 18" fill="none"><path d="M6 15 Q75 -5 144 15" stroke="#A56B41" stroke-width="1.4" stroke-linecap="round"/></svg>
+  <div class="wm">
+    <span class="name cover-name" style="font-size:clamp(2.3rem,5.6vw,4rem); color:var(--emerald)">METHOD<span class="dot">.</span></span>
+    <span class="desc" style="color:var(--muted); font-size:.62rem">Wax Studio &amp; Professional Training</span>
+  </div>
+  <div class="sys">Brand System · Editorial</div>
+  <div class="meta">Founders &nbsp; <b>Rachel Scott · Tori Foresta · Sophia Vega</b> &nbsp;&nbsp;|&nbsp;&nbsp; Southwest Florida</div>
+</section>
+
+<!-- 01 WORDMARK -->
+<section class="band">
+  <div class="wrap">
+    <div class="head"><span class="num">01</span><div><h2>The Wordmark</h2><p>The primary mark. A letter-spaced serif set with a single copper stop. It leads everywhere the brand appears.</p></div></div>
+    <div class="stages">
+      <div class="stage stage--cream"><span class="tag">On cream</span><span class="wm"><span class="name" style="font-size:2rem">METHOD<span class="dot">.</span></span><span class="desc">Wax Studio &amp; Professional Training</span></span></div>
+      <div class="stage stage--emerald"><span class="tag">Reversed on emerald</span><span class="wm"><span class="name" style="font-size:2rem">METHOD<span class="dot">.</span></span><span class="desc">Wax Studio &amp; Professional Training</span></span></div>
+      <div class="stage stage--mauve"><span class="tag">On mauve</span><span class="wm"><span class="name" style="font-size:2rem">METHOD<span class="dot">.</span></span><span class="desc">Wax Studio &amp; Professional Training</span></span></div>
+      <div class="stage stage--greige">
+        <span class="tag">Stacked with the seal</span>
+        <div class="colock">
+          <span class="seal seal-mini"><svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink"><g class="seal-ring"><circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/><defs><path id="rTop-lock" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/><path id="rBot-lock" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/></defs><text class="r-arc" fill="currentColor"><textPath href="#rTop-lock" xlink:href="#rTop-lock" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text><text class="r-arc" fill="currentColor"><textPath href="#rBot-lock" xlink:href="#rBot-lock" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text><g fill="currentColor"><path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/><path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/></g></g><text class="r-M" x="100" y="116" text-anchor="middle">M</text><text class="r-est" x="100" y="140" text-anchor="middle" fill="currentColor">EST &#183; 2026</text></svg></span>
+          <span class="wm"><span class="name" style="font-size:1.4rem; color:var(--emerald)">METHOD<span class="dot">.</span></span><span class="desc" style="color:var(--ink)">Wax Studio &amp; Professional Training</span></span>
+        </div>
+      </div>
+    </div>
+    <div class="specs">
+      <div class="spec"><h3>Clear space</h3><p>Keep breathing room on every side equal to the cap-height of the M. The copper stop always has air.</p><div class="demo"><span class="mono" style="font-size:1.6rem; color:var(--emerald)">METHOD<span class="dot">.</span></span></div></div>
+      <div class="spec"><h3>Minimum size</h3><p>Never set the wordmark below 96px wide on screen. Below that, use the M. monogram instead.</p><div class="demo" style="gap:1.5rem"><span class="mono" style="font-size:1rem; color:var(--emerald)">METHOD<span class="dot">.</span></span><span class="mono" style="font-size:1.5rem; color:var(--emerald)">M<span class="dot">.</span></span></div></div>
+    </div>
+    <div class="donts">
+      <div class="dont"><span class="x">&times;</span><p><b>Don't drop the copper stop.</b> The full stop is the signature. It stays copper on light, clay on emerald, and never disappears.</p></div>
+      <div class="dont"><span class="x">&times;</span><p><b>Don't crush the letter-spacing.</b> METHOD is meant to breathe. Never condense it or swap in a bold face.</p></div>
+      <div class="dont"><span class="x">&times;</span><p><b>Don't add effects.</b> No shadows, outlines, or gradients on the wordmark. Keep it flat and quiet.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 SEAL -->
+<section class="band">
+  <div class="wrap">
+    <div class="head"><span class="num">02</span><div><h2>The Seal</h2><p>The secondary mark and the brand's credential. Where the wordmark introduces METHOD, the seal confirms it. Reserved for the moments that call for authority, where it can turn slowly like a stamp.</p></div></div>
+    <div class="crest-grid">
+      <div class="crest on-cream"><span class="tag">On cream</span><span class="seal seal-cream"><svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink"><g class="seal-ring"><circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/><defs><path id="rTop-c" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/><path id="rBot-c" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/></defs><text class="r-arc" fill="currentColor"><textPath href="#rTop-c" xlink:href="#rTop-c" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text><text class="r-arc" fill="currentColor"><textPath href="#rBot-c" xlink:href="#rBot-c" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text><g fill="currentColor"><path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/><path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/></g></g><text class="r-M" x="100" y="116" text-anchor="middle">M</text><text class="r-est" x="100" y="140" text-anchor="middle" fill="currentColor">EST &#183; 2026</text></svg></span></div>
+      <div class="crest on-emerald"><span class="tag">Reversed on emerald</span><span class="seal seal-rev"><svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink"><g class="seal-ring"><circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/><defs><path id="rTop-r" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/><path id="rBot-r" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/></defs><text class="r-arc" fill="currentColor"><textPath href="#rTop-r" xlink:href="#rTop-r" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text><text class="r-arc" fill="currentColor"><textPath href="#rBot-r" xlink:href="#rBot-r" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text><g fill="currentColor"><path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/><path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/></g></g><text class="r-M" x="100" y="116" text-anchor="middle">M</text><text class="r-est" x="100" y="140" text-anchor="middle" fill="currentColor">EST &#183; 2026</text></svg></span></div>
+      <div class="crest on-mauve"><span class="tag">On mauve</span><span class="seal seal-mauve"><svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink"><g class="seal-ring"><circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/><defs><path id="rTop-mv" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/><path id="rBot-mv" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/></defs><text class="r-arc" fill="currentColor"><textPath href="#rTop-mv" xlink:href="#rTop-mv" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text><text class="r-arc" fill="currentColor"><textPath href="#rBot-mv" xlink:href="#rBot-mv" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text><g fill="currentColor"><path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/><path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/></g></g><text class="r-M" x="100" y="116" text-anchor="middle">M</text><text class="r-est" x="100" y="140" text-anchor="middle" fill="currentColor">EST &#183; 2026</text></svg></span></div>
+      <div class="crest on-cream"><span class="tag">At small size</span><div class="seal-sizes"><span class="seal" style="height:56px"><svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink"><circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/><defs><path id="rTop-s" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/><path id="rBot-s" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/></defs><text class="r-arc" fill="currentColor"><textPath href="#rTop-s" xlink:href="#rTop-s" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text><text class="r-arc" fill="currentColor"><textPath href="#rBot-s" xlink:href="#rBot-s" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text><text class="r-M" x="100" y="116" text-anchor="middle">M</text></svg></span><span class="seal" style="height:92px"><svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink"><circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/><defs><path id="rTop-s2" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/><path id="rBot-s2" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/></defs><text class="r-arc" fill="currentColor"><textPath href="#rTop-s2" xlink:href="#rTop-s2" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text><text class="r-arc" fill="currentColor"><textPath href="#rBot-s2" xlink:href="#rBot-s2" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text><g fill="currentColor"><path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/><path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/></g><text class="r-M" x="100" y="116" text-anchor="middle">M</text><text class="r-est" x="100" y="140" text-anchor="middle" fill="currentColor">EST &#183; 2026</text></svg></span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 MONOGRAM -->
+<section class="band">
+  <div class="wrap">
+    <div class="head"><span class="num">03</span><div><h2>Monogram &amp; Avatar</h2><p>The M. monogram is the wordmark's shorthand: for favicons, avatars, embroidery, and any space too small for the full mark.</p></div></div>
+    <div class="mono-grid">
+      <div class="mono-card"><span class="mono big">M<span class="dot">.</span></span><span class="label">The monogram</span></div>
+      <div class="mono-card"><span class="avatar"><span class="mono">M<span class="dot">.</span></span></span><span class="label">Emerald avatar</span></div>
+      <div class="mono-card" style="background:var(--emerald)"><span class="mono big" style="color:var(--clay)">M<span class="dot" style="color:var(--ivory)">.</span></span><span class="label" style="color:#8FA096">Reversed</span></div>
+      <div class="mono-card" style="background:var(--mauve-soft)"><span class="mono big" style="color:var(--mauve-deep)">M<span class="dot" style="color:var(--emerald)">.</span></span><span class="label">Mauve</span></div>
+      <div class="mono-card" style="background:var(--mauve)"><span class="mono big" style="color:#fff">M<span class="dot" style="color:var(--ivory)">.</span></span><span class="label" style="color:rgba(255,255,255,.8)">Mauve reversed</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 COLOR -->
+<section class="band">
+  <div class="wrap">
+    <div class="head"><span class="num">04</span><div><h2>Color</h2><p>Warm-neutral ground, deep emerald for depth, copper for the signature, and a soft mauve that carries the studio side of the brand.</p></div></div>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#F5EFE4"></div><div class="meta"><div class="nm">Ivory</div><div class="hex">#F5EFE4</div><div class="role">Primary surface</div></div></div>
+      <div class="sw"><div class="chip" style="background:#1D392F"></div><div class="meta"><div class="nm">Emerald</div><div class="hex">#1D392F</div><div class="role">Depth &amp; wordmark</div></div></div>
+      <div class="sw"><div class="chip" style="background:#A56B41"></div><div class="meta"><div class="nm">Copper</div><div class="hex">#A56B41</div><div class="role">The signature stop</div></div></div>
+      <div class="sw"><div class="chip" style="background:#C29AA0"></div><div class="meta"><div class="nm">Mauve</div><div class="hex">#C29AA0</div><div class="role">The studio accent</div></div></div>
+      <div class="sw"><div class="chip" style="background:#CBA891"></div><div class="meta"><div class="nm">Clay</div><div class="hex">#CBA891</div><div class="role">Soft warm accent</div></div></div>
+      <div class="sw"><div class="chip" style="background:#2A2620"></div><div class="meta"><div class="nm">Ink</div><div class="hex">#2A2620</div><div class="role">Body text</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 TYPE -->
+<section class="band">
+  <div class="wrap">
+    <div class="head"><span class="num">05</span><div><h2>Typography</h2><p>A high-contrast display serif for voice, a clean humanist sans for everything you read.</p></div></div>
+    <div class="type-grid">
+      <div class="type-card"><div class="fn">Display · Prata</div><div class="type-a" style="font-size:clamp(2.2rem,5vw,3.4rem)">The art of the wax</div><div class="type-a" style="font-size:1.4rem; margin-top:.4rem">Aa Bb Cc · 1234567890</div><div class="spec-line">Headlines, the wordmark, the seal, and pull quotes. (Standing in for the paid face "Angle" until licensed.)</div></div>
+      <div class="type-card"><div class="fn">Text · Jost</div><div class="type-b" style="font-size:1.5rem; color:var(--ink)">Intentional care, elevated education, exceptional results.</div><div class="type-b" style="font-size:.95rem; color:var(--muted); margin-top:1rem">Body copy, labels, and interface. Light and regular weights, generous letter-spacing on small uppercase labels.</div><div class="spec-line">Aa Bb Cc · 1234567890</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 VOICE -->
+<section class="band">
+  <div class="wrap">
+    <div class="head"><span class="num">06</span><div><h2>Voice &amp; Tagline</h2><p>How Method sounds: polished and warm, never clinical, never loud.</p></div></div>
+    <div class="voice-grid">
+      <div class="voice"><h3>Caring, <em>not clinical</em></h3><p>Warm and human. We talk about care and craft, not procedures.</p></div>
+      <div class="voice"><h3>Honest, <em>not salesy</em></h3><p>Fair pricing, no tactics. We tell you what you get and what it costs.</p></div>
+      <div class="voice"><h3>Elevated, <em>not stuffy</em></h3><p>Refined and considered, but approachable and welcoming.</p></div>
+      <div class="voice"><h3>Confident, <em>not loud</em></h3><p>Quietly sure of the standard. The work speaks; we don't shout.</p></div>
+    </div>
+    <div class="taglines">
+      <div class="tag-line"><span class="t">Intentional care. Elevated education. <em>Exceptional results.</em></span></div>
+      <div class="tag-line"><span class="t">A training academy first, <em>a studio second.</em></span></div>
+      <div class="tag-line"><span class="t">Intentional care is not a tagline. It is the <em>curriculum.</em></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 IN USE -->
+<section class="band">
+  <div class="wrap">
+    <div class="head"><span class="num">07</span><div><h2>In Use</h2><p>The system made tangible: the pieces the academy will print, post, and hand to a graduate.</p></div></div>
+    <div class="use-grid">
+
+      <div class="use-cell span2">
+        <div class="use-cell__cap"><span class="n">Certificate of Completion</span><span class="d">The keepsake a graduate frames</span></div>
+        <div class="mockup">
+          <div class="cert-stage">
+            <article class="certificate" aria-label="METHOD Waxing Academy Certificate of Completion">
+              <div class="cert-frame" aria-hidden="true"></div>
+              <svg class="cert-corner tl" viewBox="0 0 60 60" aria-hidden="true"><path d="M2 58 L2 20 Q2 2 20 2 L58 2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9 58 L9 22 Q9 9 22 9 L58 9" fill="none" stroke="currentColor" stroke-width="0.7" opacity="0.7"/><path d="M9 22 Q9 9 22 9 Q17 20 9 22 Z" fill="currentColor" opacity="0.85"/><circle cx="22" cy="22" r="2.4" fill="currentColor"/><path d="M22 22 Q34 16 46 18 Q35 24 22 22 Z" fill="currentColor" opacity="0.6"/><path d="M22 22 Q16 34 18 46 Q24 35 22 22 Z" fill="currentColor" opacity="0.6"/></svg>
+              <svg class="cert-corner tr" viewBox="0 0 60 60" aria-hidden="true"><path d="M2 58 L2 20 Q2 2 20 2 L58 2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9 58 L9 22 Q9 9 22 9 L58 9" fill="none" stroke="currentColor" stroke-width="0.7" opacity="0.7"/><path d="M9 22 Q9 9 22 9 Q17 20 9 22 Z" fill="currentColor" opacity="0.85"/><circle cx="22" cy="22" r="2.4" fill="currentColor"/><path d="M22 22 Q34 16 46 18 Q35 24 22 22 Z" fill="currentColor" opacity="0.6"/><path d="M22 22 Q16 34 18 46 Q24 35 22 22 Z" fill="currentColor" opacity="0.6"/></svg>
+              <svg class="cert-corner bl" viewBox="0 0 60 60" aria-hidden="true"><path d="M2 58 L2 20 Q2 2 20 2 L58 2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9 58 L9 22 Q9 9 22 9 L58 9" fill="none" stroke="currentColor" stroke-width="0.7" opacity="0.7"/><path d="M9 22 Q9 9 22 9 Q17 20 9 22 Z" fill="currentColor" opacity="0.85"/><circle cx="22" cy="22" r="2.4" fill="currentColor"/><path d="M22 22 Q34 16 46 18 Q35 24 22 22 Z" fill="currentColor" opacity="0.6"/><path d="M22 22 Q16 34 18 46 Q24 35 22 22 Z" fill="currentColor" opacity="0.6"/></svg>
+              <svg class="cert-corner br" viewBox="0 0 60 60" aria-hidden="true"><path d="M2 58 L2 20 Q2 2 20 2 L58 2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9 58 L9 22 Q9 9 22 9 L58 9" fill="none" stroke="currentColor" stroke-width="0.7" opacity="0.7"/><path d="M9 22 Q9 9 22 9 Q17 20 9 22 Z" fill="currentColor" opacity="0.85"/><circle cx="22" cy="22" r="2.4" fill="currentColor"/><path d="M22 22 Q34 16 46 18 Q35 24 22 22 Z" fill="currentColor" opacity="0.6"/><path d="M22 22 Q16 34 18 46 Q24 35 22 22 Z" fill="currentColor" opacity="0.6"/></svg>
+              <div class="cert-inner">
+                <div>
+                  <div class="cert-wordmark"><svg class="cert-arch" width="118" height="14" viewBox="0 0 118 14" fill="none"><path d="M5 12 Q59 -4 113 12" stroke="#A56B41" stroke-width="1.2" stroke-linecap="round"/></svg><p class="wm__name">METHOD<span class="dot">.</span></p></div>
+                  <p class="cert-academy">Method Waxing Academy</p>
+                  <h3 class="cert-title">Certificate of Completion</h3>
+                </div>
+                <div class="cert-rule" aria-hidden="true"><span class="l"></span><span class="dot"></span><span class="r"></span></div>
+                <div>
+                  <p class="cert-certifies">This certifies that</p>
+                  <p class="cert-name">Ava Martinez</p>
+                </div>
+                <p class="cert-detail">has successfully completed the course of study in<br><span class="course">Advanced Hard Wax Technique</span><br><b>8 Continuing Education Hours</b> &middot; Completed June 14, 2026</p>
+                <div class="cert-emboss" aria-hidden="true">
+                  <svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="METHOD academy authenticity seal">
+                    <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                    <circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/>
+                    <defs><path id="rTop-cert" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/><path id="rBot-cert" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/></defs>
+                    <text class="r-arc" fill="currentColor"><textPath href="#rTop-cert" xlink:href="#rTop-cert" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text>
+                    <text class="r-arc" fill="currentColor"><textPath href="#rBot-cert" xlink:href="#rBot-cert" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
+                    <g fill="currentColor"><path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/><path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/></g>
+                    <text class="r-M" x="100" y="118" text-anchor="middle" style="fill:currentColor">M</text>
+                    <text class="r-est" x="100" y="140" text-anchor="middle" fill="currentColor">EST &#183; 2026</text>
+                  </svg>
+                </div>
+                <div class="cert-auth"><span>Certificate <b>No. MWA-2026-0148</b></span><span>Issued June 14, 2026 &middot; Naples, Southwest Florida</span><span class="verify">Verify at methodwaxpro.com/verify</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="use-cell">
+        <div class="use-cell__cap"><span class="n">Social Avatar</span><span class="d">Instagram profile</span></div>
+        <div class="mockup">
+          <div class="ig-stage">
+            <div class="ig-card">
+              <div class="ig-top">
+                <div class="ig-ring"><div>
+                  <svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="METHOD academy seal profile photo" style="width:94%; height:auto">
+                    <circle cx="100" cy="100" r="94" fill="none" stroke="#CBA891" stroke-width="1.6"/>
+                    <circle cx="100" cy="100" r="68" fill="none" stroke="#CBA891" stroke-width="0.9" opacity="0.55"/>
+                    <defs><path id="rTop-avatar" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/><path id="rBot-avatar" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/></defs>
+                    <text class="r-arc" fill="#CBA891"><textPath href="#rTop-avatar" xlink:href="#rTop-avatar" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text>
+                    <text class="r-arc" fill="#CBA891"><textPath href="#rBot-avatar" xlink:href="#rBot-avatar" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
+                    <g fill="#CBA891"><path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/><path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/></g>
+                    <text class="r-M" x="100" y="118" text-anchor="middle" fill="#E7DDCB">M</text>
+                    <text class="r-est" x="100" y="140" text-anchor="middle" fill="#CBA891">EST &#183; 2026</text>
+                  </svg>
+                </div></div>
+                <div class="ig-meta"><strong>method.academy</strong><span>Waxing Academy &amp; Studio</span></div>
+              </div>
+              <div class="ig-stats"><div><b>128</b><small>Posts</small></div><div><b>4,206</b><small>Followers</small></div><div><b>312</b><small>Following</small></div></div>
+              <p class="ig-handle"><b>METHOD</b> Wax Studio &amp; Professional Training<br>Naples, FL &middot; Intentional care, elevated education.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="use-cell span2">
+        <div class="use-cell__cap"><span class="n">Business Card</span><span class="d">Front and back</span></div>
+        <div class="mockup">
+          <div class="cards">
+            <div class="bcard bcard--front">
+              <div class="top"><span class="mono">M<span class="dot">.</span></span></div>
+              <div class="who"><span class="nm">Sophia Vega</span><span class="rl">Founder &middot; Lead Educator</span></div>
+            </div>
+            <div class="bcard bcard--back">
+              <div class="wm" style="gap:.5em"><p class="wm__name">METHOD<span class="dot">.</span></p><span class="wm__desc">Wax Studio &amp; Professional Training</span><span class="contact">Naples, FL &middot; methodwaxpro.com</span></div>
+            </div>
+            <div class="bcard bcard--mauve">
+              <div class="wm" style="gap:.5em"><p class="wm__name">METHOD<span class="dot">.</span></p><span class="wm__desc">Wax Studio &amp; Professional Training</span><span class="contact">Naples, FL &middot; methodwaxpro.com</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="use-cell">
+        <div class="use-cell__cap"><span class="n">Course Badge</span><span class="d">CE Accredited seal</span></div>
+        <div class="mockup">
+          <div class="badge-stage">
+            <div class="ce-badge">
+              <svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="CE Accredited badge by METHOD">
+                <g fill="none" stroke="currentColor" stroke-width="2"><circle cx="100" cy="100" r="90"/><circle class="ring-copper" cx="100" cy="100" r="82" stroke-width="1.4"/></g>
+                <defs><path id="ceTop" d="M 34 100 A 66 66 0 0 1 166 100" fill="none"/><path id="ceBot" d="M 30 100 A 70 70 0 0 0 170 100" fill="none"/></defs>
+                <text class="ce-arc txt-copper"><textPath href="#ceTop" xlink:href="#ceTop" startOffset="50%" text-anchor="middle">CONTINUING EDUCATION</textPath></text>
+                <text class="ce-arc txt-copper"><textPath href="#ceBot" xlink:href="#ceBot" startOffset="50%" text-anchor="middle">METHOD ACADEMY</textPath></text>
+                <text class="txt" x="100" y="86" text-anchor="middle" style="font-size:30px">CE</text>
+                <line x1="72" y1="98" x2="128" y2="98" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+                <text class="txt-copper" x="100" y="118" text-anchor="middle" font-family="Jost, sans-serif" style="font-size:11px; letter-spacing:3px; font-weight:600">ACCREDITED</text>
+                <text class="txt" x="100" y="138" text-anchor="middle" style="font-size:10px; letter-spacing:2px">EST 2026</text>
+                <path d="M34 96 L39 100 L34 104 L29 100 Z" fill="currentColor"/>
+                <path d="M166 96 L171 100 L166 104 L161 100 Z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="name">METHOD<span class="dot">.</span></span>
+  <div class="fine">Brand System · Editorial · © 2026 Method Wax Studio &amp; Professional Training · Southwest Florida</div>
+</footer>
+
+</body>
+</html>
