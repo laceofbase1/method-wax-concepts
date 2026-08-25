@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>METHOD · Waxing Academy & Studio · Southwest Florida</title>
+<!-- Concept preview for Method Wax Studio & Professional Training. Merge of Concept 2 (Botanica aesthetic) + Concept 3 (Curriculum layout). Locked METHOD. wordmark, brand palette per Brand System v3. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:      #F4EFE6;
+    --cream-deep: #EBE3D5;
+    --paper:      #FBF8F2;
+    --emerald:    #1D392F;
+    --emerald-mid:#2C5344;
+    --emerald-soft:#E4ECE6;
+    --copper:     #A56B41;
+    --copper-deep:#8A5733;
+    --clay:       #CBA891;
+    --mauve:      #B98E97;
+    --mauve-soft: #F0E4E5;
+    --ink:        #2A2620;
+    --muted:      #6E655A;
+    --line:       #DED4C4;
+    --line-soft:  #E8E0D1;
+    --on-emerald: #F2EDE1;
+
+    --maxw: 1200px;
+    --gutter: clamp(1.25rem, 4vw, 3.5rem);
+    --radius: 14px;
+    --radius-lg: 22px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Jost', sans-serif;
+    font-weight:400;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter); }
+
+  h1,h2,h3,.serif{ font-family:'Marcellus', serif; font-weight:400; line-height:1.08; letter-spacing:.01em; }
+  .eyebrow{
+    font-size:.72rem; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--copper); font-weight:500;
+    display:inline-flex; align-items:center; gap:.7rem;
+  }
+  .eyebrow::before{ content:""; width:26px; height:1px; background:var(--copper); opacity:.7; }
+  .italic-accent{ font-style:italic; color:var(--emerald); }
+
+  a{ color:inherit; text-decoration:none; }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; gap:.6em;
+    font-family:'Jost',sans-serif; font-size:.9rem; letter-spacing:.02em;
+    padding:.95em 1.7em; border-radius:100px; cursor:pointer;
+    transition:transform .35s var(--ease), background .3s, color .3s, box-shadow .35s var(--ease);
+    border:1px solid transparent; white-space:nowrap;
+  }
+  .btn-primary{ background:var(--emerald); color:var(--on-emerald); box-shadow:0 10px 24px -14px rgba(29,57,47,.7); }
+  .btn-primary:hover{ background:var(--emerald-mid); transform:translateY(-2px); box-shadow:0 16px 30px -14px rgba(29,57,47,.75); }
+  .btn-ghost{ background:transparent; color:var(--emerald); border-color:var(--line); }
+  .btn-ghost:hover{ border-color:var(--emerald); transform:translateY(-2px); }
+  .btn-copper{ background:var(--copper); color:#fff; }
+  .btn-copper:hover{ background:var(--copper-deep); transform:translateY(-2px); }
+  .btn .arrow{ transition:transform .35s var(--ease); }
+  .btn:hover .arrow{ transform:translateX(4px); }
+
+  /* ---------- Logo (wordmark primary + seal secondary) ---------- */
+  .brandlock{ display:flex; align-items:center; gap:.85rem; }
+  .logo{ display:flex; flex-direction:column; align-items:flex-start; line-height:1; }
+  .logo .word{
+    font-family:'Marcellus',serif; font-size:1.4rem; letter-spacing:.3em;
+    color:var(--emerald);
+  }
+  .logo .word .dot{ color:var(--copper); }
+  .logo .sub{
+    font-size:.5rem; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--muted); margin-top:6px;
+  }
+  /* Seal: the secondary authority mark */
+  .seal{ flex:none; }
+  .seal svg{ display:block; height:100%; width:auto; }
+  .r-arc{ font-family:'Marcellus',serif; font-size:10.6px; letter-spacing:2.2px; text-transform:uppercase; }
+  .r-M{ font-family:'Marcellus',serif; font-size:55px; fill:var(--seal-center,currentColor); }
+  .r-est{ font-family:'Marcellus',serif; font-size:7px; letter-spacing:3.1px; }
+  .seal-cream{ color:var(--copper); --seal-center:var(--emerald); }
+  .seal-rev{ color:var(--on-emerald); --seal-center:var(--clay); }
+  .foot-brand{ display:flex; flex-direction:column; align-items:flex-start; }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:color-mix(in srgb, var(--cream) 88%, transparent);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding:.9rem 0; }
+  .nav-links{ display:flex; gap:2.2rem; align-items:center; }
+  .nav-links a{ font-size:.85rem; letter-spacing:.04em; color:var(--ink); position:relative; padding:.2rem 0; }
+  .nav-links a::after{ content:""; position:absolute; left:0; bottom:-2px; width:0; height:1px; background:var(--copper); transition:width .35s var(--ease); }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{ display:flex; align-items:center; gap:1rem; }
+  .menu-btn{ display:none; }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding:clamp(3rem,7vw,6rem) 0 clamp(2.5rem,5vw,4rem); position:relative; }
+  .hero-grid{ display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(2rem,5vw,4.5rem); align-items:center; }
+  .hero h1{ font-size:clamp(2.7rem,6vw,4.6rem); margin:1.4rem 0 1.5rem; }
+  .hero p.lede{ font-size:1.08rem; color:var(--muted); max-width:36ch; margin-bottom:2rem; }
+  .hero-actions{ display:flex; gap:1rem; flex-wrap:wrap; }
+  .hero-tagline{ margin-top:2.4rem; padding-top:1.6rem; border-top:1px solid var(--line); font-size:.82rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
+  .hero-tagline b{ color:var(--emerald); font-weight:500; }
+
+  /* Progress dashboard card (the LMS "money shot") */
+  .lms-card{
+    background:var(--paper); border:1px solid var(--line);
+    border-radius:var(--radius-lg); padding:1.7rem;
+    box-shadow:0 40px 80px -50px rgba(42,38,32,.5);
+    position:relative;
+  }
+  .lms-card::before{
+    content:"THE ACADEMY"; position:absolute; top:1.7rem; right:1.7rem;
+    font-size:.6rem; letter-spacing:.22em; color:var(--copper);
+  }
+  .lms-learner{ display:flex; align-items:center; gap:.9rem; margin-bottom:1.5rem; }
+  .lms-avatar{ width:44px; height:44px; border-radius:50%; background:var(--emerald); color:var(--on-emerald); display:grid; place-items:center; font-family:'Marcellus',serif; font-size:1.2rem; }
+  .lms-learner .who{ font-size:.95rem; font-weight:500; color:var(--ink); }
+  .lms-learner .course{ font-size:.78rem; color:var(--muted); }
+  .lms-progress-top{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:.5rem; }
+  .lms-progress-top .pct{ font-family:'Marcellus',serif; font-size:1.9rem; color:var(--emerald); }
+  .lms-progress-top .lbl{ font-size:.66rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+  .lms-bar{ height:7px; border-radius:100px; background:var(--cream-deep); overflow:hidden; margin-bottom:1.5rem; }
+  .lms-bar span{ display:block; height:100%; width:67%; background:linear-gradient(90deg,var(--emerald),var(--emerald-mid)); border-radius:100px; }
+  .lms-modules{ list-style:none; display:flex; flex-direction:column; gap:.7rem; }
+  .lms-modules li{ display:flex; align-items:center; justify-content:space-between; font-size:.85rem; padding-bottom:.7rem; border-bottom:1px solid var(--line-soft); }
+  .lms-modules li:last-child{ border-bottom:none; padding-bottom:0; }
+  .lms-modules .m-name{ display:flex; align-items:center; gap:.6rem; color:var(--ink); }
+  .lms-check{ width:17px; height:17px; border-radius:50%; display:grid; place-items:center; font-size:.6rem; }
+  .lms-check.done{ background:var(--emerald); color:#fff; }
+  .lms-check.partial{ background:var(--clay); color:#fff; }
+  .lms-check.todo{ border:1.5px solid var(--line); }
+  .lms-modules .m-count{ color:var(--muted); font-size:.78rem; }
+  .lms-next{ margin-top:1.4rem; background:var(--emerald-soft); border-radius:12px; padding:.85rem 1.1rem; display:flex; align-items:center; justify-content:space-between; }
+  .lms-next .t{ font-size:.82rem; color:var(--emerald); }
+  .lms-next .t b{ font-weight:600; }
+  .lms-next .go{ font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--copper); }
+
+  /* ---------- Stat strip ---------- */
+  .stats{ border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .stats-grid{ display:grid; grid-template-columns:repeat(3,1fr); }
+  .stat{ padding:2.3rem clamp(1rem,3vw,2.5rem); border-left:1px solid var(--line); }
+  .stat:first-child{ border-left:none; padding-left:0; }
+  .stat .num{ font-family:'Marcellus',serif; font-size:clamp(2.2rem,4vw,2.9rem); color:var(--copper); line-height:1; }
+  .stat .cap{ font-size:.74rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-top:.6rem; }
+
+  /* ---------- Section frame ---------- */
+  section.band{ padding:clamp(3.5rem,8vw,6.5rem) 0; }
+  .sec-head{ max-width:44ch; margin-bottom:clamp(2rem,4vw,3.2rem); }
+  .sec-head h2{ font-size:clamp(2rem,4.2vw,3rem); margin:1rem 0 .8rem; }
+  .sec-head p{ color:var(--muted); }
+
+  /* Model: academy + studio */
+  .model-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; }
+  .model-card{ position:relative; border-radius:var(--radius-lg); padding:clamp(1.8rem,3vw,2.6rem); border:1px solid var(--line); transition:transform .4s var(--ease), box-shadow .4s var(--ease); overflow:hidden; }
+  .model-card:hover{ transform:translateY(-4px); box-shadow:0 30px 60px -40px rgba(42,38,32,.55); }
+  .model-card .idx{ font-family:'Marcellus',serif; font-size:1rem; color:var(--copper); letter-spacing:.1em; }
+  .model-card h3{ font-size:1.9rem; margin:.7rem 0 .9rem; }
+  .model-card p{ color:var(--muted); font-size:.96rem; margin-bottom:1.5rem; }
+  .model-card.primary{ background:var(--emerald); color:var(--on-emerald); border-color:var(--emerald); }
+  .model-card.primary h3{ color:var(--on-emerald); }
+  .model-card.primary p{ color:#C9D6CD; }
+  .model-card.primary .idx{ color:var(--clay); }
+  .model-card.secondary{ background:var(--paper); }
+  .tag-soon{ display:inline-block; font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--copper); border:1px solid var(--clay); border-radius:100px; padding:.3rem .8rem; margin-bottom:.2rem; }
+  .link-arrow{ display:inline-flex; align-items:center; gap:.5rem; font-size:.86rem; letter-spacing:.03em; border-bottom:1px solid currentColor; padding-bottom:2px; }
+  .model-card.primary .link-arrow{ color:var(--on-emerald); }
+  .model-card.secondary .link-arrow{ color:var(--emerald); }
+
+  /* Path steps */
+  .path{ background:var(--cream-deep); }
+  .steps{ display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+  .step{ background:var(--cream); padding:1.8rem 1.4rem; transition:background .3s; }
+  .step:hover{ background:var(--paper); }
+  .step .n{ font-family:'Marcellus',serif; font-size:1.4rem; color:var(--copper); }
+  .step h4{ font-family:'Jost'; font-weight:600; font-size:.98rem; margin:.7rem 0 .5rem; color:var(--emerald); }
+  .step p{ font-size:.82rem; color:var(--muted); line-height:1.5; }
+
+  /* Catalog */
+  .catalog{ display:grid; grid-template-columns:repeat(2,1fr); gap:1.2rem; }
+  .course{ display:flex; gap:1.4rem; align-items:flex-start; justify-content:space-between; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:1.6rem 1.7rem; transition:transform .35s var(--ease), box-shadow .35s var(--ease), border-color .3s; }
+  .course:hover{ transform:translateY(-3px); box-shadow:0 26px 50px -38px rgba(42,38,32,.5); border-color:var(--clay); }
+  .course .lvl{ font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--copper); }
+  .course h4{ font-family:'Marcellus',serif; font-size:1.35rem; margin:.5rem 0 .5rem; color:var(--emerald); }
+  .course p{ font-size:.86rem; color:var(--muted); margin-bottom:.8rem; }
+  .course .meta{ font-size:.76rem; color:var(--muted); letter-spacing:.02em; }
+  .course .price{ font-family:'Marcellus',serif; font-size:1.7rem; color:var(--ink); text-align:right; white-space:nowrap; }
+  .course .price small{ display:block; font-family:'Jost'; font-size:.6rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-top:.3rem; }
+
+  /* Philosophy */
+  .philosophy{ background:var(--emerald); color:var(--on-emerald); border-radius:var(--radius-lg); padding:clamp(2.4rem,5vw,4rem); display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,4vw,3.5rem); align-items:center; }
+  .philosophy .eyebrow{ color:var(--clay); }
+  .philosophy .eyebrow::before{ background:var(--clay); }
+  .philosophy h2{ font-size:clamp(1.9rem,3.6vw,2.7rem); margin:1rem 0 1.3rem; color:var(--on-emerald); }
+  .philosophy p{ color:#C9D6CD; margin-bottom:1rem; }
+  .philosophy .curriculum-line{ font-family:'Marcellus',serif; font-style:normal; font-size:1.3rem; color:var(--clay); }
+  .quote{ border-left:2px solid var(--copper); padding-left:1.6rem; }
+  .quote .q{ font-family:'Marcellus',serif; font-size:1.35rem; line-height:1.4; color:var(--on-emerald); }
+  .quote .cite{ font-size:.76rem; letter-spacing:.14em; text-transform:uppercase; color:var(--clay); margin-top:1.2rem; }
+
+  /* CTA */
+  .cta{ text-align:center; padding:clamp(3.5rem,7vw,6rem) 0; }
+  .cta .sprig{ margin:0 auto 1.4rem; }
+  .cta h2{ font-size:clamp(2.2rem,5vw,3.4rem); margin-bottom:1.8rem; }
+  .cta .row{ display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+
+  /* Footer */
+  footer{ background:var(--emerald); color:var(--on-emerald); padding:clamp(3rem,5vw,4.5rem) 0 2rem; }
+  .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:2rem; padding-bottom:2.5rem; border-bottom:1px solid rgba(242,237,225,.16); }
+  footer .logo .word{ color:var(--on-emerald); }
+  footer .logo .word .dot{ color:var(--clay); }
+  footer .logo .sub{ color:#A9B8AE; }
+  footer .col h5{ font-family:'Jost'; font-weight:600; font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--clay); margin-bottom:1rem; }
+  footer .col a, footer .col p{ display:block; font-size:.88rem; color:#C9D6CD; margin-bottom:.55rem; }
+  footer .col a:hover{ color:var(--on-emerald); }
+  .foot-founders{ font-size:.9rem; color:#C9D6CD; margin-top:1rem; max-width:30ch; }
+  .foot-founders b{ color:var(--on-emerald); font-weight:500; }
+  .foot-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:1.6rem; font-size:.76rem; color:#A9B8AE; flex-wrap:wrap; gap:.6rem; }
+  .foot-script{ font-family:'Pinyon Script', cursive; font-size:1.5rem; color:var(--clay); }
+
+  /* Preview ribbon */
+  .preview-note{ background:var(--emerald-mid); color:var(--on-emerald); text-align:center; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; padding:.5rem 1rem; }
+  .preview-note b{ color:#fff; font-weight:600; }
+
+  /* Responsive */
+  @media (max-width:940px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .lms-card{ max-width:460px; }
+    .model-grid{ grid-template-columns:1fr; }
+    .steps{ grid-template-columns:repeat(2,1fr); }
+    .catalog{ grid-template-columns:1fr; }
+    .philosophy{ grid-template-columns:1fr; }
+    .foot-grid{ grid-template-columns:1fr 1fr; }
+    .nav-links{ display:none; }
+  }
+  @media (max-width:560px){
+    .stats-grid{ grid-template-columns:1fr; }
+    .stat{ border-left:none; border-top:1px solid var(--line); padding-left:0; }
+    .stat:first-child{ border-top:none; }
+    .steps{ grid-template-columns:1fr; }
+    .course{ flex-direction:column; }
+    .course .price{ text-align:left; }
+    .foot-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="preview-note">Concept Preview · <b>Method Wax Studio &amp; Professional Training</b> · Southwest Florida</div>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap nav">
+    <div class="brandlock">
+      <span class="seal seal-cream" style="height:54px">
+        <svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="METHOD Waxing Academy seal, Southwest Florida">
+          <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/>
+          <defs>
+            <path id="rTop-h" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/>
+            <path id="rBot-h" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/>
+          </defs>
+          <text class="r-arc" fill="currentColor"><textPath href="#rTop-h" xlink:href="#rTop-h" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text>
+          <text class="r-arc" fill="currentColor"><textPath href="#rBot-h" xlink:href="#rBot-h" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
+          <g fill="currentColor">
+            <path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/>
+            <path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/>
+          </g>
+          <text class="r-M" x="100" y="118" text-anchor="middle">M</text>
+          <text class="r-est" x="100" y="140" text-anchor="middle" fill="currentColor">EST &#183; 2026</text>
+        </svg>
+      </span>
+      <span class="logo">
+        <span class="word">METHOD<span class="dot">.</span></span>
+        <span class="sub">Wax Studio &amp; Professional Training</span>
+      </span>
+    </div>
+    <div class="nav-cta">
+      <nav class="nav-links">
+        <a href="#academy">The Academy</a>
+        <a href="#studio">The Studio</a>
+        <a href="#catalog">Courses</a>
+        <a href="#why">About</a>
+      </nav>
+      <a class="btn btn-primary" href="#catalog">Enroll <span class="arrow">→</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Professional Waxing Education</span>
+      <h1>Become a <span class="italic-accent">certified</span> waxing professional.</h1>
+      <p class="lede">Online-first certification for estheticians, finished with hands-on training in our Southwest Florida studio. Learn the theory at your own pace, then master the technique in person.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#catalog">Explore Courses <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="#path">How Training Works</a>
+      </div>
+      <div class="hero-tagline"><b>Intentional care.</b> Elevated education. Exceptional results.</div>
+    </div>
+
+    <!-- LMS progress card -->
+    <div class="lms-card">
+      <div class="lms-learner">
+        <div class="lms-avatar">D</div>
+        <div>
+          <div class="who">Danielle R.</div>
+          <div class="course">Brazilian Waxing Masterclass</div>
+        </div>
+      </div>
+      <div class="lms-progress-top">
+        <span class="pct">67%</span>
+        <span class="lbl">Curriculum<br>Progress</span>
+      </div>
+      <div class="lms-bar"><span></span></div>
+      <ul class="lms-modules">
+        <li><span class="m-name"><span class="lms-check done">✓</span> Skin theory &amp; safety</span><span class="m-count">4 / 4</span></li>
+        <li><span class="m-name"><span class="lms-check done">✓</span> Hard-wax technique</span><span class="m-count">3 / 4</span></li>
+        <li><span class="m-name"><span class="lms-check partial">◐</span> Speed &amp; comfort</span><span class="m-count">1 / 4</span></li>
+        <li><span class="m-name"><span class="lms-check todo"></span> Studio intensive</span><span class="m-count">Booked</span></li>
+      </ul>
+      <div class="lms-next">
+        <span class="t">Next: <b>book your studio day</b></span>
+        <span class="go">Choose date →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<div class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><div class="num">500+</div><div class="cap">Estheticians Trained</div></div>
+    <div class="stat"><div class="num">4</div><div class="cap">Certification Tracks</div></div>
+    <div class="stat"><div class="num">CE</div><div class="cap">Approved · Online &amp; In Studio</div></div>
+  </div>
+</div>
+
+<!-- ============ MODEL ============ -->
+<section class="band" id="academy">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What Method Offers</span>
+      <h2>One method, taught two ways.</h2>
+      <p>A training academy first, a studio second. Both hold the same standard of intentional care.</p>
+    </div>
+    <div class="model-grid">
+      <div class="model-card primary">
+        <div class="idx">01 · The Academy</div>
+        <h3>Certification, built for working estheticians.</h3>
+        <p>Create your profile, choose a certification, and complete the online curriculum at your own pace. Track every module, then book your in-person intensive when you're ready.</p>
+        <a class="link-arrow" href="#catalog">Browse certifications →</a>
+      </div>
+      <div class="model-card secondary" id="studio">
+        <span class="tag-soon">Opening Soon</span>
+        <div class="idx">02 · The Studio</div>
+        <h3>Luxury waxing, the way we teach it.</h3>
+        <p>Waxing services in Southwest Florida delivered with the same method we teach. Client booking is phase two. Join the academy first and you'll be first to know when the calendar opens.</p>
+        <a class="link-arrow" href="#">Join the waitlist →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PATH ============ -->
+<section class="band path" id="path">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The Method Path</span>
+      <h2>Five steps from profile to certified.</h2>
+      <p>Theory online, unhurried. Technique in the studio, hands-on.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h4>Create your profile</h4><p>Set up your learner account in minutes.</p></div>
+      <div class="step"><div class="n">02</div><h4>Choose a certification</h4><p>Browse courses by specialty and skill level.</p></div>
+      <div class="step"><div class="n">03</div><h4>Complete the curriculum</h4><p>Video modules, technique breakdowns, and assessments you can revisit.</p></div>
+      <div class="step"><div class="n">04</div><h4>Track your progress</h4><p>Every module, checkpoint, and studio hour in one place.</p></div>
+      <div class="step"><div class="n">05</div><h4>Book your intensive</h4><p>Reserve your hands-on studio day and get certified.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATALOG ============ -->
+<section class="band" id="catalog">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The Catalog</span>
+      <h2>Certifications, by specialty.</h2>
+      <p>Every track pairs self-paced online modules with a studio day. Certificate included.</p>
+    </div>
+    <div class="catalog">
+      <div class="course">
+        <div>
+          <div class="lvl">Advanced</div>
+          <h4>Brazilian Waxing Masterclass</h4>
+          <p>The complete hard-wax method for fast, comfortable Brazilians.</p>
+          <div class="meta">6 online modules + 1 studio day · Certificate included</div>
+        </div>
+        <div class="price">$299<small>Enroll</small></div>
+      </div>
+      <div class="course">
+        <div>
+          <div class="lvl">Intermediate</div>
+          <h4>Brow Artistry &amp; Shaping</h4>
+          <p>Mapping, shaping, and finishing brows with precision.</p>
+          <div class="meta">5 online modules + 1 studio day · Certificate included</div>
+        </div>
+        <div class="price">$199<small>Enroll</small></div>
+      </div>
+      <div class="course">
+        <div>
+          <div class="lvl">Advanced</div>
+          <h4>Speed Waxing Certification</h4>
+          <p>Cut service time without cutting quality.</p>
+          <div class="meta">4 online modules + 1 studio day · Certificate included</div>
+        </div>
+        <div class="price">$249<small>Enroll</small></div>
+      </div>
+      <div class="course">
+        <div>
+          <div class="lvl">Beginner</div>
+          <h4>Waxing Fundamentals</h4>
+          <p>Hard wax, soft wax, skin theory, and safety from the ground up.</p>
+          <div class="meta">6 online modules · Certificate included</div>
+        </div>
+        <div class="price">$149<small>Enroll</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHILOSOPHY ============ -->
+<section class="band" id="why">
+  <div class="wrap">
+    <div class="philosophy">
+      <div>
+        <span class="eyebrow">Why Method</span>
+        <h2>Built by estheticians, for the ones at the table.</h2>
+        <p>Method was built by estheticians who were tired of rushed, one-day certifications that left them unsure at the table. We teach the technical foundations first, online and unhurried, then bring you into the studio to refine your hands.</p>
+        <p class="curriculum-line">Intentional care is not a tagline. It is the curriculum.</p>
+      </div>
+      <div class="quote">
+        <div class="q">“I'd taken three other certifications before Method. This is the first one where I actually felt ready. I walked into my studio day already knowing the theory cold.”</div>
+        <div class="cite">Danielle R. · Licensed Esthetician</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="wrap">
+    <svg class="sprig" width="40" height="30" viewBox="0 0 40 30" fill="none">
+      <path d="M20 29 C20 18 20 8 20 2" stroke="#A56B41" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M20 10 C13 8 9 10 6 5 C13 4 17 6 20 10Z" fill="#2C5344"/>
+      <path d="M20 16 C27 14 31 16 34 11 C27 10 23 12 20 16Z" fill="#2C5344"/>
+      <path d="M20 22 C14 21 11 22 8 18 C14 17 17 19 20 22Z" fill="#4A6B5C"/>
+    </svg>
+    <h2>Start your certification today.</h2>
+    <div class="row">
+      <a class="btn btn-primary" href="#catalog">Enroll Now <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="#catalog">Explore Courses</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <span class="seal seal-rev" style="height:108px; margin-bottom:1.2rem">
+            <svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="METHOD Waxing Academy seal, reversed">
+              <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="1.6"/>
+              <circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/>
+              <defs>
+                <path id="rTop-f" d="M 18 100 A 82 82 0 0 1 182 100" fill="none"/>
+                <path id="rBot-f" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/>
+              </defs>
+              <text class="r-arc" fill="currentColor"><textPath href="#rTop-f" xlink:href="#rTop-f" startOffset="50%" text-anchor="middle">METHOD &#183; WAXING ACADEMY</textPath></text>
+              <text class="r-arc" fill="currentColor"><textPath href="#rBot-f" xlink:href="#rBot-f" startOffset="50%" text-anchor="middle">SOUTHWEST FLORIDA</textPath></text>
+              <g fill="currentColor">
+                <path d="M18 96.4 L21.6 100 L18 103.6 L14.4 100 Z"/>
+                <path d="M182 96.4 L185.6 100 L182 103.6 L178.4 100 Z"/>
+              </g>
+              <text class="r-M" x="100" y="118" text-anchor="middle">M</text>
+              <text class="r-est" x="100" y="140" text-anchor="middle" fill="currentColor">EST &#183; 2026</text>
+            </svg>
+          </span>
+          <span class="logo">
+            <span class="word">METHOD<span class="dot">.</span></span>
+            <span class="sub">Wax Studio &amp; Professional Training</span>
+          </span>
+        </div>
+        <p class="foot-founders">Founded in Southwest Florida by <b>Rachel Scott</b>, <b>Tori Foresta</b> &amp; <b>Sophia Vega</b>.</p>
+      </div>
+      <div class="col">
+        <h5>Academy</h5>
+        <a href="#catalog">Certifications</a>
+        <a href="#path">How Training Works</a>
+        <a href="#why">Our Philosophy</a>
+      </div>
+      <div class="col">
+        <h5>Studio</h5>
+        <a href="#studio">Services</a>
+        <a href="#studio">Join the Waitlist</a>
+        <a href="#">Book Now</a>
+      </div>
+      <div class="col">
+        <h5>Contact</h5>
+        <a href="mailto:hello@methodwaxpro.com">hello@methodwaxpro.com</a>
+        <p>Southwest Florida</p>
+        <a href="https://methodwaxpro.com">methodwaxpro.com</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Method Wax Studio &amp; Professional Training. All rights reserved.</span>
+      <span class="foot-script">Intentional care</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<title>METHOD Logo Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF5EB; --paper:#FFFDF8; --ink:#12100E; --emerald:#1D392F;
+    --copper:#A56B41; --mauve:#C2A392; --rule:rgba(18,16,14,.14); --muted:#6B635A;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font:300 16px/1.65 Jost,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:clamp(32px,6vw,88px) clamp(20px,5vw,48px)}
+  h1{font:400 clamp(34px,6vw,56px)/1.05 Prata,Georgia,serif;margin:0 0 6px;letter-spacing:.01em}
+  h2{font:400 clamp(21px,3vw,27px)/1.2 Prata,Georgia,serif;margin:0 0 4px}
+  .eyebrow{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--copper);margin:0 0 18px}
+  .lede{max-width:62ch;color:var(--muted);margin:0 0 8px}
+  header{border-bottom:1px solid var(--rule);padding-bottom:36px;margin-bottom:8px}
+  section{padding:52px 0;border-bottom:1px solid var(--rule)}
+  section:last-of-type{border-bottom:0}
+  .num{font-size:11px;letter-spacing:.3em;color:var(--copper);display:block;margin-bottom:10px}
+  .note{color:var(--muted);max-width:60ch;margin:6px 0 26px}
+  .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  .tile{background:var(--paper);border:1px solid var(--rule);border-radius:3px;
+        padding:34px 26px;display:flex;flex-direction:column;align-items:center;
+        justify-content:center;min-height:230px;text-align:center}
+  .tile.dark{background:var(--emerald);border-color:var(--emerald)}
+  .tile.copper{background:#F2E7DC;border-color:rgba(165,107,65,.25)}
+  .tile img{max-width:100%;height:auto;display:block}
+  .cap{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:22px}
+  .tile.dark .cap{color:rgba(255,255,255,.62)}
+  .sizes{display:flex;align-items:flex-end;gap:34px;flex-wrap:wrap}
+  .sizes figure{margin:0;text-align:center}
+  .sizes figcaption{font-size:10.5px;letter-spacing:.18em;color:var(--muted);margin-top:12px;text-transform:uppercase}
+  .swatches{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+  .sw{width:118px}
+  .sw i{display:block;height:74px;border-radius:2px;border:1px solid var(--rule)}
+  .sw b{display:block;font-weight:400;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-top:9px}
+  .sw span{font-size:11px;color:var(--muted);letter-spacing:.08em}
+  table{width:100%;border-collapse:collapse;margin-top:8px}
+  td,th{text-align:left;padding:13px 14px 13px 0;border-bottom:1px solid var(--rule);
+        font-size:14.5px;vertical-align:top}
+  th{font-weight:400;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--copper)}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;
+       background:rgba(18,16,14,.05);padding:2px 6px;border-radius:2px}
+  ol{max-width:62ch;padding-left:1.1em} li{margin-bottom:9px}
+  footer{padding:44px 0 8px;color:var(--muted);font-size:13.5px}
+</style>
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Brand assets</p>
+  <h1>The METHOD logo kit</h1>
+  <p class="lede">Every version of the logo, in every file type you will need, built from the
+  artwork you approved. Vectors scale to any size. Rasters are ready for web and social.</p>
+  <p style="margin-top:18px"><a href="METHOD-Logo-Guide.pdf"
+     style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--copper);
+            border-bottom:1px solid var(--copper);padding-bottom:3px">Open the printable logo guide (PDF)</a></p>
+</header>
+
+<section>
+  <span class="num">01</span>
+  <h2>Primary logo</h2>
+  <p class="note">The full lockup. Use this wherever there is room, and anywhere someone
+  is meeting the brand for the first time.</p>
+  <div class="grid">
+    <div class="tile"><img src="01-primary-logo/method-primary-black-1000px.png" style="max-height:250px" alt="Primary logo, black"><span class="cap">Black on cream</span></div>
+    <div class="tile dark"><img src="01-primary-logo/method-primary-white-1000px.png" style="max-height:250px" alt="Primary logo, reversed"><span class="cap">Reversed on emerald</span></div>
+    <div class="tile copper"><img src="01-primary-logo/method-primary-copper-1000px.png" style="max-height:250px" alt="Primary logo, copper"><span class="cap">Copper</span></div>
+  </div>
+</section>
+
+<section>
+  <span class="num">02</span>
+  <h2>Horizontal logo</h2>
+  <p class="note">The same brand in a wide shape, for the website header, email signatures,
+  and anywhere short and wide.</p>
+  <div class="grid" style="grid-template-columns:1fr">
+    <div class="tile" style="min-height:190px"><img src="02-horizontal-logo/method-horizontal-black-2000px.png" style="max-width:620px" alt="Horizontal logo"><span class="cap">Black</span></div>
+    <div class="tile dark" style="min-height:190px"><img src="02-horizontal-logo/method-horizontal-white-2000px.png" style="max-width:620px" alt="Horizontal logo reversed"><span class="cap">Reversed</span></div>
+  </div>
+</section>
+
+<section>
+  <span class="num">03</span>
+  <h2>Wordmark and stacked</h2>
+  <p class="note">For narrow or busy placements where the arch would get lost, or where
+  the arch already appears nearby.</p>
+  <div class="grid">
+    <div class="tile"><img src="03-stacked-no-arch/method-stacked-black-1000px.png" style="max-height:200px" alt="Stacked"><span class="cap">Stacked, no arch</span></div>
+    <div class="tile"><img src="04-wordmark/method-wordmark-tagline-black-1000px.png" style="max-width:270px" alt="Wordmark with tagline"><span class="cap">Wordmark and tagline</span></div>
+    <div class="tile"><img src="04-wordmark/method-wordmark-black-1000px.png" style="max-width:270px" alt="Wordmark"><span class="cap">Wordmark only</span></div>
+  </div>
+</section>
+
+<section>
+  <span class="num">04</span>
+  <h2>Icon and submark</h2>
+  <p class="note">The M is your smallest, hardest-working mark: browser tabs, app icons,
+  a foil stamp on a card. The submark is the arch squared up for profile pictures.</p>
+  <div class="grid">
+    <div class="tile"><img src="05-icon-and-submark/method-icon-m-black-512px.png" style="max-height:150px" alt="M icon"><span class="cap">Icon &middot; the M</span></div>
+    <div class="tile"><img src="05-icon-and-submark/method-submark-black-1024px.png" style="max-height:190px" alt="Submark"><span class="cap">Submark &middot; M in arch</span></div>
+    <div class="tile dark"><img src="05-icon-and-submark/method-submark-white-1024px.png" style="max-height:190px" alt="Submark reversed"><span class="cap">Submark reversed</span></div>
+  </div>
+  <p class="note" style="margin-top:34px">How it holds up as it shrinks. Below roughly 40 pixels the
+  arch hairlines start to disappear, which is exactly why the M exists on its own.</p>
+  <div class="sizes">
+    <figure><img src="05-icon-and-submark/method-submark-black-1024px.png" width="120" alt=""><figcaption>120px</figcaption></figure>
+    <figure><img src="05-icon-and-submark/method-submark-black-1024px.png" width="64" alt=""><figcaption>64px</figcaption></figure>
+    <figure><img src="05-icon-and-submark/method-submark-black-1024px.png" width="32" alt=""><figcaption>32px</figcaption></figure>
+    <figure><img src="05-icon-and-submark/method-icon-m-black-512px.png" width="120" alt=""><figcaption>M &middot; 120px</figcaption></figure>
+    <figure><img src="05-icon-and-submark/method-icon-m-black-512px.png" width="64" alt=""><figcaption>M &middot; 64px</figcaption></figure>
+    <figure><img src="05-icon-and-submark/method-icon-m-black-512px.png" width="32" alt=""><figcaption>M &middot; 32px</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <span class="num">05</span>
+  <h2>Website and social</h2>
+  <p class="note">Profile pictures, the browser tab icon, phone app icons, and the image that
+  appears when someone shares the website in a text or on Facebook.</p>
+  <div class="grid">
+    <div class="tile"><img src="07-website-and-social/social-avatar-cream-1000.png" style="max-width:180px;border-radius:50%" alt="Avatar cream"><span class="cap">Avatar &middot; cream</span></div>
+    <div class="tile dark"><img src="07-website-and-social/social-avatar-emerald-1000.png" style="max-width:180px;border-radius:50%" alt="Avatar emerald"><span class="cap">Avatar &middot; emerald</span></div>
+    <div class="tile"><img src="07-website-and-social/apple-touch-icon-180.png" style="max-width:120px;border-radius:24px" alt="App icon"><span class="cap">App icon</span></div>
+  </div>
+  <div class="grid" style="margin-top:18px;grid-template-columns:1fr">
+    <div class="tile" style="padding:26px"><img src="07-website-and-social/og-share-image-1200x630.png" style="max-width:560px;border:1px solid var(--rule)" alt="Share image"><span class="cap">Link preview &middot; 1200 x 630</span></div>
+  </div>
+</section>
+
+<section>
+  <span class="num">06</span>
+  <h2>Colour</h2>
+  <div class="swatches">
+    <div class="sw"><i style="background:#FAF5EB"></i><b>Cream</b><span>#FAF5EB</span></div>
+    <div class="sw"><i style="background:#12100E"></i><b>Ink</b><span>#12100E</span></div>
+    <div class="sw"><i style="background:#1D392F"></i><b>Emerald</b><span>#1D392F</span></div>
+    <div class="sw"><i style="background:#A56B41"></i><b>Copper</b><span>#A56B41</span></div>
+    <div class="sw"><i style="background:#C2A392"></i><b>Clay</b><span>#C2A392</span></div>
+  </div>
+</section>
+
+<section>
+  <span class="num">07</span>
+  <h2>Which file do I use?</h2>
+  <table>
+    <tr><th style="width:52%">I need to</th><th>Use</th></tr>
+    <tr><td>Put the logo on the website</td><td>Horizontal or primary, <code>.svg</code></td></tr>
+    <tr><td>Send to a printer, sign maker, or embroiderer</td><td><code>06-print-vector</code>, the <code>.eps</code></td></tr>
+    <tr><td>Post to Instagram or Facebook</td><td>Primary, the <code>on-cream.png</code></td></tr>
+    <tr><td>Set a profile picture</td><td><code>social-avatar-cream-1000.png</code></td></tr>
+    <tr><td>Place on emerald or a dark photo</td><td>Any file ending <code>-white</code></td></tr>
+    <tr><td>Browser tab icon</td><td><code>favicon.ico</code></td></tr>
+  </table>
+</section>
+
+<section>
+  <span class="num">08</span>
+  <h2>Rules of thumb</h2>
+  <ol>
+    <li><strong>Give it room.</strong> Keep clear space around the logo equal to the height of the M in the wordmark.</li>
+    <li><strong>Never stretch it.</strong> Scale proportionally, always.</li>
+    <li><strong>Do not recolour it</strong> outside the colourways above.</li>
+    <li><strong>Never put the black logo on a dark background.</strong> Use the white version.</li>
+    <li><strong>Do not rebuild the tagline</strong> in another font. Use the supplied files.</li>
+    <li><strong>Below about 40px, drop to the M.</strong> The arch hairlines vanish at small sizes.</li>
+  </ol>
+</section>
+
+<footer>METHOD &middot; Luxury Waxing and Professional Training &middot; 1410 Pine Ridge Road, Suite 22, Naples, FL 34108</footer>
+</div>

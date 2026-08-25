@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>METHOD · Luxury Waxing · Naples, Florida</title>
+<meta name="description" content="Luxury waxing in Naples, Florida. Fair pricing, real care, technique held to the standard we teach professionals. Now booking for October 5.">
+<link rel="icon" href="logo-kit/07-website-and-social/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F5EFE4; --paper:#FBF7EF; --ink:#2A2620; --emerald:#1D392F; --emerald-mid:#2C5344;
+    --copper:#A56B41; --clay:#CBA891; --mauve:#C29AA0; --mauve-soft:#EADFDF; --mauve-deep:#A9848B;
+    --muted:#7A7064; --line:#DFD5C4;
+    --maxw:1300px; --gutter:clamp(1.1rem,4vw,3rem); --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--ivory); color:var(--ink); font-family:'Jost',sans-serif; font-weight:300;
+        line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  h1,h2,h3,.display{ font-family:'Prata',serif; font-weight:400; line-height:1.12; letter-spacing:.005em; }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter); }
+  .u-label{ display:inline-block; border-bottom:1px solid var(--ink); padding-bottom:3px;
+            font-size:.68rem; letter-spacing:.26em; text-transform:uppercase; }
+  .label{ font-size:.66rem; letter-spacing:.26em; text-transform:uppercase; color:var(--muted); }
+  .g{ color:var(--emerald); }
+  em{ font-style:italic; color:var(--mauve-deep); }
+
+  /* ---------- announce ---------- */
+  .announce{ background:var(--emerald); color:var(--ivory); text-align:center; font-size:.7rem;
+             letter-spacing:.16em; text-transform:uppercase; padding:.6rem 1rem; }
+  .announce span{ opacity:.65; padding:0 .5rem; }
+
+  /* ---------- header ---------- */
+  header{ position:sticky; top:0; z-index:60; background:color-mix(in srgb,var(--ivory) 92%,transparent);
+          backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+  .nav{ display:flex; align-items:center; gap:2rem; padding-block:.95rem; }
+  .brand{ display:flex; align-items:center; gap:.72rem; flex-shrink:0; }
+  .brand .mark{ height:38px; width:auto; }
+  .brand .word{ height:15px; width:auto; margin-top:2px; }
+  .nav-links{ display:flex; gap:1.9rem; margin-left:auto; }
+  .nav-links a{ font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+                position:relative; padding-bottom:2px; }
+  .nav-links a::after{ content:""; position:absolute; left:0; right:100%; bottom:0; height:1px;
+                       background:var(--copper); transition:right .4s var(--ease); }
+  .nav-links a:hover::after{ right:0; }
+  .btn{ font-family:'Jost',sans-serif; font-weight:400; font-size:.7rem; letter-spacing:.18em;
+        text-transform:uppercase; padding:.8rem 1.6rem; border-radius:100px; border:1px solid transparent;
+        display:inline-block; cursor:pointer; transition:background .3s, color .3s, transform .4s var(--ease); }
+  .btn-solid{ background:var(--emerald); color:var(--ivory); }
+  .btn-solid:hover{ background:var(--emerald-mid); transform:translateY(-2px); }
+  .btn-light{ background:var(--ivory); color:var(--emerald); }
+  .btn-light:hover{ background:var(--clay); color:var(--ink); transform:translateY(-2px); }
+  .btn-ghost{ border-color:var(--ink); color:var(--ink); }
+  .btn-ghost:hover{ background:var(--ink); color:var(--ivory); transform:translateY(-2px); }
+
+  /* ---------- hero ---------- */
+  .hero{ position:relative; height:clamp(78vh,86vh,920px); overflow:hidden; }
+  .hero img{ width:100%; height:100%; object-fit:cover; object-position:center 44%;
+             filter:saturate(.98) brightness(1.08); display:block; }
+  .hero::after{ content:""; position:absolute; inset:0;
+                background:linear-gradient(180deg,rgba(20,25,20,.20),rgba(20,25,20,.02) 30%,rgba(20,25,20,.30) 58%,rgba(20,25,20,.62)); }
+  .hero-cap{ position:absolute; inset:auto 0 clamp(2rem,5vw,3.4rem); z-index:2; text-align:center; color:var(--ivory); }
+  .hero-cap .k{ font-size:.7rem; letter-spacing:.3em; text-transform:uppercase; opacity:.94; }
+  .hero-cap h1{ font-size:clamp(2rem,5vw,3.6rem); margin:.9rem auto 0; max-width:16ch; color:var(--ivory); }
+  .hero-cta{ margin-top:1.6rem; display:flex; gap:1.2rem; justify-content:center; align-items:center; flex-wrap:wrap; }
+  .hero-link{ color:var(--ivory); font-size:.7rem; letter-spacing:.18em; text-transform:uppercase;
+              border-bottom:1px solid rgba(245,239,228,.5); padding-bottom:2px; transition:border-color .3s; }
+  .hero-link:hover{ border-color:var(--ivory); }
+
+  /* ---------- statement ---------- */
+  .statement{ text-align:center; padding-block:clamp(4rem,9vw,7.5rem) clamp(2.5rem,5vw,4rem); }
+  .statement h2{ font-size:clamp(2rem,5.2vw,4.4rem); max-width:17ch; margin:1.7rem auto 0; }
+  .statement .sub{ margin:2rem auto 0; max-width:56ch; color:var(--muted); font-size:1.04rem; }
+
+  /* ---------- editorial split ---------- */
+  .split{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,5rem);
+          align-items:center; padding-block:clamp(2.5rem,5vw,4.5rem); }
+  .split.rev .split-media{ order:2; }
+  .split-media{ overflow:hidden; }
+  .split-media img{ width:100%; height:100%; max-height:620px; object-fit:cover; display:block;
+                    transition:transform 1.1s var(--ease); }
+  .split-media:hover img{ transform:scale(1.03); }
+  .split-copy h2{ font-size:clamp(1.9rem,4.2vw,3.2rem); margin:1.2rem 0 1.3rem; }
+  .split-copy p{ color:var(--muted); max-width:46ch; margin-bottom:1.3rem; }
+  .link{ font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; border-bottom:1px solid var(--copper);
+         padding-bottom:3px; color:var(--copper); transition:letter-spacing .35s var(--ease); }
+  .link:hover{ letter-spacing:.26em; }
+  .credo{ list-style:none; margin-top:1.6rem; }
+  .credo li{ position:relative; padding-left:1.7rem; margin-bottom:.7rem; color:var(--muted); font-size:.95rem; }
+  .credo li::before{ content:""; position:absolute; left:0; top:.72em; width:9px; height:9px;
+                     border:1px solid var(--copper); transform:rotate(45deg); }
+
+  /* ---------- the menu ---------- */
+  .menu{ padding-block:clamp(3.5rem,7vw,6.5rem) clamp(2rem,4vw,3rem); }
+  .menu-head{ text-align:center; margin-bottom:clamp(2.4rem,5vw,3.6rem); }
+  .menu-head h2{ font-size:clamp(2rem,4.4vw,3.2rem); margin:1rem 0 .9rem; }
+  .menu-head p{ color:var(--muted); max-width:52ch; margin:0 auto; font-size:.97rem; }
+  .menu-cols{ column-count:2; column-gap:clamp(2.5rem,6vw,6rem); }
+  .cat{ break-inside:avoid; margin-bottom:2.6rem; }
+  .cat h3{ font-size:1.28rem; }
+  .cat .ch{ display:flex; align-items:baseline; gap:.9rem; padding-bottom:.6rem;
+            border-bottom:1px solid var(--ink); margin-bottom:.4rem; }
+  .cat .ch .n{ font-family:'Prata',serif; font-size:.78rem; color:var(--copper); }
+  .row{ display:flex; align-items:baseline; gap:.6rem; padding:.52rem 0; border-bottom:1px solid var(--line); }
+  .row:last-child{ border-bottom:0; }
+  .row .s{ font-size:.97rem; }
+  .row .d{ flex:1; border-bottom:1px dotted var(--line); transform:translateY(-3px); }
+  .row .p{ font-family:'Prata',serif; font-size:.98rem; }
+  .row.star .s::after{ content:"Most booked"; font-family:'Jost',sans-serif; font-size:.55rem;
+                       letter-spacing:.16em; text-transform:uppercase; color:var(--mauve-deep);
+                       border:1px solid var(--mauve); border-radius:100px; padding:.16rem .5rem;
+                       margin-left:.6rem; white-space:nowrap; }
+  .menu-note{ margin-top:1rem; padding-top:1.6rem; border-top:1px solid var(--line);
+              display:flex; gap:clamp(1.5rem,4vw,3.5rem); flex-wrap:wrap; }
+  .menu-note p{ font-size:.87rem; color:var(--muted); max-width:38ch; }
+  .menu-note strong{ font-weight:400; color:var(--ink); }
+
+  /* ---------- packages, mauve band ---------- */
+  .sets{ background:var(--mauve-soft); padding:clamp(3.5rem,7vw,6rem) 0; margin-top:clamp(3rem,6vw,5rem); }
+  .sets-head{ text-align:center; margin-bottom:clamp(2.2rem,5vw,3.2rem); }
+  .sets-head h2{ font-size:clamp(1.9rem,4vw,3rem); margin-top:1rem; }
+  .sets-head p{ color:var(--muted); max-width:50ch; margin:1rem auto 0; font-size:.97rem; }
+  .set-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(1.2rem,3vw,2.4rem); max-width:920px; margin:0 auto; }
+  .set{ background:var(--paper); border:1px solid rgba(194,154,160,.4); padding:clamp(1.6rem,3vw,2.2rem); }
+  .set .k{ font-size:.62rem; letter-spacing:.24em; text-transform:uppercase; color:var(--mauve-deep); }
+  .set h3{ font-size:1.5rem; margin:.7rem 0 .7rem; }
+  .set p{ color:var(--muted); font-size:.93rem; }
+  .set .fine{ margin-top:1.1rem; padding-top:1.1rem; border-top:1px solid var(--line);
+              font-size:.78rem; letter-spacing:.04em; color:var(--muted); }
+
+  /* ---------- quote ---------- */
+  .quote{ text-align:center; padding-block:clamp(4rem,9vw,7.5rem); }
+  .quote p{ font-family:'Prata',serif; font-size:clamp(1.6rem,3.9vw,3rem); line-height:1.3;
+            max-width:22ch; margin:0 auto; }
+  .quote .cite{ margin-top:2rem; font-size:.7rem; letter-spacing:.24em; text-transform:uppercase; color:var(--muted); }
+
+  /* ---------- visit, emerald band ---------- */
+  .visit{ background:var(--emerald); color:var(--ivory); padding:clamp(3.5rem,7vw,6rem) 0; }
+  .visit h2{ font-size:clamp(1.9rem,4vw,2.9rem); margin-top:1rem; }
+  .visit .u-label{ border-color:rgba(245,239,228,.6); color:var(--ivory); }
+  .visit-grid{ display:grid; grid-template-columns:1.15fr 1fr; gap:clamp(2rem,5vw,4.5rem); margin-top:2.6rem; }
+  .hours{ width:100%; }
+  .hours div{ display:flex; justify-content:space-between; gap:1rem; padding:.62rem 0;
+              border-bottom:1px solid rgba(245,239,228,.16); font-size:.95rem; }
+  .hours div span:last-child{ font-family:'Prata',serif; }
+  .addr{ font-size:1.02rem; line-height:1.85; }
+  .addr a{ border-bottom:1px solid rgba(245,239,228,.4); }
+  .addr a:hover{ border-color:var(--ivory); }
+  .visit .btn{ margin-top:1.8rem; }
+  .arrive{ color:#C9D6CD; font-size:.93rem; margin-top:1.6rem; max-width:40ch; }
+
+  /* ---------- faq ---------- */
+  .faq{ padding-block:clamp(3.5rem,7vw,6rem); }
+  .faq-head{ text-align:center; margin-bottom:clamp(2rem,4vw,3rem); }
+  .faq-head h2{ font-size:clamp(1.9rem,4vw,2.9rem); margin-top:1rem; }
+  .faq-list{ max-width:760px; margin:0 auto; }
+  details{ border-bottom:1px solid var(--line); }
+  summary{ list-style:none; cursor:pointer; padding:1.25rem 2.4rem 1.25rem 0; position:relative;
+           font-size:1.06rem; font-family:'Prata',serif; }
+  summary::-webkit-details-marker{ display:none; }
+  summary::after{ content:""; position:absolute; right:.4rem; top:50%; width:11px; height:11px;
+                  border-right:1px solid var(--copper); border-bottom:1px solid var(--copper);
+                  transform:translateY(-70%) rotate(45deg); transition:transform .4s var(--ease); }
+  details[open] summary::after{ transform:translateY(-30%) rotate(225deg); }
+  details p{ color:var(--muted); padding:0 2.4rem 1.4rem 0; max-width:62ch; font-size:.96rem; }
+  details p + p{ padding-top:.8rem; margin-top:-.6rem; }
+
+  /* ---------- academy teaser ---------- */
+  .academy{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,5rem); align-items:center;
+            padding-block:clamp(3rem,6vw,5rem); border-top:1px solid var(--line); }
+  .academy-media{ overflow:hidden; }
+  .academy-media img{ width:100%; height:100%; max-height:420px; object-fit:cover; display:block; }
+  .academy h2{ font-size:clamp(1.7rem,3.6vw,2.6rem); margin:1.1rem 0 1.1rem; }
+  .academy p{ color:var(--muted); max-width:44ch; margin-bottom:1.2rem; }
+
+  /* ---------- contact ---------- */
+  .contact{ background:var(--paper); border-top:1px solid var(--line); padding:clamp(3.5rem,7vw,6rem) 0; }
+  .contact-grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:clamp(2rem,5vw,5rem); align-items:start; }
+  .contact h2{ font-size:clamp(1.9rem,4vw,2.9rem); margin-top:1rem; }
+  .contact .intro{ color:var(--muted); margin-top:1.2rem; max-width:34ch; }
+  .contact .direct{ margin-top:1.8rem; font-size:.95rem; line-height:2; }
+  .contact .direct a{ border-bottom:1px solid var(--line); }
+  .contact .direct a:hover{ border-color:var(--copper); color:var(--copper); }
+  form{ display:grid; gap:1.4rem; }
+  .f2{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; }
+  .field label{ display:block; font-size:.62rem; letter-spacing:.22em; text-transform:uppercase;
+                color:var(--muted); margin-bottom:.5rem; }
+  .field input, .field select, .field textarea{
+      width:100%; background:transparent; border:none; border-bottom:1px solid var(--line);
+      padding:.6rem 0; font-family:'Jost',sans-serif; font-weight:300; font-size:1rem; color:var(--ink);
+      border-radius:0; transition:border-color .3s; }
+  .field input:focus, .field select:focus, .field textarea:focus{ outline:none; border-color:var(--copper); }
+  .field textarea{ resize:vertical; min-height:104px; }
+  form .btn{ justify-self:start; border:none; }
+
+  /* ---------- footer ---------- */
+  footer{ background:var(--emerald); color:var(--ivory); padding:clamp(3.5rem,6vw,5rem) 0 2.2rem; text-align:center; }
+  .foot-mark{ height:clamp(120px,16vw,164px); width:auto; opacity:.95; }
+  .foot-links{ display:flex; justify-content:center; gap:clamp(1.2rem,3vw,2.2rem); flex-wrap:wrap; margin:2.2rem 0 1.8rem; }
+  .foot-links a{ font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(245,239,228,.75); }
+  .foot-links a:hover{ color:var(--ivory); }
+  .foot-fine{ font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; color:rgba(245,239,228,.5); line-height:2.2; }
+
+  /* ---------- to-confirm flag (mockup only) ---------- */
+  .tbc{ font-family:'Jost',sans-serif; font-size:.56rem; letter-spacing:.14em; text-transform:uppercase;
+        color:var(--copper); border:1px dashed var(--copper); border-radius:3px; padding:.15rem .45rem;
+        margin-left:.5rem; display:inline-block; }
+
+  /* ---------- reveal ---------- */
+  .rv{ opacity:0; transform:translateY(20px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
+  .rv.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion:reduce){ .rv{ opacity:1; transform:none; transition:none; } }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:980px){
+    .nav-links{ display:none; }
+    header .btn{ margin-left:auto; }
+    .split, .academy, .visit-grid, .contact-grid{ grid-template-columns:1fr; }
+    .split.rev .split-media{ order:0; }
+    .menu-cols{ column-count:1; }
+    .set-grid{ grid-template-columns:1fr; }
+  }
+  @media (max-width:560px){
+    .f2{ grid-template-columns:1fr; }
+    .brand .mark{ height:32px; } .brand .word{ height:13px; }
+    .btn{ padding:.72rem 1.2rem; font-size:.64rem; letter-spacing:.14em; }
+    .announce{ font-size:.6rem; letter-spacing:.1em; }
+  }
+</style>
+</head>
+<body>
+
+<div class="announce">
+  Now booking &#183; First appointments October 5, 2026
+  <span>&#183;</span> Naples, Florida
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="METHOD, luxury waxing and professional training">
+      <img class="mark" src="logo-kit/05-icon-and-submark/method-submark-black.svg" alt="">
+      <img class="word" src="logo-kit/04-wordmark/method-wordmark-black.svg" alt="METHOD.">
+    </a>
+    <nav class="nav-links">
+      <a href="#menu">The Menu</a>
+      <a href="#sets">The Method Set</a>
+      <a href="#visit">Visit</a>
+      <a href="#faq">First Visit</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <!-- BOOK NOW: replace href with the Meevo online booking link -->
+    <a class="btn btn-solid" href="#book">Book Now</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <img src="https://images.unsplash.com/photo-1763750759240-a1398573772a?auto=format&fit=crop&w=2000&q=80"
+       alt="The warm, softly lit arched treatment studio">
+  <div class="hero-cap">
+    <span class="k">Luxury Waxing &#183; Naples, Florida</span>
+    <h1>Where the wax is the whole point.</h1>
+    <div class="hero-cta">
+      <!-- BOOK NOW: replace href with the Meevo online booking link -->
+      <a class="btn btn-light" href="#book">Book an appointment</a>
+      <a class="hero-link" href="#menu">See the menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement wrap rv">
+  <span class="label">A Naples Waxing Studio</span>
+  <h2>The art of the <span class="g">wax</span>, done <em>with intention.</em></h2>
+  <p class="sub">We came from the corporate wax world, where the schedule mattered more than the
+  person on the table. Method is the correction. Honest pricing, unhurried appointments, and
+  technique held to the standard we teach other professionals.</p>
+</section>
+
+<!-- WHY -->
+<section class="split wrap rv" id="studio">
+  <div class="split-media">
+    <img src="https://images.unsplash.com/photo-1648285191822-1b02b816cd78?auto=format&fit=crop&w=1200&q=80"
+         alt="A warm copper toned arched niche with travertine and a trailing plant">
+  </div>
+  <div class="split-copy">
+    <span class="u-label">01 &#183; The Studio</span>
+    <h2>Care you can feel in the room.</h2>
+    <p>Two estheticians, two treatment rooms, and nobody rushing you out the door. We will tell you
+    the truth about your skin, explain the why behind every step, and never sell you something you
+    did not come in for.</p>
+    <ul class="credo">
+      <li>Fair pricing, published openly, with no upsell at the table</li>
+      <li>The science explained, not just the technique performed</li>
+      <li>Appointments paced for comfort, not for volume</li>
+      <li>The same standard we hold our students to</li>
+    </ul>
+  </div>
+</section>
+
+<!-- THE MENU -->
+<section class="menu wrap rv" id="menu">
+  <div class="menu-head">
+    <span class="u-label">The Menu</span>
+    <h2>Services and pricing</h2>
+    <p>Every price, in the open. Book any service online, and if you are not sure what to choose,
+    call us and we will talk it through.</p>
+  </div>
+
+  <div class="menu-cols">
+    <div class="cat">
+      <div class="ch"><span class="n">01</span><h3>Face</h3></div>
+      <div class="row"><span class="s">Full Face</span><span class="d"></span><span class="p">$64</span></div>
+      <div class="row star"><span class="s">Eyebrow</span><span class="d"></span><span class="p">$24</span></div>
+      <div class="row"><span class="s">Cheek</span><span class="d"></span><span class="p">$16</span></div>
+      <div class="row"><span class="s">Chin</span><span class="d"></span><span class="p">$14</span></div>
+      <div class="row"><span class="s">Hairline</span><span class="d"></span><span class="p">$14</span></div>
+      <div class="row"><span class="s">Neck</span><span class="d"></span><span class="p">$17</span></div>
+      <div class="row"><span class="s">Nose</span><span class="d"></span><span class="p">$15</span></div>
+      <div class="row"><span class="s">Sideburn</span><span class="d"></span><span class="p">$17</span></div>
+      <div class="row"><span class="s">Ears</span><span class="d"></span><span class="p">$17</span></div>
+    </div>
+
+    <div class="cat">
+      <div class="ch"><span class="n">02</span><h3>Lip</h3></div>
+      <div class="row"><span class="s">Upper Lip</span><span class="d"></span><span class="p">$14</span></div>
+      <div class="row"><span class="s">Lower Lip</span><span class="d"></span><span class="p">$14</span></div>
+    </div>
+
+    <div class="cat">
+      <div class="ch"><span class="n">03</span><h3>Bikini</h3></div>
+      <div class="row star"><span class="s">Brazilian</span><span class="d"></span><span class="p">$64</span></div>
+      <div class="row"><span class="s">Full Bikini</span><span class="d"></span><span class="p">$56</span></div>
+      <div class="row"><span class="s">Bikini Line</span><span class="d"></span><span class="p">$48</span></div>
+    </div>
+
+    <div class="cat">
+      <div class="ch"><span class="n">04</span><h3>Legs</h3></div>
+      <div class="row"><span class="s">Full Leg</span><span class="d"></span><span class="p">$79</span></div>
+      <div class="row"><span class="s">Upper Leg</span><span class="d"></span><span class="p">$57</span></div>
+      <div class="row"><span class="s">Lower Leg</span><span class="d"></span><span class="p">$51</span></div>
+      <div class="row"><span class="s">Inner Thigh</span><span class="d"></span><span class="p">$19</span></div>
+      <div class="row"><span class="s">Knee</span><span class="d"></span><span class="p">$17</span></div>
+      <div class="row"><span class="s">Toes</span><span class="d"></span><span class="p">$19</span></div>
+    </div>
+
+    <div class="cat">
+      <div class="ch"><span class="n">05</span><h3>Arms</h3></div>
+      <div class="row"><span class="s">Full Arm</span><span class="d"></span><span class="p">$51</span></div>
+      <div class="row"><span class="s">Half Arm</span><span class="d"></span><span class="p">$44</span></div>
+      <div class="row"><span class="s">Underarm</span><span class="d"></span><span class="p">$25</span></div>
+      <div class="row"><span class="s">Shoulder</span><span class="d"></span><span class="p">$31</span></div>
+      <div class="row"><span class="s">Hand</span><span class="d"></span><span class="p">$19</span></div>
+    </div>
+
+    <div class="cat">
+      <div class="ch"><span class="n">06</span><h3>Back</h3></div>
+      <div class="row"><span class="s">Full Back</span><span class="d"></span><span class="p">$74</span></div>
+      <div class="row"><span class="s">Upper Back</span><span class="d"></span><span class="p">$31</span></div>
+      <div class="row"><span class="s">Mid Back</span><span class="d"></span><span class="p">$31</span></div>
+      <div class="row"><span class="s">Lower Back</span><span class="d"></span><span class="p">$27</span></div>
+    </div>
+
+    <div class="cat">
+      <div class="ch"><span class="n">07</span><h3>Chest</h3></div>
+      <div class="row"><span class="s">Full Chest</span><span class="d"></span><span class="p">$39</span></div>
+      <div class="row"><span class="s">Chest Strip</span><span class="d"></span><span class="p">$27</span></div>
+      <div class="row"><span class="s">Nipple</span><span class="d"></span><span class="p">$17</span></div>
+    </div>
+
+    <div class="cat">
+      <div class="ch"><span class="n">08</span><h3>Stomach</h3></div>
+      <div class="row"><span class="s">Full Stomach</span><span class="d"></span><span class="p">$39</span></div>
+      <div class="row"><span class="s">Stomach Strip</span><span class="d"></span><span class="p">$16</span></div>
+    </div>
+
+    <div class="cat">
+      <div class="ch"><span class="n">09</span><h3>Butt</h3></div>
+      <div class="row"><span class="s">Full Butt</span><span class="d"></span><span class="p">$33</span></div>
+      <div class="row"><span class="s">Butt Strip</span><span class="d"></span><span class="p">$21</span></div>
+    </div>
+  </div>
+
+  <div class="menu-note">
+    <p><strong>Services for men.</strong> Most of the menu is available to all guests. Full Face,
+    Full Butt, Butt Strip, and bikini services are offered to women only.</p>
+    <p><strong>Guests under 18.</strong> Welcome with a parent's consent and a signed waiver.
+    Brazilian and Full Bikini are available from age 16 with the same consent.</p>
+    <p><strong>Paying.</strong> No card and no deposit to book. You pay in studio at the end of
+    your appointment.</p>
+  </div>
+</section>
+
+<!-- THE METHOD SET -->
+<section class="sets rv" id="sets">
+  <div class="wrap">
+    <div class="sets-head">
+      <span class="u-label">The Method Set</span>
+      <h2>Waxing is a habit, not a one time thing.</h2>
+      <p>Hair grows on a cycle, so results compound when you keep a rhythm. Our sets are built to
+      reward that, and they never expire.</p>
+    </div>
+    <div class="set-grid">
+      <div class="set">
+        <span class="k">The Set</span>
+        <h3>Buy nine, get three free.</h3>
+        <p>Nine of any single service, then three of the same on us. New guests get four free
+        instead of three, because your first year is the one that builds the habit.</p>
+        <div class="fine">New guests: buy 9, get 4 &nbsp;&#183;&nbsp; Returning: buy 9, get 3</div>
+      </div>
+      <div class="set">
+        <span class="k">The Year</span>
+        <h3>Unlimited, for a year and then some.</h3>
+        <p>Thirteen months of unlimited waxing for returning guests, fourteen for new. Pay upfront
+        or split it into payments. No expiration, and no scramble to use it up.</p>
+        <div class="fine">Pricing in studio <span class="tbc">confirm</span></div>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--muted);font-size:.9rem;margin-top:2rem;max-width:48ch;margin-left:auto;margin-right:auto;">
+      Sets can be shared with your children under 22, because the whole family should not need
+      four separate memberships.</p>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote wrap rv">
+  <p><span class="g">Intentional</span> care is not a tagline. It is the <em>method.</em></p>
+  <div class="cite">Sophia, Tori and Rachel</div>
+</section>
+
+<!-- VISIT -->
+<section class="visit rv" id="visit">
+  <div class="wrap">
+    <span class="u-label">Visit</span>
+    <h2>Find us in Naples.</h2>
+    <div class="visit-grid">
+      <div>
+        <div class="hours">
+          <div><span>Monday to Thursday</span><span>8am to 8pm</span></div>
+          <div><span>Friday</span><span>8am to 6pm</span></div>
+          <div><span>Saturday</span><span>9am to 3pm</span></div>
+          <div><span>Sunday</span><span>10am to 5pm</span></div>
+        </div>
+        <p class="arrive">Arriving more than ten minutes late may mean we have to reschedule you,
+        so the guest after you is not kept waiting. <span class="tbc">5 or 10 min, confirm</span></p>
+      </div>
+      <div>
+        <p class="addr">
+          1410 Pine Ridge Road, Suite 22<br>
+          Naples, FL 34108<br><br>
+          <a href="tel:+12395295441">(239) 529-5441</a><br>
+          <a href="mailto:Info@MethodWaxPro.Com">Info@MethodWaxPro.Com</a>
+        </p>
+        <!-- BOOK NOW: replace href with the Meevo online booking link -->
+        <a class="btn btn-light" href="#book">Book an appointment</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq wrap rv" id="faq">
+  <div class="faq-head">
+    <span class="u-label">Your First Visit</span>
+    <h2>What to know before you come in.</h2>
+  </div>
+  <div class="faq-list">
+    <details open>
+      <summary>How long should my hair be?</summary>
+      <p>About the length of a grain of rice, roughly a quarter of an inch. Too short and the wax
+      has nothing to grip. If you have been shaving, give it two to three weeks.</p>
+    </details>
+    <details>
+      <summary>What should I do before my appointment?</summary>
+      <p>Exfoliate gently a day or two before, skip lotion and oil the morning of, and come in
+      clean and dry. Avoid sun, tanning, and strong actives like retinol for a couple of days.</p>
+    </details>
+    <details>
+      <summary>What about afterward?</summary>
+      <p>Keep the area clean and cool for twenty four hours. Skip the gym, hot tubs, pools, and
+      sun. Start exfoliating gently again after a few days to keep ingrowns away.</p>
+    </details>
+    <details>
+      <summary>How often should I come back?</summary>
+      <p>Every four to six weeks keeps you on the growth cycle, which means less hair, finer
+      regrowth, and a more comfortable wax every time.</p>
+    </details>
+    <details>
+      <summary>Do I need to cancel a certain way?</summary>
+      <p>Just call us. There is no cancellation fee. We only ask that you let us know so we can
+      offer the time to someone else.</p>
+    </details>
+    <details>
+      <summary>What if I am on Accutane or using retinol?</summary>
+      <p>Tell us before you book. Accutane means waiting six months after your last dose, and
+      retinol means pausing for five to seven days on the area being waxed.</p>
+    </details>
+    <details>
+      <summary>Do you wax men?</summary>
+      <p>Yes, for most of the menu. Full Face, Full Butt, Butt Strip, and bikini services are
+      offered to women only.</p>
+    </details>
+  </div>
+  <p style="text-align:center;margin-top:2rem;">
+    <span class="tbc">Draft answers, please review and correct these in your own words</span></p>
+</section>
+
+<!-- ACADEMY -->
+<section class="academy wrap rv" id="academy">
+  <div class="academy-media">
+    <img src="https://images.unsplash.com/photo-1690994065552-6a35a0455ea2?auto=format&fit=crop&w=900&q=80"
+         alt="An olive branch in a soft sunlit still life">
+  </div>
+  <div>
+    <span class="u-label">Coming Next</span>
+    <h2>The Academy.</h2>
+    <p>Method is a training academy as much as a studio. Professional waxing certification, taught
+    online and finished by hand in this room, is in development now, with state continuing education
+    approval in progress.</p>
+    <p>If you are an esthetician, tell us and we will let you know the moment enrollment opens.</p>
+    <a class="link" href="#contact">Join the interest list</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact rv" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="u-label">Contact</span>
+      <h2>Say hello.</h2>
+      <p class="intro">Questions about a service, a set, or the academy. We answer every message
+      ourselves.</p>
+      <div class="direct">
+        <a href="tel:+12395295441">(239) 529-5441</a><br>
+        <a href="mailto:Info@MethodWaxPro.Com">Info@MethodWaxPro.Com</a><br>
+        1410 Pine Ridge Road, Suite 22<br>Naples, FL 34108
+      </div>
+    </div>
+    <!-- CONTACT FORM: wire submissions to Info@MethodWaxPro.Com -->
+    <form onsubmit="return false">
+      <div class="f2">
+        <div class="field"><label for="fn">First name</label><input id="fn" type="text" autocomplete="given-name"></div>
+        <div class="field"><label for="ln">Last name</label><input id="ln" type="text" autocomplete="family-name"></div>
+      </div>
+      <div class="f2">
+        <div class="field"><label for="em">Email</label><input id="em" type="email" autocomplete="email"></div>
+        <div class="field"><label for="ph">Phone</label><input id="ph" type="tel" autocomplete="tel"></div>
+      </div>
+      <div class="field">
+        <label for="tp">What is this about</label>
+        <select id="tp">
+          <option>A waxing service</option>
+          <option>The Method Set</option>
+          <option>Professional training and the academy</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="field"><label for="ms">Message</label><textarea id="ms"></textarea></div>
+      <button class="btn btn-solid" type="submit">Send message</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <img class="foot-mark" src="logo-kit/01-primary-logo/method-primary-white.svg"
+         alt="METHOD, luxury waxing and professional training">
+    <div class="foot-links">
+      <a href="#menu">The Menu</a>
+      <a href="#sets">The Method Set</a>
+      <a href="#visit">Visit</a>
+      <a href="#faq">First Visit</a>
+      <a href="#academy">The Academy</a>
+      <a href="#contact">Contact</a>
+      <!-- BOOK NOW: replace href with the Meevo online booking link -->
+      <a href="#book">Book Now</a>
+    </div>
+    <div class="foot-fine">
+      1410 Pine Ridge Road, Suite 22, Naples, FL 34108 &nbsp;&#183;&nbsp; (239) 529-5441<br>
+      &copy; 2026 Method Luxury Waxing and Professional Training
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

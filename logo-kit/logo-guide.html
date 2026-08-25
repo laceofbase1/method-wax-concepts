@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>METHOD Logo Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  @page{ size:8.5in 11in; margin:0; }
+  :root{
+    --cream:#FAF5EB; --paper:#FFFDF8; --ink:#12100E; --emerald:#1D392F;
+    --copper:#A56B41; --clay:#CBA891; --mauve:#C29AA0; --muted:#6F675D; --line:#E2D8C7;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0;
+     -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body{ font-family:'Jost',system-ui,sans-serif; font-weight:300; color:var(--ink);
+        background:#8d8d8d; -webkit-font-smoothing:antialiased; }
+  .page{ width:8.5in; height:11in; background:var(--cream); position:relative;
+         overflow:hidden; page-break-after:always; break-after:page; margin:0 auto; }
+  .page:last-child{ page-break-after:auto; break-after:auto; }
+  .pad{ position:absolute; inset:0.82in 0.82in 0.72in; display:flex; flex-direction:column; }
+  h1,h2,h3{ font-family:'Prata',Georgia,serif; font-weight:400; line-height:1.14; }
+  .eyebrow{ font-size:7.5pt; letter-spacing:.3em; text-transform:uppercase; color:var(--copper); }
+  .ptitle{ font-size:23pt; margin:.14in 0 .09in; }
+  .lede{ font-size:9.5pt; line-height:1.65; color:var(--muted); max-width:5.1in; }
+  .foot{ position:absolute; left:.82in; right:.82in; bottom:.44in;
+         display:flex; justify-content:space-between; align-items:baseline;
+         font-size:6.6pt; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);
+         border-top:1px solid var(--line); padding-top:.11in; }
+  .cap{ font-size:7pt; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
+  .note{ font-size:8.6pt; line-height:1.6; color:var(--muted); }
+  strong{ font-weight:400; color:var(--ink); }
+
+  /* cover */
+  .cover{ background:var(--cream); display:flex; flex-direction:column;
+          align-items:center; justify-content:center; text-align:center; }
+  .cover img{ height:4.15in; }
+  .cover .rule{ width:1.15in; height:1px; background:var(--copper); margin:.5in 0 .34in; }
+  .cover h1{ font-size:19pt; letter-spacing:.03em; }
+  .cover .sub{ font-size:7.6pt; letter-spacing:.32em; text-transform:uppercase;
+               color:var(--muted); margin-top:.17in; line-height:2.1; }
+
+  /* generic grids */
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:.30in; margin-top:.26in; }
+  .grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:.24in; margin-top:.26in; }
+  .tile{ background:var(--paper); border:1px solid var(--line); height:2.32in;
+         display:flex; align-items:center; justify-content:center; padding:.24in; }
+  .tile.dark{ background:var(--emerald); border-color:var(--emerald); }
+  .tile.clay{ background:#F1E6DA; border-color:#E4D2C0; }
+  .tile img{ max-width:100%; max-height:100%; object-fit:contain; }
+  .tcap{ margin-top:.1in; }
+  .tcap b{ display:block; font-weight:400; font-size:9pt; font-family:'Prata',serif; }
+  .tcap span{ font-size:7.6pt; color:var(--muted); line-height:1.5; display:block; margin-top:.02in; }
+
+  /* clear space */
+  .cs{ display:flex; gap:.42in; align-items:center; margin-top:.3in; }
+  .csbox{ border:1px dashed var(--copper); padding:52px; background:var(--paper); }
+  .csbox img{ height:2.6in; display:block; }
+  .cs .side{ flex:1; }
+  .mini{ display:flex; align-items:flex-end; gap:.3in; margin-top:.26in; }
+  .mini figure{ text-align:center; }
+  .mini img{ display:block; margin:0 auto .07in; }
+  .mini figcaption{ font-size:6.8pt; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
+
+  /* colour */
+  .sw{ display:grid; grid-template-columns:repeat(5,1fr); gap:.17in; margin-top:.28in; }
+  .sw i{ display:block; height:1.5in; border:1px solid var(--line); }
+  .sw b{ display:block; font-family:'Prata',serif; font-weight:400; font-size:9.5pt; margin-top:.1in; }
+  .sw span{ display:block; font-size:7.4pt; color:var(--muted); letter-spacing:.06em; }
+
+  /* misuse */
+  .dont{ display:grid; grid-template-columns:repeat(3,1fr); gap:.22in; margin-top:.26in; }
+  .dbox{ background:var(--paper); border:1px solid var(--line); height:2.08in; position:relative;
+         display:flex; align-items:center; justify-content:center; padding:.2in; overflow:hidden; }
+  .dbox img{ max-height:100%; max-width:100%; object-fit:contain; }
+  .dbox::after{ content:""; position:absolute; left:8%; right:8%; top:50%; height:1px;
+                background:var(--ink); opacity:.5; transform:rotate(-19deg); }
+  .dbox.on-dark{ background:var(--emerald); border-color:var(--emerald); }
+  .dcap{ font-size:7.8pt; color:var(--muted); margin-top:.09in; line-height:1.45; }
+  .dcap b{ color:var(--ink); font-weight:400; }
+
+  /* table */
+  table{ width:100%; border-collapse:collapse; margin-top:.22in; }
+  th,td{ text-align:left; padding:.098in .16in .098in 0; border-bottom:1px solid var(--line);
+         font-size:8.6pt; vertical-align:top; line-height:1.5; }
+  th{ font-weight:400; font-size:6.8pt; letter-spacing:.22em; text-transform:uppercase; color:var(--copper); }
+  code{ font-family:ui-monospace,Menlo,monospace; font-size:7.6pt; }
+  ol{ padding-left:1.05em; margin-top:.2in; }
+  ol li{ font-size:9pt; line-height:1.6; margin-bottom:.115in; color:var(--muted); }
+  ol li b{ color:var(--ink); font-weight:400; }
+
+  /* back */
+  .back{ background:var(--emerald); color:var(--cream); }
+  .back .pad{ align-items:center; justify-content:center; text-align:center; }
+  .back img{ height:2.85in; margin-bottom:.42in; }
+  .back h2{ font-size:16pt; }
+  .back p{ font-size:8.8pt; line-height:1.9; color:#C7D3CB; margin-top:.22in; }
+  .back .fine{ font-size:7pt; letter-spacing:.2em; text-transform:uppercase;
+               color:rgba(250,245,235,.5); margin-top:.5in; line-height:2; }
+</style>
+</head>
+<body>
+
+<!-- 1 COVER -->
+<section class="page cover">
+  <img src="01-primary-logo/method-primary-black-2000px.png" alt="">
+  <div class="rule"></div>
+  <h1>Logo Guide</h1>
+  <div class="sub">Method Luxury Waxing<br>&amp; Professional Training<br>Naples, Florida &nbsp;&#183;&nbsp; 2026</div>
+</section>
+
+<!-- 2 THE FAMILY -->
+<section class="page">
+  <div class="pad">
+    <span class="eyebrow">01 &nbsp;&#183;&nbsp; The Family</span>
+    <h2 class="ptitle">Four versions of one logo.</h2>
+    <p class="lede">Same brand, four shapes. Pick the one that fits the space you are filling,
+    rather than squeezing the primary logo into a place it was never meant to go.</p>
+    <div class="grid2">
+      <div>
+        <div class="tile"><img src="01-primary-logo/method-primary-black-2000px.png" alt=""></div>
+        <div class="tcap"><b>Primary</b><span>The full lockup. Signage, the front of the website,
+        anywhere someone meets the brand for the first time.</span></div>
+      </div>
+      <div>
+        <div class="tile"><img src="02-horizontal-logo/method-horizontal-black-2000px.png" alt=""></div>
+        <div class="tcap"><b>Horizontal</b><span>Wide and short. Website headers, email signatures,
+        the top of a letterhead.</span></div>
+      </div>
+      <div>
+        <div class="tile"><img src="03-stacked-no-arch/method-stacked-black-2000px.png" alt=""></div>
+        <div class="tcap"><b>Stacked</b><span>The lockup without the arch, for narrow or busy
+        placements where fine lines would be lost.</span></div>
+      </div>
+      <div>
+        <div class="tile"><img src="04-wordmark/method-wordmark-tagline-black-2000px.png" alt=""></div>
+        <div class="tcap"><b>Wordmark</b><span>Type alone, with or without the tagline. Use when the
+        arch already appears nearby.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Method &#183; Logo Guide</span><span>02</span></div>
+</section>
+
+<!-- 3 ICON -->
+<section class="page">
+  <div class="pad">
+    <span class="eyebrow">02 &nbsp;&#183;&nbsp; The Icon</span>
+    <h2 class="ptitle">The M does the small work.</h2>
+    <p class="lede">The arch is built from hairlines, and hairlines disappear when they shrink.
+    Below roughly 40 pixels, stop using the arch and let the M carry the brand on its own.</p>
+    <div class="grid3">
+      <div>
+        <div class="tile"><img src="05-icon-and-submark/method-icon-m-black-1024px.png" style="max-height:62%" alt=""></div>
+        <div class="tcap"><b>Icon</b><span>Browser tabs, app icons, a foil stamp, a wax seal.</span></div>
+      </div>
+      <div>
+        <div class="tile"><img src="05-icon-and-submark/method-submark-black-1024px.png" alt=""></div>
+        <div class="tcap"><b>Submark</b><span>Square version for profile pictures on Instagram,
+        Facebook and Google.</span></div>
+      </div>
+      <div>
+        <div class="tile dark"><img src="05-icon-and-submark/method-submark-white-1024px.png" alt=""></div>
+        <div class="tcap"><b>Submark, reversed</b><span>The same mark for dark backgrounds.</span></div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:.3in"><strong>How each one holds up as it shrinks.</strong>
+    The arch softens and fades. The M stays itself all the way down.</p>
+    <div class="mini">
+      <figure><img src="05-icon-and-submark/method-submark-black-1024px.png" width="96"><figcaption>Arch 96px</figcaption></figure>
+      <figure><img src="05-icon-and-submark/method-submark-black-1024px.png" width="48"><figcaption>48px</figcaption></figure>
+      <figure><img src="05-icon-and-submark/method-submark-black-1024px.png" width="24"><figcaption>24px</figcaption></figure>
+      <figure style="margin-left:.34in"><img src="05-icon-and-submark/method-icon-m-black-1024px.png" width="88"><figcaption>M 88px</figcaption></figure>
+      <figure><img src="05-icon-and-submark/method-icon-m-black-1024px.png" width="44"><figcaption>44px</figcaption></figure>
+      <figure><img src="05-icon-and-submark/method-icon-m-black-1024px.png" width="22"><figcaption>22px</figcaption></figure>
+    </div>
+  </div>
+  <div class="foot"><span>Method &#183; Logo Guide</span><span>03</span></div>
+</section>
+
+<!-- 4 CLEAR SPACE -->
+<section class="page">
+  <div class="pad">
+    <span class="eyebrow">03 &nbsp;&#183;&nbsp; Clear Space &amp; Size</span>
+    <h2 class="ptitle">Give it room to breathe.</h2>
+    <p class="lede">Keep a margin around the logo at least as tall as the M in the wordmark.
+    Nothing crosses that line: no text, no photo edge, no other logo.</p>
+    <div class="cs">
+      <div class="csbox"><img src="01-primary-logo/method-primary-black-2000px.png" alt=""></div>
+      <div class="side">
+        <p class="note"><strong>The measure is the M.</strong> Take the height of the M in the
+        METHOD wordmark and use it as the minimum margin on all four sides. It scales with the
+        logo, so it works at any size.</p>
+        <p class="note" style="margin-top:.2in"><strong>Minimum sizes.</strong> Smaller than this
+        and the hairlines break up in print or blur on screen.</p>
+        <table style="margin-top:.16in">
+          <tr><th>Mark</th><th>Print</th><th>Screen</th></tr>
+          <tr><td>Primary</td><td>1 in wide</td><td>110 px</td></tr>
+          <tr><td>Horizontal</td><td>1.5 in wide</td><td>170 px</td></tr>
+          <tr><td>Wordmark</td><td>0.9 in wide</td><td>100 px</td></tr>
+          <tr><td>Icon, the M</td><td>0.2 in wide</td><td>16 px</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Method &#183; Logo Guide</span><span>04</span></div>
+</section>
+
+<!-- 5 COLOUR -->
+<section class="page">
+  <div class="pad">
+    <span class="eyebrow">04 &nbsp;&#183;&nbsp; Colour</span>
+    <h2 class="ptitle">Cream, ink, emerald, copper.</h2>
+    <p class="lede">Black is the default. White is for dark backgrounds. Emerald and copper are
+    there for the moments a single brand colour is called for. Nothing else.</p>
+    <div class="sw">
+      <div><i style="background:#FAF5EB"></i><b>Cream</b><span>#FAF5EB</span><span>Backgrounds</span></div>
+      <div><i style="background:#12100E"></i><b>Ink</b><span>#12100E</span><span>The logo, text</span></div>
+      <div><i style="background:#1D392F"></i><b>Emerald</b><span>#1D392F</span><span>Depth, panels</span></div>
+      <div><i style="background:#A56B41"></i><b>Copper</b><span>#A56B41</span><span>Accents</span></div>
+      <div><i style="background:#C2A392"></i><b>Clay</b><span>#C2A392</span><span>Soft support</span></div>
+    </div>
+    <div class="grid3" style="margin-top:.4in">
+      <div>
+        <div class="tile" style="height:2.24in"><img src="01-primary-logo/method-primary-black-1000px.png" alt=""></div>
+        <div class="tcap"><b>On cream</b><span>The default. Always the first choice.</span></div>
+      </div>
+      <div>
+        <div class="tile dark" style="height:2.24in"><img src="01-primary-logo/method-primary-white-1000px.png" alt=""></div>
+        <div class="tcap"><b>On emerald</b><span>Use the white files, never the black ones.</span></div>
+      </div>
+      <div>
+        <div class="tile clay" style="height:2.24in"><img src="01-primary-logo/method-primary-copper-1000px.png" alt=""></div>
+        <div class="tcap"><b>Copper</b><span>For warmth, on pale neutral grounds only.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Method &#183; Logo Guide</span><span>05</span></div>
+</section>
+
+<!-- 6 MISUSE -->
+<section class="page">
+  <div class="pad">
+    <span class="eyebrow">05 &nbsp;&#183;&nbsp; Please Do Not</span>
+    <h2 class="ptitle">Six ways to break it.</h2>
+    <p class="lede">Every one of these has happened to a good logo. The files you have been given
+    already do the right thing, so the rule is simply to use them as they are.</p>
+    <div class="dont">
+      <div>
+        <div class="dbox"><img src="01-primary-logo/method-primary-black-1000px.png" style="transform:scaleX(1.55)"></div>
+        <p class="dcap"><b>Do not stretch it.</b> Scale proportionally, always.</p>
+      </div>
+      <div>
+        <div class="dbox"><img src="01-primary-logo/method-primary-black-1000px.png" style="transform:rotate(-14deg)"></div>
+        <p class="dcap"><b>Do not tilt it.</b> The arch stands upright.</p>
+      </div>
+      <div>
+        <div class="dbox"><img src="01-primary-logo/method-primary-black-1000px.png"
+             style="filter:invert(31%) sepia(88%) saturate(2400%) hue-rotate(203deg)"></div>
+        <p class="dcap"><b>Do not recolour it.</b> Four colourways, no others.</p>
+      </div>
+      <div>
+        <div class="dbox on-dark"><img src="01-primary-logo/method-primary-black-1000px.png"></div>
+        <p class="dcap"><b>Do not put black on dark.</b> Use the white files.</p>
+      </div>
+      <div>
+        <div class="dbox"><img src="01-primary-logo/method-primary-black-1000px.png"
+             style="filter:drop-shadow(5px 7px 5px rgba(0,0,0,.55))"></div>
+        <p class="dcap"><b>Do not add effects.</b> No shadows, glows, or outlines.</p>
+      </div>
+      <div>
+        <div class="dbox" style="background:#B8A88F"><img src="01-primary-logo/method-primary-black-1000px.png" style="opacity:.55"></div>
+        <p class="dcap"><b>Do not lose contrast.</b> Keep it clearly readable.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Method &#183; Logo Guide</span><span>06</span></div>
+</section>
+
+<!-- 7 FILES -->
+<section class="page">
+  <div class="pad">
+    <span class="eyebrow">06 &nbsp;&#183;&nbsp; Your Files</span>
+    <h2 class="ptitle">Which file do I use?</h2>
+    <p class="lede">SVG, PDF and EPS are vector: they scale to any size, from a business card to a
+    window decal, with no loss of quality. PNG and JPG are fixed size and made for screens.</p>
+    <table>
+      <tr><th style="width:47%">I need to</th><th>Use</th></tr>
+      <tr><td>Put the logo on the website</td><td>Horizontal or primary, the <code>.svg</code></td></tr>
+      <tr><td>Send it to a printer, sign maker or embroiderer</td><td><code>06-print-vector</code>, the <code>.eps</code></td></tr>
+      <tr><td>Post on Instagram or Facebook</td><td>Primary, the <code>on-cream.png</code></td></tr>
+      <tr><td>Set a profile picture</td><td><code>social-avatar-cream-1000.png</code></td></tr>
+      <tr><td>Place it on emerald or a dark photo</td><td>Any file ending <code>-white</code></td></tr>
+      <tr><td>Add the browser tab icon</td><td><code>favicon.ico</code></td></tr>
+      <tr><td>Share the website in a text or on Facebook</td><td><code>og-share-image-1200x630.png</code></td></tr>
+    </table>
+    <p class="note" style="margin-top:.34in"><strong>What is in the folder.</strong></p>
+    <table style="margin-top:.1in">
+      <tr><td style="width:47%"><code>01-primary-logo</code></td><td>The full lockup, four colourways</td></tr>
+      <tr><td><code>02-horizontal-logo</code></td><td>Wide version for headers and signatures</td></tr>
+      <tr><td><code>03-stacked-no-arch</code></td><td>Lockup without the arch</td></tr>
+      <tr><td><code>04-wordmark</code></td><td>METHOD. alone, and with the tagline</td></tr>
+      <tr><td><code>05-icon-and-submark</code></td><td>The M, and the M in the arch</td></tr>
+      <tr><td><code>06-print-vector</code></td><td>PDF and EPS of every mark</td></tr>
+      <tr><td><code>07-website-and-social</code></td><td>Favicon, app icons, avatars, share image</td></tr>
+      <tr><td><code>08-source</code></td><td>The original artwork, untouched</td></tr>
+    </table>
+  </div>
+  <div class="foot"><span>Method &#183; Logo Guide</span><span>07</span></div>
+</section>
+
+<!-- 8 BACK -->
+<section class="page back">
+  <div class="pad">
+    <img src="01-primary-logo/method-primary-white-2000px.png" alt="">
+    <h2>Intentional care is not a tagline.</h2>
+    <p>1410 Pine Ridge Road, Suite 22<br>Naples, Florida 34108<br>
+       (239) 529-5441 &nbsp;&#183;&nbsp; Info@MethodWaxPro.Com</p>
+    <div class="fine">Method Luxury Waxing &amp; Professional Training<br>Logo Guide &#183; 2026</div>
+  </div>
+</section>
+
+</body>
+</html>

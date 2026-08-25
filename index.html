@@ -1,180 +1,128 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Method — Homepage Directions</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>METHOD · Website &amp; Brand Assets</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="logo-kit/07-website-and-social/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --emerald-deep:oklch(0.32 0.045 166);
-    --emerald:oklch(0.44 0.068 165);
-    --cream:oklch(0.955 0.013 85);
-    --cream-2:oklch(0.977 0.008 85);
-    --copper:oklch(0.63 0.10 55);
-    --mauve:oklch(0.66 0.045 350);
-    --ink:oklch(0.27 0.022 166);
-    --mute:oklch(0.47 0.022 166);
-    --line:oklch(0.88 0.016 85);
-    --maxw:1160px;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0; background:var(--cream); color:var(--ink);
-    font-family:"Mulish",system-ui,sans-serif; font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased;
-    background-image:radial-gradient(120% 70% at 85% -8%, oklch(0.44 0.068 165 / .07), transparent 60%);}
-  h1,h2,h3{font-family:"Marcellus",serif; margin:0; font-weight:400; line-height:1.05; color:var(--emerald-deep)}
-  a{text-decoration:none; color:inherit}
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px}
-
-  /* header */
-  header{padding:72px 0 48px}
-  .lockup{display:flex; align-items:center; gap:14px; margin-bottom:44px}
-  .lockup svg{width:38px; height:44px; flex:none}
-  .lockup .word{font-family:"Marcellus",serif; font-size:26px; letter-spacing:0.16em; color:var(--emerald-deep)}
-  .lockup .sub{display:block; font-family:"Mulish",sans-serif; font-size:9.5px; letter-spacing:0.28em; color:var(--copper); margin-top:3px}
-  .eyebrow{font-size:12px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--copper)}
-  header h1{font-size:clamp(38px,6vw,66px); margin-top:18px; max-width:15ch}
-  header h1 em{font-style:italic; color:var(--copper)}
-  header p{font-size:20px; color:var(--mute); max-width:60ch; margin-top:22px; line-height:1.55}
-  .meta{display:flex; gap:14px 30px; flex-wrap:wrap; margin-top:30px; font-size:14px; color:var(--mute)}
-  .meta b{color:var(--emerald-deep); font-weight:700}
-
-  /* grid */
-  .grid{display:grid; grid-template-columns:1fr 1fr; gap:30px; padding:20px 0 40px}
-  .tile{display:flex; flex-direction:column; border:1px solid var(--line); border-radius:20px; overflow:hidden;
-    background:var(--cream-2); transition:transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s, border-color .4s}
-  .tile:hover{transform:translateY(-6px); box-shadow:0 40px 80px -44px oklch(0.32 0.05 166 / .55); border-color:oklch(0.80 0.03 85)}
-  .tile:focus-visible{outline:2px solid var(--copper); outline-offset:3px}
-  .preview{position:relative; aspect-ratio:16/10; overflow:hidden; background:var(--emerald-deep); border-bottom:1px solid var(--line)}
-  .preview iframe{position:absolute; top:0; left:0; width:1440px; height:900px; border:0; transform-origin:0 0; pointer-events:none}
-  .preview .num{position:absolute; top:16px; left:18px; z-index:2; font-family:"Marcellus",serif; font-size:15px; color:#fff;
-    background:oklch(0.32 0.05 166 / .82); backdrop-filter:blur(3px); width:38px; height:38px; border-radius:50%;
-    display:flex; align-items:center; justify-content:center; letter-spacing:0.02em}
-  .preview .veil{position:absolute; inset:0; z-index:1; background:linear-gradient(to bottom, transparent 60%, oklch(0.32 0.05 166 / .04)); transition:background .4s}
-  .tile:hover .veil{background:transparent}
-  .body{padding:26px 28px 30px}
-  .feel{font-size:11.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--copper)}
-  .tile h3{font-size:31px; margin-top:9px}
-  .body p{color:var(--mute); margin:11px 0 0; font-size:15.5px; line-height:1.55}
-  .go{margin-top:18px; display:inline-flex; gap:8px; align-items:center; font-weight:700; font-size:14.5px; color:var(--emerald-deep)}
-  .go .ar{transition:transform .4s cubic-bezier(.2,.8,.2,1)}
-  .tile:hover .go .ar{transform:translateX(5px)}
-
-  .note{margin:8px 0 0; padding:22px 26px; border:1px dashed var(--line); border-radius:16px; background:oklch(0.66 0.045 350 / .09);
-    font-size:14.5px; color:var(--mute)}
-  .note b{color:var(--emerald-deep); font-weight:700}
-
-  footer{margin-top:44px; padding:34px 0 72px; border-top:1px solid var(--line); color:var(--mute); font-size:14.5px}
-  footer b{color:var(--emerald-deep); font-weight:700}
-
-  @media(max-width:840px){
-    .grid{grid-template-columns:1fr}
-    header{padding:52px 0 36px}
-  }
+  :root{ --ivory:#F5EFE4; --paper:#FBF7EF; --ink:#2A2620; --emerald:#1D392F; --emerald-mid:#2C5344;
+         --copper:#A56B41; --clay:#CBA891; --muted:#7A7064; --line:#DFD5C4;
+         --ease:cubic-bezier(.22,1,.36,1); }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ background:var(--ivory); color:var(--ink); font-family:'Jost',sans-serif; font-weight:300;
+        line-height:1.7; -webkit-font-smoothing:antialiased; }
+  h1,h2,h3{ font-family:'Prata',serif; font-weight:400; line-height:1.14; }
+  a{ color:inherit; text-decoration:none; }
+  .wrap{ max-width:1060px; margin:0 auto; padding:0 clamp(1.2rem,5vw,3rem); }
+  header{ text-align:center; padding:clamp(3rem,8vw,5.5rem) 0 clamp(2rem,4vw,3rem); }
+  header img{ height:clamp(150px,20vw,210px); }
+  .eyebrow{ font-size:.66rem; letter-spacing:.3em; text-transform:uppercase; color:var(--copper);
+            margin-top:2.4rem; }
+  header h1{ font-size:clamp(1.9rem,4.4vw,3rem); margin:1rem 0 1.1rem; }
+  header p{ color:var(--muted); max-width:52ch; margin:0 auto; font-size:1rem; }
+  .cards{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(1.2rem,3vw,2rem);
+          padding-bottom:clamp(2rem,5vw,3rem); }
+  .card{ background:var(--paper); border:1px solid var(--line); padding:clamp(1.7rem,3.4vw,2.4rem);
+         display:flex; flex-direction:column; transition:transform .5s var(--ease), box-shadow .5s var(--ease); }
+  .card:hover{ transform:translateY(-3px); box-shadow:0 18px 40px -28px rgba(42,38,32,.45); }
+  .card .n{ font-size:.62rem; letter-spacing:.26em; text-transform:uppercase; color:var(--copper); }
+  .card h2{ font-size:clamp(1.4rem,2.6vw,1.85rem); margin:.8rem 0 .9rem; }
+  .card p{ color:var(--muted); font-size:.94rem; flex:1; }
+  .card ul{ list-style:none; margin:1.1rem 0 1.4rem; }
+  .card li{ font-size:.86rem; color:var(--muted); padding-left:1.4rem; position:relative; margin-bottom:.4rem; }
+  .card li::before{ content:""; position:absolute; left:0; top:.66em; width:7px; height:7px;
+                    border:1px solid var(--copper); transform:rotate(45deg); }
+  .btn{ font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; padding:.78rem 1.5rem;
+        border-radius:100px; display:inline-block; background:var(--emerald); color:var(--ivory);
+        align-self:flex-start; transition:background .3s, transform .35s var(--ease); }
+  .btn:hover{ background:var(--emerald-mid); transform:translateY(-2px); }
+  .sub{ margin-top:1rem; font-size:.74rem; letter-spacing:.1em; }
+  .sub a{ color:var(--copper); border-bottom:1px solid var(--copper); padding-bottom:2px; }
+  .sub span{ color:var(--muted); padding:0 .45rem; }
+  .note{ background:var(--emerald); color:var(--ivory); padding:clamp(2rem,4vw,2.6rem);
+         margin-bottom:clamp(2.5rem,5vw,3.5rem); }
+  .note h3{ font-size:1.2rem; margin-bottom:.7rem; }
+  .note p{ color:#C9D6CD; font-size:.92rem; max-width:66ch; }
+  .note .flag{ display:inline-block; font-size:.56rem; letter-spacing:.14em; text-transform:uppercase;
+               color:var(--clay); border:1px dashed var(--clay); border-radius:3px; padding:.15rem .45rem; }
+  footer{ text-align:center; padding:0 0 clamp(2.5rem,6vw,4rem); }
+  footer a{ font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);
+            border-bottom:1px solid var(--line); padding-bottom:2px; }
+  footer a:hover{ color:var(--ink); }
+  footer .fine{ font-size:.64rem; letter-spacing:.14em; text-transform:uppercase;
+                color:var(--muted); margin-top:1.8rem; line-height:2; }
+  @media (max-width:760px){ .cards{ grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
-
-<!-- Olive-branch monogram, recreated in SVG. Real METHOD logo PNG can be dropped in later. -->
-<header><div class="wrap">
-  <div class="lockup">
-    <svg viewBox="0 0 40 46" aria-hidden="true" fill="none">
-      <text x="1" y="37" font-family="Marcellus, serif" font-size="42" fill="var(--copper)">M</text>
-      <g stroke="var(--emerald)" stroke-width="1.6" stroke-linecap="round" fill="none">
-        <path d="M20 41 Q20 22 27 9"/>
-        <path d="M21.5 30 q6 -3 9 0"/><path d="M22.5 24 q6 -3 9 -0.5"/>
-        <path d="M24 18 q5.5 -3 8.5 -1"/><path d="M25.5 13 q5 -2.5 8 -1"/>
-      </g>
-    </svg>
-    <div><span class="word">METHOD</span><span class="sub">WAX STUDIO &amp; PROFESSIONAL TRAINING</span></div>
-  </div>
-
-  <div class="eyebrow">Website Concepts</div>
-  <h1>Four homepage <em>directions</em>.</h1>
-  <p>Same site, four looks. Each is a complete, working homepage for the training academy, built from your locked palette of emerald, mauve, beige, and copper, and the olive-branch mark. Open any one full screen, then tell me which feels most like Method (mixing elements across two is welcome).</p>
-  <div class="meta">
-    <span><b>Brand</b> Method Wax Studio &amp; Professional Training</span>
-    <span><b>Focus</b> Training academy first, studio booking phase two</span>
-    <span><b>Prepared</b> July 2026</span>
-  </div>
-</div></header>
-
 <div class="wrap">
-  <div class="grid">
 
-    <a class="tile" href="concept-1-atelier.html" target="_blank" rel="noopener">
-      <div class="preview"><span class="num">01</span><span class="veil"></span>
-        <iframe src="concept-1-atelier.html" title="Atelier concept preview" loading="lazy" scrolling="no" tabindex="-1"></iframe>
-      </div>
-      <div class="body">
-        <div class="feel">Bold &amp; luxurious</div>
-        <h3>Atelier</h3>
-        <p>Emerald-drenched editorial luxury. A full-color hero, classic serif type, and copper detailing. Looks established and high-end.</p>
-        <span class="go">Open concept <span class="ar">→</span></span>
-      </div>
-    </a>
+  <header>
+    <img src="logo-kit/01-primary-logo/method-primary-black.svg"
+         alt="METHOD, luxury waxing and professional training">
+    <div class="eyebrow">For Sophia, Tori and Rachel</div>
+    <h1>Your website and brand assets.</h1>
+    <p>Two things to look at. The website as it stands today, and the finished logo files ready
+    to use anywhere.</p>
+  </header>
 
-    <a class="tile" href="concept-2-botanica.html" target="_blank" rel="noopener">
-      <div class="preview"><span class="num">02</span><span class="veil"></span>
-        <iframe src="concept-2-botanica.html" title="Botanica concept preview" loading="lazy" scrolling="no" tabindex="-1"></iframe>
-      </div>
-      <div class="body">
-        <div class="feel">Soft &amp; warm</div>
-        <h3>Botanica</h3>
-        <p>Warm cream and dusty mauve, delicate serif type, and arch-framed imagery. The most inviting and feminine of the four.</p>
-        <span class="go">Open concept <span class="ar">→</span></span>
-      </div>
-    </a>
+  <div class="cards">
+    <div class="card">
+      <span class="n">01</span>
+      <h2>The website</h2>
+      <p>Six pages, built around the studio and the waxing. Book Now buttons will point straight
+      into Meevo once we have the link.</p>
+      <ul>
+        <li>Home, with your six most booked services</li>
+        <li>The full menu, all 38 services and prices</li>
+        <li>First Visit, prep, what happens in the room, aftercare</li>
+        <li>About, the story and the three of you</li>
+        <li>The Academy, and Contact</li>
+      </ul>
+      <a class="btn" href="site/index.html">Open the website</a>
+    </div>
 
-    <a class="tile" href="concept-3-curriculum.html" target="_blank" rel="noopener">
-      <div class="preview"><span class="num">03</span><span class="veil"></span>
-        <iframe src="concept-3-curriculum.html" title="Curriculum concept preview" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+    <div class="card">
+      <span class="n">02</span>
+      <h2>The logo kit</h2>
+      <p>Every version of your logo in every file type, plus a printable guide covering clear
+      space, colour, and what not to do.</p>
+      <ul>
+        <li>Primary, horizontal, stacked and wordmark</li>
+        <li>The M pulled out as your icon, plus a square submark</li>
+        <li>Print ready vector, PDF and EPS, for signs and embroidery</li>
+        <li>Favicon, app icons and social profile pictures</li>
+      </ul>
+      <a class="btn" href="logo-kit/logo-kit.html">Browse the logo kit</a>
+      <div class="sub">
+        <a href="METHOD-Logo-Kit.zip">Download everything (zip)</a>
+        <span>&#183;</span>
+        <a href="logo-kit/METHOD-Logo-Guide.pdf">Logo guide (PDF)</a>
       </div>
-      <div class="body">
-        <div class="feel">Structured &middot; LMS-forward</div>
-        <h3>Curriculum</h3>
-        <p>A confident academy grid with a live learner-dashboard preview and a clean course catalog. Sells the training platform hardest.</p>
-        <span class="go">Open concept <span class="ar">→</span></span>
-      </div>
-    </a>
-
-    <a class="tile" href="concept-4-modern.html" target="_blank" rel="noopener">
-      <div class="preview"><span class="num">04</span><span class="veil"></span>
-        <iframe src="concept-4-modern.html" title="Modern concept preview" loading="lazy" scrolling="no" tabindex="-1"></iframe>
-      </div>
-      <div class="body">
-        <div class="feel">Clean &amp; minimal</div>
-        <h3>Modern</h3>
-        <p>Architectural restraint: near-monochrome cream, one bold emerald moment, and a modern grotesque. The quietest and most contemporary.</p>
-        <span class="go">Open concept <span class="ar">→</span></span>
-      </div>
-    </a>
-
+    </div>
   </div>
 
   <div class="note">
-    <b>Two things to note:</b> the course names and prices are realistic placeholders, and the photography is stock, both easy to swap for Method's real courses and studio photos once you pick a direction.
+    <h3>A few things are still placeholders.</h3>
+    <p>Anywhere you see a dashed <span class="flag">flag</span> on the site, that is something we
+    need from you: the Meevo booking link, your late arrival policy, pricing for The Year,
+    parking directions, real photos of the studio and the three of you, and your own words on the
+    first visit answers. Everything else is real and ready.</p>
   </div>
 
   <footer>
-    Four homepage directions for <b>Method</b>. Pick a favorite, or favorite elements across two, and I'll develop it into the full site.
+    <a href="explorations.html">Earlier brand explorations</a>
+    <div class="fine">
+      Method Luxury Waxing and Professional Training<br>
+      1410 Pine Ridge Road, Suite 22, Naples, FL 34108
+    </div>
   </footer>
-</div>
 
-<script>
-  // Fit each live preview iframe (designed at 1440px wide) into its tile.
-  function fitPreviews(){
-    document.querySelectorAll('.preview').forEach(function(p){
-      var f = p.querySelector('iframe');
-      if(f) f.style.transform = 'scale(' + (p.clientWidth / 1440) + ')';
-    });
-  }
-  window.addEventListener('load', fitPreviews);
-  window.addEventListener('resize', fitPreviews);
-  fitPreviews();
-</script>
+</div>
 </body>
 </html>
