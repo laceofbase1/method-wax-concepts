@@ -1,0 +1,1034 @@
+<!-- METHOD services.html  |  paste this whole thing into ONE GHL custom code element -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Prata&family=Jost:wght@300;400;500&display=swap');
+/* METHOD site, shared styles
+   Luxury Waxing & Professional Training, Naples FL */
+
+.mw{
+  --ivory:#F5EFE4; --paper:#FBF7EF; --ink:#2A2620; --emerald:#1D392F; --emerald-mid:#2C5344;
+  --copper:#A56B41; --clay:#CBA891; --mauve:#C29AA0; --mauve-soft:#EADFDF; --mauve-deep:#A9848B;
+  --muted:#7A7064; --line:#DFD5C4;
+  --maxw:1300px; --gutter:clamp(1.1rem,4vw,3rem); --ease:cubic-bezier(.22,1,.36,1);
+}
+.mw *, .mw{ box-sizing:border-box; margin:0; padding:0; }
+.mw{ scroll-behavior:smooth; }
+.mw{ background:var(--ivory); color:var(--ink); font-family:'Jost',sans-serif; font-weight:300;
+      line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+.mw h1, .mw h2, .mw h3{ font-family:'Prata',serif; font-weight:400; line-height:1.13; letter-spacing:.005em; }
+.mw a{ color:inherit; text-decoration:none; }
+.mw img{ max-width:100%; }
+.mw .wrap{ max-width:var(--maxw); margin:0 auto; padding-inline:var(--gutter); }
+.mw .narrow{ max-width:880px; margin-inline:auto; }
+.mw .u-label{ display:inline-block; border-bottom:1px solid var(--ink); padding-bottom:3px;
+          font-size:.68rem; letter-spacing:.26em; text-transform:uppercase; }
+.mw .label{ font-size:.66rem; letter-spacing:.26em; text-transform:uppercase; color:var(--muted); }
+.mw .g{ color:var(--emerald); }
+.mw em{ font-style:italic; color:var(--mauve-deep); }
+.mw .lede{ color:var(--muted); font-size:1.04rem; max-width:58ch; }
+
+/* buttons */
+.mw .btn{ font-family:'Jost',sans-serif; font-weight:400; font-size:.7rem; letter-spacing:.18em;
+      text-transform:uppercase; padding:.8rem 1.6rem; border-radius:100px; border:1px solid transparent;
+      display:inline-block; cursor:pointer; transition:background .3s,color .3s,transform .4s var(--ease); }
+.mw .btn-solid{ background:var(--emerald); color:var(--ivory); }
+.mw .btn-solid:hover{ background:var(--emerald-mid); transform:translateY(-2px); }
+.mw .btn-light{ background:var(--ivory); color:var(--emerald); }
+.mw .btn-light:hover{ background:var(--clay); color:var(--ink); transform:translateY(-2px); }
+.mw .btn-ghost{ border-color:var(--ink); color:var(--ink); }
+.mw .btn-ghost:hover{ background:var(--ink); color:var(--ivory); transform:translateY(-2px); }
+.mw .link{ font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; border-bottom:1px solid var(--copper);
+       padding-bottom:3px; color:var(--copper); transition:letter-spacing .35s var(--ease); display:inline-block; }
+.mw .link:hover{ letter-spacing:.26em; }
+
+/* announce + header */
+.mw .announce{ background:var(--emerald); color:var(--ivory); text-align:center; font-size:.7rem;
+           letter-spacing:.16em; text-transform:uppercase; padding:.6rem 1rem; }
+.mw .announce span{ opacity:.62; padding:0 .5rem; }
+.mw header{ position:sticky; top:0; z-index:60; background:color-mix(in srgb,var(--ivory) 92%,transparent);
+        backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+.mw .nav{ display:flex; align-items:center; gap:2rem; padding-block:.95rem; }
+.mw .brand{ display:flex; align-items:center; gap:.72rem; flex-shrink:0; }
+.mw .brand .mark{ height:38px; width:auto; }
+.mw .brand .word{ height:15px; width:auto; margin-top:2px; }
+.mw .nav-links{ display:flex; gap:1.9rem; margin-left:auto; }
+.mw .nav-links a{ font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+              position:relative; padding-bottom:2px; }
+.mw .nav-links a::after{ content:""; position:absolute; left:0; right:100%; bottom:0; height:1px;
+                     background:var(--copper); transition:right .4s var(--ease); }
+.mw .nav-links a:hover::after, .mw .nav-links a[aria-current="page"]::after{ right:0; }
+.mw .nav-links a[aria-current="page"]{ color:var(--copper); }
+.mw .burger{ display:none; margin-left:auto; background:none; border:none; cursor:pointer;
+         width:26px; height:18px; position:relative; }
+.mw .burger i{ position:absolute; left:0; right:0; height:1px; background:var(--ink);
+           transition:transform .4s var(--ease), opacity .25s; }
+.mw .burger i:nth-child(1){ top:0; } .burger i:nth-child(2){ top:8px; } .burger i:nth-child(3){ top:16px; }
+.mw body.menu-open .burger i:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+.mw body.menu-open .burger i:nth-child(2){ opacity:0; }
+.mw body.menu-open .burger i:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+.mw .drawer{ display:none; border-top:1px solid var(--line); background:var(--ivory); }
+.mw .drawer a{ display:block; padding:1rem var(--gutter); font-size:.78rem; letter-spacing:.2em;
+           text-transform:uppercase; border-bottom:1px solid var(--line); }
+.mw body.menu-open .drawer{ display:block; }
+
+/* page head, inner pages */
+.mw .phead{ padding-block:clamp(3rem,7vw,5.5rem) clamp(2rem,4vw,3rem); border-bottom:1px solid var(--line); }
+.mw .phead h1{ font-size:clamp(2.3rem,6vw,4.6rem); margin:1.1rem 0 1.3rem; max-width:18ch; }
+.mw .phead .lede{ font-size:1.06rem; }
+
+/* editorial split */
+.mw .split{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,5rem);
+        align-items:center; padding-block:clamp(2.5rem,5vw,4.5rem); }
+.mw .split.rev .split-media{ order:2; }
+.mw .split-media{ overflow:hidden; }
+.mw .split-media img{ width:100%; height:100%; max-height:620px; object-fit:cover; display:block;
+                  transition:transform 1.1s var(--ease); }
+.mw .split-media:hover img{ transform:scale(1.03); }
+.mw .split-copy h2{ font-size:clamp(1.9rem,4.2vw,3.2rem); margin:1.2rem 0 1.3rem; }
+.mw .split-copy p{ color:var(--muted); max-width:46ch; margin-bottom:1.3rem; }
+
+/* credo list */
+.mw .credo{ list-style:none; margin-top:1.6rem; }
+.mw .credo li{ position:relative; padding-left:1.7rem; margin-bottom:.7rem; color:var(--muted); font-size:.95rem; }
+.mw .credo li::before{ content:""; position:absolute; left:0; top:.72em; width:9px; height:9px;
+                   border:1px solid var(--copper); transform:rotate(45deg); }
+
+/* price rows */
+.mw .cat{ break-inside:avoid; margin-bottom:2.6rem; }
+.mw .cat h3{ font-size:1.28rem; }
+.mw .cat .ch{ display:flex; align-items:baseline; gap:.9rem; padding-bottom:.6rem;
+          border-bottom:1px solid var(--ink); margin-bottom:.4rem; }
+.mw .cat .ch .n{ font-family:'Prata',serif; font-size:.78rem; color:var(--copper); }
+.mw .row{ display:flex; align-items:baseline; gap:.6rem; padding:.52rem 0; border-bottom:1px solid var(--line); }
+.mw .row:last-child{ border-bottom:0; }
+.mw .row .s{ font-size:.97rem; }
+.mw .row .d{ flex:1; border-bottom:1px dotted var(--line); transform:translateY(-3px); }
+.mw .row .p{ font-family:'Prata',serif; font-size:.98rem; }
+.mw .row.star .s::after{ content:"Most booked"; font-family:'Jost',sans-serif; font-size:.55rem;
+                     letter-spacing:.16em; text-transform:uppercase; color:var(--mauve-deep);
+                     border:1px solid var(--mauve); border-radius:100px; padding:.16rem .5rem;
+                     margin-left:.6rem; white-space:nowrap; }
+.mw .menu-cols{ column-count:2; column-gap:clamp(2.5rem,6vw,6rem); }
+.mw .menu-note{ margin-top:1rem; padding-top:1.6rem; border-top:1px solid var(--line);
+            display:flex; gap:clamp(1.5rem,4vw,3.5rem); flex-wrap:wrap; }
+.mw .menu-note p{ font-size:.87rem; color:var(--muted); max-width:38ch; }
+.mw .menu-note strong{ font-weight:400; color:var(--ink); }
+
+/* bands */
+.mw .band{ padding-block:clamp(3.5rem,7vw,6rem); }
+.mw .band-mauve{ background:var(--mauve-soft); }
+.mw .band-emerald{ background:var(--emerald); color:var(--ivory); }
+.mw .band-paper{ background:var(--paper); border-block:1px solid var(--line); }
+.mw .band-emerald .u-label{ border-color:rgba(245,239,228,.6); color:var(--ivory); }
+.mw .band-emerald h2{ font-size:clamp(1.9rem,4vw,2.9rem); margin-top:1rem; }
+.mw .band-head{ text-align:center; margin-bottom:clamp(2.2rem,5vw,3.4rem); }
+.mw .band-head h2{ font-size:clamp(1.9rem,4.2vw,3.1rem); margin-top:1rem; }
+.mw .band-head p{ color:var(--muted); max-width:52ch; margin:1rem auto 0; font-size:.97rem; }
+.mw .band-emerald .band-head p{ color:#C9D6CD; }
+
+/* the method set cards */
+.mw .set-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(1.2rem,3vw,2.4rem);
+           max-width:920px; margin-inline:auto; }
+.mw .set{ background:var(--paper); border:1px solid rgba(194,154,160,.4); padding:clamp(1.6rem,3vw,2.2rem); }
+.mw .set .k{ font-size:.62rem; letter-spacing:.24em; text-transform:uppercase; color:var(--mauve-deep); }
+.mw .set h3{ font-size:1.5rem; margin:.7rem 0; }
+.mw .set p{ color:var(--muted); font-size:.93rem; }
+.mw .set .fine{ margin-top:1.1rem; padding-top:1.1rem; border-top:1px solid var(--line);
+            font-size:.78rem; color:var(--muted); }
+
+/* quote */
+.mw .quote{ text-align:center; padding-block:clamp(4rem,9vw,7.5rem); }
+.mw .quote p{ font-family:'Prata',serif; font-size:clamp(1.6rem,3.9vw,3rem); line-height:1.3;
+          max-width:22ch; margin-inline:auto; }
+.mw .quote .cite{ margin-top:2rem; font-size:.7rem; letter-spacing:.24em; text-transform:uppercase; color:var(--muted); }
+
+/* hours + address */
+.mw .hours div{ display:flex; justify-content:space-between; gap:1rem; padding:.62rem 0;
+            border-bottom:1px solid rgba(245,239,228,.16); font-size:.95rem; }
+.mw .hours div span:last-child{ font-family:'Prata',serif; }
+.mw .band-paper .hours div, .mw .plain .hours div{ border-bottom-color:var(--line); }
+.mw .addr{ font-size:1.02rem; line-height:1.85; }
+.mw .addr a{ border-bottom:1px solid currentColor; }
+
+/* faq */
+.mw details{ border-bottom:1px solid var(--line); }
+.mw summary{ list-style:none; cursor:pointer; padding:1.25rem 2.4rem 1.25rem 0; position:relative;
+         font-size:1.06rem; font-family:'Prata',serif; }
+.mw summary::-webkit-details-marker{ display:none; }
+.mw summary::after{ content:""; position:absolute; right:.4rem; top:50%; width:11px; height:11px;
+                border-right:1px solid var(--copper); border-bottom:1px solid var(--copper);
+                transform:translateY(-70%) rotate(45deg); transition:transform .4s var(--ease); }
+.mw details[open] summary::after{ transform:translateY(-30%) rotate(225deg); }
+.mw details p{ color:var(--muted); padding:0 2.4rem 1.4rem 0; max-width:62ch; font-size:.96rem; }
+.mw details p + p{ padding-top:.8rem; margin-top:-.6rem; }
+
+/* numbered steps */
+.mw .steps{ counter-reset:s; display:grid; gap:clamp(1.4rem,3vw,2.2rem); }
+.mw .step{ display:grid; grid-template-columns:64px 1fr; gap:1.5rem; align-items:start; }
+.mw .step .n{ width:58px; height:58px; border-radius:50%; border:1px solid var(--copper); color:var(--copper);
+          display:grid; place-items:center; font-family:'Prata',serif; font-size:1.2rem; }
+.mw .step h3{ font-size:1.28rem; margin-bottom:.3rem; }
+.mw .step p{ color:var(--muted); font-size:.95rem; max-width:52ch; }
+
+/* people */
+.mw .people{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(1.4rem,3vw,2.6rem); }
+.mw .person figure{ aspect-ratio:4/5; overflow:hidden; background:var(--line); margin-bottom:1rem; }
+.mw .person img{ width:100%; height:100%; object-fit:cover; transition:transform 1s var(--ease); }
+.mw .person:hover img{ transform:scale(1.04); }
+.mw .person .role{ font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:var(--copper); }
+.mw .person h3{ font-size:1.45rem; margin:.35rem 0 .5rem; }
+.mw .person p{ color:var(--muted); font-size:.92rem; }
+
+/* form */
+.mw form{ display:grid; gap:1.4rem; }
+.mw .f2{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; }
+.mw .field label{ display:block; font-size:.62rem; letter-spacing:.22em; text-transform:uppercase;
+              color:var(--muted); margin-bottom:.5rem; }
+.mw .field input, .mw .field select, .mw .field textarea{ width:100%; background:transparent; border:none;
+   border-bottom:1px solid var(--line); padding:.6rem 0; font-family:'Jost',sans-serif;
+   font-weight:300; font-size:1rem; color:var(--ink); border-radius:0; transition:border-color .3s; }
+.mw .field input:focus, .mw .field select:focus, .mw .field textarea:focus{ outline:none; border-color:var(--copper); }
+.mw .field textarea{ resize:vertical; min-height:104px; }
+.mw form .btn{ justify-self:start; border:none; }
+
+/* cta band */
+.mw .cta{ text-align:center; }
+.mw .cta h2{ font-size:clamp(1.9rem,4.2vw,3rem); margin-bottom:1.1rem; }
+.mw .cta p{ color:#C9D6CD; max-width:46ch; margin:0 auto 2rem; font-size:.98rem; }
+
+/* footer */
+.mw footer{ background:var(--emerald); color:var(--ivory); padding:clamp(3.5rem,6vw,5rem) 0 2.2rem; text-align:center; }
+.mw .foot-mark{ height:clamp(120px,16vw,164px); width:auto; opacity:.95; }
+.mw .foot-links{ display:flex; justify-content:center; gap:clamp(1.2rem,3vw,2.2rem); flex-wrap:wrap; margin:2.2rem 0 1.8rem; }
+.mw .foot-links a{ font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(245,239,228,.75); }
+.mw .foot-links a:hover{ color:var(--ivory); }
+.mw .foot-fine{ font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; color:rgba(245,239,228,.5); line-height:2.2; }
+
+/* mockup-only flag */
+.mw .tbc{ font-family:'Jost',sans-serif; font-size:.56rem; letter-spacing:.14em; text-transform:uppercase;
+      color:var(--copper); border:1px dashed var(--copper); border-radius:3px; padding:.15rem .45rem;
+      margin-left:.5rem; display:inline-block; }
+
+/* reveal */
+.mw .rv{ opacity:0; transform:translateY(20px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
+.mw .rv.in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce){ .rv{ opacity:1; transform:none; transition:none; } }
+
+@media (max-width:980px){
+  .mw .nav-links{ display:none; }
+  .mw .burger{ display:block; }
+  .mw header .btn{ margin-left:1rem; }
+  .mw .split, .mw .people, .mw .f2{ grid-template-columns:1fr; }
+  .mw .split.rev .split-media{ order:0; }
+  .mw .menu-cols{ column-count:1; }
+  .mw .set-grid{ grid-template-columns:1fr; }
+}
+@media (max-width:560px){
+  .mw .brand .mark{ height:32px; } .brand .word{ height:13px; }
+  .mw .btn{ padding:.72rem 1.2rem; font-size:.64rem; letter-spacing:.14em; }
+  .mw .announce{ font-size:.6rem; letter-spacing:.1em; }
+  .mw .step{ grid-template-columns:46px 1fr; gap:1rem; }
+  .mw .step .n{ width:44px; height:44px; font-size:1rem; }
+}
+
+/* hero, home only */
+.mw .hero{ position:relative; height:clamp(78vh,86vh,920px); overflow:hidden; }
+.mw .hero img{ width:100%; height:100%; object-fit:cover; object-position:center 44%;
+           filter:saturate(.98) brightness(1.08); display:block; }
+.mw .hero::after{ content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg,rgba(20,25,20,.20),rgba(20,25,20,.02) 30%,
+             rgba(20,25,20,.30) 58%,rgba(20,25,20,.62)); }
+.mw .hero-cap{ position:absolute; inset:auto 0 clamp(2rem,5vw,3.4rem); z-index:2; text-align:center; color:var(--ivory); }
+.mw .hero-cap .k{ font-size:.7rem; letter-spacing:.3em; text-transform:uppercase; opacity:.94; }
+.mw .hero-cap h1{ font-size:clamp(2rem,5vw,3.6rem); margin:.9rem auto 0; max-width:16ch; color:var(--ivory); }
+.mw .hero-cta{ margin-top:1.6rem; display:flex; gap:1.2rem; justify-content:center; align-items:center; flex-wrap:wrap; }
+.mw .hero-link{ color:var(--ivory); font-size:.7rem; letter-spacing:.18em; text-transform:uppercase;
+            border-bottom:1px solid rgba(245,239,228,.5); padding-bottom:2px; transition:border-color .3s; }
+.mw .hero-link:hover{ border-color:var(--ivory); }
+
+@media (max-width:980px){
+  .mw .visit-grid, .mw .contact-grid, .mw .pol{ grid-template-columns:1fr !important; }
+}
+
+/* --- isolation armour, keep last --- */
+.mw h1, .mw h2, .mw h3 {
+  font-family:'Prata',Georgia,serif !important; color:inherit !important;
+  text-transform:none !important; text-decoration:none !important; }
+.mw .hero-cap h1 { color:var(--ivory) !important; }
+.mw img, .mw svg { border:0 !important; box-shadow:none !important;
+  border-radius:0 !important; }
+.mw a { text-decoration:none !important; }
+.mw .u-label, .mw .label, .mw .nav-links a, .mw .btn,
+.mw .announce, .mw .foot-links a, .mw .foot-fine, .mw .cap,
+.mw .field label, .mw .set .k, .mw .person .role, .mw .link {
+  font-family:'Jost',system-ui,sans-serif !important; text-transform:uppercase !important; }
+.mw .row .s, .mw .split-copy p, .mw .lede, .mw details p,
+.mw .step p, .mw .set p, .mw .person p, .mw .addr {
+  font-family:'Jost',system-ui,sans-serif !important; text-transform:none !important; }
+.mw .row .p, .mw .hours div span:last-child, .mw summary, .mw .quote p {
+  font-family:'Prata',Georgia,serif !important; }
+.mw button, .mw input, .mw select, .mw textarea {
+  font-family:'Jost',system-ui,sans-serif !important; }
+.mw p { margin:0; }
+
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness",
+"name":"Method Luxury Waxing and Professional Training",
+"image":"https://laceofbase1.github.io/method-wax-concepts/logo-kit/07-website-and-social/og-share-image-1200x630.png",
+"url":"https://methodwaxpro.com",
+"telephone":"+1-239-529-5441",
+"email":"Info@MethodWaxPro.Com",
+"priceRange":"$$",
+"address":{"@type":"PostalAddress","streetAddress":"1410 Pine Ridge Road, Suite 22",
+"addressLocality":"Naples","addressRegion":"FL","postalCode":"34108","addressCountry":"US"},
+"openingHoursSpecification":[
+{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"08:00","closes":"20:00"},
+{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"08:00","closes":"18:00"},
+{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"15:00"},
+{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"17:00"}],
+"areaServed":"Naples, Florida"}
+</script>
+<div class="mw">
+
+
+<div class="announce">
+  Now booking &#183; First appointments October 5, 2026
+  <span>&#183;</span> Naples, Florida
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="METHOD, luxury waxing and professional training">
+      <svg class="mark" style="height:38px;width:auto" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="2224.00" height="2189.00" viewBox="0 0 2224.00 2189.00" shape-rendering="geometricPrecision">
+<title>METHOD Luxury Waxing and Professional Training</title>
+<g><g transform="translate(0.000000,2189.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M10720 21883 c-163 -6 -616 -33 -695 -43 -44 -5 -145 -16 -225 -25
+-536 -59 -1123 -173 -1650 -321 -421 -118 -604 -175 -760 -234 -30 -12 -66
+-25 -80 -30 -14 -4 -36 -12 -50 -18 -14 -6 -65 -24 -115 -42 -49 -17 -106 -38
+-125 -45 -19 -8 -66 -26 -105 -40 -104 -40 -386 -161 -495 -212 -364 -173
+-498 -239 -560 -278 -37 -23 -92 -54 -250 -138 -208 -111 -627 -372 -889 -554
+-99 -69 -609 -449 -621 -463 -8 -9 -191 -162 -225 -188 -16 -13 -86 -74 -155
+-135 -405 -364 -919 -892 -1184 -1217 -252 -308 -340 -423 -599 -780 -144
+-199 -487 -750 -607 -975 -66 -123 -109 -203 -155 -287 -24 -42 -55 -103 -70
+-135 -15 -32 -69 -146 -120 -253 -108 -230 -113 -241 -155 -345 -18 -44 -54
+-132 -80 -195 -26 -63 -60 -146 -75 -185 -14 -38 -33 -86 -40 -105 -8 -19 -28
+-78 -44 -130 -17 -52 -51 -158 -76 -235 -55 -171 -68 -212 -90 -295 -9 -36
+-22 -78 -27 -95 -14 -44 -37 -129 -59 -220 -19 -76 -26 -108 -64 -270 -9 -38
+-22 -95 -30 -125 -7 -30 -21 -91 -30 -135 -10 -44 -23 -109 -31 -145 -47 -227
+-116 -683 -144 -965 -40 -394 -40 -289 -40 -6271 0 -5227 1 -5742 16 -5748 9
+-3 134 -6 279 -6 206 0 265 3 274 13 8 10 12 1582 14 5708 3 4251 6 5737 15
+5864 20 283 48 542 87 790 45 295 54 344 115 638 39 187 60 276 144 597 33
+126 135 473 156 530 5 14 46 129 91 255 139 392 241 638 410 985 252 517 481
+902 862 1455 191 276 434 586 657 836 47 52 121 136 165 186 44 50 195 205
+335 345 261 259 316 312 455 433 44 39 93 82 110 97 334 295 744 599 1260 932
+66 43 132 87 147 97 15 10 29 19 32 19 2 0 39 20 80 45 42 25 79 45 81 45 3 0
+33 17 67 38 103 63 281 158 558 298 97 49 298 144 304 144 3 0 36 14 73 31
+114 52 177 79 273 117 66 27 161 63 280 108 19 7 78 29 130 49 52 21 149 54
+215 76 66 21 140 45 165 53 25 8 115 35 200 60 85 25 178 53 205 61 160 47
+416 109 710 172 261 56 672 120 1005 158 286 32 468 44 846 56 628 19 1166 -9
+1822 -96 141 -18 480 -78 597 -105 22 -5 87 -18 145 -30 107 -21 191 -40 290
+-65 30 -8 91 -23 135 -34 142 -34 197 -50 530 -148 157 -46 193 -58 315 -104
+41 -15 138 -51 215 -80 172 -64 202 -75 340 -132 196 -80 237 -98 415 -184 96
+-47 207 -100 245 -119 39 -18 99 -50 135 -70 36 -20 103 -56 150 -81 169 -91
+216 -117 315 -175 55 -32 107 -62 115 -67 8 -6 69 -42 135 -82 266 -160 543
+-351 838 -578 448 -344 738 -602 1157 -1028 379 -384 645 -695 907 -1063 53
+-74 127 -176 165 -227 38 -50 108 -154 156 -230 49 -76 107 -167 130 -203 23
+-36 58 -94 79 -130 20 -36 56 -94 79 -130 154 -241 501 -936 615 -1230 26 -69
+64 -165 84 -215 65 -159 151 -397 189 -520 21 -66 52 -167 71 -225 73 -227
+146 -488 181 -650 192 -873 255 -1337 273 -2010 5 -179 10 -2786 10 -5794 1
+-3008 4 -5473 7 -5478 8 -12 541 -10 565 2 19 11 19 84 19 5613 0 6237 2 5957
+-66 6562 -14 132 -25 209 -60 418 -31 189 -46 275 -60 340 -19 89 -38 183 -60
+287 -20 97 -42 189 -74 305 -13 44 -26 96 -30 115 -4 19 -18 71 -30 115 -12
+44 -26 95 -30 113 -5 19 -13 46 -18 60 -5 15 -18 56 -27 92 -30 114 -124 404
+-165 510 -12 30 -25 66 -30 80 -40 117 -102 281 -135 355 -7 17 -43 102 -80
+190 -144 347 -312 693 -461 955 -33 58 -91 161 -129 230 -165 300 -533 847
+-837 1245 -83 109 -388 478 -454 550 -368 400 -646 683 -828 843 -186 163
+-402 347 -441 376 -22 16 -60 48 -85 71 -25 23 -94 79 -155 125 -60 47 -118
+91 -128 100 -9 9 -42 34 -73 56 -30 21 -85 61 -122 88 -111 83 -549 377 -627
+421 -27 16 -117 70 -200 120 -82 51 -222 129 -310 175 -88 45 -164 86 -170 90
+-12 10 -405 206 -497 249 -38 17 -96 44 -130 60 -35 16 -103 45 -153 66 -49
+20 -99 40 -110 45 -54 24 -215 90 -255 103 -25 9 -70 26 -100 37 -30 12 -66
+25 -80 30 -14 5 -83 30 -155 55 -71 26 -150 53 -175 61 -25 7 -92 28 -150 47
+-58 19 -166 51 -240 72 -74 20 -180 50 -235 66 -55 16 -122 36 -150 43 -44 13
+-187 47 -380 91 -116 27 -629 122 -725 135 -36 5 -132 18 -215 29 -82 11 -202
+25 -265 30 -63 6 -164 15 -225 21 -335 31 -995 47 -1395 33z m795 -113 c654
+-21 1288 -93 1805 -206 36 -7 139 -30 230 -50 91 -19 183 -40 205 -45 89 -23
+154 -39 220 -55 69 -16 326 -91 415 -120 25 -8 101 -33 170 -55 69 -23 139
+-45 155 -49 34 -9 266 -92 305 -108 21 -9 184 -72 300 -117 56 -21 280 -115
+335 -140 28 -13 79 -36 115 -51 144 -63 688 -342 782 -401 21 -13 40 -23 42
+-23 13 0 518 -310 681 -418 201 -133 592 -422 765 -565 732 -605 1133 -1003
+1668 -1655 135 -164 209 -262 488 -642 74 -101 176 -260 387 -605 253 -412
+583 -1065 735 -1455 185 -473 194 -498 292 -810 34 -107 67 -213 75 -235 14
+-42 69 -225 78 -260 2 -11 15 -56 27 -100 12 -44 25 -98 30 -120 7 -36 28
+-127 65 -290 47 -202 105 -515 130 -700 55 -411 73 -577 85 -815 6 -113 13
+-211 16 -219 3 -9 7 -11186 4 -11359 0 -10 -42 -12 -192 -10 l-193 3 -6 5695
+c-6 5820 -6 5817 -44 6119 -70 553 -145 989 -236 1361 -157 644 -322 1147
+-561 1710 -199 467 -380 824 -658 1290 -90 150 -415 646 -497 756 -312 422
+-522 674 -863 1039 -103 110 -210 220 -236 245 -27 25 -114 106 -194 180 -80
+74 -147 136 -150 140 -4 5 -193 169 -260 226 -14 12 -108 88 -210 169 -102 80
+-194 154 -205 164 -11 9 -65 50 -120 91 -55 41 -114 85 -130 97 -17 13 -147
+101 -290 196 -308 206 -522 336 -805 490 -30 16 -60 34 -66 38 -17 13 -551
+281 -634 319 -110 48 -179 79 -230 101 -25 11 -54 24 -65 29 -39 18 -302 123
+-420 167 -178 67 -552 189 -735 241 -483 137 -875 223 -1295 287 -60 9 -144
+23 -185 30 -41 8 -145 21 -230 30 -85 8 -191 20 -235 26 -44 5 -195 17 -335
+26 -304 20 -1103 23 -1325 4 -77 -6 -225 -19 -330 -27 -257 -21 -516 -50 -655
+-74 -306 -51 -666 -118 -755 -140 -216 -53 -341 -84 -400 -99 -38 -11 -115
+-31 -170 -45 -55 -15 -111 -31 -125 -35 -14 -5 -59 -19 -100 -31 -101 -30
+-435 -141 -540 -180 -47 -17 -101 -36 -120 -42 -19 -5 -39 -14 -45 -19 -5 -5
+-15 -9 -23 -9 -8 0 -28 -6 -45 -14 -18 -8 -151 -65 -297 -127 -146 -61 -299
+-127 -340 -146 -161 -74 -606 -302 -683 -350 -21 -13 -48 -28 -60 -33 -12 -5
+-68 -37 -125 -72 -56 -35 -175 -108 -265 -163 -89 -54 -208 -131 -264 -170
+-56 -38 -161 -110 -234 -160 -72 -49 -136 -95 -143 -100 -6 -6 -58 -46 -116
+-90 -252 -190 -533 -419 -660 -539 -30 -28 -122 -113 -205 -187 -232 -210
+-599 -596 -870 -914 -486 -573 -1027 -1398 -1374 -2095 -150 -302 -191 -393
+-326 -730 -109 -272 -119 -302 -243 -680 -76 -235 -88 -273 -127 -420 -9 -36
+-21 -76 -26 -90 -4 -14 -24 -92 -44 -175 -19 -82 -40 -168 -45 -190 -32 -132
+-72 -313 -89 -405 -27 -144 -81 -501 -95 -640 -9 -85 -21 -193 -27 -240 -32
+-282 -33 -371 -38 -6105 l-6 -5730 -184 -3 c-129 -2 -188 1 -198 9 -12 10 -13
+812 -10 5778 l4 5766 21 200 c43 408 66 588 97 760 54 305 65 360 105 545 17
+80 37 174 44 210 14 63 57 233 91 355 9 33 23 83 30 110 27 107 147 498 191
+621 25 71 50 140 54 154 5 14 18 50 30 80 11 30 31 84 44 120 55 154 269 633
+380 850 223 439 495 910 682 1180 51 74 114 167 141 207 79 118 204 291 270
+374 34 43 107 138 162 211 202 268 807 916 1131 1213 227 207 389 349 510 445
+58 47 144 117 190 156 84 70 347 267 474 354 36 25 95 65 131 90 35 25 93 63
+127 84 35 22 99 63 143 92 87 56 283 174 289 174 3 0 49 26 103 58 54 32 105
+61 113 65 8 4 29 16 45 27 64 41 554 294 675 348 112 50 159 71 210 95 64 29
+289 123 340 142 19 7 71 27 115 45 111 44 137 54 240 90 50 17 106 37 125 44
+116 43 462 155 560 181 36 9 83 23 105 30 22 7 69 20 105 30 36 10 83 23 105
+30 22 7 76 20 120 30 44 10 100 23 125 30 25 7 59 16 75 19 17 3 62 12 100 21
+39 9 115 24 170 35 55 11 131 26 170 35 456 100 1138 172 1755 185 190 3 356
+7 370 8 14 1 165 -2 335 -8z"/>
+</g></g><g transform="translate(744.42,813.41) scale(1.45)"><g transform="translate(0.000000,433.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M4351 4322 c-9 -3 -251 -481 -251 -495 0 -2 -49 -105 -109 -228 -59
+-123 -130 -269 -156 -324 -47 -99 -132 -276 -290 -600 -45 -93 -97 -201 -115
+-240 -49 -107 -104 -224 -195 -410 -46 -93 -95 -198 -109 -233 -15 -34 -58
+-128 -96 -207 -39 -80 -70 -148 -70 -150 0 -5 -25 -58 -128 -277 -28 -59 -61
+-128 -73 -155 -12 -26 -32 -70 -44 -98 -13 -27 -37 -80 -53 -116 -17 -37 -35
+-69 -40 -73 -5 -3 -28 31 -51 76 -23 45 -60 114 -82 154 -21 40 -66 128 -100
+196 -96 195 -289 572 -408 801 -32 62 -166 324 -296 582 -131 259 -319 630
+-418 825 -99 195 -250 493 -335 663 l-154 307 -341 -2 -342 -3 0 -40 c0 -34 4
+-41 25 -47 94 -26 117 -35 151 -60 44 -32 83 -102 110 -198 18 -62 19 -137 19
+-1752 0 -1152 -3 -1711 -11 -1764 -12 -89 -48 -192 -86 -246 -31 -46 -104 -83
+-193 -98 -117 -20 -110 -17 -110 -55 0 -24 6 -37 20 -45 27 -15 889 -3 907 12
+16 13 17 50 1 66 -7 7 -31 12 -55 12 -57 0 -168 42 -205 77 -56 53 -91 148
+-113 313 -21 153 -22 3232 -1 3210 13 -14 87 -157 326 -625 56 -110 124 -242
+152 -292 100 -186 266 -515 674 -1333 715 -1436 714 -1435 739 -1435 20 0 23
+5 64 95 16 36 46 101 66 145 60 128 95 207 136 300 28 66 62 140 114 250 23
+50 50 108 60 130 10 22 37 81 60 130 91 190 175 373 209 454 14 32 56 124 94
+202 79 163 132 278 132 285 0 2 39 84 86 181 87 180 146 305 179 378 23 50
+175 366 265 550 72 146 260 545 260 551 0 2 13 25 28 51 16 26 37 71 47 98 20
+53 33 75 45 75 12 0 11 -3305 -1 -3455 -20 -236 -81 -312 -270 -333 -68 -8
+-86 -23 -76 -64 6 -24 10 -25 114 -30 177 -9 994 -1 1005 10 5 5 8 25 6 43 -3
+33 -5 34 -53 40 -155 19 -229 69 -262 174 -17 57 -18 142 -18 1875 0 1785 0
+1816 20 1885 27 95 76 145 170 174 37 12 79 21 94 21 15 0 32 5 39 12 16 16
+15 67 0 73 -16 5 -693 12 -707 7z"/>
+</g></g>
+</svg>
+      <svg class="word" style="height:15px;width:auto;margin-top:2px" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1753.00" height="214.00" viewBox="0 0 1753.00 214.00" shape-rendering="geometricPrecision">
+<title>METHOD Luxury Waxing and Professional Training</title>
+<g transform="translate(0.000000,214.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M12855 2134 c-268 -32 -443 -107 -626 -272 -140 -126 -280 -379 -315
+-572 -18 -101 -18 -336 1 -443 29 -168 108 -339 220 -478 125 -155 321 -271
+555 -331 71 -18 115 -22 260 -22 179 -1 277 12 375 50 207 81 405 246 512 427
+95 161 134 274 157 453 41 322 -57 637 -267 860 -130 138 -260 222 -433 279
+-115 38 -326 62 -439 49z m254 -104 c195 -61 349 -196 444 -387 72 -144 111
+-273 127 -423 26 -227 2 -420 -78 -630 -91 -237 -268 -413 -472 -469 -89 -25
+-266 -28 -345 -7 -188 50 -379 228 -477 445 -141 310 -136 750 12 1068 127
+272 346 419 630 422 69 0 112 -5 159 -19z"/>
+<path d="M62 2103 c-86 -6 -83 -50 5 -72 55 -14 99 -58 110 -109 4 -20 8 -413
+8 -872 0 -757 -2 -838 -16 -865 -26 -47 -54 -67 -111 -80 -52 -11 -73 -34 -51
+-56 4 -4 111 -9 237 -10 178 -1 230 2 237 12 15 24 -9 46 -58 54 -88 13 -117
+41 -132 131 -12 68 -15 1119 -4 1372 5 126 8 150 20 141 7 -6 13 -15 13 -20 0
+-5 29 -73 64 -151 149 -334 177 -395 191 -423 33 -70 95 -206 130 -290 21 -49
+42 -94 46 -100 4 -5 26 -55 49 -110 42 -99 56 -131 143 -315 136 -291 147
+-310 173 -310 7 0 27 30 45 68 111 234 127 270 246 542 49 114 69 158 108 245
+7 17 23 53 35 80 12 28 57 122 100 210 43 88 97 205 120 259 23 54 46 106 51
+115 4 9 17 36 28 61 10 25 31 71 45 104 14 32 26 65 26 72 0 8 6 14 14 14 12
+0 15 -110 15 -762 1 -420 -3 -787 -8 -816 -10 -67 -40 -98 -106 -115 -50 -12
+-69 -37 -47 -59 15 -15 599 -15 613 -1 22 22 0 51 -44 58 -55 9 -90 31 -113
+69 -18 30 -19 69 -22 870 -3 765 -1 844 14 893 20 62 52 90 115 101 49 8 70
+32 50 56 -11 14 -42 16 -205 16 -105 0 -201 -3 -214 -6 -24 -7 -34 -26 -124
+-229 -57 -129 -55 -125 -78 -180 -30 -71 -33 -77 -98 -216 -33 -69 -79 -170
+-102 -225 -42 -98 -65 -150 -133 -294 -19 -41 -46 -100 -60 -130 -14 -30 -47
+-102 -74 -160 -28 -58 -60 -131 -73 -162 -13 -32 -27 -58 -32 -58 -10 0 -68
+121 -122 255 -21 50 -44 103 -52 118 -8 16 -14 32 -14 37 0 5 -18 48 -41 97
+-43 93 -89 192 -119 258 -10 22 -28 65 -40 95 -13 30 -37 87 -55 125 -82 176
+-167 366 -185 410 -4 11 -19 45 -33 75 -13 30 -35 80 -47 110 -13 30 -30 61
+-38 68 -15 12 -256 15 -400 5z"/>
+<path d="M3660 2100 c-47 -4 -55 -8 -55 -25 0 -16 13 -24 58 -38 66 -21 80
+-38 102 -122 13 -53 15 -167 11 -880 -3 -711 -5 -825 -18 -856 -19 -44 -50
+-67 -101 -76 -41 -6 -61 -30 -47 -54 8 -12 107 -14 694 -14 527 0 688 3 697
+12 7 7 25 99 41 205 27 179 28 194 12 205 -21 16 -50 1 -59 -29 -16 -54 -69
+-148 -102 -182 -90 -93 -189 -115 -534 -123 -263 -6 -266 -6 -288 16 -21 21
+-21 25 -21 460 0 284 4 442 10 446 6 3 90 7 188 8 194 2 241 -6 293 -50 34
+-29 68 -94 69 -129 0 -32 32 -67 53 -59 16 7 17 30 17 286 0 250 -2 280 -16
+286 -27 10 -47 -10 -62 -66 -20 -69 -90 -144 -153 -162 -44 -12 -371 -15 -390
+-4 -5 3 -7 197 -6 433 l2 427 270 3 c330 4 393 -8 497 -90 38 -30 89 -123 103
+-188 4 -19 12 -41 17 -47 15 -18 47 -16 55 3 3 9 0 98 -6 197 -11 157 -15 184
+-31 198 -17 15 -79 16 -632 15 -337 0 -638 -3 -668 -6z"/>
+<path d="M6256 2094 c-13 -12 -19 -69 -32 -289 -6 -97 -5 -112 10 -125 23 -18
+47 -4 58 36 45 157 75 202 165 248 62 31 217 56 354 56 l129 0 0 -899 c0 -613
+-3 -909 -11 -928 -16 -44 -50 -73 -92 -80 -43 -7 -70 -28 -65 -52 5 -24 166
+-34 414 -24 205 8 209 8 212 30 3 18 -4 24 -40 33 -24 6 -54 14 -67 18 -13 4
+-33 20 -45 35 -21 28 -21 29 -21 945 l0 917 140 3 c308 6 454 -74 494 -270 14
+-65 34 -89 56 -67 19 20 9 394 -12 415 -20 20 -1627 18 -1647 -2z"/>
+<path d="M9035 2103 c-75 -6 -84 -42 -17 -64 57 -18 80 -36 103 -81 l22 -42
+-2 -850 c-2 -677 -5 -856 -15 -881 -17 -40 -58 -73 -102 -81 -40 -7 -61 -36
+-40 -54 20 -16 230 -23 426 -13 161 8 165 9 168 31 2 12 -3 24 -10 26 -74 22
+-106 39 -123 69 -19 30 -20 55 -23 450 -2 283 0 423 8 431 8 10 118 13 513 12
+l502 -1 3 -360 c2 -198 0 -397 -3 -443 -8 -101 -27 -128 -100 -147 -43 -10
+-50 -16 -50 -36 0 -23 4 -24 80 -31 106 -10 497 0 509 12 18 18 -6 41 -59 58
+-67 23 -91 60 -100 155 -3 39 -5 432 -3 872 3 928 -6 851 106 894 69 27 82 54
+36 71 -27 11 -295 11 -464 1 -99 -6 -105 -7 -108 -28 -3 -17 3 -24 25 -28 56
+-13 84 -28 106 -59 22 -31 22 -36 25 -433 3 -398 3 -401 -17 -408 -35 -11
+-990 0 -1002 12 -7 7 -9 139 -7 404 3 389 3 394 25 425 15 21 38 36 69 45 54
+16 72 34 58 56 -8 13 -46 16 -249 18 -132 1 -262 0 -290 -2z"/>
+<path d="M15077 2103 c-75 -3 -99 -7 -104 -18 -8 -23 10 -39 61 -54 34 -10 51
+-22 68 -50 l23 -36 0 -875 0 -875 -23 -37 c-18 -29 -32 -39 -60 -44 -55 -10
+-74 -22 -70 -47 3 -20 10 -22 98 -28 52 -4 282 -3 510 1 455 9 489 13 655 80
+92 36 141 67 230 143 159 135 236 254 305 469 107 331 32 784 -169 1020 -108
+126 -249 232 -373 280 -140 54 -181 59 -573 68 -203 5 -395 8 -425 7 -30 -1
+-99 -3 -153 -4z m838 -98 c39 -8 112 -35 165 -62 259 -130 408 -403 425 -783
+7 -142 -5 -340 -26 -425 -77 -320 -248 -517 -506 -586 -65 -18 -115 -22 -298
+-26 -122 -2 -226 0 -233 5 -7 5 -17 24 -20 43 -5 24 -7 1765 -2 1842 0 14 420
+8 495 -8z"/>
+<path d="M17239 357 c-62 -47 -83 -88 -83 -162 0 -52 5 -68 32 -107 65 -94
+178 -112 263 -41 140 118 59 343 -125 343 -35 0 -54 -7 -87 -33z"/>
+</g>
+</svg>
+    </a>
+    <nav class="nav-links">
+      <a href="/services" aria-current="page">The Menu</a>
+      <a href="/first-visit">First Visit</a>
+      <a href="/about">About</a>
+      <a href="/academy">The Academy</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <button class="burger" aria-label="Menu"><i></i><i></i><i></i></button>
+    <!-- BOOK NOW: replace href with the Meevo online booking link -->
+    <a class="btn btn-solid" href="#book">Book Now</a>
+  </div>
+  <nav class="drawer">
+  <a href="/services">The Menu</a>
+  <a href="/first-visit">First Visit</a>
+  <a href="/about">About</a>
+  <a href="/academy">The Academy</a>
+  <a href="/contact">Contact</a>
+  </nav>
+</header>
+<section class="phead wrap rv">
+  <span class="u-label">The Menu</span>
+  <h1>Services and pricing.</h1>
+  <p class="lede">Thirty eight services, every price in the open. Book any of them online, and if you are not sure what to choose, call and we will talk it through.</p>
+</section>
+
+
+<section class="wrap rv" style="padding-block:clamp(2.5rem,5vw,4rem)">
+  <div class="menu-cols">
+    <div class="cat">
+      <div class="ch"><span class="n">01</span><h3>Face</h3></div>
+      <div class="row"><span class="s">Full Face</span><span class="d"></span><span class="p">$64</span></div>
+      <div class="row star"><span class="s">Eyebrow</span><span class="d"></span><span class="p">$24</span></div>
+      <div class="row"><span class="s">Cheek</span><span class="d"></span><span class="p">$16</span></div>
+      <div class="row"><span class="s">Chin</span><span class="d"></span><span class="p">$14</span></div>
+      <div class="row"><span class="s">Hairline</span><span class="d"></span><span class="p">$14</span></div>
+      <div class="row"><span class="s">Neck</span><span class="d"></span><span class="p">$17</span></div>
+      <div class="row"><span class="s">Nose</span><span class="d"></span><span class="p">$15</span></div>
+      <div class="row"><span class="s">Sideburn</span><span class="d"></span><span class="p">$17</span></div>
+      <div class="row"><span class="s">Ears</span><span class="d"></span><span class="p">$17</span></div>
+    </div>
+    <div class="cat">
+      <div class="ch"><span class="n">02</span><h3>Lip</h3></div>
+      <div class="row"><span class="s">Upper Lip</span><span class="d"></span><span class="p">$14</span></div>
+      <div class="row"><span class="s">Lower Lip</span><span class="d"></span><span class="p">$14</span></div>
+    </div>
+    <div class="cat">
+      <div class="ch"><span class="n">03</span><h3>Bikini</h3></div>
+      <div class="row star"><span class="s">Brazilian</span><span class="d"></span><span class="p">$64</span></div>
+      <div class="row"><span class="s">Full Bikini</span><span class="d"></span><span class="p">$56</span></div>
+      <div class="row"><span class="s">Bikini Line</span><span class="d"></span><span class="p">$48</span></div>
+    </div>
+    <div class="cat">
+      <div class="ch"><span class="n">04</span><h3>Legs</h3></div>
+      <div class="row"><span class="s">Full Leg</span><span class="d"></span><span class="p">$79</span></div>
+      <div class="row"><span class="s">Upper Leg</span><span class="d"></span><span class="p">$57</span></div>
+      <div class="row"><span class="s">Lower Leg</span><span class="d"></span><span class="p">$51</span></div>
+      <div class="row"><span class="s">Inner Thigh</span><span class="d"></span><span class="p">$19</span></div>
+      <div class="row"><span class="s">Knee</span><span class="d"></span><span class="p">$17</span></div>
+      <div class="row"><span class="s">Toes</span><span class="d"></span><span class="p">$19</span></div>
+    </div>
+    <div class="cat">
+      <div class="ch"><span class="n">05</span><h3>Arms</h3></div>
+      <div class="row"><span class="s">Full Arm</span><span class="d"></span><span class="p">$51</span></div>
+      <div class="row"><span class="s">Half Arm</span><span class="d"></span><span class="p">$44</span></div>
+      <div class="row star"><span class="s">Underarm</span><span class="d"></span><span class="p">$25</span></div>
+      <div class="row"><span class="s">Shoulder</span><span class="d"></span><span class="p">$31</span></div>
+      <div class="row"><span class="s">Hand</span><span class="d"></span><span class="p">$19</span></div>
+    </div>
+    <div class="cat">
+      <div class="ch"><span class="n">06</span><h3>Back</h3></div>
+      <div class="row"><span class="s">Full Back</span><span class="d"></span><span class="p">$74</span></div>
+      <div class="row"><span class="s">Upper Back</span><span class="d"></span><span class="p">$31</span></div>
+      <div class="row"><span class="s">Mid Back</span><span class="d"></span><span class="p">$31</span></div>
+      <div class="row"><span class="s">Lower Back</span><span class="d"></span><span class="p">$27</span></div>
+    </div>
+    <div class="cat">
+      <div class="ch"><span class="n">07</span><h3>Chest</h3></div>
+      <div class="row"><span class="s">Full Chest</span><span class="d"></span><span class="p">$39</span></div>
+      <div class="row"><span class="s">Chest Strip</span><span class="d"></span><span class="p">$27</span></div>
+      <div class="row"><span class="s">Nipple</span><span class="d"></span><span class="p">$17</span></div>
+    </div>
+    <div class="cat">
+      <div class="ch"><span class="n">08</span><h3>Stomach</h3></div>
+      <div class="row"><span class="s">Full Stomach</span><span class="d"></span><span class="p">$39</span></div>
+      <div class="row"><span class="s">Stomach Strip</span><span class="d"></span><span class="p">$16</span></div>
+    </div>
+    <div class="cat">
+      <div class="ch"><span class="n">09</span><h3>Butt</h3></div>
+      <div class="row"><span class="s">Full Butt</span><span class="d"></span><span class="p">$33</span></div>
+      <div class="row"><span class="s">Butt Strip</span><span class="d"></span><span class="p">$21</span></div>
+    </div>
+  </div>
+  <div class="menu-note">
+    <p><strong>Services for men.</strong> Most of the menu is available to all guests. Full Face,
+    Full Butt, Butt Strip, and bikini services are offered to women only.</p>
+    <p><strong>Guests under 18.</strong> Welcome with a parent's consent and a signed waiver.
+    Brazilian and Full Bikini are available from age 16 with the same consent.</p>
+    <p><strong>Paying.</strong> No card and no deposit to book. You pay in studio at the end of
+    your appointment.</p>
+  </div>
+</section>
+
+<section class="band band-mauve rv" id="sets">
+  <div class="wrap">
+    <div class="band-head">
+      <span class="u-label">The Method Set</span>
+      <h2>The regulars pay less.</h2>
+      <p>Hair grows on a cycle, so results compound when you keep a rhythm. Our sets reward that,
+      and they never expire.</p>
+    </div>
+    <div class="set-grid">
+      <div class="set">
+        <span class="k">The Set</span>
+        <h3>Buy nine, get three free.</h3>
+        <p>Nine of any single service, then three of the same on us. New guests get four free
+        instead of three, because your first year is the one that builds the habit.</p>
+        <div class="fine">New guests: buy 9, get 4 &nbsp;&#183;&nbsp; Returning: buy 9, get 3</div>
+      </div>
+      <div class="set">
+        <span class="k">The Year</span>
+        <h3>Unlimited, for a year and then some.</h3>
+        <p>Thirteen months of unlimited waxing for returning guests, fourteen for new. Pay upfront
+        or split it into payments. No expiration, and no scramble to use it up.</p>
+        <div class="fine">Pricing in studio <span class="tbc">confirm</span></div>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--muted);font-size:.9rem;margin:2rem auto 0;max-width:48ch">
+      Sets can be shared with your children under 22, because the whole family should not need
+      four separate memberships.</p>
+  </div>
+</section>
+
+<section class="band wrap rv">
+  <div class="narrow" style="text-align:center">
+    <span class="u-label">Not Sure What To Book</span>
+    <h2 style="font-size:clamp(1.8rem,3.8vw,2.7rem);margin:1.1rem 0 1.2rem">Ask us. Really.</h2>
+    <p class="lede" style="margin-inline:auto">If you are new to waxing, or coming back after a long
+    gap, call and describe what you want. We will tell you which service fits and roughly how long
+    it takes, with no pressure to book anything bigger.</p>
+    <p style="margin-top:1.8rem"><a class="btn btn-ghost" href="tel:+12395295441">(239) 529-5441</a></p>
+  </div>
+</section>
+<section class="band band-emerald cta rv">
+  <div class="wrap">
+    <h2>Ready when you are.</h2>
+    <p>Booking takes about a minute. No card, no deposit, and you pay in studio when you are done.</p>
+    <!-- BOOK NOW: replace href with the Meevo online booking link -->
+    <a class="btn btn-light" href="#book">Book an appointment</a>
+  </div>
+</section>
+
+
+<footer>
+  <div class="wrap">
+    <svg class="foot-mark" style="height:clamp(120px,16vw,164px);width:auto" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="2224.00" height="2879.00" viewBox="0 0 2224.00 2879.00" shape-rendering="geometricPrecision">
+<title>METHOD Luxury Waxing and Professional Training</title>
+<g transform="translate(0.000000,2879.000000) scale(0.100000,-0.100000)"
+fill="#FFFFFF" stroke="none">
+<path d="M10720 28783 c-163 -6 -616 -33 -695 -43 -44 -5 -145 -16 -225 -25
+-536 -59 -1123 -173 -1650 -321 -421 -118 -604 -175 -760 -234 -30 -12 -66
+-25 -80 -30 -14 -4 -36 -12 -50 -18 -14 -6 -65 -24 -115 -42 -49 -17 -106 -38
+-125 -45 -19 -8 -66 -26 -105 -40 -104 -40 -386 -161 -495 -212 -364 -173
+-498 -239 -560 -278 -37 -23 -92 -54 -250 -138 -208 -111 -627 -372 -889 -554
+-99 -69 -609 -449 -621 -463 -8 -9 -191 -162 -225 -188 -16 -13 -86 -74 -155
+-135 -405 -364 -919 -892 -1184 -1217 -252 -308 -340 -423 -599 -780 -144
+-199 -487 -750 -607 -975 -66 -123 -109 -203 -155 -287 -24 -42 -55 -103 -70
+-135 -15 -32 -69 -146 -120 -253 -108 -230 -113 -241 -155 -345 -18 -44 -54
+-132 -80 -195 -26 -63 -60 -146 -75 -185 -14 -38 -33 -86 -40 -105 -8 -19 -28
+-78 -44 -130 -17 -52 -51 -158 -76 -235 -55 -171 -68 -212 -90 -295 -9 -36
+-22 -78 -27 -95 -14 -44 -37 -129 -59 -220 -19 -76 -26 -108 -64 -270 -9 -38
+-22 -95 -30 -125 -7 -30 -21 -91 -30 -135 -10 -44 -23 -109 -31 -145 -47 -227
+-116 -683 -144 -965 -41 -400 -40 -104 -40 -9721 0 -8373 1 -9192 16 -9198 9
+-3 134 -6 279 -6 207 0 265 3 274 13 8 10 12 2481 14 9158 3 6946 6 9185 15
+9314 20 284 48 542 87 790 45 295 54 344 115 638 39 187 60 276 144 597 33
+126 135 473 156 530 5 14 46 129 91 255 139 392 241 638 410 985 252 517 481
+902 862 1455 191 276 434 586 657 836 47 52 121 136 165 186 44 50 195 205
+335 345 261 259 316 312 455 433 44 39 93 82 110 97 334 295 744 599 1260 932
+66 43 132 87 147 97 15 10 29 19 32 19 2 0 39 20 80 45 42 25 79 45 81 45 3 0
+33 17 67 38 103 63 281 158 558 298 97 49 298 144 304 144 3 0 36 14 73 31
+114 52 177 79 273 117 66 27 161 63 280 108 19 7 78 29 130 49 52 21 149 54
+215 76 66 21 140 45 165 53 25 8 115 35 200 60 85 25 178 53 205 61 160 47
+416 109 710 172 261 56 672 120 1005 158 286 32 468 44 846 56 628 19 1166 -9
+1822 -96 141 -18 480 -78 597 -105 22 -5 87 -18 145 -30 107 -21 191 -40 290
+-65 30 -8 91 -23 135 -34 142 -34 197 -50 530 -148 157 -46 193 -58 315 -104
+41 -15 138 -51 215 -80 172 -64 202 -75 340 -132 196 -80 237 -98 415 -184 96
+-47 207 -100 245 -119 39 -18 99 -50 135 -70 36 -20 103 -56 150 -81 169 -91
+216 -117 315 -175 55 -32 107 -62 115 -67 8 -6 69 -42 135 -82 266 -160 543
+-351 838 -578 448 -344 738 -602 1157 -1028 379 -384 645 -695 907 -1063 53
+-74 127 -176 165 -227 38 -50 108 -154 156 -230 49 -76 107 -167 130 -203 23
+-36 58 -94 79 -130 20 -36 56 -94 79 -130 154 -241 501 -936 615 -1230 26 -69
+64 -165 84 -215 65 -159 151 -397 189 -520 21 -66 52 -167 71 -225 73 -227
+146 -488 181 -650 44 -198 89 -415 120 -569 86 -442 140 -944 154 -1441 5
+-182 9 -4252 10 -9244 0 -4906 3 -8923 6 -8928 8 -12 541 -10 565 2 19 11 19
+123 19 9063 0 9432 0 9368 -39 9767 -20 193 -42 384 -57 480 -42 261 -72 442
+-90 523 -19 89 -38 183 -60 287 -20 97 -42 189 -74 305 -13 44 -26 96 -30 115
+-4 19 -18 71 -30 115 -12 44 -26 95 -30 113 -5 19 -13 46 -18 60 -5 15 -18 56
+-27 92 -30 114 -124 404 -165 510 -12 30 -25 66 -30 80 -40 117 -102 281 -135
+355 -7 17 -43 102 -80 190 -144 347 -312 693 -461 955 -33 58 -91 161 -129
+230 -165 300 -533 847 -837 1245 -83 109 -388 478 -454 550 -368 400 -646 683
+-828 843 -186 163 -402 347 -441 376 -22 16 -60 48 -85 71 -25 23 -94 79 -155
+125 -60 47 -118 91 -128 100 -9 9 -42 34 -73 56 -30 21 -85 61 -122 88 -111
+83 -549 377 -627 421 -27 16 -117 70 -200 120 -82 51 -222 129 -310 175 -88
+45 -164 86 -170 90 -12 10 -405 206 -497 249 -38 17 -96 44 -130 60 -35 16
+-103 45 -153 66 -49 20 -99 40 -110 45 -54 24 -215 90 -255 103 -25 9 -70 26
+-100 37 -30 12 -66 25 -80 30 -14 5 -83 30 -155 55 -71 26 -150 53 -175 61
+-25 7 -92 28 -150 47 -58 19 -166 51 -240 72 -74 20 -180 50 -235 66 -55 16
+-122 36 -150 43 -44 13 -187 47 -380 91 -116 27 -629 122 -725 135 -36 5 -132
+18 -215 29 -82 11 -202 25 -265 30 -63 6 -164 15 -225 21 -335 31 -995 47
+-1395 33z m795 -113 c654 -21 1288 -93 1805 -206 36 -7 139 -30 230 -50 91
+-19 183 -40 205 -45 89 -23 154 -39 220 -55 69 -16 326 -91 415 -120 25 -8
+101 -33 170 -55 69 -23 139 -45 155 -49 34 -9 266 -92 305 -108 21 -9 184 -72
+300 -117 56 -21 280 -115 335 -140 28 -13 79 -36 115 -51 144 -63 688 -342
+782 -401 21 -13 40 -23 42 -23 13 0 518 -310 681 -418 201 -133 592 -422 765
+-565 732 -605 1133 -1003 1668 -1655 135 -164 209 -262 488 -642 74 -101 176
+-260 387 -605 253 -412 583 -1065 735 -1455 185 -473 194 -498 292 -810 34
+-107 67 -213 75 -235 14 -42 69 -225 78 -260 2 -11 15 -56 27 -100 12 -44 25
+-98 30 -120 7 -36 28 -127 65 -290 47 -202 105 -515 130 -700 55 -411 73 -577
+85 -815 6 -113 13 -211 16 -219 3 -9 7 -18035 4 -18259 0 -10 -42 -12 -192
+-10 l-193 3 -6 9145 c-4 6589 -9 9187 -17 9294 -25 328 -125 1008 -207 1396
+-45 213 -152 623 -242 925 -171 576 -470 1298 -758 1830 -139 256 -284 506
+-387 665 -104 161 -347 525 -385 576 -312 422 -522 674 -863 1039 -103 110
+-210 220 -236 245 -27 25 -114 106 -194 180 -80 74 -147 136 -150 140 -4 5
+-193 169 -260 226 -14 12 -108 88 -210 169 -102 80 -194 154 -205 164 -11 9
+-65 50 -120 91 -55 41 -114 85 -130 97 -17 13 -147 101 -290 196 -308 206
+-522 336 -805 490 -30 16 -60 34 -66 38 -17 13 -551 281 -634 319 -110 48
+-179 79 -230 101 -25 11 -54 24 -65 29 -39 18 -302 123 -420 167 -178 67 -552
+189 -735 241 -483 137 -875 223 -1295 287 -60 9 -144 23 -185 30 -41 8 -145
+21 -230 30 -85 8 -191 20 -235 26 -44 5 -195 17 -335 26 -304 20 -1103 23
+-1325 4 -77 -6 -225 -19 -330 -27 -257 -21 -516 -50 -655 -74 -306 -51 -666
+-118 -755 -140 -216 -53 -341 -84 -400 -99 -38 -11 -115 -31 -170 -45 -55 -15
+-111 -31 -125 -35 -14 -5 -59 -19 -100 -31 -101 -30 -435 -141 -540 -180 -47
+-17 -101 -36 -120 -42 -19 -5 -39 -14 -45 -19 -5 -5 -15 -9 -23 -9 -8 0 -28
+-6 -45 -14 -18 -8 -151 -65 -297 -127 -146 -61 -299 -127 -340 -146 -161 -74
+-606 -302 -683 -350 -21 -13 -48 -28 -60 -33 -12 -5 -68 -37 -125 -72 -56 -35
+-175 -108 -265 -163 -89 -54 -208 -131 -264 -170 -56 -38 -161 -110 -234 -160
+-72 -49 -136 -95 -143 -100 -6 -6 -58 -46 -116 -90 -252 -190 -533 -419 -660
+-539 -30 -28 -122 -113 -205 -187 -232 -210 -599 -596 -870 -914 -486 -573
+-1027 -1398 -1374 -2095 -150 -302 -191 -393 -326 -730 -109 -272 -119 -302
+-243 -680 -76 -235 -88 -273 -127 -420 -9 -36 -21 -76 -26 -90 -4 -14 -24 -92
+-44 -175 -19 -82 -40 -168 -45 -190 -32 -132 -72 -313 -89 -405 -27 -144 -81
+-501 -95 -640 -9 -85 -21 -193 -27 -240 -32 -286 -33 -321 -38 -9555 l-6
+-9180 -184 -3 c-129 -2 -188 1 -197 9 -13 10 -14 1320 -11 9233 l4 9221 21
+195 c46 426 67 586 97 755 54 305 65 360 105 545 17 80 37 174 44 210 14 63
+57 233 91 355 9 33 23 83 30 110 27 107 147 498 191 621 25 71 50 140 54 154
+5 14 18 50 30 80 11 30 31 84 44 120 55 154 269 633 380 850 223 439 495 910
+682 1180 51 74 114 167 141 207 79 118 204 291 270 374 34 43 107 138 162 211
+202 268 807 916 1131 1213 227 207 389 349 510 445 58 47 144 117 190 156 84
+70 347 267 474 354 36 25 95 65 131 90 35 25 93 63 127 84 35 22 99 63 143 92
+87 56 283 174 289 174 3 0 49 26 103 58 54 32 105 61 113 65 8 4 29 16 45 27
+64 41 554 294 675 348 112 50 159 71 210 95 64 29 289 123 340 142 19 7 71 27
+115 45 111 44 137 54 240 90 50 17 106 37 125 44 116 43 462 155 560 181 36 9
+83 23 105 30 22 7 69 20 105 30 36 10 83 23 105 30 22 7 76 20 120 30 44 10
+100 23 125 30 25 7 59 16 75 19 17 3 62 12 100 21 39 9 115 24 170 35 55 11
+131 26 170 35 456 100 1138 172 1755 185 190 3 356 7 370 8 14 1 165 -2 335
+-8z"/>
+<path d="M12871 19302 c-9 -3 -251 -481 -251 -495 0 -2 -49 -105 -109 -228
+-59 -123 -130 -269 -156 -324 -47 -99 -132 -276 -290 -600 -45 -93 -97 -201
+-115 -240 -49 -107 -104 -224 -195 -410 -46 -93 -95 -198 -109 -233 -15 -34
+-58 -128 -96 -207 -39 -80 -70 -148 -70 -150 0 -5 -25 -58 -128 -277 -28 -59
+-61 -128 -73 -155 -12 -26 -32 -70 -44 -98 -13 -27 -37 -80 -53 -116 -17 -37
+-35 -69 -40 -73 -5 -3 -28 31 -51 76 -23 45 -60 114 -82 154 -21 40 -66 128
+-100 196 -96 195 -289 572 -408 801 -32 62 -166 324 -296 582 -131 259 -319
+630 -418 825 -99 195 -250 493 -335 663 l-154 307 -341 -2 -342 -3 0 -40 c0
+-34 4 -41 25 -47 94 -26 117 -35 151 -60 44 -32 83 -102 110 -198 18 -62 19
+-137 19 -1752 0 -1152 -3 -1711 -11 -1764 -12 -89 -48 -192 -86 -246 -31 -46
+-104 -83 -193 -98 -117 -20 -110 -17 -110 -55 0 -24 6 -37 20 -45 27 -15 889
+-3 907 12 16 13 17 50 1 66 -7 7 -31 12 -55 12 -57 0 -168 42 -205 77 -56 53
+-91 148 -113 313 -21 153 -22 3232 -1 3210 13 -14 87 -157 326 -625 56 -110
+124 -242 152 -292 100 -186 266 -515 674 -1333 715 -1436 714 -1435 739 -1435
+20 0 23 5 64 95 16 36 46 101 66 145 60 128 95 207 136 300 28 66 62 140 114
+250 23 50 50 108 60 130 10 22 37 81 60 130 91 190 175 373 209 454 14 32 56
+124 94 202 79 163 132 278 132 285 0 2 39 84 86 181 87 180 146 305 179 378
+23 50 175 366 265 550 72 146 260 545 260 551 0 2 13 25 28 51 16 26 37 71 47
+98 20 53 33 75 45 75 12 0 11 -3305 -1 -3455 -20 -236 -81 -312 -270 -333 -68
+-8 -86 -23 -76 -64 6 -24 10 -25 114 -30 177 -9 994 -1 1005 10 5 5 8 25 6 43
+-3 33 -5 34 -53 40 -155 19 -229 69 -262 174 -17 57 -18 142 -18 1875 0 1785
+0 1816 20 1885 27 95 76 145 170 174 37 12 79 21 94 21 15 0 32 5 39 12 16 16
+15 67 0 73 -16 5 -693 12 -707 7z"/>
+<path d="M15275 11904 c-268 -32 -443 -107 -626 -272 -140 -126 -280 -379
+-315 -572 -18 -101 -18 -336 1 -443 29 -168 108 -339 220 -478 125 -155 321
+-271 555 -331 71 -18 115 -22 260 -22 179 -1 277 12 375 50 207 81 405 246
+512 427 95 161 134 274 157 453 41 322 -57 637 -267 860 -130 138 -260 222
+-433 279 -115 38 -326 62 -439 49z m254 -104 c195 -61 349 -196 444 -387 72
+-144 111 -273 127 -423 26 -227 2 -420 -78 -630 -91 -237 -268 -413 -472 -469
+-89 -25 -266 -28 -345 -7 -188 50 -379 228 -477 445 -141 310 -136 750 12
+1068 127 272 346 419 630 422 69 0 112 -5 159 -19z"/>
+<path d="M2482 11873 c-86 -6 -83 -50 5 -72 55 -14 99 -58 110 -109 4 -20 8
+-413 8 -872 0 -757 -2 -838 -16 -865 -26 -47 -54 -67 -111 -80 -52 -11 -73
+-34 -51 -56 4 -4 111 -9 237 -10 178 -1 230 2 237 12 15 24 -9 46 -58 54 -88
+13 -117 41 -132 131 -12 68 -15 1119 -4 1372 5 126 8 150 20 141 7 -6 13 -15
+13 -20 0 -5 29 -73 64 -151 149 -334 177 -395 191 -423 33 -70 95 -206 130
+-290 21 -49 42 -94 46 -100 4 -5 26 -55 49 -110 42 -99 56 -131 143 -315 136
+-291 147 -310 173 -310 7 0 27 30 45 68 111 234 127 270 246 542 49 114 69
+158 108 245 7 17 23 53 35 80 12 28 57 122 100 210 43 88 97 205 120 259 23
+54 46 106 51 115 4 9 17 36 28 61 10 25 31 71 45 104 14 32 26 65 26 72 0 8 6
+14 14 14 12 0 15 -110 15 -762 1 -420 -3 -787 -8 -816 -10 -67 -40 -98 -106
+-115 -50 -12 -69 -37 -47 -59 15 -15 599 -15 613 -1 22 22 0 51 -44 58 -55 9
+-90 31 -113 69 -18 30 -19 69 -22 870 -3 765 -1 844 14 893 20 62 52 90 115
+101 49 8 70 32 50 56 -11 14 -42 16 -205 16 -105 0 -201 -3 -214 -6 -24 -7
+-34 -26 -124 -229 -57 -129 -55 -125 -78 -180 -30 -71 -33 -77 -98 -216 -33
+-69 -79 -170 -102 -225 -42 -98 -65 -150 -133 -294 -19 -41 -46 -100 -60 -130
+-14 -30 -47 -102 -74 -160 -28 -58 -60 -131 -73 -162 -13 -32 -27 -58 -32 -58
+-10 0 -68 121 -122 255 -21 50 -44 103 -52 118 -8 16 -14 32 -14 37 0 5 -18
+48 -41 97 -43 93 -89 192 -119 258 -10 22 -28 65 -40 95 -13 30 -37 87 -55
+125 -82 176 -167 366 -185 410 -4 11 -19 45 -33 75 -13 30 -35 80 -47 110 -13
+30 -30 61 -38 68 -15 12 -256 15 -400 5z"/>
+<path d="M6080 11870 c-47 -4 -55 -8 -55 -25 0 -16 13 -24 58 -38 66 -21 80
+-38 102 -122 13 -53 15 -167 11 -880 -3 -711 -5 -825 -18 -856 -19 -44 -50
+-67 -101 -76 -41 -6 -61 -30 -47 -54 8 -12 107 -14 694 -14 527 0 688 3 697
+12 7 7 25 99 41 205 27 179 28 194 12 205 -21 16 -50 1 -59 -29 -16 -54 -69
+-148 -102 -182 -90 -93 -189 -115 -534 -123 -263 -6 -266 -6 -288 16 -21 21
+-21 25 -21 460 0 284 4 442 10 446 6 3 90 7 188 8 194 2 241 -6 293 -50 34
+-29 68 -94 69 -129 0 -32 32 -67 53 -59 16 7 17 30 17 286 0 250 -2 280 -16
+286 -27 10 -47 -10 -62 -66 -20 -69 -90 -144 -153 -162 -44 -12 -371 -15 -390
+-4 -5 3 -7 197 -6 433 l2 427 270 3 c330 4 393 -8 497 -90 38 -30 89 -123 103
+-188 4 -19 12 -41 17 -47 15 -18 47 -16 55 3 3 9 0 98 -6 197 -11 157 -15 184
+-31 198 -17 15 -79 16 -632 15 -337 0 -638 -3 -668 -6z"/>
+<path d="M8676 11864 c-13 -12 -19 -69 -32 -289 -6 -97 -5 -112 10 -125 23
+-18 47 -4 58 36 45 157 75 202 165 248 62 31 217 56 354 56 l129 0 0 -899 c0
+-613 -3 -909 -11 -928 -16 -44 -50 -73 -92 -80 -43 -7 -70 -28 -65 -52 5 -24
+166 -34 414 -24 205 8 209 8 212 30 3 18 -4 24 -40 33 -24 6 -54 14 -67 18
+-13 4 -33 20 -45 35 -21 28 -21 29 -21 945 l0 917 140 3 c308 6 454 -74 494
+-270 14 -65 34 -89 56 -67 19 20 9 394 -12 415 -20 20 -1627 18 -1647 -2z"/>
+<path d="M11455 11873 c-75 -6 -84 -42 -17 -64 57 -18 80 -36 103 -81 l22 -42
+-2 -850 c-2 -677 -5 -856 -15 -881 -17 -40 -58 -73 -102 -81 -40 -7 -61 -36
+-40 -54 20 -16 230 -23 426 -13 161 8 165 9 168 31 2 12 -3 24 -10 26 -74 22
+-106 39 -123 69 -19 30 -20 55 -23 450 -2 283 0 423 8 431 8 10 118 13 513 12
+l502 -1 3 -360 c2 -198 0 -397 -3 -443 -8 -101 -27 -128 -100 -147 -43 -10
+-50 -16 -50 -36 0 -23 4 -24 80 -31 106 -10 497 0 509 12 18 18 -6 41 -59 58
+-67 23 -91 60 -100 155 -3 39 -5 432 -3 872 3 928 -6 851 106 894 69 27 82 54
+36 71 -27 11 -295 11 -464 1 -99 -6 -105 -7 -108 -28 -3 -17 3 -24 25 -28 56
+-13 84 -28 106 -59 22 -31 22 -36 25 -433 3 -398 3 -401 -17 -408 -35 -11
+-990 0 -1002 12 -7 7 -9 139 -7 404 3 389 3 394 25 425 15 21 38 36 69 45 54
+16 72 34 58 56 -8 13 -46 16 -249 18 -132 1 -262 0 -290 -2z"/>
+<path d="M17497 11873 c-75 -3 -99 -7 -104 -18 -8 -23 10 -39 61 -54 34 -10
+51 -22 68 -50 l23 -36 0 -875 0 -875 -23 -37 c-18 -29 -32 -39 -60 -44 -55
+-10 -74 -22 -70 -47 3 -20 10 -22 98 -28 52 -4 282 -3 510 1 455 9 489 13 655
+80 92 36 141 67 230 143 159 135 236 254 305 469 107 331 32 784 -169 1020
+-108 126 -249 232 -373 280 -140 54 -181 59 -573 68 -203 5 -395 8 -425 7 -30
+-1 -99 -3 -153 -4z m838 -98 c39 -8 112 -35 165 -62 259 -130 408 -403 425
+-783 7 -142 -5 -340 -26 -425 -77 -320 -248 -517 -506 -586 -65 -18 -115 -22
+-298 -26 -122 -2 -226 0 -233 5 -7 5 -17 24 -20 43 -5 24 -7 1765 -2 1842 0
+14 420 8 495 -8z"/>
+<path d="M19659 10127 c-62 -47 -83 -88 -83 -162 0 -52 5 -68 32 -107 65 -94
+178 -112 263 -41 140 118 59 343 -125 343 -35 0 -54 -7 -87 -33z"/>
+<path d="M7996 6494 c-19 -19 -20 -36 -4 -52 17 -17 6289 -17 6306 0 18 18 14
+46 -7 58 -14 7 -1011 10 -3150 10 -2832 0 -3131 -1 -3145 -16z"/>
+<path d="M6497 5027 c-16 -11 -17 -35 -15 -252 l3 -240 150 -3 c127 -2 152 0
+161 13 18 24 5 53 -25 59 -14 3 -62 4 -106 2 -44 -1 -86 2 -92 7 -10 7 -13 61
+-13 208 0 186 -1 199 -19 209 -24 13 -24 13 -44 -3z"/>
+<path d="M7136 5027 c-16 -11 -17 -31 -14 -198 3 -182 4 -186 30 -226 44 -67
+151 -100 233 -73 47 15 104 66 121 106 14 33 22 363 9 384 -9 14 -52 13 -62
+-2 -4 -7 -6 -70 -4 -139 4 -166 -4 -212 -41 -249 -53 -53 -146 -48 -188 10
+-18 25 -20 44 -20 198 0 142 -3 173 -16 186 -19 19 -25 20 -48 3z"/>
+<path d="M7882 5028 c-15 -15 -6 -30 79 -140 68 -87 79 -110 58 -124 -24 -14
+-149 -194 -149 -213 0 -17 6 -21 30 -21 31 0 72 43 136 144 16 25 35 48 41 51
+7 2 31 -22 54 -57 62 -90 108 -138 134 -138 44 0 35 28 -45 137 -44 59 -80
+114 -80 123 0 8 34 59 75 113 41 54 75 102 75 106 0 17 -30 32 -49 26 -12 -3
+-49 -44 -83 -91 -34 -46 -69 -84 -78 -84 -8 0 -40 35 -70 76 -72 99 -100 120
+-128 92z"/>
+<path d="M8652 5028 c-8 -8 -12 -64 -12 -187 0 -158 2 -179 21 -219 53 -109
+221 -138 320 -55 52 44 59 76 59 273 0 150 -2 180 -16 191 -11 9 -20 10 -32 2
+-14 -9 -18 -36 -22 -179 -3 -107 -10 -177 -18 -191 -24 -42 -62 -63 -114 -63
+-43 0 -54 4 -84 34 l-34 34 0 164 c0 132 -3 168 -16 186 -17 25 -34 28 -52 10z"/>
+<path d="M9399 5019 c-12 -24 -11 -429 3 -466 8 -25 37 -30 56 -11 7 7 12 43
+12 93 0 91 8 105 56 105 37 0 64 -29 105 -110 12 -25 31 -57 41 -72 35 -50
+100 -26 68 25 -7 11 -24 41 -37 66 -14 25 -33 54 -41 64 -15 17 -13 21 27 55
+34 29 45 47 51 82 12 67 2 106 -36 140 -44 38 -90 50 -201 50 -84 0 -93 -2
+-104 -21z m245 -80 c33 -26 36 -79 6 -109 -16 -16 -33 -20 -94 -20 -62 0 -75
+3 -80 18 -6 20 -5 114 1 125 2 4 35 7 72 7 54 0 74 -4 95 -21z"/>
+<path d="M10077 5033 c-15 -15 -3 -39 78 -159 47 -69 85 -133 86 -142 0 -9 0
+-52 -1 -95 -1 -85 8 -107 45 -107 30 0 35 16 35 118 l0 87 91 138 c83 127 90
+140 76 155 -27 27 -57 2 -131 -107 -37 -55 -72 -98 -78 -95 -5 4 -37 47 -70
+98 -65 99 -107 134 -131 109z"/>
+<path d="M11283 5033 c-17 -6 -16 -25 2 -82 9 -25 38 -118 67 -206 28 -88 57
+-172 65 -187 15 -32 43 -36 65 -10 18 19 95 241 100 286 5 46 26 43 37 -6 6
+-24 17 -63 25 -88 8 -25 24 -78 36 -117 25 -80 37 -96 72 -91 27 4 26 1 137
+363 40 130 40 137 -1 133 l-33 -3 -54 -168 c-30 -92 -60 -166 -65 -164 -6 2
+-14 19 -17 38 -8 45 -80 271 -92 287 -18 24 -46 13 -67 -28 -11 -21 -20 -45
+-20 -52 0 -13 -55 -196 -71 -236 -11 -28 -25 -22 -33 15 -4 16 -25 87 -47 158
+-45 143 -66 175 -106 158z"/>
+<path d="M12411 5018 c-12 -12 -23 -31 -27 -42 -3 -12 -19 -50 -34 -86 -96
+-223 -140 -335 -136 -347 6 -14 34 -17 59 -7 8 3 25 32 37 65 l22 59 110 0
+109 0 19 -47 c30 -73 35 -78 69 -81 41 -4 48 15 23 65 -11 21 -52 121 -92 223
+-87 220 -111 250 -159 198z m49 -129 c4 -8 12 -29 19 -46 6 -18 17 -47 23 -63
+11 -26 10 -32 -2 -40 -19 -13 -117 -13 -125 -1 -3 6 6 34 19 63 14 29 28 66
+31 81 6 29 23 32 35 6z"/>
+<path d="M12997 5033 c-14 -14 -6 -35 36 -87 71 -92 107 -145 107 -159 0 -7
+-36 -60 -80 -117 -89 -115 -99 -143 -48 -138 25 2 41 15 75 58 113 142 103
+133 125 113 11 -10 36 -40 56 -68 55 -78 84 -105 109 -105 42 0 37 27 -19 102
+-84 113 -98 135 -98 153 0 9 34 61 75 117 75 100 86 130 52 136 -29 6 -63 -23
+-123 -103 -31 -41 -60 -75 -65 -75 -5 0 -30 28 -56 62 -26 34 -60 74 -75 90
+-25 26 -57 36 -71 21z"/>
+<path d="M13761 5026 c-8 -9 -11 -85 -9 -252 l3 -239 23 -3 c50 -7 52 3 52
+249 0 194 -2 230 -16 243 -19 20 -38 20 -53 2z"/>
+<path d="M14209 5023 c-11 -13 -13 -62 -11 -247 2 -127 6 -234 9 -238 6 -11
+51 -10 57 1 3 4 7 83 8 175 1 91 6 166 10 166 3 0 51 -66 104 -147 54 -82 109
+-160 123 -175 29 -33 66 -36 81 -9 13 25 13 431 0 465 -11 31 -45 35 -60 7 -6
+-11 -10 -87 -10 -175 0 -88 -4 -156 -9 -156 -5 0 -27 26 -48 58 -203 300 -219
+318 -254 275z"/>
+<path d="M15075 5016 c-61 -28 -120 -91 -134 -143 -14 -48 -14 -127 -1 -175
+27 -96 135 -178 234 -178 64 0 183 36 195 59 13 23 13 179 1 202 -9 16 -22 19
+-89 19 -59 0 -82 -4 -92 -16 -23 -27 1 -49 60 -52 l51 -3 0 -55 c0 -49 -2 -55
+-26 -64 -46 -18 -143 -12 -180 11 -54 33 -77 80 -76 158 0 117 47 175 151 188
+39 4 59 1 105 -20 51 -23 57 -24 71 -10 26 25 13 46 -44 76 -72 36 -154 37
+-226 3z"/>
+<path d="M3803 3761 c-36 -23 -63 -68 -63 -106 0 -14 9 -44 21 -66 l20 -41
+-39 -37 c-44 -40 -59 -86 -49 -148 17 -104 156 -143 277 -77 l48 26 36 -27
+c43 -33 89 -32 94 2 2 16 -7 28 -37 48 -45 28 -49 39 -25 73 9 13 17 44 17 70
+2 44 0 47 -25 50 -29 3 -40 -11 -52 -70 -4 -18 -13 -28 -24 -28 -18 0 -92 72
+-92 90 0 5 20 30 45 54 49 50 57 84 31 134 -23 44 -50 62 -102 68 -38 4 -56 1
+-81 -15z m109 -68 c27 -24 22 -58 -13 -87 -37 -32 -44 -32 -63 -4 -19 27 -21
+79 -4 96 17 17 58 15 80 -5z m-15 -265 c29 -29 53 -58 53 -65 0 -19 -54 -43
+-96 -43 -54 0 -84 31 -84 86 0 33 5 46 22 58 35 25 48 20 105 -36z"/>
+<path d="M8529 3771 c-70 -23 -109 -72 -109 -138 0 -74 38 -112 148 -148 62
+-20 112 -59 112 -86 0 -11 -11 -31 -25 -44 -32 -33 -117 -35 -175 -5 -22 11
+-44 20 -49 20 -19 0 -33 -38 -21 -59 24 -46 193 -71 256 -38 92 48 118 162 52
+225 -27 24 -105 61 -131 62 -54 0 -103 62 -86 108 16 44 101 56 157 22 41 -25
+59 -25 72 1 13 24 2 43 -41 64 -34 18 -126 27 -160 16z"/>
+<path d="M9194 3771 c-78 -20 -131 -90 -118 -158 11 -59 65 -105 152 -132 104
+-31 133 -67 97 -118 -33 -46 -109 -51 -186 -12 -30 15 -39 16 -54 5 -12 -8
+-15 -19 -11 -33 16 -52 167 -80 251 -48 64 24 85 55 85 126 0 53 -3 61 -35 93
+-24 24 -56 42 -102 56 -78 24 -113 52 -113 90 0 59 83 85 157 49 50 -24 76
+-18 81 19 6 43 -126 83 -204 63z"/>
+<path d="M10380 3771 c-117 -25 -190 -122 -190 -254 0 -80 16 -129 58 -178 92
+-107 274 -109 376 -4 89 92 86 273 -7 366 -58 59 -155 87 -237 70z m148 -90
+c12 -6 35 -31 50 -54 23 -36 27 -52 26 -112 0 -53 -6 -79 -22 -106 -58 -95
+-215 -107 -279 -21 -64 86 -49 228 29 285 48 35 139 39 196 8z"/>
+<path d="M18353 3769 c-125 -23 -203 -123 -203 -263 0 -73 19 -123 65 -171 56
+-57 123 -79 220 -73 42 3 88 13 111 24 l39 19 3 109 c2 81 -1 112 -10 118 -13
+8 -154 1 -170 -8 -4 -3 -8 -14 -8 -24 0 -24 34 -43 60 -35 40 13 60 -3 60 -48
+0 -23 -4 -47 -8 -53 -22 -33 -111 -45 -169 -23 -35 13 -71 46 -90 83 -22 43
+-21 156 3 197 52 88 177 112 258 48 38 -30 61 -22 61 21 0 31 -4 37 -45 56
+-53 25 -118 33 -177 23z"/>
+<path d="M4952 3751 c-4 -11 -5 -125 -2 -253 l5 -233 24 -3 c37 -6 46 13 51
+111 l5 92 80 5 c49 3 93 12 113 23 100 54 94 205 -11 256 -36 17 -62 21 -150
+21 -97 0 -108 -2 -115 -19z m235 -66 c41 -29 38 -98 -6 -132 -9 -7 -46 -13
+-83 -13 -55 0 -67 3 -71 18 -3 14 -2 109 2 135 2 14 136 8 158 -8z"/>
+<path d="M5637 3763 c-9 -8 -9 -466 -1 -487 3 -9 16 -16 29 -16 30 0 35 16 35
+116 0 80 1 84 24 90 13 3 38 4 57 2 31 -3 37 -9 77 -88 24 -47 51 -93 59 -102
+19 -21 61 -24 69 -4 3 8 -18 55 -46 106 l-52 91 40 34 c90 78 68 213 -41 254
+-31 12 -239 15 -250 4z m233 -78 c26 -14 30 -21 30 -58 0 -23 -4 -47 -8 -54
+-13 -20 -61 -33 -122 -33 -47 0 -60 3 -64 18 -4 13 -3 80 3 135 2 14 131 7
+161 -8z"/>
+<path d="M6460 3754 c-46 -20 -96 -69 -123 -119 -31 -58 -30 -193 1 -251 54
+-105 184 -155 296 -115 122 43 176 119 176 248 0 109 -48 191 -135 232 -54 25
+-162 28 -215 5z m144 -53 c103 -25 159 -173 104 -281 -35 -67 -66 -85 -148
+-85 -79 0 -111 17 -147 81 -42 72 -25 207 31 253 18 15 84 40 106 40 8 0 32
+-4 54 -8z"/>
+<path d="M7153 3763 c-18 -7 -19 -473 -1 -491 16 -16 45 -15 55 1 4 6 10 57
+13 112 l5 100 90 5 90 5 0 30 0 30 -90 5 -90 5 0 65 0 65 105 3 c83 2 108 6
+117 19 9 11 9 21 2 34 -9 17 -23 19 -147 18 -75 0 -143 -3 -149 -6z"/>
+<path d="M7797 3763 c-13 -12 -8 -478 5 -491 8 -8 54 -12 139 -12 103 0 131 3
+143 16 22 21 20 31 -9 50 -20 13 -44 15 -112 13 l-88 -4 0 75 0 75 85 5 85 5
+0 30 0 30 -87 3 c-49 1 -88 7 -89 12 0 6 0 33 0 60 0 28 0 55 0 60 1 6 42 10
+104 10 105 0 127 7 127 41 0 9 -7 20 -16 23 -21 8 -279 8 -287 -1z"/>
+<path d="M9775 3760 c-3 -5 -8 -110 -12 -233 -4 -161 -2 -230 6 -245 14 -26
+56 -30 65 -6 12 31 7 469 -6 482 -14 14 -44 16 -53 2z"/>
+<path d="M11020 3744 c-11 -28 -12 -247 -1 -389 5 -81 8 -90 27 -93 38 -5 43
+17 45 191 2 178 9 201 42 131 10 -19 60 -100 113 -180 77 -117 99 -144 118
+-144 44 0 47 14 44 260 -3 209 -5 234 -20 244 -13 8 -23 8 -35 0 -16 -10 -18
+-30 -19 -173 0 -89 -3 -164 -7 -167 -3 -3 -49 60 -102 141 -54 80 -108 159
+-122 176 -32 37 -70 39 -83 3z"/>
+<path d="M11932 3757 c-6 -7 -31 -63 -56 -124 -24 -60 -55 -134 -69 -164 -55
+-121 -76 -180 -71 -194 6 -16 41 -20 60 -7 14 9 39 59 48 94 8 35 27 40 136
+36 l85 -3 29 -60 c29 -63 40 -75 67 -75 27 0 30 28 10 78 -51 123 -151 382
+-151 390 0 16 -36 42 -57 42 -11 0 -25 -6 -31 -13z m54 -144 c3 -16 14 -49 25
+-75 10 -26 19 -51 19 -57 0 -13 -126 -15 -134 -3 -3 5 5 31 18 58 12 27 26 61
+30 77 3 15 13 27 21 27 8 0 17 -12 21 -27z"/>
+<path d="M12529 3749 c-14 -27 -7 -465 8 -480 5 -5 74 -8 154 -7 142 3 144 3
+147 26 6 44 -11 51 -119 48 -65 -1 -103 2 -109 9 -5 6 -11 103 -12 216 l-3
+204 -27 3 c-19 2 -30 -3 -39 -19z"/>
+<path d="M13583 3754 c-13 -34 11 -49 81 -52 l66 -3 0 -209 c0 -203 1 -209 22
+-224 15 -11 26 -12 39 -5 17 9 19 28 21 222 l3 212 69 5 c76 5 102 24 77 54
+-11 14 -41 16 -193 16 -156 0 -179 -2 -185 -16z"/>
+<path d="M14307 3763 c-4 -3 -7 -116 -7 -249 0 -238 0 -243 21 -249 37 -12 48
+13 51 110 l3 90 50 0 50 0 33 -65 c54 -108 79 -140 107 -140 33 0 42 25 22 59
+-8 14 -30 55 -49 90 -32 61 -32 64 -14 75 83 47 108 152 55 220 -40 51 -87 66
+-207 66 -60 0 -112 -3 -115 -7z m242 -80 c34 -29 37 -75 8 -108 -22 -26 -32
+-30 -97 -33 -54 -3 -75 -1 -81 9 -8 14 -10 127 -2 142 2 4 37 7 77 7 56 0 79
+-4 95 -17z"/>
+<path d="M15158 3748 c-22 -40 -48 -100 -95 -218 -24 -63 -56 -143 -69 -176
+-26 -65 -24 -94 6 -94 22 0 39 20 70 84 l25 51 100 0 c96 0 100 -1 110 -24 34
+-83 51 -106 78 -109 53 -6 50 10 -53 258 -26 63 -56 138 -66 165 -9 28 -24 58
+-32 68 -21 24 -59 22 -74 -5z m56 -114 c3 -9 6 -23 7 -32 0 -9 11 -39 24 -67
+13 -27 21 -53 19 -57 -9 -14 -134 -9 -134 5 1 15 43 137 53 155 11 17 24 15
+31 -4z"/>
+<path d="M15766 3754 c-12 -31 -7 -469 6 -482 19 -19 48 -14 56 11 10 27 16
+438 7 466 -8 26 -60 29 -69 5z"/>
+<path d="M16214 3757 c-2 -7 -3 -120 -2 -252 l3 -240 30 0 30 0 6 84 c4 46 5
+126 4 178 -2 52 1 93 6 91 8 -3 35 -40 164 -232 74 -110 105 -138 133 -119 15
+9 17 36 17 254 l0 244 -23 3 c-48 7 -53 -9 -52 -177 1 -86 1 -160 0 -165 0
+-12 -40 24 -40 37 0 5 -13 26 -28 46 -16 20 -55 74 -87 121 -32 47 -69 97 -83
+113 -27 28 -69 36 -78 14z"/>
+<path d="M16986 3754 c-3 -9 -6 -118 -6 -243 0 -235 3 -251 42 -251 33 0 38
+34 38 255 0 130 -4 224 -10 236 -13 23 -55 25 -64 3z"/>
+<path d="M17430 3751 c-6 -12 -10 -107 -10 -238 0 -237 5 -262 48 -249 31 10
+34 35 30 200 -2 93 1 145 7 143 10 -4 64 -79 167 -232 66 -99 98 -127 126
+-109 15 10 17 34 17 255 l0 244 -23 3 c-49 7 -54 -8 -51 -182 1 -91 -2 -163
+-7 -165 -5 -3 -18 11 -29 30 -32 56 -175 261 -203 292 -30 32 -57 35 -72 8z"/>
+</g>
+</svg>
+    <div class="foot-links">
+      <a href="/services">The Menu</a>
+      <a href="/first-visit">First Visit</a>
+      <a href="/about">About</a>
+      <a href="/academy">The Academy</a>
+      <a href="/contact">Contact</a>
+      <!-- BOOK NOW: replace href with the Meevo online booking link -->
+      <a href="#book">Book Now</a>
+    </div>
+    <div class="foot-fine">
+      1410 Pine Ridge Road, Suite 22, Naples, FL 34108 &nbsp;&#183;&nbsp; (239) 529-5441<br>
+      &copy; 2026 Method Luxury Waxing and Professional Training
+    </div>
+  </div>
+</footer>
+
+</div>
+<script>
+(function(){
+document.addEventListener('click', e => {
+  if (e.target.closest('.burger')) document.body.classList.toggle('menu-open');
+  else if (e.target.closest('.drawer a')) document.body.classList.remove('menu-open');
+});
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+})();
+</script>

@@ -1,0 +1,21 @@
+/* Paste into GHL > Sites > your form > Styles > Custom CSS,
+   or into the page's custom CSS. Wrap the form in a container
+   with class "mw-form" so this only touches Method forms. */
+
+.mw-form, .mw-form * { box-sizing:border-box; }
+.mw-form label { font-family:'Jost',sans-serif !important; font-size:.62rem !important;
+  letter-spacing:.22em !important; text-transform:uppercase !important; color:#7A7064 !important;
+  margin-bottom:.5rem !important; display:block !important; }
+.mw-form input, .mw-form select, .mw-form textarea {
+  width:100% !important; background:transparent !important; border:0 !important;
+  border-bottom:1px solid #DFD5C4 !important; border-radius:0 !important;
+  padding:.6rem 0 !important; font-family:'Jost',sans-serif !important; font-weight:300 !important;
+  font-size:1rem !important; color:#2A2620 !important; box-shadow:none !important; }
+.mw-form input:focus, .mw-form select:focus, .mw-form textarea:focus {
+  outline:none !important; border-bottom-color:#A56B41 !important; }
+.mw-form button, .mw-form .btn {
+  background:#1D392F !important; color:#F5EFE4 !important; border:0 !important;
+  border-radius:100px !important; padding:.8rem 1.6rem !important;
+  font-family:'Jost',sans-serif !important; font-size:.7rem !important;
+  letter-spacing:.18em !important; text-transform:uppercase !important; width:auto !important; }
+.mw-form button:hover { background:#2C5344 !important; }
