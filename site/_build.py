@@ -200,7 +200,7 @@ HOME = f'''
     <div class="band-head">
       <span class="u-label">The Menu</span>
       <h2>What people book most.</h2>
-      <p>Thirty eight services, every price in the open. These are the six we are asked about
+      <p>Thirty six services, every price in the open. These are the six we are asked about
       before anything else.</p>
     </div>
     <div style="max-width:640px;margin-inline:auto">
@@ -645,7 +645,7 @@ PAGES = [
  ("services.html", "Services and Pricing &#183; METHOD Luxury Waxing &#183; Naples",
   "The full METHOD waxing menu and prices. Brazilian $64, Full Bikini $56, Eyebrow $24. Every price published openly. Naples, Florida.",
   SERVICES, phead("The Menu","Services and pricing.",
-   "Thirty eight services, every price in the open. Book any of them online, and if you are not sure what to choose, call and we will talk it through.")),
+   "Thirty six services, every price in the open. Book any of them online, and if you are not sure what to choose, call and we will talk it through.")),
  ("first-visit.html", "Your First Visit &#183; METHOD Luxury Waxing &#183; Naples",
   "How to prepare for your first wax, what happens in the room, aftercare, and our policies. METHOD Luxury Waxing, Naples, Florida.",
   FIRST, phead("Your First Visit","What to know before you come in.",
