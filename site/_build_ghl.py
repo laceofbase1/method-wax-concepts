@@ -104,6 +104,17 @@ ARMOUR = f"""
 .{SCOPE} button, .{SCOPE} input, .{SCOPE} select, .{SCOPE} textarea {{
   font-family:'Jost',system-ui,sans-serif !important; }}
 .{SCOPE} p {{ margin:0; }}
+
+/* --- full-bleed breakout ---------------------------------------------
+   GHL wraps page content in a fixed max-width row. These blocks are
+   designed edge to edge (hero, emerald bands, footer), so we escape the
+   container regardless of the builder's width setting. */
+.{SCOPE} {{
+  width:100vw !important; max-width:100vw !important;
+  margin-left:calc(50% - 50vw) !important;
+  margin-right:calc(50% - 50vw) !important;
+}}
+html, body {{ overflow-x:hidden !important; max-width:100% !important; }}
 """
 
 SCOPED = FONTS + scope_css(CSS) + ARMOUR
