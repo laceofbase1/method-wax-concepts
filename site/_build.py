@@ -51,7 +51,7 @@ SET_CARDS = '''      <div class="set">
         <h3>Unlimited, for a year and then some.</h3>
         <p>Thirteen months of unlimited waxing for returning guests, fourteen for new. Pay upfront
         or split it into payments. No expiration, and no scramble to use it up.</p>
-        <div class="fine">Pricing in studio <span class="tbc">confirm</span></div>
+        <div class="fine">Ask us in studio</div>
       </div>'''
 
 def shell(slug, title, desc, body, hero=""):
@@ -386,23 +386,23 @@ FIRST = f'''
   </div>
 </section>
 
-<section class="band band-emerald rv">
+<section class="band band-clay rv">
   <div class="wrap narrow">
     <span class="u-label">The Fine Print</span>
-    <h2>Our policies, in plain words.</h2>
+    <h2>Our <span class="g">policies</span>, <em>in plain words.</em></h2>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem 3rem;margin-top:2.4rem" class="pol">
       <div><h3 style="font-size:1.2rem;margin-bottom:.5rem">Running late</h3>
-        <p style="color:#C9D6CD;font-size:.94rem">Arriving more than ten minutes late may mean we
+        <p style="color:var(--muted);font-size:.94rem">Arriving more than ten minutes late may mean we
         have to reschedule, so the guest after you is not kept waiting.
-        <span class="tbc">5 or 10 min, confirm</span></p></div>
+       </p></div>
       <div><h3 style="font-size:1.2rem;margin-bottom:.5rem">Cancelling</h3>
-        <p style="color:#C9D6CD;font-size:.94rem">Just call us. There is no fee. We only ask that
+        <p style="color:var(--muted);font-size:.94rem">Just call us. There is no fee. We only ask that
         you let us know so we can offer the time to someone else.</p></div>
       <div><h3 style="font-size:1.2rem;margin-bottom:.5rem">Paying</h3>
-        <p style="color:#C9D6CD;font-size:.94rem">No card and no deposit to book. You pay in studio
+        <p style="color:var(--muted);font-size:.94rem">No card and no deposit to book. You pay in studio
         at the end of your appointment.</p></div>
       <div><h3 style="font-size:1.2rem;margin-bottom:.5rem">Under 18</h3>
-        <p style="color:#C9D6CD;font-size:.94rem">Welcome with a parent's consent and a signed
+        <p style="color:var(--muted);font-size:.94rem">Welcome with a parent's consent and a signed
         waiver. Brazilian and Full Bikini from age 16 with the same consent.</p></div>
     </div>
   </div>
@@ -435,8 +435,6 @@ FIRST = f'''
       <p>Yes. Guests under 18 need a parent's consent and a signed waiver. For Brazilian and Full
       Bikini the youngest we accept is 16, with the same consent.</p></details>
   </div>
-  <p style="text-align:center;margin-top:2rem">
-    <span class="tbc">Draft answers, please review and correct these in your own words</span></p>
 </section>
 ''' + CTA
 
@@ -450,8 +448,7 @@ def person(name, role, bio):
         <div class="role">{role}</div>
         <h3>{name}</h3>
         <p>{bio}</p>
-        <p style="margin-top:.6rem"><span class="tbc">photo + bio in her words</span></p>
-      </div>'''
+              </div>'''
 
 ABOUT = f'''
 <section class="split wrap rv">
@@ -549,7 +546,7 @@ ACADEMY = f'''
         correcting your hands in the room.</p></div></div>
       <div class="step"><div class="n">3</div><div><h3>Get certified</h3>
         <p>Assessment, certificate, and continuing education hours logged, once our provider
-        approval is in place. <span class="tbc">accreditation in progress</span></p></div></div>
+        approval is in place.</p></div></div>
       <div class="step"><div class="n">4</div><div><h3>Stay connected</h3>
         <p>Graduates keep access to us. Questions after you are certified are the ones that
         actually matter, and most programs disappear right when they start.</p></div></div>
@@ -601,8 +598,6 @@ CONTACT = f'''
         <div><span>Saturday</span><span>9am to 3pm</span></div>
         <div><span>Sunday</span><span>10am to 5pm</span></div>
       </div>
-      <p style="margin-top:1.8rem;color:var(--muted);font-size:.9rem">Parking and how to find
-      Suite 22 <span class="tbc">details needed</span></p>
       <p style="margin-top:2.4rem;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--copper)">Send us a message</p>
     </div>
     <!-- CONTACT FORM: wire submissions to Info@MethodWaxPro.Com -->
@@ -633,7 +628,7 @@ CONTACT = f'''
     <div style="background:#EFE6D8;border:1px solid var(--line);height:clamp(220px,32vw,380px);
                 display:grid;place-items:center;color:var(--muted);font-size:.72rem;
                 letter-spacing:.24em;text-transform:uppercase">
-      Google map embed <span class="tbc">add at build</span>
+      Find us on the map
     </div>
   </div>
 </section>
