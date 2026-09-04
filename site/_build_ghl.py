@@ -126,45 +126,51 @@ html, body {{ overflow-x:clip !important; max-width:100% !important; }}
 .{SCOPE} .rv {{ opacity:1 !important; transform:none !important; }}
 
 /* --- GHL native form, styled into the brand --------------------------
-   The form element sits outside .{SCOPE}, so these rules are deliberately
-   global. Selectors are GHL's own form classes. */
-form, .form-builder--wrapper {{
-  max-width:600px !important; margin-inline:auto !important;
-  font-family:'Jost',system-ui,sans-serif !important; text-align:left !important; }}
+   GHL renders no <form> element, so these target its own classes.
+   Deliberately global: the form sits outside .{SCOPE}. */
+[class*="cform-"] {{ max-width:600px !important; margin-inline:auto !important;
+  text-align:left !important; }}
+.form-builder--item {{ margin-bottom:1.15rem !important; }}
 .field-label, .label-alignment {{
   font-family:'Jost',system-ui,sans-serif !important; font-weight:400 !important;
   font-size:.63rem !important; letter-spacing:.2em !important;
   text-transform:uppercase !important; color:#7A7064 !important;
-  margin-bottom:.4rem !important; }}
-form input[type=text], form input[type=email], form input[type=tel],
-form input[type=number], form textarea, .multiselect__tags {{
+  margin-bottom:.45rem !important; display:block !important; }}
+.form-control, .multiselect__tags {{
   width:100% !important; background:transparent !important;
   border:0 !important; border-bottom:1px solid #DFD5C4 !important;
   border-radius:0 !important; box-shadow:none !important;
-  padding:.6rem 0 !important; min-height:0 !important;
+  padding:.6rem 0 !important; min-height:0 !important; height:auto !important;
   font-family:'Jost',system-ui,sans-serif !important; font-weight:300 !important;
   font-size:1rem !important; color:#2A2620 !important; }}
-form input:focus, form textarea:focus, .multiselect__tags:focus-within {{
+.form-control.text-area-element {{ min-height:104px !important; resize:vertical !important; }}
+.form-control:focus, .multiselect--active .multiselect__tags {{
   outline:none !important; border-bottom-color:#A56B41 !important; }}
-form input::placeholder, form textarea::placeholder {{ color:#B4A897 !important; }}
-.phone-input, .email-input {{ border:0 !important; background:transparent !important; }}
-.multiselect__tags {{ padding-right:1.4rem !important; }}
-.multiselect__single, .multiselect__placeholder, .multiselect__option {{
+.form-control::placeholder {{ color:#B4A897 !important; }}
+.phone-input, .phone-input.flex, .email-input {{
+  border:0 !important; background:transparent !important; padding:0 !important; }}
+.multiselect, .multi_select_form {{ background:transparent !important; }}
+.multiselect__single, .multiselect__placeholder, .multiselect__input {{
   font-family:'Jost',system-ui,sans-serif !important; font-weight:300 !important;
-  background:transparent !important; color:#2A2620 !important; padding:0 !important;
-  margin:0 !important; font-size:1rem !important; }}
+  font-size:1rem !important; color:#2A2620 !important;
+  background:transparent !important; padding:0 !important; margin:0 !important; }}
+.multiselect__content-wrapper {{ border:1px solid #DFD5C4 !important;
+  border-radius:0 !important; background:#FBF7EF !important; }}
+.multiselect__option {{ font-family:'Jost',system-ui,sans-serif !important;
+  font-weight:300 !important; font-size:.95rem !important; }}
+.multiselect__option--highlight {{ background:#EFE6D8 !important; color:#2A2620 !important; }}
 .checkbox-container, .checkbox-container * {{
   font-family:'Jost',system-ui,sans-serif !important; font-weight:300 !important;
-  font-size:.78rem !important; line-height:1.55 !important; color:#7A7064 !important; }}
-.checkbox-container {{ margin-top:.4rem !important; }}
-form .btn, .button-element, form button[type=submit] {{
+  font-size:.76rem !important; line-height:1.55 !important; color:#7A7064 !important; }}
+.checkbox-container {{ margin-top:.5rem !important; }}
+.button-element, .btn.btn-dark {{
   background:#1D392F !important; color:#F5EFE4 !important; border:0 !important;
   border-radius:100px !important; padding:.85rem 1.9rem !important;
   font-family:'Jost',system-ui,sans-serif !important; font-weight:400 !important;
   font-size:.7rem !important; letter-spacing:.18em !important;
   text-transform:uppercase !important; width:auto !important;
   box-shadow:none !important; transition:background .3s !important; }}
-form .btn:hover, .button-element:hover {{ background:#2C5344 !important; }}
+.button-element:hover, .btn.btn-dark:hover {{ background:#2C5344 !important; }}
 """
 
 SCOPED = FONTS + scope_css(CSS) + ARMOUR
@@ -200,14 +206,21 @@ for page, name in SPLITS.items():
     if not m:
         print("  ! no form found in", page); continue
     before, after = txt[:m.start()], txt[m.end():]
+    # `after` opens with closing tags belonging to elements block 1 already
+    # closed. Left in, they close block 2's wrapper immediately and every
+    # section below it falls outside the scoped styles.
+    after = re.sub(r'^(?:\s*</(?:div|section)>)+', '', after)
     marker = ('\n<!-- ================================================================\n'
               '     STOP. End of block 1.\n'
               '     In GHL, drop a native FORM element here, then paste block 2 below it.\n'
               '     The form must be a GHL form so submissions reach the CRM.\n'
               '     ================================================================ -->\n')
     open(os.path.join(OUT, f"{name}-block-1.html"),"w").write(before + marker + "</div>\n")
+    # GHL isolates each custom-code element, so block 2 must carry its own
+    # stylesheet. Without it the footer renders as raw unstyled HTML.
     open(os.path.join(OUT, f"{name}-block-2.html"),"w").write(
         f'<!-- METHOD {name}, block 2. Paste BELOW the GHL form element. -->\n'
+        f'<style>\n{SCOPED}\n</style>\n'
         f'<div class="{SCOPE}">\n' + after)
     print("  split %-14s -> %s-block-1.html + %s-block-2.html" % (page, name, name))
 
