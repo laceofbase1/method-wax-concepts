@@ -24,7 +24,7 @@ em{ font-style:italic; color:var(--mauve-deep); }
 .lede{ color:var(--muted); font-size:1.04rem; max-width:58ch; }
 
 /* buttons */
-.btn{ font-family:'Jost',sans-serif; font-weight:400; font-size:.7rem; letter-spacing:.18em;
+.btn{ font-family:'Jost',sans-serif; font-weight:400; font-size:.7rem; letter-spacing:.18em; white-space:nowrap;
       text-transform:uppercase; padding:.8rem 1.6rem; border-radius:100px; border:1px solid transparent;
       display:inline-block; cursor:pointer; transition:background .3s,color .3s,transform .4s var(--ease); }
 .btn-solid{ background:var(--emerald); color:var(--ivory); }
@@ -225,10 +225,23 @@ footer{ background:var(--emerald); color:var(--ivory); padding:clamp(3.5rem,6vw,
   .menu-cols{ column-count:1; }
   .set-grid{ grid-template-columns:1fr; }
 }
+@media (max-width:760px){
+  /* the hero caption was pinned to the bottom, where phone browser chrome
+     crops it and the screen reads as an empty photo. Lift it into the frame. */
+  .hero{ height:clamp(60vh,68vh,600px); }
+  .hero::after{ background:linear-gradient(180deg,rgba(20,25,20,.34),rgba(20,25,20,.14) 34%,
+                rgba(20,25,20,.30) 62%,rgba(20,25,20,.58)); }
+  .hero-cap{ top:50%; bottom:auto; transform:translateY(-50%); padding-inline:1.2rem; }
+  .hero-cap h1{ font-size:clamp(1.9rem,8.4vw,2.6rem); max-width:14ch; }
+  .hero-cta{ margin-top:1.3rem; gap:.9rem; }
+}
 @media (max-width:560px){
-  .brand .mark{ height:32px; } .brand .word{ height:13px; }
-  .btn{ padding:.72rem 1.2rem; font-size:.64rem; letter-spacing:.14em; }
-  .announce{ font-size:.6rem; letter-spacing:.1em; }
+  .brand .mark{ height:30px; } .brand .word{ height:12px; }
+  .brand{ gap:.5rem; }
+  .nav{ gap:.7rem; }
+  .btn{ padding:.6rem 1rem; font-size:.58rem; letter-spacing:.1em; }
+  .announce{ font-size:.58rem; letter-spacing:.08em; padding:.5rem .8rem; }
+  .a-loc{ display:none; }   /* already said in the hero kicker */
   .step{ grid-template-columns:46px 1fr; gap:1rem; }
   .step .n{ width:44px; height:44px; font-size:1rem; }
 }

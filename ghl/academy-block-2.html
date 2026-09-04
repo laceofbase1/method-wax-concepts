@@ -27,7 +27,7 @@
 .mw .lede{ color:var(--muted); font-size:1.04rem; max-width:58ch; }
 
 /* buttons */
-.mw .btn{ font-family:'Jost',sans-serif; font-weight:400; font-size:.7rem; letter-spacing:.18em;
+.mw .btn{ font-family:'Jost',sans-serif; font-weight:400; font-size:.7rem; letter-spacing:.18em; white-space:nowrap;
       text-transform:uppercase; padding:.8rem 1.6rem; border-radius:100px; border:1px solid transparent;
       display:inline-block; cursor:pointer; transition:background .3s,color .3s,transform .4s var(--ease); }
 .mw .btn-solid{ background:var(--emerald); color:var(--ivory); }
@@ -228,10 +228,23 @@
   .mw .menu-cols{ column-count:1; }
   .mw .set-grid{ grid-template-columns:1fr; }
 }
+@media (max-width:760px){
+  /* the hero caption was pinned to the bottom, where phone browser chrome
+     crops it and the screen reads as an empty photo. Lift it into the frame. */
+  .mw .hero{ height:clamp(60vh,68vh,600px); }
+  .mw .hero::after{ background:linear-gradient(180deg,rgba(20,25,20,.34),rgba(20,25,20,.14) 34%,
+                rgba(20,25,20,.30) 62%,rgba(20,25,20,.58)); }
+  .mw .hero-cap{ top:50%; bottom:auto; transform:translateY(-50%); padding-inline:1.2rem; }
+  .mw .hero-cap h1{ font-size:clamp(1.9rem,8.4vw,2.6rem); max-width:14ch; }
+  .mw .hero-cta{ margin-top:1.3rem; gap:.9rem; }
+}
 @media (max-width:560px){
-  .mw .brand .mark{ height:32px; } .brand .word{ height:13px; }
-  .mw .btn{ padding:.72rem 1.2rem; font-size:.64rem; letter-spacing:.14em; }
-  .mw .announce{ font-size:.6rem; letter-spacing:.1em; }
+  .mw .brand .mark{ height:30px; } .brand .word{ height:12px; }
+  .mw .brand{ gap:.5rem; }
+  .mw .nav{ gap:.7rem; }
+  .mw .btn{ padding:.6rem 1rem; font-size:.58rem; letter-spacing:.1em; }
+  .mw .announce{ font-size:.58rem; letter-spacing:.08em; padding:.5rem .8rem; }
+  .mw .a-loc{ display:none; }   /* already said in the hero kicker */
   .mw .step{ grid-template-columns:46px 1fr; gap:1rem; }
   .mw .step .n{ width:44px; height:44px; font-size:1rem; }
 }
@@ -295,6 +308,14 @@ html, body { overflow-x:clip !important; max-width:100% !important; }
    section at opacity 0 and the pages effectively blank. Content is now
    visible unconditionally; the reveal is gone rather than fragile. */
 .mw .rv { opacity:1 !important; transform:none !important; }
+
+/* --- mobile drawer -------------------------------------------------
+   the stylesheet keys the open state off body, which scoping rewrites to
+   ".mw body" and can never match. Drive it from the wrapper instead. */
+.mw.menu-open .drawer { display:block !important; }
+.mw.menu-open .burger i:nth-child(1) { transform:translateY(8px) rotate(45deg); }
+.mw.menu-open .burger i:nth-child(2) { opacity:0; }
+.mw.menu-open .burger i:nth-child(3) { transform:translateY(-8px) rotate(-45deg); }
 
 /* --- GHL native form, styled into the brand --------------------------
    GHL renders no <form> element, so these target its own classes.
@@ -909,14 +930,13 @@ c-31 32 -66 32 -102 1z"/>
 </div>
 <script>
 (function(){
-document.addEventListener('click', e => {
-  if (e.target.closest('.burger')) document.body.classList.toggle('menu-open');
-  else if (e.target.closest('.drawer a')) document.body.classList.remove('menu-open');
+
+document.addEventListener('click', function(e){
+  var b = e.target.closest('.burger');
+  if (b) { var w = b.closest('.mw'); if (w) w.classList.toggle('menu-open'); return; }
+  var a = e.target.closest('.drawer a');
+  if (a) { var w2 = a.closest('.mw'); if (w2) w2.classList.remove('menu-open'); }
 });
-const io = new IntersectionObserver(es => es.forEach(e => {
-  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-}), { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
 })();
 </script>

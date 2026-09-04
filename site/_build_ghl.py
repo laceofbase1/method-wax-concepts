@@ -31,7 +31,7 @@ def inline_svg(path, cls, style):
     return s
 
 LOGOS = {
- f'../logo-kit/05-icon-and-submark/method-submark-black.svg':
+ f'../logo-kit/05-icon-and-submark/method-submark-sm-black.svg':
    (os.path.join(KIT,"05-icon-and-submark","method-submark-black.svg"), "mark", "height:38px;width:auto"),
  f'../logo-kit/04-wordmark/method-wordmark-black.svg':
    (os.path.join(KIT,"04-wordmark","method-wordmark-black.svg"), "word", "height:15px;width:auto;margin-top:2px"),
@@ -125,6 +125,14 @@ html, body {{ overflow-x:clip !important; max-width:100% !important; }}
    visible unconditionally; the reveal is gone rather than fragile. */
 .{SCOPE} .rv {{ opacity:1 !important; transform:none !important; }}
 
+/* --- mobile drawer -------------------------------------------------
+   the stylesheet keys the open state off body, which scoping rewrites to
+   ".{SCOPE} body" and can never match. Drive it from the wrapper instead. */
+.{SCOPE}.menu-open .drawer {{ display:block !important; }}
+.{SCOPE}.menu-open .burger i:nth-child(1) {{ transform:translateY(8px) rotate(45deg); }}
+.{SCOPE}.menu-open .burger i:nth-child(2) {{ opacity:0; }}
+.{SCOPE}.menu-open .burger i:nth-child(3) {{ transform:translateY(-8px) rotate(-45deg); }}
+
 /* --- GHL native form, styled into the brand --------------------------
    GHL renders no <form> element, so these target its own classes.
    Deliberately global: the form sits outside .{SCOPE}. */
@@ -175,6 +183,15 @@ html, body {{ overflow-x:clip !important; max-width:100% !important; }}
 
 SCOPED = FONTS + scope_css(CSS) + ARMOUR
 
+GHL_JS = """
+document.addEventListener('click', function(e){
+  var b = e.target.closest('.burger');
+  if (b) { var w = b.closest('.mw'); if (w) w.classList.toggle('menu-open'); return; }
+  var a = e.target.closest('.drawer a');
+  if (a) { var w2 = a.closest('.mw'); if (w2) w2.classList.remove('menu-open'); }
+});
+"""
+
 def build(page):
     src = open(os.path.join(SITE, page)).read()
     body = re.search(r'<body>(.*?)<script src="site\.js">', src, re.S).group(1)
@@ -186,7 +203,7 @@ def build(page):
     body = body.replace('href="../logo-kit/07-website-and-social/favicon.ico"','')
     out = (f'<!-- METHOD {page}  |  paste this whole thing into ONE GHL custom code element -->\n'
            f'<style>\n{SCOPED}\n</style>\n{SCHEMA}\n<div class="{SCOPE}">\n{body}\n</div>\n'
-           f'<script>\n(function(){{\n{JS}\n}})();\n</script>\n')
+           f'<script>\n(function(){{\n{GHL_JS}\n}})();\n</script>\n')
     dest = os.path.join(OUT, page)
     open(dest,"w").write(out)
     return dest, len(out)

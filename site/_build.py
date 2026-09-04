@@ -75,14 +75,14 @@ def shell(slug, title, desc, body, hero=""):
 <body>
 
 <div class="announce">
-  Now booking &#183; First appointments October 5, 2026
-  <span>&#183;</span> Naples, Florida
+  Now booking &#183; First appointments October 5, 2026<span class="a-loc">
+  <span>&#183;</span> Naples, Florida</span>
 </div>
 
 <header>
   <div class="wrap nav">
     <a class="brand" href="index.html" aria-label="METHOD, luxury waxing and professional training">
-      <img class="mark" src="{LOGO}/05-icon-and-submark/method-submark-black.svg" alt="">
+      <img class="mark" src="{LOGO}/05-icon-and-submark/method-submark-sm-black.svg" alt="">
       <img class="word" src="{LOGO}/04-wordmark/method-wordmark-black.svg" alt="METHOD.">
     </a>
     <nav class="nav-links">
@@ -444,7 +444,7 @@ FIRST = f'''
 def person(name, role, bio):
     return f'''      <div class="person">
         <figure style="display:grid;place-items:center;background:#EFE6D8;border:1px solid var(--line)">
-          <img src="{LOGO}/05-icon-and-submark/method-submark-black.svg" alt=""
+          <img src="{LOGO}/05-icon-and-submark/method-submark-sm-black.svg" alt=""
                style="width:38%;height:auto;object-fit:contain;opacity:.32">
         </figure>
         <div class="role">{role}</div>
