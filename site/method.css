@@ -23,6 +23,10 @@ img{ max-width:100%; }
 .label{ font-size:.66rem; letter-spacing:.26em; text-transform:uppercase; color:var(--muted); }
 .g{ color:var(--emerald); }
 em{ font-style:italic; color:var(--mauve-deep); }
+/* on the dark ground the accent pair has to invert: emerald on emerald is
+   invisible, and the mauve goes muddy. Copper carries the word, cream the italic. */
+.band-emerald .g, footer .g{ color:#C98A55; }
+.band-emerald em, footer em{ color:var(--ivory); }
 .lede{ color:var(--muted); font-size:1.04rem; max-width:58ch; }
 
 /* buttons */
