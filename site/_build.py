@@ -559,16 +559,16 @@ ACADEMY = f'''
   <div class="wrap narrow" style="text-align:center">
     <span class="u-label">Interest List</span>
     <h2 style="font-size:clamp(1.9rem,4vw,2.9rem);margin-top:1rem">Be first to know.</h2>
-    <p style="color:var(--muted);max-width:46ch;margin:1.1rem auto 2.2rem">No commitment and no
-    deposit. We will email you once, when enrollment opens.</p>
+    <p style="color:var(--muted);max-width:48ch;margin:1.1rem auto 2.2rem">No commitment and no
+    deposit. Tell us where to reach you and we will let you know the moment enrollment opens.</p>
     <!-- FORM: wire submissions to Info@MethodWaxPro.Com -->
     <form onsubmit="return false" style="max-width:560px;margin-inline:auto;text-align:left">
       <div class="f2">
         <div class="field"><label for="an">Name</label><input id="an" type="text"></div>
         <div class="field"><label for="ae">Email</label><input id="ae" type="email"></div>
       </div>
-      <div class="field"><label for="al">Florida esthetician license number, if you have one</label>
-        <input id="al" type="text"></div>
+      <div class="field"><label for="ap">Phone, optional</label>
+        <input id="ap" type="tel" autocomplete="tel"></div>
       <button class="btn btn-solid" type="submit">Join the list</button>
     </form>
   </div>
