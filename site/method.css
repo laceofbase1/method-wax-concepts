@@ -191,6 +191,10 @@ form .btn{ justify-self:start; border:none; }
 
 /* cta band */
 .cta{ text-align:center; }
+/* the CTA band and the footer are both emerald, so they read as one panel.
+   collapse the doubled padding where they meet. */
+.band-emerald.cta{ padding-bottom:clamp(2rem,3.5vw,2.75rem); }
+.band-emerald.cta + footer{ padding-top:clamp(2rem,3.5vw,2.75rem); }
 .cta h2{ font-size:clamp(1.9rem,4.2vw,3rem); margin-bottom:1.1rem; }
 .cta p{ color:#C9D6CD; max-width:46ch; margin:0 auto 2rem; font-size:.98rem; }
 

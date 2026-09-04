@@ -136,17 +136,17 @@ html, body {{ overflow-x:clip !important; max-width:100% !important; }}
   font-size:.63rem !important; letter-spacing:.2em !important;
   text-transform:uppercase !important; color:#7A7064 !important;
   margin-bottom:.45rem !important; display:block !important; }}
-.form-control, .multiselect__tags {{
+.form-control.form-control, .multiselect__tags.multiselect__tags {{
   width:100% !important; background:transparent !important;
   border:0 !important; border-bottom:1px solid #DFD5C4 !important;
   border-radius:0 !important; box-shadow:none !important;
   padding:.6rem 0 !important; min-height:0 !important; height:auto !important;
   font-family:'Jost',system-ui,sans-serif !important; font-weight:300 !important;
   font-size:1rem !important; color:#2A2620 !important; }}
-.form-control.text-area-element {{ min-height:104px !important; resize:vertical !important; }}
-.form-control:focus, .multiselect--active .multiselect__tags {{
+.form-control.form-control.text-area-element {{ min-height:104px !important; resize:vertical !important; }}
+.form-control.form-control:focus, .multiselect--active .multiselect__tags {{
   outline:none !important; border-bottom-color:#A56B41 !important; }}
-.form-control::placeholder {{ color:#B4A897 !important; }}
+.form-control.form-control::placeholder {{ color:#B4A897 !important; }}
 .phone-input, .phone-input.flex, .email-input {{
   border:0 !important; background:transparent !important; padding:0 !important; }}
 .multiselect, .multi_select_form {{ background:transparent !important; }}
@@ -163,7 +163,7 @@ html, body {{ overflow-x:clip !important; max-width:100% !important; }}
   font-family:'Jost',system-ui,sans-serif !important; font-weight:300 !important;
   font-size:.76rem !important; line-height:1.55 !important; color:#7A7064 !important; }}
 .checkbox-container {{ margin-top:.5rem !important; }}
-.button-element, .btn.btn-dark {{
+.button-element.button-element, .btn.btn-dark {{
   background:#1D392F !important; color:#F5EFE4 !important; border:0 !important;
   border-radius:100px !important; padding:.85rem 1.9rem !important;
   font-family:'Jost',system-ui,sans-serif !important; font-weight:400 !important;
