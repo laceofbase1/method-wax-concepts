@@ -198,6 +198,17 @@ def build(page):
     for rel,(path,cls,style) in LOGOS.items():
         body = re.sub(r'<img class="%s" src="%s"[^>]*>' % (cls, re.escape(rel)),
                       inline_svg(path, cls, style), body)
+    # catch-all: any remaining logo-kit image is a relative path that does not
+    # exist on the live domain, so inline it rather than shipping a broken img
+    def _inline_any(m):
+        tag = m.group(0)
+        rel = re.search(r'src="(\.\./logo-kit/[^"]+\.svg)"', tag).group(1)
+        path = os.path.join(ROOT, rel.replace("../",""))
+        st = re.search(r'style="([^"]*)"', tag)
+        cl = re.search(r'class="([^"]*)"', tag)
+        return inline_svg(path, cl.group(1) if cl else "", st.group(1) if st else "")
+    body = re.sub(r'<img[^>]*src="\.\./logo-kit/[^"]+\.svg"[^>]*>', _inline_any, body)
+
     for f,slug in SLUG.items():
         body = body.replace('href="%s"' % f, 'href="%s"' % slug)
     body = body.replace('href="../logo-kit/07-website-and-social/favicon.ico"','')
