@@ -115,6 +115,53 @@ ARMOUR = f"""
   margin-right:calc(50% - 50vw) !important;
 }}
 html, body {{ overflow-x:hidden !important; max-width:100% !important; }}
+
+/* --- content must never depend on JS to be visible --------------------
+   The scroll-reveal never fires inside GHL's builder, which left every
+   section at opacity 0 and the pages effectively blank. Content is now
+   visible unconditionally; the reveal is gone rather than fragile. */
+.{SCOPE} .rv {{ opacity:1 !important; transform:none !important; }}
+
+/* --- GHL native form, styled into the brand --------------------------
+   The form element sits outside .{SCOPE}, so these rules are deliberately
+   global. Selectors are GHL's own form classes. */
+form, .form-builder--wrapper {{
+  max-width:600px !important; margin-inline:auto !important;
+  font-family:'Jost',system-ui,sans-serif !important; text-align:left !important; }}
+.field-label, .label-alignment {{
+  font-family:'Jost',system-ui,sans-serif !important; font-weight:400 !important;
+  font-size:.63rem !important; letter-spacing:.2em !important;
+  text-transform:uppercase !important; color:#7A7064 !important;
+  margin-bottom:.4rem !important; }}
+form input[type=text], form input[type=email], form input[type=tel],
+form input[type=number], form textarea, .multiselect__tags {{
+  width:100% !important; background:transparent !important;
+  border:0 !important; border-bottom:1px solid #DFD5C4 !important;
+  border-radius:0 !important; box-shadow:none !important;
+  padding:.6rem 0 !important; min-height:0 !important;
+  font-family:'Jost',system-ui,sans-serif !important; font-weight:300 !important;
+  font-size:1rem !important; color:#2A2620 !important; }}
+form input:focus, form textarea:focus, .multiselect__tags:focus-within {{
+  outline:none !important; border-bottom-color:#A56B41 !important; }}
+form input::placeholder, form textarea::placeholder {{ color:#B4A897 !important; }}
+.phone-input, .email-input {{ border:0 !important; background:transparent !important; }}
+.multiselect__tags {{ padding-right:1.4rem !important; }}
+.multiselect__single, .multiselect__placeholder, .multiselect__option {{
+  font-family:'Jost',system-ui,sans-serif !important; font-weight:300 !important;
+  background:transparent !important; color:#2A2620 !important; padding:0 !important;
+  margin:0 !important; font-size:1rem !important; }}
+.checkbox-container, .checkbox-container * {{
+  font-family:'Jost',system-ui,sans-serif !important; font-weight:300 !important;
+  font-size:.78rem !important; line-height:1.55 !important; color:#7A7064 !important; }}
+.checkbox-container {{ margin-top:.4rem !important; }}
+form .btn, .button-element, form button[type=submit] {{
+  background:#1D392F !important; color:#F5EFE4 !important; border:0 !important;
+  border-radius:100px !important; padding:.85rem 1.9rem !important;
+  font-family:'Jost',system-ui,sans-serif !important; font-weight:400 !important;
+  font-size:.7rem !important; letter-spacing:.18em !important;
+  text-transform:uppercase !important; width:auto !important;
+  box-shadow:none !important; transition:background .3s !important; }}
+form .btn:hover, .button-element:hover {{ background:#2C5344 !important; }}
 """
 
 SCOPED = FONTS + scope_css(CSS) + ARMOUR
