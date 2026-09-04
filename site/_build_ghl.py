@@ -114,7 +114,10 @@ ARMOUR = f"""
   margin-left:calc(50% - 50vw) !important;
   margin-right:calc(50% - 50vw) !important;
 }}
-html, body {{ overflow-x:hidden !important; max-width:100% !important; }}
+html, body {{ overflow-x:clip !important; max-width:100% !important; }}
+/* sticky must not be trapped by an overflow ancestor */
+.{SCOPE} {{ overflow:visible !important; }}
+.{SCOPE} header {{ position:sticky !important; top:0 !important; z-index:60 !important; }}
 
 /* --- content must never depend on JS to be visible --------------------
    The scroll-reveal never fires inside GHL's builder, which left every

@@ -124,10 +124,12 @@ def shell(slug, title, desc, body, hero=""):
 '''
 
 def phead(eyebrow, h1, lede):
-    return f'''<section class="phead wrap rv">
-  <span class="u-label">{eyebrow}</span>
-  <h1>{h1}</h1>
-  <p class="lede">{lede}</p>
+    return f'''<section class="phead rv">
+  <div class="wrap">
+    <span class="u-label">{eyebrow}</span>
+    <h1>{h1}</h1>
+    <p class="lede">{lede}</p>
+  </div>
 </section>
 '''
 

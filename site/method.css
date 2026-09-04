@@ -41,8 +41,9 @@ em{ font-style:italic; color:var(--mauve-deep); }
 .announce{ background:var(--emerald); color:var(--ivory); text-align:center; font-size:.7rem;
            letter-spacing:.16em; text-transform:uppercase; padding:.6rem 1rem; }
 .announce span{ opacity:.62; padding:0 .5rem; }
-header{ position:sticky; top:0; z-index:60; background:color-mix(in srgb,var(--ivory) 92%,transparent);
-        backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+header{ position:sticky; top:0; z-index:60; background:color-mix(in srgb,var(--ivory) 94%,transparent);
+        backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+        box-shadow:0 1px 0 rgba(42,38,32,.04), 0 10px 24px -22px rgba(42,38,32,.5); }
 .nav{ display:flex; align-items:center; gap:2rem; padding-block:.95rem; }
 .brand{ display:flex; align-items:center; gap:.72rem; flex-shrink:0; }
 .brand .mark{ height:38px; width:auto; }
@@ -68,7 +69,8 @@ body.menu-open .burger i:nth-child(3){ transform:translateY(-8px) rotate(-45deg)
 body.menu-open .drawer{ display:block; }
 
 /* page head, inner pages */
-.phead{ padding-block:clamp(3rem,7vw,5.5rem) clamp(2rem,4vw,3rem); border-bottom:1px solid var(--line); }
+.phead{ padding-block:clamp(3rem,7vw,5.5rem) clamp(2rem,4vw,3rem);
+        border-bottom:1px solid var(--line); background:var(--paper); }
 .phead h1{ font-size:clamp(2.3rem,6vw,4.6rem); margin:1.1rem 0 1.3rem; max-width:18ch; }
 .phead .lede{ font-size:1.06rem; }
 
