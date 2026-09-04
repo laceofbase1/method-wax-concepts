@@ -135,7 +135,7 @@ def phead(eyebrow, h1, lede):
 
 CTA = f'''<section class="band band-emerald cta rv">
   <div class="wrap">
-    <h2>Ready when you are.</h2>
+    <h2><span class="g">Ready</span> <em>when you are.</em></h2>
     <p>Booking takes about a minute. No card, no deposit, and you pay in studio when you are done.</p>
     <!-- BOOK NOW: replace href with the Meevo online booking link -->
     <a class="btn btn-light" href="{BOOK}">Book an appointment</a>
@@ -183,7 +183,7 @@ HOME = f'''
        alt="A warm copper toned arched niche with travertine and a trailing plant"></div>
   <div class="split-copy">
     <span class="u-label">01 &#183; The Studio</span>
-    <h2>Care you can feel in the room.</h2>
+    <h2>Care you can <span class="g">feel</span> <em>in the room.</em></h2>
     <p>Two estheticians, two treatment rooms, and nobody rushing you out the door. We will tell you
     the truth about your skin, explain the why behind every step, and never sell you something you
     did not come in for.</p>
@@ -197,7 +197,7 @@ HOME = f'''
   </div>
 </section>
 
-<section class="band band-paper rv">
+<section class="band band-mauve rv">
   <div class="wrap">
     <div class="band-head">
       <span class="u-label">The Menu</span>
@@ -217,7 +217,7 @@ HOME = f'''
   <div class="wrap">
     <div class="band-head">
       <span class="u-label">The Method Set</span>
-      <h2>Waxing is a habit, not a one time thing.</h2>
+      <h2>Waxing is a <span class="g">habit</span>, <em>not a one time thing.</em></h2>
       <p>Hair grows on a cycle, so results compound when you keep a rhythm. Our sets are built to
       reward that, and they never expire.</p>
     </div>
@@ -238,7 +238,7 @@ HOME = f'''
 <section class="band band-emerald rv" id="visit">
   <div class="wrap">
     <span class="u-label">Visit</span>
-    <h2>Find us in Naples.</h2>
+    <h2>Find us <em>in Naples.</em></h2>
     <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(2rem,5vw,4.5rem);margin-top:2.6rem"
          class="visit-grid">
       <div>
@@ -264,7 +264,7 @@ HOME = f'''
        alt="An olive branch in a soft sunlit still life"></div>
   <div class="split-copy">
     <span class="u-label">Coming Next</span>
-    <h2>The Academy.</h2>
+    <h2>The <em>Academy.</em></h2>
     <p>Method is a training academy as much as a studio. Professional waxing certification, taught
     online and finished by hand in this room, is in development now.</p>
     <p style="margin-top:-.4rem">If you are an esthetician, tell us and we will let you know the
@@ -294,7 +294,7 @@ SERVICES = f'''
   <div class="wrap">
     <div class="band-head">
       <span class="u-label">The Method Set</span>
-      <h2>The regulars pay less.</h2>
+      <h2>The <span class="g">regulars</span> <em>pay less.</em></h2>
       <p>Hair grows on a cycle, so results compound when you keep a rhythm. Our sets reward that,
       and they never expire.</p>
     </div>
@@ -325,7 +325,7 @@ FIRST = f'''
   <div class="split-media"><img src="{u('1706795033855-eee02f726868')}" alt="Rolled spa towels in soft warm light"></div>
   <div class="split-copy">
     <span class="u-label">Before You Come</span>
-    <h2>Let it grow, and keep it simple.</h2>
+    <h2>Let it <span class="g">grow</span>, <em>and keep it simple.</em></h2>
     <p>The single thing that decides whether a wax goes well is hair length. About a quarter of an
     inch, roughly the length of a grain of rice, gives the wax something to hold. If you have been
     shaving, give it two to three weeks.</p>
@@ -339,11 +339,11 @@ FIRST = f'''
   </div>
 </section>
 
-<section class="band band-paper rv">
+<section class="band band-mauve rv">
   <div class="wrap">
     <div class="band-head">
       <span class="u-label">In The Room</span>
-      <h2>What actually happens.</h2>
+      <h2>What <span class="g">actually</span> <em>happens.</em></h2>
       <p>Nobody tells you this part, so here it is. The whole thing is shorter and less dramatic
       than the internet suggests.</p>
     </div>
@@ -372,7 +372,7 @@ FIRST = f'''
   <div class="split-media"><img src="{u('1630595271375-5073a6c0638b')}" alt="A calm moment of warm self care"></div>
   <div class="split-copy">
     <span class="u-label">Afterward</span>
-    <h2>The next twenty four hours.</h2>
+    <h2>The <span class="g">next</span> <em>twenty four hours.</em></h2>
     <p>Your skin has just had a lot done to it. Keep it cool and clean for a day and it settles
     quickly.</p>
     <ul class="credo">
@@ -459,7 +459,7 @@ ABOUT = f'''
        alt="An esthetician in the warm treatment room"></div>
   <div class="split-copy">
     <span class="u-label">Why We Opened</span>
-    <h2>We left, and then we built this.</h2>
+    <h2>We <span class="g">left</span>, <em>and then we built this.</em></h2>
     <p>Between us we spent years in the corporate wax world. It taught us the technique and it
     taught us what we never wanted to do again: run people through on a clock, sell them something
     at the table, and call it service.</p>
@@ -471,11 +471,11 @@ ABOUT = f'''
   </div>
 </section>
 
-<section class="band band-paper rv">
+<section class="band band-mauve rv">
   <div class="wrap">
     <div class="band-head">
       <span class="u-label">What We Stand For</span>
-      <h2>Four promises, kept quietly.</h2>
+      <h2>Four <span class="g">promises</span>, <em>kept quietly.</em></h2>
     </div>
     <div class="steps narrow">
       <div class="step"><div class="n">1</div><div>
@@ -501,7 +501,7 @@ ABOUT = f'''
 <section class="band wrap rv">
   <div class="band-head">
     <span class="u-label">The Founders</span>
-    <h2>Three of us, one standard.</h2>
+    <h2>Three of us, <em>one standard.</em></h2>
     <p>Sophia and Tori are taking guests from opening day. Rachel runs everything behind the
     front desk that makes a studio feel calm.</p>
   </div>
@@ -525,7 +525,7 @@ ACADEMY = f'''
        alt="An olive branch in a soft sunlit still life"></div>
   <div class="split-copy">
     <span class="u-label">In Development</span>
-    <h2>Certification, taught the way we wish we had been taught.</h2>
+    <h2>Certification, taught the way <em>we wish we had been.</em></h2>
     <p>Method was always meant to be a training academy as much as a studio. The plan is online
     coursework you complete at your own pace, finished with a hands-on intensive in our Naples
     studio, taught by two instructors with different styles and the same fundamentals.</p>
@@ -534,11 +534,11 @@ ACADEMY = f'''
   </div>
 </section>
 
-<section class="band band-paper rv">
+<section class="band band-mauve rv">
   <div class="wrap">
     <div class="band-head">
       <span class="u-label">The Plan</span>
-      <h2>What it will look like.</h2>
+      <h2>What it will <span class="g">look</span> <em>like.</em></h2>
     </div>
     <div class="steps narrow">
       <div class="step"><div class="n">1</div><div><h3>Learn online, at your pace</h3>
@@ -557,10 +557,10 @@ ACADEMY = f'''
   </div>
 </section>
 
-<section class="band band-paper rv">
+<section class="band band-form rv">
   <div class="wrap narrow" style="text-align:center">
     <span class="u-label">Interest List</span>
-    <h2 style="font-size:clamp(1.9rem,4vw,2.9rem);margin-top:1rem">Be first to know.</h2>
+    <h2 style="font-size:clamp(1.9rem,4vw,2.9rem);margin-top:1rem">Be <span class="g">first</span> <em>to know.</em></h2>
     <p style="color:var(--muted);max-width:48ch;margin:1.1rem auto 2.2rem">No commitment and no
     deposit. Tell us where to reach you and we will let you know the moment enrollment opens.</p>
     <!-- FORM: wire submissions to Info@MethodWaxPro.Com -->
@@ -578,7 +578,7 @@ ACADEMY = f'''
 
 <section class="band wrap rv">
   <div class="narrow" style="text-align:center">
-    <h2 style="font-size:clamp(1.7rem,3.6vw,2.5rem);margin-bottom:1.1rem">In the meantime, the studio is open.</h2>
+    <h2 style="font-size:clamp(1.7rem,3.6vw,2.5rem);margin-bottom:1.1rem">In the meantime, <em>the studio is open.</em></h2>
     <p class="lede" style="margin-inline:auto">Come and see how we work. It is the fastest way to
     understand what we will be teaching.</p>
     <p style="margin-top:1.8rem"><a class="btn btn-ghost" href="services.html">See the menu</a></p>
@@ -588,10 +588,10 @@ ACADEMY = f'''
 
 # ---------------------------------------------------------------- CONTACT
 CONTACT = f'''
-<section class="band wrap rv">
-  <div class="narrow plain" style="text-align:center">
+<section class="band band-form rv">
+  <div class="wrap narrow plain" style="text-align:center">
     <div>
-      <h2 style="font-size:clamp(1.6rem,3.2vw,2.2rem);margin-bottom:1.4rem">The studio</h2>
+      <h2 style="font-size:clamp(1.6rem,3.2vw,2.2rem);margin-bottom:1.4rem">The <span class="g">studio</span></h2>
       <p class="addr">1410 Pine Ridge Road, Suite 22<br>Naples, FL 34108<br><br>
         <a href="tel:+12395295441">(239) 529-5441</a><br>
         <a href="mailto:Info@MethodWaxPro.Com">Info@MethodWaxPro.Com</a></p>
@@ -628,7 +628,7 @@ CONTACT = f'''
   </div>
 </section>
 
-<section class="band band-paper rv">
+<section class="band band-mauve rv">
   <div class="wrap" style="text-align:center">
     <div style="background:#EFE6D8;border:1px solid var(--line);height:clamp(220px,32vw,380px);
                 display:grid;place-items:center;color:var(--muted);font-size:.72rem;
@@ -646,23 +646,23 @@ PAGES = [
   HOME, HOME_HERO),
  ("services.html", "Services and Pricing &#183; METHOD Luxury Waxing &#183; Naples",
   "The full METHOD waxing menu and prices. Brazilian $64, Full Bikini $56, Eyebrow $24. Every price published openly. Naples, Florida.",
-  SERVICES, phead("The Menu","Services and pricing.",
+  SERVICES, phead("The Menu","Every <span class=\"g\">price</span>, <em>in the open.</em>",
    "Thirty six services, every price in the open. Book any of them online, and if you are not sure what to choose, call and we will talk it through.")),
  ("first-visit.html", "Your First Visit &#183; METHOD Luxury Waxing &#183; Naples",
   "How to prepare for your first wax, what happens in the room, aftercare, and our policies. METHOD Luxury Waxing, Naples, Florida.",
-  FIRST, phead("Your First Visit","What to know before you come in.",
+  FIRST, phead("Your First Visit","What to <span class=\"g\">know</span> <em>before you come in.</em>",
    "Nobody explains this part properly, so we will. How to prepare, what actually happens in the room, and how to look after your skin afterward.")),
  ("about.html", "About &#183; METHOD Luxury Waxing &#183; Naples, Florida",
   "Method is a Naples waxing studio and training academy founded by three estheticians who left the corporate wax world. Fair pricing, real care.",
-  ABOUT, phead("About","A training academy that happens to have the best room in town.",
+  ABOUT, phead("About","The studio we <span class=\"g\">wanted</span> <em>to work in.</em>",
    "Three estheticians who left the production line and built the studio they wanted to work in.")),
  ("academy.html", "The Academy &#183; METHOD Professional Waxing Training &#183; Naples",
   "Professional waxing certification from METHOD in Naples, Florida. Online coursework plus a hands-on studio intensive. In development, join the interest list.",
-  ACADEMY, phead("The Academy","Professional training, coming soon.",
+  ACADEMY, phead("The Academy","Professional <span class=\"g\">training</span>, <em>coming soon.</em>",
    "Waxing certification for estheticians, taught online and finished by hand in our Naples studio. In development now.")),
  ("contact.html", "Contact &#183; METHOD Luxury Waxing &#183; Naples, Florida",
   "Call (239) 529-5441 or visit METHOD Luxury Waxing at 1410 Pine Ridge Road, Suite 22, Naples, FL 34108. Hours, directions and contact form.",
-  CONTACT, phead("Contact","Say hello.",
+  CONTACT, phead("Contact","Say <span class=\"g\">hello</span>. We <em>answer ourselves.</em>",
    "Questions about a service, a set, or the academy. We answer every message ourselves.")),
 ]
 

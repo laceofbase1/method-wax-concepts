@@ -73,8 +73,21 @@
 
 /* page head, inner pages */
 .mw .phead{ padding-block:clamp(3rem,7vw,5.5rem) clamp(2rem,4vw,3rem);
-        border-bottom:1px solid var(--line); background:var(--paper); }
+        border-bottom:1px solid rgba(194,154,160,.35); background:var(--mauve-soft);
+        position:relative; overflow:hidden; }
+/* the brand's own arch, oversized and faint, as a masthead motif */
+.mw .phead::after{ content:""; position:absolute; right:clamp(-40px,4vw,90px); bottom:-38%;
+  width:clamp(220px,26vw,360px); height:clamp(320px,38vw,520px);
+  border:1px solid var(--mauve); border-bottom:0;
+  border-radius:50% 50% 0 0 / 46% 46% 0 0; opacity:.55; pointer-events:none; }
+.mw .phead::before{ content:""; position:absolute; right:clamp(-24px,4.9vw,106px); bottom:-38%;
+  width:clamp(184px,22vw,306px); height:clamp(292px,35vw,478px);
+  border:1px solid var(--mauve); border-bottom:0;
+  border-radius:50% 50% 0 0 / 46% 46% 0 0; opacity:.4; pointer-events:none; }
+.mw .phead .wrap{ position:relative; z-index:1; }
+@media (max-width:760px){ .phead::before, .phead::after{ opacity:.3; } }
 .mw .phead h1{ font-size:clamp(2.3rem,6vw,4.6rem); margin:1.1rem 0 1.3rem; max-width:18ch; }
+.mw .phead h1 em, .mw .split-copy h2 em, .mw .band-head h2 em, .mw .cta h2 em{ font-style:italic; }
 .mw .phead .lede{ font-size:1.06rem; }
 
 /* editorial split */
@@ -120,6 +133,8 @@
 .mw .band-mauve{ background:var(--mauve-soft); }
 .mw .band-emerald{ background:var(--emerald); color:var(--ivory); }
 .mw .band-paper{ background:var(--paper); border-block:1px solid var(--line); }
+.mw .band-mauve{ background:var(--mauve-soft); }
+.mw .band-form{ background:var(--mauve-soft); border-block:1px solid rgba(194,154,160,.35); }
 .mw .band-emerald .u-label{ border-color:rgba(245,239,228,.6); color:var(--ivory); }
 .mw .band-emerald h2{ font-size:clamp(1.9rem,4vw,2.9rem); margin-top:1rem; }
 .mw .band-head{ text-align:center; margin-bottom:clamp(2.2rem,5vw,3.4rem); }
@@ -163,13 +178,23 @@
 .mw details p{ color:var(--muted); padding:0 2.4rem 1.4rem 0; max-width:62ch; font-size:.96rem; }
 .mw details p + p{ padding-top:.8rem; margin-top:-.6rem; }
 
-/* numbered steps */
-.mw .steps{ counter-reset:s; display:grid; gap:clamp(1.4rem,3vw,2.2rem); }
-.mw .step{ display:grid; grid-template-columns:64px 1fr; gap:1.5rem; align-items:start; }
-.mw .step .n{ width:58px; height:58px; border-radius:50%; border:1px solid var(--copper); color:var(--copper);
-          display:grid; place-items:center; font-family:'Prata',serif; font-size:1.2rem; }
-.mw .step h3{ font-size:1.28rem; margin-bottom:.3rem; }
-.mw .step p{ color:var(--muted); font-size:.95rem; max-width:52ch; }
+/* numbered steps, the Method Path treatment: the numbers sit ON a line,
+   so the sequence reads as a path rather than a stack of bubbles */
+.mw .steps{ position:relative; display:grid; gap:.15rem; max-width:720px; margin-inline:auto; }
+.mw .steps::before{ content:""; position:absolute; left:29px; top:44px; bottom:44px;
+                width:1px; background:var(--mauve); z-index:0; }
+.mw .step{ position:relative; z-index:1; display:grid; grid-template-columns:60px 1fr;
+       gap:1.5rem; align-items:start; padding:1rem 0; }
+.mw .step .n{ width:58px; height:58px; border-radius:50%; border:1px solid var(--mauve);
+          color:var(--mauve-deep); background:var(--mauve-soft); display:grid; place-items:center;
+          font-family:'Prata',serif; font-size:1.25rem;
+          transition:transform .4s var(--ease), background .3s, color .3s; }
+.mw .step:hover .n{ background:var(--mauve); color:#fff; transform:scale(1.05); }
+.mw .step > div:last-child{ padding-top:.6rem; }
+.mw .step h3{ font-size:1.3rem; margin-bottom:.25rem; }
+.mw .step p{ color:var(--muted); font-size:.93rem; max-width:52ch; }
+/* on a paper ground the discs need the paper fill to sit on the line cleanly */
+.mw .band-paper .step .n{ background:var(--paper); }
 
 /* people */
 .mw .people{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(1.4rem,3vw,2.6rem); }
@@ -742,16 +767,16 @@ c318 -39 633 -205 841 -443 190 -217 307 -453 389 -782 54 -218 60 -280 60
 <section class="phead rv">
   <div class="wrap">
     <span class="u-label">Contact</span>
-    <h1>Say hello.</h1>
+    <h1>Say <span class="g">hello</span>. We <em>answer ourselves.</em></h1>
     <p class="lede">Questions about a service, a set, or the academy. We answer every message ourselves.</p>
   </div>
 </section>
 
 
-<section class="band wrap rv">
-  <div class="narrow plain" style="text-align:center">
+<section class="band band-form rv">
+  <div class="wrap narrow plain" style="text-align:center">
     <div>
-      <h2 style="font-size:clamp(1.6rem,3.2vw,2.2rem);margin-bottom:1.4rem">The studio</h2>
+      <h2 style="font-size:clamp(1.6rem,3.2vw,2.2rem);margin-bottom:1.4rem">The <span class="g">studio</span></h2>
       <p class="addr">1410 Pine Ridge Road, Suite 22<br>Naples, FL 34108<br><br>
         <a href="tel:+12395295441">(239) 529-5441</a><br>
         <a href="mailto:Info@MethodWaxPro.Com">Info@MethodWaxPro.Com</a></p>
@@ -788,7 +813,7 @@ c318 -39 633 -205 841 -443 190 -217 307 -453 389 -782 54 -218 60 -280 60
   </div>
 </section>
 
-<section class="band band-paper rv">
+<section class="band band-mauve rv">
   <div class="wrap" style="text-align:center">
     <div style="background:#EFE6D8;border:1px solid var(--line);height:clamp(220px,32vw,380px);
                 display:grid;place-items:center;color:var(--muted);font-size:.72rem;
@@ -799,7 +824,7 @@ c318 -39 633 -205 841 -443 190 -217 307 -453 389 -782 54 -218 60 -280 60
 </section>
 <section class="band band-emerald cta rv">
   <div class="wrap">
-    <h2>Ready when you are.</h2>
+    <h2><span class="g">Ready</span> <em>when you are.</em></h2>
     <p>Booking takes about a minute. No card, no deposit, and you pay in studio when you are done.</p>
     <!-- BOOK NOW: replace href with the Meevo online booking link -->
     <a class="btn btn-light" href="https://na2.meevo.com/customerportal/advanced/ob?tenantId=502504" target="_blank" rel="noopener">Book an appointment</a>
