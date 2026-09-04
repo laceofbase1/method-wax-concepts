@@ -18,6 +18,8 @@ img{ max-width:100%; }
 .narrow{ max-width:880px; margin-inline:auto; }
 .u-label{ display:inline-block; border-bottom:1px solid var(--ink); padding-bottom:3px;
           font-size:.68rem; letter-spacing:.26em; text-transform:uppercase; }
+/* a label sitting directly on top of a heading reads as underlining it */
+.u-label + h1, .u-label + h2, .u-label + h3{ margin-top:1.05rem; }
 .label{ font-size:.66rem; letter-spacing:.26em; text-transform:uppercase; color:var(--muted); }
 .g{ color:var(--emerald); }
 em{ font-style:italic; color:var(--mauve-deep); }
@@ -224,8 +226,8 @@ form .btn{ justify-self:start; border:none; }
 .cta{ text-align:center; }
 /* the CTA band and the footer are both emerald, so they read as one panel.
    collapse the doubled padding where they meet. */
-.band-emerald.cta{ padding-bottom:clamp(2rem,3.5vw,2.75rem); }
-.band-emerald.cta + footer{ padding-top:clamp(2rem,3.5vw,2.75rem); }
+.band-emerald.cta{ padding-bottom:clamp(1.5rem,2.4vw,2rem); }
+.band-emerald.cta + footer{ padding-top:clamp(1.5rem,2.4vw,2rem); }
 .cta h2{ font-size:clamp(1.9rem,4.2vw,3rem); margin-bottom:1.1rem; }
 .cta p{ color:#C9D6CD; max-width:46ch; margin:0 auto 2rem; font-size:.98rem; }
 
