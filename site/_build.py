@@ -2,7 +2,7 @@
 """Builds the METHOD static site. Re-run after editing content here."""
 import os
 
-BOOK = "#book"   # <-- replace with the Meevo online booking URL
+BOOK = "https://na2.meevo.com/customerportal/advanced/ob?tenantId=502504"   # Meevo online booking (new experience, no login wall)
 LOGO = "../logo-kit"
 
 NAV = [("services.html","The Menu"), ("first-visit.html","First Visit"),
@@ -665,5 +665,9 @@ PAGES = [
 ]
 
 for slug, title, desc, body, hero in PAGES:
-    open(slug,"w").write(shell(slug, title, desc, body, hero))
+    page = shell(slug, title, desc, body, hero)
+    # booking leaves the site, so open it in a new tab and keep ours behind
+    page = page.replace('href="%s"' % BOOK,
+                        'href="%s" target="_blank" rel="noopener"' % BOOK)
+    open(slug,"w").write(page)
     print("built", slug)
