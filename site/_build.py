@@ -123,8 +123,8 @@ def shell(slug, title, desc, body, hero=""):
 </html>
 '''
 
-def phead(eyebrow, h1, lede):
-    return f'''<section class="phead rv">
+def phead(eyebrow, h1, lede, motif="phead-leg"):
+    return f'''<section class="phead {motif} rv">
   <div class="wrap">
     <span class="u-label">{eyebrow}</span>
     <h1>{h1}</h1>
@@ -649,15 +649,15 @@ PAGES = [
    "Nobody explains this part properly, so we will. How to prepare, what actually happens in the room, and how to look after your skin afterward.")),
  ("about.html", "About &#183; METHOD Luxury Waxing &#183; Naples, Florida",
   "Method is a Naples waxing studio and training academy founded by three estheticians who left the corporate wax world. Fair pricing, real care.",
-  ABOUT, phead("About","The studio we <span class=\"g\">wanted</span> <em>to work in.</em>",
-   "Three estheticians who left the production line and built the studio they wanted to work in.")),
+  ABOUT, phead("About", motif="phead-m", h1="The studio we <span class=\"g\">wanted</span> <em>to work in.</em>",
+   lede="Three estheticians who left the production line and built the studio they wanted to work in.")),
  ("academy.html", "The Academy &#183; METHOD Professional Waxing Training &#183; Naples",
   "Professional waxing certification from METHOD in Naples, Florida. Online coursework plus a hands-on studio intensive. In development, join the interest list.",
-  ACADEMY, phead("The Academy","Professional <span class=\"g\">training</span>, <em>coming soon.</em>",
-   "Waxing certification for estheticians, taught online and finished by hand in our Naples studio. In development now.")),
+  ACADEMY, phead("The Academy", motif="phead-m", h1="Professional <span class=\"g\">training</span>, <em>coming soon.</em>",
+   lede="Waxing certification for estheticians, taught online and finished by hand in our Naples studio. In development now.")),
  ("contact.html", "Contact &#183; METHOD Luxury Waxing &#183; Naples, Florida",
   "Call (239) 529-5441 or visit METHOD Luxury Waxing at 1410 Pine Ridge Road, Suite 22, Naples, FL 34108. Hours, directions and contact form.",
-  CONTACT, phead("Contact","Say <span class=\"g\">hello</span>. We <em>answer ourselves.</em>",
+  CONTACT, phead("Contact","Say <span class=\"g\">hello</span>.",
    "Questions about a service, a set, or the academy. We answer every message ourselves.")),
 ]
 
